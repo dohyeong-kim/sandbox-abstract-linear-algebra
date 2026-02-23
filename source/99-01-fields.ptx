@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-fields" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>체</title>
+  <introduction>
+    <p>
+      선형대수학에서 벡터 공간을 정의할 때, 우리는 스칼라라고 
+      <aside><p>스칼라:scalar</p></aside>
+      불리는 원소들을 사용하여 벡터의 길이를 늘이거나 줄입니다. 앞선 강의에서 스칼라의 집합으로 실수 집합 <m>\mathbb{R}</m>이나 복소수 집합 <m>\mathbb{C}</m>를 주로 언급했지만, 수학적으로 <q>스칼라</q>의 역할을 수행하기 위해서는 덧셈, 뺄셈, 곱셈, 그리고 0이 아닌 수로 나누는 나눗셈이 자유롭게 가능해야 합니다. 이러한 네 가지 사칙연산이 완벽하게 정의되고 우리가 익숙한 대수적 법칙들을 만족하는 수학적 구조를 추상화하여 <em>체</em>라고 부릅니다. 
+      <aside><p>체:field</p></aside>
+      선형대수학의 정리 대부분은 스칼라가 어떤 체에서 왔는지에 상관없이 보편적으로 성립하며, 일부 정리는 그 성립가능성이나 참거짓 여부가 체의 특성에 의존하기도 합니다.
+    </p>
+  </introduction>
+  <definition xml:id="def-field">
+    <title>체</title>
+    <p>집합 <m>\mathbb{F}</m>에 두 개의 이항 연산인 덧셈(<m>+</m>)과 곱셈(<m>\cdot</m>)이 정의되어 있고, 임의의 <m>a, b, c \in \mathbb{F}</m>에 대하여 다음의 공리들을 만족할 때, (<m>\mathbb{F}, +, \cdot</m>)를 체(Field)라고 한다.</p>
+    <ol>
+      <li>덧셈에 대한 공리:
+        <aside>
+          <p>
+            덧셈에 대해 아벨 군을 이룸
+          </p>
+        </aside>
+        <ol>
+          <li>교환법칙: <m>a + b = b + a</m></li>
+          <li>결합법칙: <m>(a + b) + c = a + (b + c)</m></li>
+          <li>덧셈 항등원 존재: <m>\mathbb{F}</m> 내에 원소 <m>0</m>이 존재하여, 모든 <m>a</m>에 대해 <m>a + 0 = a</m>를 만족한다.</li>
+          <li>덧셈 역원 존재: 각 <m>a</m>에 대해 원소 <m>-a</m>가 존재하여, <m>a + (-a) = 0</m>을 만족한다.</li>
+        </ol>
+      </li>
+      <li>곱셈에 대한 공리 
+        <aside>
+          0이 아닌 원소들이 곱셈에 대해 아벨 군을 이룸
+        </aside>
+        <ol>
+          <li>교환법칙: <m>ab = ba</m></li>
+          <li>결합법칙: <m>(ab)c = a(bc)</m></li>
+          <li>곱셈 항등원 존재: <m>\mathbb{F}</m> 내에 0이 아닌 원소 <m>1</m>이 존재하여, 모든 <m>a</m>에 대해 <m>a \cdot 1 = a</m>를 만족한다.</li>
+          <li>곱셈 역원 존재: 0이 아닌 모든 <m>a \in \mathbb{F}</m>에 대해 원소 <m>a^{-1}</m> (또는 <m>1/a</m>)가 존재하여, <m>a \cdot a^{-1} = 1</m>을 만족한다.</li>
+        </ol>
+      </li>
+      <li>분배법칙 (덧셈과 곱셈의 연결): <m>a(b + c) = ab + ac</m></li>
+    </ol>
+  </definition>
+
+  <example xml:id="ex-fields-basic-examples">
+    <title>체의 기초적 예시</title>
+    <ol>
+      <li>유리수 체 <m>\mathbb{Q}</m>: 두 유리수를 더하거나 곱해도 유리수이며, 0이 아닌 유리수의 역수 역시 유리수입니다.</li>
+      <li>실수 체 <m>\mathbb{R}</m>: 우리가 가장 흔하게 사용하는 체입니다.</li>
+      <li>복소수 체 <m>\mathbb{C}</m>: 임의의 0이 아닌 복소수 <m>a + bi</m>는 역원 <m>(a-bi)/(a^2+b^2)</m>을 가지므로 체가 됩니다. 복소수는 대수적으로 닫혀<fn><p>대수적으로 닫힘:algebraically closed</p></fn> 있어 고유값(Eigenvalue)을 다룰 때 중요합니다.</li>
+    </ol>
+  </example>
+
+  <example xml:id="ex-fields-nonexamples">
+    <title>반례:체가 아닌 구조</title>
+    <ol>
+      <li>정수환 <m>\mathbb{Z}</m>: 덧셈과 곱셈에 대해 닫혀 있고 교환, 결합, 분배법칙을 모두 만족하지만, 체가 아닙니다. 2, 3과 같은 0이 아닌 원소들이 곱셈에 대한 역원(<m>1/2</m>, <m>1/3</m> 등)을 정수 집합 내에 가지지 않기 때문입니다. 이러한 구조는 환(Ring)이라고 부릅니다.</li>
+      <li>자연수 집합 <m>\mathbb{N}</m>: 덧셈에 대한 항등원 <m>0</m>과 역원(음수)조차 존재하지 않으므로 체에서 더욱 거리가 멉니다.</li>
+      <li>다항식환 <m>\mathbb{F}[x]</m>: <m>\mathbb{F}</m>가 체일 때, <m>\mathbb{F}</m>에 계수를 갖는 다항식들의 집합 <m>\mathbb{F}[x]</m>는 덧셈과 곱셈에 대해 닫혀 있고 우리가 익숙한 대수적 성질들을 만족합니다. 하지만 다항식 <m>x</m>와 같은 0이 아닌 비상수(non-constant) 다항식들은 곱셈에 대한 역원을 가지지 않습니다. 예를 들어, <m>x \cdot p(x) = 1</m>을 만족하는 다항식 <m>p(x)</m>는 존재하지 않습니다(차수를 고려하면 불가능). 따라서 <m>\mathbb{F}[x]</m>는 체가 아닙니다.<fn><p>이러한 구조는 환(Ring)의 예시입니다만, 환은 본 강의록에서 다루고자 하는 주된 개념은 아닙니다.</p></fn></li>
+    </ol>
+  </example>
+
+  <example xml:id="ex-fields-finite">
+    <title>유한체 (Finite Fields)</title>
+    <p>체는 반드시 무한히 많은 원소를 가질 필요는 없습니다. 소수(Prime number) <m>p</m>에 대하여 정수를 <m>p</m>로 나눈 나머지들의 집합 <m>\mathbb{Z}/p\mathbb{Z}</m> (또는 <m>\mathbb{F}_p</m>로 표기)는 모듈로 <m>p</m> 덧셈과 곱셈에 대하여 체를 이룹니다.</p>
+    <p>예를 들어 <m>\mathbb{F}_2 = \{0, 1\}</m>에서 <m>1+1=0</m>이며, 이는 컴퓨터 과학과 부호 이론(Coding Theory)에서 가장 핵심적인 역할을 하는 체입니다.</p>
+  </example>
+
+  <proposition xml:id="prop-no-zero-divisors">
+    <title>영인자의 부재</title>
+    <p><m>\mathbb{F}</m>가 체이고 <m>a, b \in \mathbb{F}</m>일 때, <m>ab = 0</m>이면 <m>a = 0</m>이거나 <m>b = 0</m>이다.</p>
+  </proposition>
+
+  <proof>
+    <p><m>ab = 0</m>이라고 가정하자. 만약 <m>a = 0</m>이라면 명제가 성립하므로 증명이 완료된다. 만약 <m>a \neq 0</m>이라면, 체의 공리에 의해 <m>a</m>의 곱셈에 대한 역원 <m>a^{-1}</m>이 존재한다.</p>
+    <p>방정식 <m>ab = 0</m>의 양변의 왼쪽에 <m>a^{-1}</m>을 곱하면 <m>a^{-1}(ab) = a^{-1}(0)</m>이다. 결합법칙과 (임의의 원소와 0의 곱은 0)을 적용하면 <m>(a^{-1}a)b = 0</m>, 즉 <m>1 \cdot b = 0</m>이므로 <m>b = 0</m>이다. 따라서 <m>a \neq 0</m>이면 반드시 <m>b = 0</m>이어야 하므로 증명이 완성된다.</p>
+  </proof>
+
+  <example xml:id="ex-fields-zero-divisors">
+    <title>영인자의 예</title>
+    <p><xref ref="prop-no-zero-divisors"/>가 왜 체의 고유한 성질인지 확인하기 위해, 체가 아닌 합성수 나머지류 <m>\mathbb{Z}/6\mathbb{Z}</m> = <m>\{0, 1, 2, 3, 4, 5\}</m>를 생각해 봅시다. 여기서는 <m>2 \neq 0</m> 이고 <m>3 \neq 0</m> 이지만, <m>2 \times 3 = 6 \equiv 0 \pmod{6}</m>이 성립합니다. 즉, <m>a \neq 0</m>, <m>b \neq 0</m>임에도 <m>ab = 0</m>이 되는 원소(이를 영인자, Zero Divisor라 함)가 존재합니다.</p>
+    <p>반면, 소수 <m>p = 5</m>에 대한 유한체 <m>\mathbb{F}_5</m>에서는 0이 아닌 두 원소를 곱해서 0을 만들 수 있는 방법이 없습니다. 선형대수학은 스칼라가 체에서 왔다는 사실을 기반으로 하므로, 우리는 <m>\mathbb{F}</m> 위에서 영인자의 존재를 걱정하지 않아도 됩니다.</p>
+  </example>
+  
+  <p>
+    체의 원소가 반드시 수일 필요는 없습니다. 
+  </p>
+  <definition xml:id="def-rational-function-field">
+    <title>유리함수체</title>
+    <p><m>\mathbb{F}</m>를 임의의 체라 하고, <m>\mathbb{F}[x]</m>를 <m>\mathbb{F}</m>에 계수를 갖는 일변수 다항식환(Polynomial ring)이라 하자. <m>\mathbb{F}</m> 위의 유리함수체 <m>\mathbb{F}(x)</m>는 다항식들의 분수들의 집합으로, 다음과 같이 정의된다.</p>
+    <p><m>\mathbb{F}(x) = \left\{ \frac{p(x)}{q(x)} \mid p(x), q(x) \in \mathbb{F}[x], q(x) \neq \mathbf{0} \right\}</m></p>
+    <p>여기서 <m>\mathbf{0}</m>은 영다항식을 의미하며, 두 유리식 <m>\frac{p_1(x)}{q_1(x)}</m>와 <m>\frac{p_2(x)}{q_2(x)}</m>는 <m>p_1(x)q_2(x) = p_2(x)q_1(x)</m>가 <m>\mathbb{F}[x]</m> 안에서 성립할 때 서로 같은 원소로 정의한다.</p>
+  </definition>
+
+  <p>유리함수체에서 두 유리식의 덧셈과 곱셈은 다음과 같이 정의된다. 두 유리식 <m>\frac{p_1(x)}{q_1(x)}</m>와 <m>\frac{p_2(x)}{q_2(x)}</m>에 대하여:</p>
+  <p><em>덧셈:</em> <m>\frac{p_1(x)}{q_1(x)} + \frac{p_2(x)}{q_2(x)} = \frac{p_1(x)q_2(x) + p_2(x)q_1(x)}{q_1(x)q_2(x)}</m></p>
+  <p><em>곱셈:</em> <m>\frac{p_1(x)}{q_1(x)} \cdot \frac{p_2(x)}{q_2(x)} = \frac{p_1(x)p_2(x)}{q_1(x)q_2(x)}</m></p>
+  <p>이러한 연산들은 유리수의 경우와 유사하게 정의되며, 이들이 체의 공리를 모두 만족하므로 <m>\mathbb{F}(x)</m>는 실제로 체를 이룬다.</p>
+</section>
