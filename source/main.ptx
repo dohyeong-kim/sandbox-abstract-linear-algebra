@@ -5,8 +5,8 @@
   <xi:include href="./docinfo.ptx" />
 
   <book xml:id="my-great-book">
-    <title>선형대수학</title>
-    <subtitle>An example to get you started</subtitle>
+    <title>추상선형대수학</title>
+    <subtitle>벡터공간과 대수학의 원리</subtitle>
 
     <!-- Include frontmatter -->
     <xi:include href="./frontmatter.ptx" />
