@@ -5,15 +5,15 @@
   <xi:include href="./docinfo.ptx" />
 
   <book xml:id="my-great-book">
-    <title>My Great Book</title>
+    <title>선형대수학</title>
     <subtitle>An example to get you started</subtitle>
 
     <!-- Include frontmatter -->
     <xi:include href="./frontmatter.ptx" />
 
     <!-- Include chapters -->
+    <xi:include href="./01-vs.ptx" />
     <xi:include href="./ch-chapter-title.ptx" />
-
 
     <!-- Include backmatter -->
     <xi:include href="./backmatter.ptx" />

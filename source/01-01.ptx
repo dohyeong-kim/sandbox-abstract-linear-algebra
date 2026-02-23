@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-vector-spaces" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>벡터공간, 부분공간, 선형결합</title>
+
+  <subsection xml:id="subsec-vector-spaces">
+    <title>벡터공간 </title>
+    <definition xml:id="def-vector-space">
+      <statement>
+        <p>
+           <m>\mathbb{F}</m>를 체라<aside>체:field</aside> 하자. 집합 <m>V</m>에 다음 두 가지 연산, 즉 덧셈(<m>+\colon V \times V \to V</m>)과 스칼라곱(<m>\cdot: \mathbb{F} \times V \to V</m>)이 주어져 있을 때, 두 연산이 임의의 <m>u, v, w \in V</m>와 <m>a, b \in \mathbb{F}</m>에 대해 다음의 8가지 공리를 만족하면, <m>V</m>를 <m>\mathbb{F}</m> 위의 벡터 공간이라고 한다.
+        </p>
+        <ol>
+          <li>
+            <p>
+              덧셈의 교환법칙: <m>u + v = v + u</m>              
+            </p>
+          </li>
+          <li>
+            <p>
+              덧셈의 결합법칙: <m>(u + v) + w = u + (v + w)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              덧셈에 대한 항등원: <m>V</m> 내에 영벡터(Zero vector)라 불리는 원소 <m>\mathbf{0}</m>이 존재하여, 모든 <m>v \in V</m>에 대해 <m>v + \mathbf{0} = v</m>를 만족한다.
+            </p>
+          </li>
+          <li>
+            <p>
+              덧셈에 대한 역원: 각 <m>v \in V</m>에 대해 <m>v + (-v) = \mathbf{0}</m>을 만족하는 <m>-v \in V</m>가 존재한다.      
+            </p>
+          </li>
+          <li>
+            <p>
+              스칼라 곱셈의 결합법칙: <m>a(bv) = (ab)v</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              스칼라 덧셈에 대한 분배법칙: <m>(a + b)v = av + bv</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              벡터 덧셈에 대한 분배법칙: <m>a(u + v) = au + av</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              스칼라 곱셈에 대한 항등원: 체 <m>\mathbb{F}</m>의 곱셈 항등원 <m>1</m>에 대하여 <m>1 \cdot v = v</m>이다.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </definition>
+    <example xml:id="ex-vector-space">
+      <title>벡터 공간의 예시 </title>
+      <statement>
+        <p>
+          벡터 공간의 예시로는 다음과 같은 것들이 있다.
+        </p>
+        <ol>
+          <li>
+            <p>
+              유클리드 공간 <m>\mathbb{F}^n</m>: 체 <m>\mathbb{F}</m>의 원소들로 이루어진 <m>n</m>-튜플의 집합은 성분별 덧셈과 스칼라 곱셈에 대해 벡터 공간을 이룬다.
+            </p>
+          </li>
+          <li>
+            <p>
+              다항식 공간 <m>P(\mathbb{F})</m>: <m>\mathbb{F}</m>에 계수를 갖는 모든 다항식의 집합은 다항식의 덧셈과 상수의 곱에 대해 벡터 공간을 이룬다.
+            </p>
+          </li>
+          <li>
+            <p>
+              함수 공간: 모든 <m>\mathbb{R}</m>에서 <m>\mathbb{R}</m>로 가는 함수의 집합은 실수체 위의 벡터 공간이다. 함수 덧셈과 스칼라 곱셈은 각각 점별로 정의된다.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+  </subsection>
+  <subsection xml:id="subsec-subspaces">
+    <title>부분공간 </title>
+  </subsection>
+  <subsection xml:id="subsec-linear-combinations">
+    <title>선형결합 </title>
+  </subsection>
+</section>
