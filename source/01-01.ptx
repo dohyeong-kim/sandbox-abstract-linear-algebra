@@ -4,53 +4,21 @@
   <title>벡터공간, 부분공간, 선형결합</title>
 
   <subsection xml:id="subsec-vector-spaces">
-    <title>벡터공간 </title>
+    <title>벡터공간</title>
     <definition xml:id="def-vector-space">
       <statement>
         <p>
-           <m>\mathbb{F}</m>를 체라<aside>체:field</aside> 하자. 집합 <m>V</m>에 다음 두 가지 연산, 즉 덧셈(<m>+\colon V \times V \to V</m>)과 스칼라곱(<m>\cdot: \mathbb{F} \times V \to V</m>)이 주어져 있을 때, 두 연산이 임의의 <m>u, v, w \in V</m>와 <m>a, b \in \mathbb{F}</m>에 대해 다음의 8가지 공리를 만족하면, <m>V</m>를 <m>\mathbb{F}</m> 위의 벡터 공간이라고 한다.
+           <m>\mathbb{F}</m>를 체라고 하겠습니다<aside>체:field</aside>. 집합 <m>V</m>에 다음 두 가지 연산, 즉 덧셈(<m>+\colon V \times V \to V</m>)과 스칼라곱(<m>\cdot: \mathbb{F} \times V \to V</m>)이 주어져 있을 때, 두 연산이 임의의 <m>u, v, w \in V</m>와 <m>a, b \in \mathbb{F}</m>에 대해 다음의 8가지 공리를 만족합니다. 이때 <m>V</m>를 <m>\mathbb{F}</m> 위의 벡터 공간이라고 부릅니다.
         </p>
         <ol>
-          <li>
-            <p>
-              덧셈의 교환법칙: <m>u + v = v + u</m>              
-            </p>
-          </li>
-          <li>
-            <p>
-              덧셈의 결합법칙: <m>(u + v) + w = u + (v + w)</m>
-            </p>
-          </li>
-          <li>
-            <p>
-              덧셈에 대한 항등원: <m>V</m> 내에 영벡터(Zero vector)라 불리는 원소 <m>\mathbf{0}</m>이 존재하여, 모든 <m>v \in V</m>에 대해 <m>v + \mathbf{0} = v</m>를 만족한다.
-            </p>
-          </li>
-          <li>
-            <p>
-              덧셈에 대한 역원: 각 <m>v \in V</m>에 대해 <m>v + (-v) = \mathbf{0}</m>을 만족하는 <m>-v \in V</m>가 존재한다.      
-            </p>
-          </li>
-          <li>
-            <p>
-              스칼라 곱셈의 결합법칙: <m>a(bv) = (ab)v</m>
-            </p>
-          </li>
-          <li>
-            <p>
-              스칼라 덧셈에 대한 분배법칙: <m>(a + b)v = av + bv</m>
-            </p>
-          </li>
-          <li>
-            <p>
-              벡터 덧셈에 대한 분배법칙: <m>a(u + v) = au + av</m>
-            </p>
-          </li>
-          <li>
-            <p>
-              스칼라 곱셈에 대한 항등원: 체 <m>\mathbb{F}</m>의 곱셈 항등원 <m>1</m>에 대하여 <m>1 \cdot v = v</m>이다.
-            </p>
-          </li>
+          <li><p>덧셈의 교환법칙: <m>u + v = v + u</m></p></li>
+          <li><p>덧셈의 결합법칙: <m>(u + v) + w = u + (v + w)</m></p></li>
+          <li><p>덧셈에 대한 항등원: <m>V</m> 내에 영벡터(Zero vector)라 불리는 원소 <m>\mathbf{0}</m>이 존재하여, 모든 <m>v \in V</m>에 대해 <m>v + \mathbf{0} = v</m>를 만족한다.</p></li>
+          <li><p>덧셈에 대한 역원: 각 <m>v \in V</m>에 대해 <m>v + (-v) = \mathbf{0}</m>을 만족하는 <m>-v \in V</m>가 존재한다.</p></li>
+          <li><p>스칼라 곱셈의 결합법칙: <m>a(bv) = (ab)v</m></p></li>
+          <li><p>스칼라 덧셈에 대한 분배법칙: <m>(a + b)v = av + bv</m></p></li>
+          <li><p>벡터 덧셈에 대한 분배법칙: <m>a(u + v) = au + av</m></p></li>
+          <li><p>스칼라 곱셈에 대한 항등원: 체 <m>\mathbb{F}</m>의 곱셈 항등원 <m>1</m>에 대하여 <m>1 \cdot v = v</m>이다.</p></li>
         </ol>
       </statement>
     </definition>
@@ -58,30 +26,107 @@
       <title>벡터 공간의 예시 </title>
       <statement>
         <p>
-          벡터 공간의 예시로는 다음과 같은 것들이 있다.
+          벡터 공간의 예시로는 다음과 같은 것들이 있습니다.
         </p>
         <ol>
           <li>
             <p>
-              유클리드 공간 <m>\mathbb{F}^n</m>: 체 <m>\mathbb{F}</m>의 원소들로 이루어진 <m>n</m>-튜플의 집합은 성분별 덧셈과 스칼라 곱셈에 대해 벡터 공간을 이룬다.
+              유클리드 공간 <m>\mathbb{F}^n</m>: 체 <m>\mathbb{F}</m>의 원소들로 이루어진 <m>n</m>-튜플의 집합은 성분별 덧셈과 스칼라 곱셈에 대해 벡터 공간을 이룹니다.
             </p>
           </li>
           <li>
             <p>
-              다항식 공간 <m>P(\mathbb{F})</m>: <m>\mathbb{F}</m>에 계수를 갖는 모든 다항식의 집합은 다항식의 덧셈과 상수의 곱에 대해 벡터 공간을 이룬다.
+              다항식 공간 <m>P(\mathbb{F})</m>: <m>\mathbb{F}</m>에 계수를 갖는 모든 다항식의 집합은 다항식의 덧셈과 상수의 곱에 대해 벡터 공간을 이룹니다.
             </p>
           </li>
           <li>
             <p>
-              함수 공간: 모든 <m>\mathbb{R}</m>에서 <m>\mathbb{R}</m>로 가는 함수의 집합은 실수체 위의 벡터 공간이다. 함수 덧셈과 스칼라 곱셈은 각각 점별로 정의된다.
+              함수 공간: 모든 <m>\mathbb{R}</m>에서 <m>\mathbb{R}</m>로 가는 함수의 집합은 실수체 위의 벡터 공간입니다. 함수 덧셈과 스칼라 곱셈은 각각 점별로 정의됩니다.
             </p>
           </li>
         </ol>
       </statement>
     </example>
+
+    <proposition xml:id="prop-basic-properties">
+      <title>기본 대수적 성질</title>
+      <statement>
+        <p><m>V</m>가 체 <m>\mathbb{F}</m> 위의 벡터 공간일 때, 임의의 <m>v \in V</m>와 <m>c \in \mathbb{F}</m>에 대하여 다음이 성립합니다:</p>
+        <ol>
+          <li><m>0 \cdot v = \mathbf{0}</m> (여기서 좌변의 <m>0</m>은 체의 영원소, 우변의 <m>\mathbf{0}</m>은 벡터 공간의 영벡터입니다)</li>
+          <li><m>c \cdot \mathbf{0} = \mathbf{0}</m></li>
+          <li><m>(-1)v = -v</m></li>
+        </ol>
+      </statement>
+    </proposition>
+
+    <proof>
+      <p><xref ref="def-vector-space"/>에 의지하여 증명해야 합니다.
+        벡터 공간의 공리 6(스칼라 덧셈에 대한 분배법칙)에 의해, <m>0 \cdot v = (0 + 0) \cdot v = 0 \cdot v + 0 \cdot v</m>가 성립합니다. 공리 4에 의해 <m>0 \cdot v</m>의 덧셈에 대한 역원 <m>-(0 \cdot v)</m>가 존재하므로, 이를 양변에 더하면 <m>\mathbf{0} = 0 \cdot v + \mathbf{0} = 0 \cdot v</m>가 됩니다.</p>
+      <p>공리 7에 의해 <m>c \cdot \mathbf{0} = c \cdot (\mathbf{0} + \mathbf{0}) = c \cdot \mathbf{0} + c \cdot \mathbf{0}</m>입니다. 양변에 <m>-(c \cdot \mathbf{0})</m>을 더하면 <m>\mathbf{0} = c \cdot \mathbf{0}</m>이 성립합니다.</p>
+      <p>공리 6과 위 1번의 결과에 의해, <m>v + (-1)v = 1 \cdot v + (-1)v = (1 + (-1))v = 0 \cdot v = \mathbf{0}</m>입니다. 벡터의 덧셈 역원은 유일하므로 <m>(-1)v = -v</m>입니다.</p>
+    </proof>
+
   </subsection>
   <subsection xml:id="subsec-subspaces">
     <title>부분공간 </title>
+    <p>
+      벡터 공간 안에는 그 자체로 또다시 벡터 공간의 구조를 갖춘 부분집합들이 존재합니다. 이를 부분공간이라 합니다.
+    </p>
+    <definition xml:id="def-subspace">
+      <title>부분공간</title>
+      <p>체 <m>\mathbb{F}</m> 위의 벡터 공간 <m>V</m>의 부분집합 <m>W</m>가 주어졌을 때, <m>W</m>가 <m>V</m>에 정의된 동일한 덧셈과 스칼라 곱셈 연산에 대하여 그 자체로 체 <m>\mathbb{F}</m> 위의 벡터 공간을 이룬면, <m>W</m>를 <m>V</m>의 <em>부분공간</em>이라고 부릅니다. <aside><p>부분공간:subspace</p></aside> </p>
+    </definition>
+
+    <example xml:id="ex-trivial-subspaces">
+      <title>자명한 부분공간</title>
+      <p>임의의 벡터 공간 <m>V</m>에 대하여, 영벡터만을 포함하는 집합 <m>\{\mathbf{0}\}</m>과 전체 공간 <m>V</m> 자신은 항상 <m>V</m>의 부분공간입니다. 이를 자명한 부분공간이라<fn><p>자명한 부분공간:trivial subspaces</p></fn> 부릅니다.</p>
+    </example>
+    <p>부분공간인지 확인하기 위해 8개의 공리를 모두 검증할 필요는 없습니다. 결합법칙이나 교환법칙 등은 부분집합에서도 당연히 유전되므로, 연산에 대해 닫혀 있는지만 검증하면 충분합니다.</p>
+
+    <theorem xml:id="thm-subspace-test">
+      <title>부분공간 판정법</title>
+      <statement>
+        <p><m>V</m>의 공집합이 아닌 부분집합 <m>W</m>가 <m>V</m>의 부분공간일 필요충분조건은 다음 두 가지 닫힘 성질을 만족하는 것입니다.</p>
+        <ol>
+          <li><em>덧셈에 대한 닫힘:</em> 임의의 <m>u, w \in W</m>에 대하여 <m>u + w \in W</m>입니다.</li>
+          <li><em>스칼라 곱셈에 대한 닫힘:</em> 임의의 <m>c \in \mathbb{F}</m>와 <m>w \in W</m>에 대하여 <m>cw \in W</m>입니다.</li>
+        </ol>
+      </statement>
+    </theorem>
+
+    <proof>
+      <p>(<m>\Rightarrow</m>) <m>W</m>가 부분공간이라면 그 자체로 벡터 공간이므로 정의에 의해 두 연산에 대해 닫혀 있습니다.</p>
+      <p>(<m>\Leftarrow</m>) 덧셈과 스칼라 곱셈에 대해 닫혀 있다고 가정합시다. <m>V</m>의 공리<fn><p><xref ref="def-vector-space"/></p></fn> 1, 2, 5, 6, 7, 8은 연산의 성질이므로 <m>W</m>의 원소들에 대해서도 자명하게 성립합니다. <m>W</m>는 공집합이 아니므로 최소한 하나의 원소 <m>w \in W</m>가 존재합니다. 스칼라 곱셈에 대해 닫혀 있으므로 체의 영원소 <m>0</m>에 대하여 <m>0 \cdot w = \mathbf{0} \in W</m>입니다. 즉 항등원이 존재합니다. 또한 임의의 <m>w \in W</m>에 대하여 스칼라 <m>-1</m>을 곱한 <m>(-1)w = -w \in W</m>이므로 역원도 존재합니다. 따라서 <m>W</m>는 벡터 공간의 8가지 공리를 모두 만족하므로 부분공간입니다.</p>
+    </proof>
+
+    <exercise xml:id="ex-centralizer-matrix">
+      <title>예제: 행렬의 중심화기<aside><p>중심화기:Centralizer</p></aside></title>
+      <statement>
+      <definition xml:id="def-centralizer">
+        <title>정의 1 (중심화기)</title>
+        <statement>
+          <p><m>V = M_{n \times n}(\mathbb{F})</m>를 체 <m>\mathbb{F}</m> 위의 <m>n \times n</m> 행렬들의 벡터 공간이라고 합니다. 고정된 행렬 <m>M \in V</m>에 대하여, <m>M</m>과 교환 법칙이 성립하는 모든 행렬들의 집합을 <m>M</m>의 중심화기라고 부릅니다. 그리고 <m>C(M)</m>으로 표기합니다. 즉,
+          <md>C(M) = \{ A \in V \mid AM = MA \}</md>
+          입니다.
+          </p>
+        </statement>
+       </definition>
+        <p>다음을 보이시오: 임의의 고정된 행렬 <m>M \in M_{n \times n}(\mathbb{F})</m>에 대하여, <m>C(M)</m>은 <m>M_{n \times n}(\mathbb{F})</m>의 부분공간입니다.</p>
+      </statement>
+      <answer>
+        <p>부분공간 판정법의 세 가지 조건을 만족하는지 확인합니다.</p>
+        <p><em>영벡터의 포함:</em> <m>V</m>의 영벡터는 <m>n \times n</m> 영행렬 <m>\mathbf{0}</m>입니다. 임의의 행렬 <m>M</m>에 대하여 <m>\mathbf{0}M = \mathbf{0}</m> 이고 <m>M\mathbf{0} = \mathbf{0}</m> 이므로 <m>\mathbf{0}M = M\mathbf{0}</m> 이 성립합니다. 따라서 <m>\mathbf{0} \in C(M)</m> 입니다.</p>
+        <p><em>덧셈에 대한 닫힘:</em> 임의의 <m>A, B \in C(M)</m>을 택하면, 정의에 의해 <m>AM = MA</m> 이고 <m>BM = MB</m> 입니다. 행렬 곱셈의 분배법칙을 적용하면 다음이 성립합니다.</p>
+        <md>(A + B)M = AM + BM = MA + MB = M(A + B)</md>
+        <p>따라서 <m>(A + B) \in C(M)</m> 이므로 덧셈에 대해 닫혀 있습니다.</p>
+        <p><em>스칼라 곱셈에 대한 닫힘:</em> 임의의 스칼라 <m>c \in \mathbb{F}</m>와 <m>A \in C(M)</m>을 택하면 정의에 의해 <m>AM = MA</m> 입니다. 스칼라 곱셈의 성질을 적용하면 다음이 성립합니다.</p>
+        <md>(cA)M = c(AM) = c(MA) = M(cA)</md>
+        <p>따라서 <m>cA \in C(M)</m> 이므로 스칼라 곱셈에 대해 닫혀 있습니다.</p>
+        <p>부분공간 판정법의 세 가지 조건이 모두 충족되었으므로, <m>C(M)</m>은 <m>V</m>의 부분공간입니다. </p>
+      </answer>
+    </exercise>
+    
   </subsection>
   <subsection xml:id="subsec-linear-combinations">
     <title>선형결합 </title>
