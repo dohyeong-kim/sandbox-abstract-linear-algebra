@@ -7,22 +7,32 @@
   <bibinfo>
   
     <author>
-      <personname>You</personname>
-      <department>Your department</department>
-      <institution>Your institution</institution>
+      <personname>김도형</personname>
+      <department>서울대학교</department>
+      <institution>수리과학부</institution>
     </author>
     <date>
       <today />
     </date>
 
+    <!-- 
     <website>
-      <url href="https://pretextbook.org">My Website</url>
+      
     </website>
+    !-->
+    <p>
+      <url href="https://www.math.snu.ac.kr/~dohyeongkim">웹페이지</url>
+    </p>
 
     <copyright>
-      <year>2020<ndash />2024</year>
-      <holder>You</holder>
-      <shortlicense> This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
+      <year>2026<ndash />2026</year>
+      <holder>김도형</holder>
+      <shortlicense>
+      이 웹문서는 크리에이티브 커먼즈 [저작자표시-동일조건변경허락 4.0 국제]에 따라 이용할 수 있습니다. 이용자의 권리 확인을 위해 아래 웹사이트를 방문하십시오.
+      <p>
+      (국문) <url href="https://creativecommons.org/licenses/by-sa/4.0/deed.ko/" visual="https://creativecommons.org/licenses/by-sa/4.0/deed.ko/"> CreativeCommons.org</url>
+      (영문) <url href="https://creativecommons.org/licenses/by-sa/4.0/" visual="https://creativecommons.org/licenses/by-sa/4.0/"> CreativeCommons.org</url>
+      </p>
       </shortlicense>
     </copyright>
   
