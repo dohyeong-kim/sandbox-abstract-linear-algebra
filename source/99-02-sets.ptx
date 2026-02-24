@@ -157,5 +157,20 @@
       <p>두 단사 함수가 존재하므로, <xref ref="thm-schroeder-bernstein"/>에 의해 <m>|(0, 1)| = |[0, 1]|</m>이 즉각적으로 도출됩니다.</p>
     </example>
   </subsection>
+  <subsection xml:id="subsec-arithmetic-of-cardinals">
+    <title>기수의 산술</title>
+    <p>
+      기수는 집합의 크기를 측정하는 도구입니다. 기수의 대소관계와 등호에 대한 정의를 통해, 우리는 집합의 크기에 대한 비교와 동등성에 대한 엄밀한 개념을 갖게 되었습니다. 기수는 수처럼 덧셈, 곱셈, 지수화가 가능합니다. 기수의 연산과 대소관계가 어떻게 작동하는지 알아봅니다.
+    </p>
+    <p>
+      명제 1 (기수 부등식의 보존). 세 기수 $\kappa, \lambda, \mu$ 에 대하여, $\kappa \le \lambda$ 이면 다음이 항상 성립한다.$\kappa + \mu \le \lambda + \mu$$\kappa \cdot \mu \le \lambda \cdot \mu$
+    </p>
+    <p>
+      정리 1 (가산 무한 기수의 멱등성).임의의 유한 기수 $n \ge 1$ 에 대하여 다음이 성립한다.$\aleph_0 + n = \aleph_0$$\aleph_0 + \aleph_0 = \aleph_0$$\aleph_0 \cdot \aleph_0 = \aleph_0$
+    </p>
+    <p>
+      정리 2 (무한 기수의 흡수 법칙). $\kappa$ 와 $\lambda$ 가 0이 아닌 기수이고 둘 중 적어도 하나가 무한 기수라면, 다음이 성립한다.$$\kappa + \lambda = \kappa \cdot \lambda = \max\{\kappa, \lambda\}$$
+    </p>
+  </subsection>
 
 </section>
