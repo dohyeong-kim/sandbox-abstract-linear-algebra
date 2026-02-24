@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="99-02-set-theory-background" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>집합</title>
+  <p> 이 절에서는 필요한 집합론적 배경을 다룹니다.</p>
+  <subsection xml:id="subsec-zorn">
+    <title>초른의 보조정리</title>
+    <aside><p>초른:Zorn</p></aside>
+    <definition xml:id="def-partially-ordered-set">
+      <title>부분순서집합</title>
+      <statement>
+      <p><term>부분순서집합</term><aside><p>부분순서집합:poset:partially ordered set</p></aside>은 집합 <m>P</m>와 이항관계 <m>\le</m>로 이루어진 쌍 <m>(P, \le)</m>이며, 모든 <m>a, b, c \in P</m>에 대해 다음 세 가지 성질을 만족합니다:</p>
+      <ul>
+        <li><term>반사성:</term> <m>a \le a</m></li>
+        <li><term>반대칭성:</term> <m>a \le b</m>이고 <m>b \le a</m>이면, <m>a = b</m></li>
+        <li><term>추이성:</term> <m>a \le b</m>이고 <m>b \le c</m>이면, <m>a \le c</m></li>
+      </ul>
+      </statement>
+    </definition>
+    <example xml:id="ex-powerset-as-poset">
+      <title>멱집합과 부분순서집합</title>
+      <p>주어진 집합 <m>X</m>의 멱집합을 부분집합 포함 관계(<m>\subseteq</m>)로 순서지은 것은 부분순서집합입니다.</p>
+    </example>
+    <definition xml:id="def-chain">
+      <title>사슬</title>
+      <statement>
+      <p><term>사슬</term><aside><p>사슬:chain</p></aside><fn><p>사슬은 전순서 부분집합(totally ordered subset)이라고도 부릅니다.</p></fn>은 부분순서집합 <m>(P, \le)</m>의 부분집합 <m>C</m>에 속한 모든 두 원소가 서로 비교 가능할 때를 말합니다. 즉, 모든 <m>x, y \in C</m>에 대하여 <m>x \le y</m>이거나 <m>y \le x</m>일 때, <m>C</m>를 사슬이라고 합니다.</p>
+      </statement>
+    </definition>
+
+    <example xml:id="ex-chain-a-simple-example">
+      <title>사슬의 간단한 예시</title>
+      <p>포함 관계가 부여된 집합 <m>\{1, 2, 3\}</m>의 부분집합들의 poset에서, 모임 <m>\{\emptyset, \{1\}, \{1, 2\}\}</m>는 사슬을 이룹니다.</p>
+    </example>
+
+    <definition xml:id="def-upper-bound">
+      <title>상계</title>
+      <statement>
+      <p><term>상계</term><aside><p>상계:upper bound</p></aside>는 부분순서집합 <m>(P, \le)</m>의 부분집합 <m>S</m>에 대하여, 모든 <m>s \in S</m>에 대하여 <m>s \le u</m>를 만족하는 원소 <m>u \in P</m>를 말합니다. (참고로 <m>u</m>가 반드시 <m>S</m>의 원소일 필요는 없습니다).</p>
+      </statement>
+    </definition>
+    <example xml:id="ex-upper-bound-example-intervals">
+      <title>상계의 예시: 열린 구간</title>
+      <p><m>S</m>가 포함 관계로 순서가 부여된 <m>\mathbb{R}</m> 상의 점점 커지는 열린 구간들의 열, 즉 <m>S = \{(0, 1 - 1/n) \mid n \ge 2\}</m>라면, 구간 <m>(0, 1)</m>은 <m>S</m>의 상계입니다.</p>
+    </example>
+
+    <definition xml:id="def-maximal-element">
+      <title>극대원소</title>
+      <statement>
+      <p><term>극대원소</term><aside><p>극대원소:maximal element</p></aside>는 부분순서집합 <m>(P, \le)</m>의 원소 <m>m \in P</m>보다 진정으로 더 큰<fn><em>진정으로</em> 더 크다는 말은, 같지 않으면서 더 크다는 의미.</fn> 원소가 <m>P</m> 안에 존재하지 않을 때를 말합니다. 다시 말해, 어떤 <m>x \in P</m>에 대하여 <m>m \le x</m>이면 <m>x = m</m>이 성립하는 원소입니다.</p>
+      </statement>
+    </definition>
+
+    <example xml:id="ex-maximal-element-simple-example">
+      <p>포함 관계가 부여된 집합 <m>\{1, 2\}</m>의 모든 진부분집합들의 poset에서, <m>\{1\}</m>과 <m>\{2\}</m>는 모두 극대원소입니다. 하나의 poset은 여러 개의 극대원소를 가질 수 있습니다.</p>
+    </example>
+    <lemma xml:id="lem-zorns-lemma">
+      <title>초른의 보조정리</title>
+      <statement>
+      <p><m>(P, \le)</m>를 공집합이 아닌 부분순서집합이라 하자. 만약 <m>P</m> 안의 모든 사슬이 <m>P</m> 안에 상계를 가진다면, <m>P</m>는 적어도 하나의 극대원소를 가진다.</p>
+      </statement>
+    </lemma>
+    <proof>
+      <p>
+        집합론의 공리로 받아들인다.
+      </p>
+    </proof>
+    <remark xml:id="rmk-zorns-lemma-and-equivalents">
+      <p>
+        표준적인 수학의 체계(체르멜로-프렝켈 집합론, ZF) 내에서, 초른의 보조정리는 기본 공리들만으로는 증명할 수 없습니다. 대신, 이 정리는 <em>선택공리</em><aside><p>선택공리:axiom of Choice</p></aside> 및 <em>정렬정리</em><aside><p>정렬정리:Well-Ordering Theorem</p></aside>와 논리적으로 동치임이 알려져 있습니다. 수학자들은 보편적으로 선택 공리를 수용하므로(ZFC 체계),
+        <aside>
+          <p>
+            ZFC에서 C는 choice의 머릿글자.
+          </p>
+        </aside> 초른의 보조정리 역시 하나의 공리처럼 취급되며, 이 정리의 "증명"은 본질적으로 선택 공리와의 동치성을 증명하는 과정이 됩니다.
+      </p>
+    </remark>
+  </subsection>
+  
+  <subsection xml:id="subsec-schroeder-bernstein">
+    <title>슈뢰더-베른슈타인 정리</title>
+    <aside><p>슈뢰더-베른슈타인:Schroeder-Bernstein</p></aside>
+    <definition xml:id="def-cardinality-inequality">
+      <title>기수의 대소관계</title>
+      <statement>
+      <p>두 집합 <m>A</m>와 <m>B</m>에 대하여, <m>A</m>에서 <m>B</m>로 가는 단사 함수 <m>f: A \to B</m>가 존재할 때, <m>A</m>의 기수는 <m>B</m>의 기수보다 작거나 같다고 하며 <m>|A| \le |B|</m>로 표기한다.</p>
+      </statement>
+    </definition>
+
+    <example xml:id="ex-cardinality-inequality-simple-example">
+      <title>기수의 대소관계 예시</title>
+      <p>자연수 집합 <m>\mathbb{N}</m>과 실수 집합 <m>\mathbb{R}</m>을 생각하자. 함수 <m>\iota: \mathbb{N} \to \mathbb{R}</m>를 <m>\iota(x) = x</m>로 정의하면, 서로 다른 자연수는 서로 다른 실수로 대응되므로 <m>\iota</m>는 단사 함수이다. 따라서 <m>|\mathbb{N}| \le |\mathbb{R}|</m>이다.</p>
+    </example>
+
+    <definition xml:id="def-cardinality-equality">
+      <title>기수의 등호</title>
+      <statement>
+      <p>두 집합 <m>A</m>와 <m>B</m> 사이에 전단사 함수<aside><p>전단사 함수:일대일대응</p></aside> <m>h: A \to B</m>가 존재할 때, 두 집합의 기수는 같다고 하며 <m>|A| = |B|</m>로 표기한다.</p>
+      </statement>
+    </definition>
+
+    <example xml:id="ex-cardinality-equality-simple-example">
+      <title>기수의 등호 예시</title>
+      <p>자연수 집합 <m>\mathbb{N} = \{1, 2, 3, \dots\}</m>과 양의 짝수 집합 <m>E = \{2, 4, 6, \dots\}</m>에 대하여, <m>h(n) = 2n</m>은 <m>\mathbb{N}</m>에서 <m>E</m>로 가는 전단사 함수이다. 따라서 <m>|\mathbb{N}| = |E|</m>이다. 부분집합이 전체집합과 크기가 같아질 수 있는 것은 무한 집합의 고유한 특성이다.</p>
+    </example>
+
+    <theorem xml:id="thm-schroeder-bernstein">
+      <title>슈뢰더-베른슈타인 정리</title>
+      <statement>
+      <p>두 집합 <m>A</m>와 <m>B</m>에 대하여 단사 함수 <m>f: A \to B</m>와 단사 함수 <m>g: B \to A</m>가 존재하면, 전단사 함수 <m>h: A \to B</m>가 존재한다. (즉, <m>|A| \le |B|</m>이고 <m>|B| \le |A|</m>이면 <m>|A| = |B|</m>이다.)</p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+      단사 함수 <m>f: A \to B</m>와 <m>g: B \to A</m>가 주어졌다고 가정하자. 우리의 목표는 <m>A</m>를 분할하여 <m>A</m>의 어떤 부분에서는 <m>f</m>를 사용하고, 나머지 부분에서는 <m>g</m>의 역함수를 사용하여 완벽한 전단사 함수 <m>h: A \to B</m>를 구성하는 것이다.
+      </p>
+      <p>
+      <em>집합의 귀납적 구성:</em> <m>g</m>의 치역을 <m>g(B) = \{g(y) \mid y \in B\}</m>라 하자. <m>A</m>의 원소 중에서 <m>B</m>로부터 <m>g</m>를 타고 오지 않은 원소들의 집합을 <m>C_0</m>라 정의한다.
+      <me>C_0 = A \setminus g(B)</me>
+      이제 이 <m>C_0</m>에 <m>f</m>와 <m>g</m>를 번갈아 적용하여 만들어지는 집합열 <m>C_n</m>을 귀납적으로 정의한다. 모든 자연수 <m>n \ge 0</m>에 대하여,
+      <me>C_{n+1} = g(f(C_n))</me>
+      이제 이 모든 집합들의 합집합을 <m>C</m>라 정의하자.
+      <me>C = \bigcup_{n=0}^{\infty} C_n</me>
+      합집합의 정의에 의하여 <m>C = C_0 \cup \bigcup_{n=1}^{\infty} C_n</m> 이며, 이는 <m>C = C_0 \cup g(f(C))</m> 와 동치이다.
+      </p>
+      <p>
+      <em>전단사 함수 <m>h</m>의 정의:</em> 함수 <m>h: A \to B</m>를 다음과 같이 조각적으로 정의한다.
+      <me>h(x) = \begin{cases} f(x) &amp; \text{if } x \in C \\ g^{-1}(x) &amp; \text{if } x \in A \setminus C \end{cases}</me>
+      만약 <m>x \in A \setminus C</m>라면, <m>x \notin C</m>이므로 특히 <m>x \notin C_0</m>이다. <m>C_0 = A \setminus g(B)</m>이므로 <m>x \in g(B)</m>가 성립한다. 즉, <m>x</m>는 <m>g</m>의 치역 안에 존재하며 <m>g</m>가 단사 함수이므로 역함수 <m>g^{-1}(x)</m>는 유일한 <m>B</m>의 원소로 잘 정의된다.
+      </p>
+      <p>
+      <em><m>h</m>가 단사 함수임을 증명:</em> <m>x_1, x_2 \in A</m>에 대하여 <m>h(x_1) = h(x_2)</m>라고 가정하자.
+      <ul>
+        <li><em>경우 1</em> (<m>x_1, x_2 \in C</m>): <m>f(x_1) = f(x_2)</m>이다. <m>f</m>는 단사 함수이므로 <m>x_1 = x_2</m>이다.</li>
+        <li><em>경우 2</em> (<m>x_1, x_2 \in A \setminus C</m>): <m>g^{-1}(x_1) = g^{-1}(x_2)</m>이다. 양변에 함수 <m>g</m>를 취하면 <m>x_1 = x_2</m>이다.</li>
+        <li><em>경우 3</em> (<m>x_1 \in C, x_2 \in A \setminus C</m>): <m>f(x_1) = g^{-1}(x_2)</m>이다. 양변에 <m>g</m>를 취하면 <m>g(f(x_1)) = x_2</m>가 된다. <m>x_1 \in C</m>이므로 어떤 자연수 <m>n</m>에 대하여 <m>x_1 \in C_n</m>이다. 따라서 <m>x_2 = g(f(x_1)) \in g(f(C_n)) = C_{n+1} \subseteq C</m>가 된다. 이는 <m>x_2 \in A \setminus C</m>라는 가정에 모순이다. 따라서 이 경우는 발생할 수 없다.</li>
+      </ul>
+      모든 가능한 경우에 대해 <m>x_1 = x_2</m>이므로, <m>h</m>는 단사 함수이다.
+      </p>
+      <p>
+      <em><m>h</m>가 전사 함수임을 증명:</em> 임의의 원소 <m>y \in B</m>를 택하자.
+      <ul>
+        <li><em>경우 1</em> (<m>g(y) \in C</m>): 앞서 보았듯 <m>C = C_0 \cup g(f(C))</m>이다. 그런데 <m>y \in B</m>이므로 <m>g(y) \in g(B)</m>이고, 따라서 <m>g(y) \notin A \setminus g(B) = C_0</m>이다. 그러므로 <m>g(y)</m>는 반드시 <m>g(f(C))</m>에 속해야 한다. 즉, 어떤 <m>x \in C</m>가 존재하여 <m>g(y) = g(f(x))</m>이다. <m>g</m>가 단사 함수이므로 <m>y = f(x)</m>가 성립한다. 이때 <m>x \in C</m>이므로 <m>h(x) = f(x) = y</m>가 되어, <m>y</m>는 <m>h</m>의 치역에 속한다.</li>
+        <li><em>경우 2</em> (<m>g(y) \in A \setminus C</m>): <m>x = g(y)</m>라고 두면 <m>x \in A \setminus C</m>이다. <m>h</m>의 정의에 의하여 <m>h(x) = g^{-1}(x) = g^{-1}(g(y)) = y</m>가 성립한다. 따라서 <m>y</m>는 <m>h</m>의 치역에 속한다.</li>
+      </ul>
+      모든 <m>y \in B</m>가 어떤 <m>x \in A</m>에 대응되므로, <m>h</m>는 전사 함수이다.
+      </p>
+      <p>
+      단사성과 전사성이 모두 증명되었으므로, <m>h</m>는 전단사 함수이다.
+      </p>
+    </proof>
+    <example xml:id="ex-schroeder-bernstein-open-closed-intervals">
+      <title>슈뢰더-베른슈타인 정리의 응용: 열린 구간과 닫힌 구간</title>
+      <p>열린 구간 <m>A = (0, 1)</m>과 닫힌 구간 <m>B = [0, 1]</m>의 기수를 비교합시다. 무한히 많은 원소를 가지며 경계가 포함된 집합과 포함되지 않은 집합 사이에 직접적으로 전단사 함수를 수식으로 적어내는 것은 지루하고 까다로운 작업입니다. 하지만 슈뢰더-베른슈타인 정리를 사용하면 매우 간단해집니다.</p>
+      <p><m>f: (0, 1) \to [0, 1]</m>을 <m>f(x) = x</m>로 정의하면 명백한 단사 함수입니다.</p>
+      <p><m>g: [0, 1] \to (0, 1)</m>은 <m>B</m>의 범위를 선형적으로 축소하여 <m>A</m> 내부에 밀어넣으면 됩니다. 예를 들어 <m>g(x) = \frac{1}{4} + \frac{1}{2}x</m>로 정의하면, <m>g</m>의 치역은 <m>[1/4, 3/4] \subset (0, 1)</m>이 되며 이는 일차함수이므로 단사 함수입니다.</p>
+      <p>두 단사 함수가 존재하므로, <xref ref="thm-schroeder-bernstein"/>에 의해 <m>|(0, 1)| = |[0, 1]|</m>이 즉각적으로 도출됩니다.</p>
+    </example>
+  </subsection>
+
+</section>

@@ -2,14 +2,11 @@
 
 <chapter xml:id="ch-appendices" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>부록</title>
-
-  <!-- 
     <introduction>
-      <p>  </p>
+      <p>필요한 사전지식을 갈무리하였다.</p>
     </introduction>
-  --> 
 
-  <!-- include sections -->
+    <!-- include sections -->
   <xi:include href="99-01-fields.ptx" />
-
+  <xi:include href="99-02-sets.ptx" />
 </chapter>

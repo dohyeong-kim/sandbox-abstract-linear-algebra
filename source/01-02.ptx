@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="01-02-basis" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>기저의 존재성과 차원</title>
+  <subsection xml:id="subsec-introduction-basis">
+    <title>기저의 존재성과 차원에 대한 소개</title>
+    <p>이전 장에서 우리는 벡터들의 집합이 주어졌을 때, 그들의 선형결합을 통해 공간 전체를 '생성(Span)'하는 방법을 배웠습니다. 그러나 어떤 공간을 생성하는 집합에는 공간을 묘사하는 데 굳이 필요하지 않은 '잉여 벡터'들이 포함되어 있을 수 있습니다. 공간의 구조를 가장 효율적이고 본질적으로 이해하기 위해서는 낭비 없이 공간을 생성하는 최소한의 골격이 필요합니다. 이를 위해 벡터들 사이에 중복성이 없다는 개념인 <term>선형독립</term>을 정의하고, 
+    <aside><p>선형독립:linear Independence</p></aside>
+    공간을 생성하는 독립적인 집합인 <term>기저</term><aside><p>기저:Basis</p></aside>가 임의의 벡터공간에 반드시 존재함을 엄밀하게 증명합니다.</p>
+    <p>더 나아가, 기저의 존재는 벡터공간의 <term>차원</term><aside><p>차원:dimension</p></aside>이라는 중요한 개념으로 이어집니다. 차원은 기저에 속한 벡터의 수로 이해할 수 있으며, 이를 엄밀하게 정당화하기 위해서 집합론을 사용할 것입니다.</p>
+  </subsection>
+  <subsection xml:id="subsec-existence-of-basis">
+    <title>기저의 정의와 존재</title>
+    <definition xml:id="def-basis">
+      <title>기저 (Basis)</title>
+      <statement>
+      <p>벡터 공간 $V$의 부분집합 $\beta$가 다음 두 가지 조건을 모두 만족할 때, $\beta$를 $V$의 <term>기저</term>라고 한다.
+      <aside><p>기저:basis</p></aside>
+      <ol>
+        <li>$\beta$는 선형 독립이다.</li>
+        <li>$\operatorname{span}(\beta) = V$ 이다.</li>
+      </ol>
+      </p>
+      </statement>
+    </definition>
+    
+    <example xml:id="ex-basis-for-Fn">
+      <title><m>\mathbb{F}^n</m>의 기저</title>
+      <p>체 <m>\mathbb{F}</m> 위의 <m>n</m>-튜플들의 공간 <m>\mathbb{F}^n</m>에서 집합 <m>\beta = \{e_1, e_2, \dots, e_n\}</m>는 기저이다. 여기서 <m>e_i</m>는 <m>i</m>번째 위치에 1이 있고 나머지 위치에는 0이 있는 벡터이다. 이들은 <m>\mathbb{F}^n</m>을 생성하며, 그 선형결합이 영벡터가 되기 위한 유일한 조건은 모든 계수가 0이 되는 것뿐이므로 선형 독립이다. 이를 <term>표준 기저</term><aside><p>표준 기저:standard basis</p></aside>라 부른다.</p>
+    </example>
+    <example xml:id="ex-standard-basis-for-polynomial-space">
+      <title>다항식 공간의 기저</title>
+      <statement>
+      <p>다항식 공간 <m>P_n(\mathbb{F})</m> (차수가 <m>n</m> 이하인 다항식들의 공간)에서 집합 <m>\beta = \{1, x, x^2, \dots, x^n\}</m>은 기저이다. 이들은 공간을 생성하며, 영다항식이 되기 위한 유일한 조건은 모든 계수가 0이 되는 것뿐이므로 선형 독립이다. 이를 <term>표준 기저</term><aside><p>표준 기저:standard basis</p></aside>라 부른다.<fn><p>단항식 기저라고 부를 수도 있다.</p></fn></p>
+      </statement>
+    </example>
+
+    <theorem xml:id="thm-existence-of-basis">
+      <title>기저의 존재성 (Existence of a Basis)</title>
+      <statement>
+      <p>체 $\mathbb{F}$ 위의 임의의 벡터 공간 $V$는 기저를 가진다.</p>
+      </statement>
+    </theorem>
+  </subsection>
+
+</section>
