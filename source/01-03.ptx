@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="01-03-linear-transformation" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>선형변환</title>
+  <title>선형변환, 커널, 이미지</title>
   <p>지금까지 우리는 기저와 차원 등 단일한 벡터 공간 내부에 존재하는 대수적 구조를 탐구했습니다. 그러나 현대 추상대수학의 관점에서 어떤 수학적 대상의 본질을 진정으로 이해하기 위해서는, 그 대상 자체만을 들여다보는 것을 넘어 대상들 사이의 <q>구조를 보존하는 사상</q>을 연구해야 합니다.
-  <fn><p>대상:object, 사상:morphism</p></fn>
-  이러한 사상을 <term>선형변환</term>이라고 부를 것입니다. <aside><p>선형 변환:linear transformation</p></aside> 벡터 만큼이나 선형 변환의 개념도 어디에나 있습니다. 선형 변환은 기하학적인 회전과 대칭부터 미분방정식의 연산자에 이르기까지 수학 전반에 걸쳐 광범위하게 등장합니다.
-  </p>
+  <fn><p>대상:object, 사상:morphism</p></fn></p>
+  <p> </p>
+  
+  <example xml:id="example-family-name-preserving-map">
+    <title>구조 보존의 예: 성씨 보존 함수</title>
+    <p>앞으로 배우게 될 덧셈이나 스칼라곱과 같은 구조 대신, 직관적 이해를 돕기 위하여 사람 간의 구조인 가계도를 생각해 봅시다. 모두가 예외없이 어머니의 성씨를 승계받는 극단적으로 단순한 사회 모형을 가정합시다.<fn><p>각 사람은 유일한 성씨를 가지며, 모든 사람은 유일한 어머니를 갖는다는 가정을 하고 있습니다.</p></fn> 이 사회에서 주어진 사람 <m>p</m>를 그 사람의 어머니 <m>m(p)</m>로 대응시키는 함수 <m>p</m>를 생각해 봅시다. 이 함수는 <m>p</m>와 <m>m(p)</m>의 성씨가 같다는 성질을 만족합니다. (<m>p</m>는 어머니 <m>m(p)</m>의 성씨를 승계받음) 따라서, 이 함수 <m>m</m>은 <q>성씨 구조</q>를 보존하는 사상입니다. </p>
+    <!--
+    성씨를 택하는 함수를 <m>f</m>라고 할 때, <m>m</m>의 성씨 보존 성질은 함수 간 교환 관계 <m>f \circ m = m \circ 1</m>으로 쓸 수 있습니다. (단, <m>1</m>은 항등함수) 
+    -->
+    <p>위에서 살펴본 예시를 집합과 함수를 이용해 다시 표현해 보겠습니다.사람의 집합 <m>X</m>과 모든 가능한 성씨 집합 <m>N</m> 대하여, 사람의 성씨는 함수 <m>f \colon X\to N</m>로 표현하고 모계 구조는위에서와 같이 함수 <m>m \colon X \to X</m>로 표현합니다. 이 경우, 배경이 되는 집합은 <m>X</m>이며 이 집합에 추가로 주어진 함수 <m>f</m>를 구조라고 합니다. 종합하면, 주어진 수학적 대상은 <m>(X,f)</m> 순서쌍이 됩니다. 이때, 어머니 대응 함수 <m>p \colon X \to X</m>는 배경이 되는 집합 <m>X</m>에 정의된 함수로서 구조 <m>f</m>를 보존한다고 말합니다.</p>
+  </example>
   <p>
-    선형변환의 엄밀한 정의를 소개하기에 앞서, 앞서 등장한 표현 <q>구조 보존</q>에 대해 다음 예를 통하여 잠시 생각해 봅시다. 
-    <example xml:id="example-family-name-preserving-map">
-      <title>성씨 보존 함수</title>
-      <p>덧셈이나 스칼라곱과 같은 구조 대신, 사람 간의 구조인 가계도를 생각해 봅시다. 모두가 예외없이 어머니의 성씨를 승계받는 극단적으로 단순한 사회 모형을 생각해 봅시다.<fn><p>각 사람은 유일한 성씨를 가지면, 모든 사람은 유일한 어머니를 갖는다는 가정을 하고 있습니다.</p></fn> 이 사회에서 주어진 사람 <m>p</m>를 그 사람의 어머니 <m>m(p)</m>로 대응시키는 함수 <m>p</m>를 생각해 봅시다. 이 함수는 <m>p</m>와 <m>m(p)</m>의 성씨가 같다는 성질을 만족합니다. (<m>p</m>는 어머니 <m>m(p)</m>의 성씨를 승계받음) 따라서, 이 함수 <m>m</m>은 <q>성씨 구조</q>를 보존하는 사상입니다. 
-      <!--
-      성씨를 택하는 함수를 <m>f</m>라고 할 때, <m>m</m>의 성씨 보존 성질은 함수 간 교환 관계 <m>f \circ m = m \circ 1</m>으로 쓸 수 있습니다. (단, <m>1</m>은 항등함수) 
-      -->
-    </p>
-    </example>
+  벡터공간의 경우 주어진 함수가 덧셈과 스칼라곱 구조를 보존하는 경우 <term>선형변환</term>이라고 부를 것입니다. <aside><p>선형 변환:linear transformation</p></aside> 벡터 만큼이나 선형변환의 개념도 어디에나 있습니다. 선형변환은 기하학적인 회전과 대칭부터 미분방정식의 연산자에 이르기까지 수학 전반에 걸쳐 광범위하게 등장합니다.
   </p>
+
+  
   <subsection xml:id="subsec-linear-transformations">
     <title>선형변환의 정의</title>
     <definition xml:id="def-linear-transformation">
@@ -31,7 +33,7 @@
       </statement>
     </definition>
     <p>
-      선형변환의 정의가 함의하는 바를 하나 짚고 넘어갑시다.
+      덧셈과 스칼라곱셈으로부터 얻어지는 선형결합 또한 보존될 것이라 예상할 수 있습니다.
     </p>
     <proposition xml:id="prop-preservation-of-linear-combination">
       <statement>
@@ -102,9 +104,119 @@
     <example xml:id="ex-nonlinear-counterexample-translation">
       <title>선형 변환이 아닌 반례</title>
       <statement>
-      <p><m>\mathbb{R}^2</m>에서 <m>\mathbb{R}^2</m>로 가는 함수 <m>T(x, y) = (x+1, y)</m>를 생각합시다. 명제 1에 의하면 선형 변환은 반드시 영벡터를 영벡터로 보내야 합니다. 그러나 <m>T(0, 0) = (1, 0) \neq (0, 0)</m>이므로 <m>T</m>는 선형 변환이 아닙니다. (기하학적으로 원점을 지나는 평행이동이 아닌 일반적인 평행이동은 선형 변환이 아닙니다. 이를 <q>아핀 변환</q>이라고 구별하여 부릅니다.)
+      <p><m>\mathbb{F}^2</m>에서 <m>\mathbb{F}^2</m>로 가는 함수 <m>T(x, y) = (x+1, y)</m>를 생각합시다. 명제 1에 의하면 선형 변환은 반드시 영벡터를 영벡터로 보내야 합니다. 그러나 <m>T(0, 0) = (1, 0) \neq (0, 0)</m>이므로 <m>T</m>는 선형 변환이 아닙니다. (기하학적으로 원점을 지나는 평행이동이 아닌 일반적인 평행이동은 선형 변환이 아닙니다. 이를 <q>아핀 변환</q>이라고 구별하여 부릅니다.)
       <aside><p>아핀 변환:affine transformation</p></aside></p>
       </statement>
     </example>
   </subsection>
+
+  <subsection xml:id="subsec-kernel">
+    <title>커널</title>
+    <aside><p>커널:kernel, 다른 이름은 영공간:null space</p></aside>
+    <p>선형변환으로부터 얻어지는 중요한 부분공간 중 하나는 커널입니다.</p>
+    <definition xml:id="def-kernel">
+      <title>커널</title>
+      <statement>
+      <p>체 <m>\mathbb{F}</m> 위의 두 벡터 공간 <m>V, W</m>와 선형 변환 <m>T: V \to W</m>를 생각하자. <m>T</m>에 의해 공역 <m>W</m>의 영벡터 <m>\mathbf{0}_W</m>로 매핑되는 정의역 <m>V</m>의 모든 벡터들의 집합을 <m>T</m>의 커널이라 하고, <m>\operatorname{ker}(T)</m>로 표기한다.</p>
+      <me>\operatorname{ker}(T) = \{ v \in V \mid T(v) = \mathbf{0}_W \}</me>
+      </statement>
+    </definition>
+
+    <example xml:id="ex-kernel-examples">
+      <title>커널의 예시</title>
+      <statement>
+      <ol>
+        <li>
+          <p>영 변환: <m>T_0: V \to W</m>가 모든 <m>v \in V</m>에 대해 <m>T_0(v) = \mathbf{0}_W</m>인 영 변환일 때, <m>V</m>의 모든 원소가 영벡터로 매핑되므로 <m>\ker(T_0) = V</m>이다.</p>
+        </li>
+        <li>
+          <p>항등 변환: <m>I: V \to V</m>가 <m>I(v) = v</m>인 항등 변환일 때, <m>I(v) = \mathbf{0}_V</m>를 만족하는 원소는 오직 <m>v = \mathbf{0}_V</m>뿐이므로 <m>\ker(I) = \{\mathbf{0}_V\}</m>이다.</p>
+        </li>
+      </ol>
+      </statement>
+    </example>
+
+    <proposition xml:id="prop-kernel-is-subspace">
+      <statement>
+      <p>선형 변환 <m>T: V \to W</m>에 대하여, 커널 <m>\ker(T)</m>는 정의역 <m>V</m>의 부분공간이다.</p>
+      </statement>
+      <proof>
+      <p>부분공간 판정법 <xref ref="thm-subspace-test"/>을 적용합니다.</p>
+      <p><em>공집합 아님:</em> 선형 변환의 기본 성질에 의해 <m>T(\mathbf{0}_V) = \mathbf{0}_W</m>입니다. 따라서 정의에 의해 <m>\mathbf{0}_V \in \ker(T)</m>입니다.</p>
+      <p><em>덧셈에 대한 닫힘:</em> <m>u, v \in \ker(T)</m>라 가정합시다. 그러면 <m>T(u) = \mathbf{0}_W</m>이고 <m>T(v) = \mathbf{0}_W</m>입니다. 선형 변환의 덧셈 보존 성질에 의해 다음이 성립합니다.
+        <me>T(u + v) = T(u) + T(v) = \mathbf{0}_W + \mathbf{0}_W = \mathbf{0}_W</me>
+        따라서 <m>u + v \in \ker(T)</m>입니다.</p>
+      <p><em>스칼라 곱셈에 대한 닫힘:</em> 스칼라 <m>c \in \mathbb{F}</m>와 <m>v \in \ker(T)</m>를 택합시다. 그러면 <m>T(v) = \mathbf{0}_W</m>입니다. 선형 변환의 스칼라 곱셈 보존 성질에 의해 다음이 성립합니다.
+        <me>T(cv) = cT(v) = c\mathbf{0}_W = \mathbf{0}_W</me>
+        따라서 <m>cv \in \ker(T)</m>입니다.</p>
+      <p>세 가지 조건을 모두 만족하므로 <m>\ker(T)</m>는 <m>V</m>의 부분공간입니다.</p>
+      </proof>
+    </proposition>
+
+    <proposition xml:id="prop-kernel-and-injectivity">
+      <statement>
+      <p>선형 변환 <m>T: V \to W</m>가 단사 함수일 필요충분조건은 <m>\ker(T) = \{\mathbf{0}_V\}</m>인 것이다.</p>
+      </statement>
+      <proof>
+      <p><em>필요조건 <m>(\Rightarrow)</m>:</em> <m>T</m>가 단사 함수라고 합시다. <m>\ker(T)</m>에서 임의의 원소 <m>v</m>를 택하면 정의에 의해 <m>T(v) = \mathbf{0}_W</m>입니다. 또한 선형 변환의 기본 성질에 의해 <m>T(\mathbf{0}_V) = \mathbf{0}_W</m>입니다. 따라서 <m>T(v) = T(\mathbf{0}_V)</m>가 성립합니다. <m>T</m>가 단사 함수이므로 함숫값이 같으면 입력값이 같아야 합니다. 그러므로 <m>v = \mathbf{0}_V</m>입니다. 따라서 <m>\ker(T) = \{\mathbf{0}_V\}</m>입니다.</p>
+      <p><em>충분조건 <m>(\Leftarrow)</m>:</em> <m>\ker(T) = \{\mathbf{0}_V\}</m>라고 합시다. <m>T</m>가 단사 함수임을 보이기 위해 임의의 <m>x, y \in V</m>에 대하여 <m>T(x) = T(y)</m>라고 가정합시다. 양변에 <m>-T(y)</m>를 더하면 <m>T(x) - T(y) = \mathbf{0}_W</m>입니다. <m>T</m>는 선형 변환이므로 덧셈과 스칼라 곱셈을 보존하여 <m>T(x - y) = \mathbf{0}_W</m>로 묶을 수 있습니다. 이는 <m>x - y</m>가 <m>\ker(T)</m>의 원소임을 의미합니다. 가정에 의해 커널에는 영벡터만 존재하므로 <m>x - y = \mathbf{0}_V</m>이어야 합니다. 따라서 <m>x = y</m>가 되어 <m>T</m>는 단사 함수입니다.</p>
+      </proof>
+    </proposition>
+  </subsection>
+  <subsection xml:id="subsec-image-of-linear-transformation">
+    <title>선형변환의 이미지</title>
+    <p>커널과 짝을 이루는, 선형변환으로부터 얻어지는 또 다른 중요한 부분공간은 이미지입니다.</p>
+
+    <definition xml:id="def-image">
+      <title>이미지</title>
+      <aside><p>이미지:image</p></aside>
+      <statement>
+      <p>선형 변환 <m>T: V \to W</m>에 대하여, <m>V</m>의 원소들이 <m>T</m>에 의해 도달하는 <m>W</m> 안의 모든 원소들의 집합을 <m>T</m>의 <term>이미지</term>라고 하고, <m>\operatorname{im}(T)</m>로 표기한다.</p>
+      <me>\operatorname{im}(T) = \{ T(v) \mid v \in V \} = \{ w \in W \mid \text{어떤 } v \in V \text{에 대해 } T(v) = w \}</me>
+      </statement>
+    </definition>
+  </subsection>
+  <!--sylvester theorem of rank inequality, proof by basis extension construction-->
+  <p>
+    집합 간 함수의 전사성은 이미지를 이용해 다시 표현할 수 있습니다. 선형 변환 <m>T: V \to W</m>가 전사라는 것은 공역 <m>W</m>의 모든 원소가 정의역 <m>V</m>의 어떤 원소에 의해 매핑된다는 것을 의미합니다. 즉, <m>\operatorname{im}(T) = W</m>입니다. 따라서, 선형 변환이 전사이려면 이미지가 공역 전체와 일치해야 하며, 그 역도 성립합니다.
+    <aside><p>전사:surjective</p></aside>
+  </p>
+  
+  <proposition xml:id="thm-image-is-subspace">
+    <statement>
+    <p>선형 변환 <m>T: V \to W</m>에 대하여, 이미지 <m>\operatorname{im}(T)</m>는 공역 <m>W</m>의 부분공간이다.</p>
+    </statement>
+    <proof>
+    <p>부분공간 판정법 <xref ref="thm-subspace-test"/>을 적용합니다.</p>
+    <p><em>공집합 아님:</em> <m>T(\mathbf{0}_V) = \mathbf{0}_W</m>이므로 <m>\mathbf{0}_W \in \operatorname{im}(T)</m>입니다.</p>
+    <p><em>덧셈에 대한 닫힘:</em> <m>w_1, w_2 \in \operatorname{im}(T)</m>라고 가정합시다. 정의에 의해 어떤 <m>v_1, v_2 \in V</m>가 존재하여 <m>T(v_1) = w_1</m>이고 <m>T(v_2) = w_2</m>입니다. 두 벡터의 합 <m>w_1 + w_2 = T(v_1) + T(v_2)</m>입니다. <m>T</m>는 선형 변환이므로 <m>w_1 + w_2 = T(v_1 + v_2)</m>가 성립합니다. <m>V</m>가 벡터 공간이므로 <m>v_1 + v_2 \in V</m>입니다. 따라서 <m>w_1 + w_2</m> 역시 <m>V</m>의 어떤 원소에 대한 함숫값이므로 <m>\operatorname{im}(T)</m>에 속합니다.</p>
+    <p><em>스칼라 곱셈에 대한 닫힘:</em> 스칼라 <m>c \in \mathbb{F}</m>와 <m>w \in \operatorname{im}(T)</m>를 택합시다. 어떤 <m>v \in V</m>에 대해 <m>T(v) = w</m>입니다. 스칼라 곱 <m>cw = cT(v)</m>입니다. <m>T</m>가 선형 변환이므로 <m>cw = T(cv)</m>가 성립합니다. <m>V</m>가 벡터 공간이므로 <m>cv \in V</m>입니다. 따라서 <m>cw \in \operatorname{im}(T)</m>입니다.</p>
+    <p>세 가지 조건을 모두 만족하므로 <m>\operatorname{im}(T)</m>는 <m>W</m>의 부분공간입니다.</p>
+    </proof>
+  </proposition>
+
+  <example xml:id="ex-image-of-differential-operator">
+    <title>미분 연산자의 이미지</title>
+    <statement>
+      <p>다항식 공간 <m>P(\mathbb{R})</m>에서 정의되는 미분 연산자 <m>D(p(x)) = p'(x)</m>의 이미지를 구해봅시다. 임의의 다항식 <m>q(x) = a_0 + a_1x + \dots + a_nx^n \in P(\mathbb{R})</m>을 공역에서 택합시다. 이 <m>q(x)</m>가 과연 <m>D</m>의 이미지 안에 존재하는지 확인하려면, 미분해서 <m>q(x)</m>가 되는 정의역의 다항식 <m>p(x)</m>를 찾아야 합니다. 적분을 이용해</p>
+      <me>p(x) = a_0x + \frac{a_1}{2}x^2 + \dots + \frac{a_n}{n+1}x^{n+1}</me>
+      <p>라는 다항식을 구성하면, 명백하게 <m>D(p(x)) = q(x)</m>가 성립합니다. 공역의 '모든' 다항식이 누군가의 도함수가 될 수 있으므로, <m>D</m>의 이미지는 공역 전체와 같습니다.</p>
+      간결하게 쓰면
+      <me>\operatorname{im}(D) = P(\mathbb{R})</me>
+      입니다.
+    </statement>
+  </example>
+  <example xml:id="ex-image-of-multiplication-operator">
+    <title>곱셈 연산자의 이미지</title>
+    <statement>
+      <p>다항식 공간 <m>P(\mathbb{R})</m>에서 정의되는 곱셈 연산자 <m>T(p(x)) = x \cdot p(x)</m>를 생각합시다. <m>T</m> 역시 덧셈과 스칼라 곱을 보존하는 선형 연산자입니다.</p>
+      <p>어떤 다항식 <m>p(x) = a_0 + a_1x + \dots + a_kx^k</m>에 <m>x</m>를 곱하면 그 결과는 <m>a_0x + a_1x^2 + \dots + a_kx^{k+1}</m>이 됩니다. 이 결과물의 가장 큰 특징은 <strong>상수항이 반드시 <m>0</m></strong>이라는 점입니다.</p>
+      <p>역으로, 상수항이 0인 임의의 다항식 <m>q(x) = x(b_1 + b_2x + \dots)</m>는 <m>p(x) = b_1 + b_2x + \dots</m>라는 다항식을 <m>T</m>에 통과시켜 얻을 수 있습니다. 따라서 <m>T</m>의 이미지는 다음과 같은 부분공간이 됩니다.</p>
+      <md>
+        <mrow>\operatorname{im}(T) = \{ q(x) \in P(\mathbb{R}) \mid q(0) = 0 \} = \operatorname{span}\{x, x^2, x^3, \dots\}</mrow>
+      </md>
+      <p>이는 상수항을 가진 다항식(예: <m>q(x) = x+1</m>)들을 포함하지 못하므로, 전체 공간 <m>P(\mathbb{R})</m>의 진부분공간입니다. 즉, 곱셈 연산자 <m>T</m>는 전사 함수가 아닙니다. 그러나 <m>x \cdot p(x) = 0</m>이 되려면 <m>p(x)</m> 자체가 영다항식이어야 하므로 <m>\ker(T) = \{\mathbf{0}\}</m>이며, 따라서 단사 함수입니다.</p>
+    </statement>
+  </example>
+
 </section>
