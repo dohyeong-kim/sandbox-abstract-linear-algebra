@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="01-03-linear-transformation" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>선형변환</title>
+  <p>지금까지 우리는 기저와 차원 등 단일한 벡터 공간 내부에 존재하는 대수적 구조를 탐구했습니다. 그러나 현대 추상대수학의 관점에서 어떤 수학적 대상의 본질을 진정으로 이해하기 위해서는, 그 대상 자체만을 들여다보는 것을 넘어 대상들 사이의 <q>구조를 보존하는 사상</q>을 연구해야 합니다.
+  <fn><p>대상:object, 사상:morphism</p></fn>
+  이러한 사상을 <term>선형변환</term>이라고 부를 것입니다. <aside><p>선형 변환:linear transformation</p></aside> 벡터 만큼이나 선형 변환의 개념도 어디에나 있습니다. 선형 변환은 기하학적인 회전과 대칭부터 미분방정식의 연산자에 이르기까지 수학 전반에 걸쳐 광범위하게 등장합니다.
+  </p>
+  <p>
+    선형변환의 엄밀한 정의를 소개하기에 앞서, 앞서 등장한 표현 <q>구조 보존</q>에 대해 다음 예를 통하여 잠시 생각해 봅시다. 
+    <example xml:id="example-family-name-preserving-map">
+      <title>성씨 보존 함수</title>
+      <p>덧셈이나 스칼라곱과 같은 구조 대신, 사람 간의 구조인 가계도를 생각해 봅시다. 모두가 예외없이 어머니의 성씨를 승계받는 극단적으로 단순한 사회 모형을 생각해 봅시다.<fn><p>각 사람은 유일한 성씨를 가지면, 모든 사람은 유일한 어머니를 갖는다는 가정을 하고 있습니다.</p></fn> 이 사회에서 주어진 사람 <m>p</m>를 그 사람의 어머니 <m>m(p)</m>로 대응시키는 함수 <m>p</m>를 생각해 봅시다. 이 함수는 <m>p</m>와 <m>m(p)</m>의 성씨가 같다는 성질을 만족합니다. (<m>p</m>는 어머니 <m>m(p)</m>의 성씨를 승계받음) 따라서, 이 함수 <m>m</m>은 <q>성씨 구조</q>를 보존하는 사상입니다. 
+      <!--
+      성씨를 택하는 함수를 <m>f</m>라고 할 때, <m>m</m>의 성씨 보존 성질은 함수 간 교환 관계 <m>f \circ m = m \circ 1</m>으로 쓸 수 있습니다. (단, <m>1</m>은 항등함수) 
+      -->
+    </p>
+    </example>
+  </p>
+  <subsection xml:id="subsec-linear-transformations">
+    <title>선형변환의 정의</title>
+    <definition xml:id="def-linear-transformation">
+      <title>선형 변환</title>
+      <statement>
+      <p><m>V</m>와 <m>W</m>를 동일한 체 <m>\mathbb{F}</m> 위의 벡터 공간이라 하자. 함수 <m>T: V \to W</m>가 임의의 벡터 <m>u, v \in V</m>와 스칼라 <m>c \in \mathbb{F}</m>에 대하여 다음 두 조건을 모두 만족할 때, <m>T</m>를 <m>V</m>에서 <m>W</m>로 가는 <term>선형변환</term>이라고 한다.
+        <ol>
+        <li>덧셈의 보존: <m>T(u + v) = T(u) + T(v)</m></li>
+        <li>스칼라 곱셈의 보존: <m>T(cu) = cT(u)</m></li>
+        </ol>
+      </p>
+      </statement>
+    </definition>
+    <p>
+      선형변환의 정의가 함의하는 바를 하나 짚고 넘어갑시다.
+    </p>
+    <proposition xml:id="prop-preservation-of-linear-combination">
+      <statement>
+        <p>
+          임의의 선형변환 <m>T:V\to W</m>는 선형결합을 보존한다. 즉, 임의의 벡터 <m>v_1, \ldots, v_n \in V</m>와 스칼라 <m>c_1, \ldots, c_n \in \mathbb{F}</m>에 대하여 다음이 성립한다:
+          <m>T(c_1 v_1 + \cdots + c_n v_n) = c_1 T(v_1) + \cdots + c_n T(v_n)</m>.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          선형변환의 정의에 따라, <m>T(c_1 v_1 + \cdots + c_n v_n)</m>는 다음과 같이 계산할 수 있습니다.
+            <md>
+            <mrow>T(c_1 v_1 + \cdots + c_n v_n) \amp= T(c_1 v_1) + T(c_2 v_2 + \cdots + c_n v_n)</mrow>
+            <mrow>\amp= c_1 T(v_1) + T(c_2 v_2 + \cdots + c_n v_n)</mrow>
+            <mrow>\amp \hspace{5pt} \vdots</mrow>
+            <mrow>\amp= c_1 T(v_1) + \cdots + c_n T(v_n).</mrow>
+            </md>
+        </p>
+      </proof>
+    </proposition>
+    <p>
+      선형변환의 보편적 성질 중 하나는, 영벡터를 보존하는 것입니다.
+    </p>
+    <proposition xml:id="prop-preservation-of-zero-vector">
+      <statement>
+      <p>
+        <m>T: V \to W</m>가 선형 변환이면, 다음이 성립한다.
+        <ol>
+        <li><m>T(\mathbf{0}_V) = \mathbf{0}_W</m> (영벡터는 영벡터로 대응된다.)</li>
+        <li>임의의 <m>v \in V</m>에 대하여 <m>T(-v) = -T(v)</m>이다.</li>
+        </ol>
+      </p>
+      </statement>
+      <proof>
+        <p>
+            벡터 공간의 성질에 의해 <m>\mathbf{0}_V + \mathbf{0}_V = \mathbf{0}_V</m>입니다. 양변에 함수 <m>T</m>를 취하면 <m>T(\mathbf{0}_V + \mathbf{0}_V) = T(\mathbf{0}_V)</m>가 됩니다. <m>T</m>는 선형 변환이므로 덧셈을 분리할 수 있습니다.
+            <me>T(\mathbf{0}_V) + T(\mathbf{0}_V) = T(\mathbf{0}_V)</me>
+            공역 <m>W</m> 역시 벡터 공간이므로 덧셈에 대한 소거법칙이 성립합니다. 양변에 <m>-T(\mathbf{0}_V)</m>를 더하면 <m>T(\mathbf{0}_V) = \mathbf{0}_W</m>를 얻습니다. 선형 변환의 스칼라 곱셈 보존 성질에 <m>c = -1</m>을 대입하면 즉각적으로 성립합니다. <m>T(-v) = T((-1)v) = (-1)T(v) = -T(v)</m>.
+        </p>
+      </proof>
+    </proposition>
+
+    <example xml:id="ex-trivial-and-identity-transformation">
+      <title>자명한 변환과 항등 변환</title>
+      <statement>
+      <p>임의의 벡터 공간 <m>V, W</m>에 대하여, 모든 <m>v \in V</m>를 <m>W</m>의 영벡터로 보내는 영 변환 <m>T_0(v) = \mathbf{0}_W</m>는 선형 변환입니다. 또한 <m>V</m>의 모든 원소를 자기 자신으로 보내는 항등 변환 <m>I_V(v) = v</m> 역시 덧셈과 스칼라 곱을 자명하게 보존하므로 선형 연산자입니다.</p>
+      </statement>
+    </example>
+
+    <example xml:id="ex-differential-operator">
+      <title>미분 연산자</title>
+      <statement>
+      <p>해석학과 대수학의 만남을 보여주는 전형적인 예시입니다. <m>\mathbb{R}</m> 위에서 계수를 갖는 다항식들의 공간 <m>P(\mathbb{R})</m>을 생각합시다. 미분 연산자 <m>D: P(\mathbb{R}) \to P(\mathbb{R})</m>를 <m>D(p(x)) = p'(x)</m>로 정의합시다. 미분의 기본 성질에 의해 임의의 두 다항식 <m>f(x), g(x)</m>와 스칼라 <m>c, d \in \mathbb{R}</m>에 대하여 다음이 성립합니다.</p>
+      <md>
+        <mrow>D(cf(x) + dg(x)) = \frac{d}{dx}(cf(x) + dg(x)) = c\frac{d}{dx}f(x) + d\frac{d}{dx}g(x) = cD(f(x)) + dD(g(x))</mrow>
+      </md>
+      <p>따라서 미분 연산자 <m>D</m>는 선형 변환입니다. 정적분 연산자 역시 동일한 논리로 선형 변환이 됩니다.</p>
+      </statement>
+    </example>
+
+    <example xml:id="ex-matrix-transformation">
+      <title>행렬 변환</title>
+      <statement>
+      <p><m>A</m>를 성분이 <m>\mathbb{F}</m>에 있는 <m>m \times n</m> 행렬이라 합시다. 열벡터로 표현된 유클리드 공간 사이의 함수 <m>L_A: \mathbb{F}^n \to \mathbb{F}^m</m>을 행렬의 곱셈을 이용하여 <m>L_A(x) = Ax</m>로 정의합시다. 행렬 대수학의 분배법칙과 스칼라 곱 결합법칙에 의해 <m>A(cx + dy) = c(Ax) + d(Ay)</m>가 성립하므로, <m>L_A</m>는 선형 변환입니다. (추후 모든 유한 차원 벡터 공간의 선형 변환은 적당한 기저를 선택함으로써 이러한 행렬 변환으로 완벽하게 번역될 수 있음을 배우게 됩니다.)</p>
+      </statement>
+    </example>
+
+    <example xml:id="ex-nonlinear-counterexample-translation">
+      <title>선형 변환이 아닌 반례</title>
+      <statement>
+      <p><m>\mathbb{R}^2</m>에서 <m>\mathbb{R}^2</m>로 가는 함수 <m>T(x, y) = (x+1, y)</m>를 생각합시다. 명제 1에 의하면 선형 변환은 반드시 영벡터를 영벡터로 보내야 합니다. 그러나 <m>T(0, 0) = (1, 0) \neq (0, 0)</m>이므로 <m>T</m>는 선형 변환이 아닙니다. (기하학적으로 원점을 지나는 평행이동이 아닌 일반적인 평행이동은 선형 변환이 아닙니다. 이를 <q>아핀 변환</q>이라고 구별하여 부릅니다.)
+      <aside><p>아핀 변환:affine transformation</p></aside></p>
+      </statement>
+    </example>
+  </subsection>
+</section>

@@ -160,17 +160,60 @@
   <subsection xml:id="subsec-arithmetic-of-cardinals">
     <title>기수의 산술</title>
     <p>
-      기수는 집합의 크기를 측정하는 도구입니다. 기수의 대소관계와 등호에 대한 정의를 통해, 우리는 집합의 크기에 대한 비교와 동등성에 대한 엄밀한 개념을 갖게 되었습니다. 기수는 수처럼 덧셈, 곱셈, 지수화가 가능합니다. 기수의 연산과 대소관계가 어떻게 작동하는지 알아봅니다.
+      기수는 집합의 크기를 측정하는 도구입니다. 기수의 대소관계와 등호에 대한 정의를 통해, 우리는 집합의 크기에 대한 비교와 동등성에 대한 엄밀한 개념을 갖게 되었습니다. 기수는 수처럼 덧셈, 곱셈, 지수화가 가능합니다. 기수의 연산과 대소관계의 상호작용에 대한 주요 결과를 증명 없이 나열하겠습니다.
     </p>
+    <proposition xml:id="prop-cardinal-inequality-preservation">
+      <title>기수 부등식의 보존</title>
+      <statement>
+      <p>세 기수 <m>\kappa, \lambda, \mu</m>에 대하여, <m>\kappa \le \lambda</m>이면 다음이 항상 성립한다.</p>
+      <ul>
+        <li><m>\kappa + \mu \le \lambda + \mu</m></li>
+        <li><m>\kappa \cdot \mu \le \lambda \cdot \mu</m></li>
+      </ul>
+      </statement>
+      <proof>
+        <p>
+          생략.
+        </p>
+      </proof>
+    </proposition>
     <p>
-      명제 1 (기수 부등식의 보존). 세 기수 $\kappa, \lambda, \mu$ 에 대하여, $\kappa \le \lambda$ 이면 다음이 항상 성립한다.$\kappa + \mu \le \lambda + \mu$$\kappa \cdot \mu \le \lambda \cdot \mu$
+      가산 무한 기수란, 자연수 집합 <m>\mathbb{N}</m>의 기수를 나타냅니다. 흔히 <m>\aleph_0</m>로 표기합니다.
+      <aside><p>가산 무한 기수:countable infinity</p></aside>
     </p>
-    <p>
-      정리 1 (가산 무한 기수의 멱등성).임의의 유한 기수 $n \ge 1$ 에 대하여 다음이 성립한다.$\aleph_0 + n = \aleph_0$$\aleph_0 + \aleph_0 = \aleph_0$$\aleph_0 \cdot \aleph_0 = \aleph_0$
-    </p>
-    <p>
-      정리 2 (무한 기수의 흡수 법칙). $\kappa$ 와 $\lambda$ 가 0이 아닌 기수이고 둘 중 적어도 하나가 무한 기수라면, 다음이 성립한다.$$\kappa + \lambda = \kappa \cdot \lambda = \max\{\kappa, \lambda\}$$
-    </p>
+    <proposition xml:id="prop-aleph-null-idempotence">
+      <title>가산 무한 기수의 멱등성</title>
+      <statement>
+      <p>임의의 유한 기수 <m>n \ge 1</m>에 대하여 다음이 성립한다.</p>
+      <ul>
+      <li><m>\aleph_0 + n = \aleph_0</m></li>
+      <li><m>\aleph_0 + \aleph_0 = \aleph_0</m></li>
+      <li><m>\aleph_0 \cdot \aleph_0 = \aleph_0</m></li>
+      </ul>
+      </statement>
+      <proof>
+        <p>
+          생략.
+        </p>
+      </proof>
+    </proposition>
+
+    <proposition xml:id="prop-infinite-cardinal-absorption">
+      <title>무한 기수의 흡수 법칙</title>
+      <statement>
+      <p><m>\kappa</m>와 <m>\lambda</m>가 0이 아닌 기수이고 둘 중 적어도 하나가 무한 기수라면, 다음이 성립한다.</p>
+      <ul>
+      <li><m>\kappa + \lambda = \max\{\kappa, \lambda\}</m></li>
+      <li><m>\kappa \cdot \lambda = \max\{\kappa, \lambda\}</m></li>
+      </ul>
+      </statement>
+      <proof>
+        <p>
+          생략.
+        </p>
+      </proof>
+    </proposition>
+
   </subsection>
 
 </section>
