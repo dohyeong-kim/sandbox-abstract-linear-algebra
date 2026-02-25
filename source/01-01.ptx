@@ -111,7 +111,7 @@
         <statement>
           <p>
             <m>V = \mathcal{F}(\mathbb{R}, \mathbb{R})</m>을 실수 집합 <m>\mathbb{R}</m>에서 <m>\mathbb{R}</m>로 가는 모든 함수들의 벡터 공간이라 하자 (이 공간에서 덧셈은 <m>(f+g)(x) = f(x) + g(x)</m>, 스칼라 곱셈은 <m>(cf)(x) = c f(x)</m>로 정의된다).함수 <m>f \in V</m>가 모든 실수 <m>x \in \mathbb{R}</m>에 대하여 다음 조건을 만족할 때, <m>f</m>를 <term>우함수</term>
-            <aside><p>우함수:Even function, 짝함수라고도 부름</p></aside>라고 한다.
+            <aside><p>우함수:even function, 짝함수라고도 부름</p></aside>라고 한다.
             <md><mrow>f(-x) = f(x)</mrow></md>
           </p>
         </statement>

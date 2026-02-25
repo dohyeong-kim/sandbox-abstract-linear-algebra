@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="99-03-equivalence" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>동치관계와 분할</title>
+  <p>
+    이 절에서는 동치관계와 분할의 개념을 소개합니다. 
+  </p>
+  <definition xml:id="def-equivalence-relation">
+  <title>동치관계</title>
+  <p>
+  집합 <m>X</m>에 대한 <term>동치관계</term>는 다음과 같은 세 가지 성질을 만족하는 이항 관계 <m>\sim</m>입니다.
+  </p>
+  <ol>
+  <li><em>반사성</em>: 모든 <m>x \in X</m>에 대해 <m>x \sim x</m>입니다.</li>
+  <li><em>대칭성</em>: 모든 <m>x, y \in X</m>에 대해 <m>x \sim y</m>이면 <m>y \sim x</m>입니다.</li>
+  <li><em>추이성</em>: 모든 <m>x, y, z \in X</m>에 대해 <m>x \sim y</m>이고 <m>y \sim z</m>이면 <m>x \sim z</m>입니다.</li>
+  </ol>
+  </definition>
+  <p>
+    동치관계로부터 동치류의 개념을 얻습니다.
+  </p>
+  <definition xml:id="def-equivalence-class">
+  <title>동치류</title>
+  <p>
+  집합 <m>X</m>에 대한 동치관계 <m>\sim</m>가 주어졌을 때, <m>x \in X</m>에 대한 <term>동치류</term>는 <m>[x] = \{y \in X : y \sim x\}</m>로 정의됩니다. 즉, <m>[x]</m>는 <m>x</m>와 동치인 모든 원소들의 집합입니다.
+  </p>
+  </definition>
+  <example xml:id="ex-residues-and-equivalences">
+  <title>나머지류:동치류의 예시</title>
+    <p> 예시로, 정수 집합 <m>\mathbb{Z}</m>에 대한 동치관계 <m>\sim</m>를 다음과 같이 정의하자: <m>a \sim b</m>이면 <m>a - b</m>가 3의 배수이다. 이때, <m>\mathbb{Z}</m>의 동치류들은 다음과 같습니다.</p>
+    <p>
+    <ol>
+    <li><m>[0] = \{..., -6, -3, 0, 3, 6, ...\}</m></li>
+    <li><m>[1] = \{..., -5, -2, 1, 4, 7, ...\}</m></li>
+    <li><m>[2] = \{..., -4, -1, 2, 5, 8, ...\}</m></li>
+    </ol>
+    </p>
+    <p>
+      물론, <m>3</m>대신 다른 자연수를 사용해도 유사한 동치관계를 정의할 수 있습니다.
+    </p>
+  </example>
+  <p>
+    동치관계로부터 얻은 동치류는 집합의 분할의 예시가 됩니다.
+  </p>
+  <definition xml:id="def-partition">
+  <title>분할</title>
+  <p>
+  집합 <m>X</m>의 <term>분할</term>은 <m>X</m>의 부분집합들의 집합 <m>\{A_i\}</m>로, 다음과 같은 성질을 만족합니다.
+  </p>
+  <ol>
+  <li><em>커버링</em>: 모든 <m>x \in X</m>에 대해 적어도 하나의 <m>A_i</m>가 존재하여 <m>x \in A_i</m>입니다.</li>
+  <li><em>서로소</em>: 모든 <m>i \neq j</m>에 대해 <m>A_i \cap A_j = \emptyset</m>입니다.</li>
+  </ol>
+  </definition>
+  <example xml:id="ex-partition-by-level-circles">
+    <title>동심원에 의한 평면의 분할</title>
+    <p>
+      평면은 원점을 중심으로 하는 동심원들에 의해 분할될 수 있습니다. 각 동심원은 평면의 부분집합을 형성하며, 이 동심원들의 집합은 평면의 분할을 이룹니다. 단, 반지름이 0인 동심원은 원점 하나로 구성된 부분집합입니다.
+    </p>
+  </example>
+  <example xml:id="ex-partition-by-fibres-of-a-function">
+    <title>함수의 치역에 의한 분할</title>
+    <p>
+      함수 <m>f : X \to Y</m>가 주어졌을 때, <m>X</m>의 원소들을 <m>f</m>의 치역에 따라 분할할 수 있습니다. 각 부분집합은 <m>f</m>의 특정 값에 대응하는 원소들의 집합으로 구성됩니다. 즉, 각 부분집합은 <m>f^{-1}(y)=\{x \in X : f(x) = y\}</m> 형태입니다.
+    </p>
+  </example>
+
+  <proposition xml:id="prop-equivalence-partition">
+  <title>동치류는 분할을 이룬다</title>
+  <p>
+  집합 <m>X</m>에 대한 동치관계 <m>\sim</m>가 주어졌을 때, <m>X</m>의 동치류들은 <m>X</m>의 분할을 이룹니다. 즉, <m>\{[x] : x \in X\}</m>는 <m>X</m>의 분할입니다.
+  </p>
+  <proof>
+  <p>
+    생략.
+  </p>
+  </proof>
+  </proposition>
+  <p>
+    역으로, 분할로부터 동치관계를 얻을 수 있습니다.
+  </p>
+  <proposition xml:id="prop-partition-equivalence">
+    <statement>
+      <p>
+        집합 <m>X</m>에 분할 <m>\{A_i\}</m>가 주어졌을 때, <m>X</m>에 이항 관계 <m>\sim</m>를 다음과 같이 정의하자: <m>x \sim y</m>이면 <m>x</m>와 <m>y</m>가 같은 부분집합 <m>A_i</m>에 속한다. 이때, <m>\sim</m>는 <m>X</m>에 주어진 동치관계이다.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        생략.
+      </p>
+    </proof>
+  </proposition>
+
+</section>

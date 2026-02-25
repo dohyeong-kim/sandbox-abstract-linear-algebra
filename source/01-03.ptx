@@ -194,6 +194,13 @@
     <p>세 가지 조건을 모두 만족하므로 <m>\operatorname{im}(T)</m>는 <m>W</m>의 부분공간입니다.</p>
     </proof>
   </proposition>
+  
+  <example xml:id="ex-column-space-of-matrix">
+    <title>이미지로서의 행렬의 열공간</title>
+    <p>
+      <m>m \times n</m> 행렬 <m>A</m>가 나타내는 선형변환 <m>L_A: \mathbb{F}^n \to \mathbb{F}^m</m>의 이미지는 행렬 <m>A</m>의 열벡터들이 생성하는 부분공간과 같습니다. 즉, <m>\operatorname{im}(L_A) = \operatorname{span}\{  A \text{ 의 열벡터} \}</m>입니다.
+    </p>
+  </example>
 
   <example xml:id="ex-image-of-differential-operator">
     <title>미분 연산자의 이미지</title>
@@ -218,6 +225,18 @@
       <p>이는 상수항을 가진 다항식(예: <m>q(x) = x+1</m>)들을 포함하지 못하므로, 전체 공간 <m>\mathbb{R}[x]</m>의 진부분공간입니다. 즉, 곱셈 연산자 <m>T</m>는 전사 함수가 아닙니다. 그러나 <m>x \cdot p(x) = 0</m>이 되려면 <m>p(x)</m> 자체가 영다항식이어야 하므로 <m>\ker(T) = \{\mathbf{0}\}</m>이며, 따라서 단사 함수입니다.</p>
     </statement>
   </example>
+
+  <definition xml:id="def-rank-of-linear-transformation">
+    <title>랭크</title>
+    <statement>
+      <p>
+        선형변환 <m>T: V \to W</m>의 <term>랭크</term>는 이미지 <m>\operatorname{im}(T)</m>의 차원으로 정의합니다. 랭크는 <m>\operatorname{rank}(T)</m>로 표기합니다.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    <m>m \times n</m> 행렬 <m>A</m>가 나타내는 선형변환 <m>L_A: \mathbb{F}^n \to \mathbb{F}^m</m>의 랭크는 행렬 <m>A</m>의 열벡터 중 선형 독립인 최대 집합의 크기와 같습니다. <m>L_A</m>의 랭크는 <m>A</m>의 열공간의 차원과 일치합니다.
+  </p>
   <exercises xml:id="exercises-01-03">
     <exercise xml:id="ex-kernel-geometric-meaning">
       <title>커널의 기하학적 의미</title>
