@@ -86,7 +86,7 @@
     <example xml:id="ex-differential-operator">
       <title>미분 연산자</title>
       <statement>
-      <p>해석학과 대수학의 만남을 보여주는 전형적인 예시입니다. <m>\mathbb{R}</m> 위에서 계수를 갖는 다항식들의 공간 <m>P(\mathbb{R})</m>을 생각합시다. 미분 연산자 <m>D: P(\mathbb{R}) \to P(\mathbb{R})</m>를 <m>D(p(x)) = p'(x)</m>로 정의합시다. 미분의 기본 성질에 의해 임의의 두 다항식 <m>f(x), g(x)</m>와 스칼라 <m>c, d \in \mathbb{R}</m>에 대하여 다음이 성립합니다.</p>
+      <p>해석학과 대수학의 만남을 보여주는 전형적인 예시입니다. <m>\mathbb{R}</m> 위에서 계수를 갖는 다항식들의 공간 <m>\mathbb{R}[x]</m>을 생각합시다. 미분 연산자 <m>D: \mathbb{R}[x] \to \mathbb{R}[x]</m>를 <m>D(p(x)) = p'(x)</m>로 정의합시다. 미분의 기본 성질에 의해 임의의 두 다항식 <m>f(x), g(x)</m>와 스칼라 <m>c, d \in \mathbb{R}</m>에 대하여 다음이 성립합니다.</p>
       <md>
         <mrow>D(cf(x) + dg(x)) = \frac{d}{dx}(cf(x) + dg(x)) = c\frac{d}{dx}f(x) + d\frac{d}{dx}g(x) = cD(f(x)) + dD(g(x))</mrow>
       </md>
@@ -198,25 +198,126 @@
   <example xml:id="ex-image-of-differential-operator">
     <title>미분 연산자의 이미지</title>
     <statement>
-      <p>다항식 공간 <m>P(\mathbb{R})</m>에서 정의되는 미분 연산자 <m>D(p(x)) = p'(x)</m>의 이미지를 구해봅시다. 임의의 다항식 <m>q(x) = a_0 + a_1x + \dots + a_nx^n \in P(\mathbb{R})</m>을 공역에서 택합시다. 이 <m>q(x)</m>가 과연 <m>D</m>의 이미지 안에 존재하는지 확인하려면, 미분해서 <m>q(x)</m>가 되는 정의역의 다항식 <m>p(x)</m>를 찾아야 합니다. 적분을 이용해</p>
+      <p>다항식 공간 <m>\mathbb{R}[x]</m>에서 정의되는 미분 연산자 <m>D(p(x)) = p'(x)</m>의 이미지를 구해봅시다. 임의의 다항식 <m>q(x) = a_0 + a_1x + \dots + a_nx^n \in \mathbb{R}[x]</m>을 공역에서 택합시다. 이 <m>q(x)</m>가 과연 <m>D</m>의 이미지 안에 존재하는지 확인하려면, 미분해서 <m>q(x)</m>가 되는 정의역의 다항식 <m>p(x)</m>를 찾아야 합니다. 적분을 이용해</p>
       <me>p(x) = a_0x + \frac{a_1}{2}x^2 + \dots + \frac{a_n}{n+1}x^{n+1}</me>
       <p>라는 다항식을 구성하면, 명백하게 <m>D(p(x)) = q(x)</m>가 성립합니다. 공역의 '모든' 다항식이 누군가의 도함수가 될 수 있으므로, <m>D</m>의 이미지는 공역 전체와 같습니다.</p>
       간결하게 쓰면
-      <me>\operatorname{im}(D) = P(\mathbb{R})</me>
+      <me>\operatorname{im}(D) = \mathbb{R}[x]</me>
       입니다.
     </statement>
   </example>
   <example xml:id="ex-image-of-multiplication-operator">
     <title>곱셈 연산자의 이미지</title>
     <statement>
-      <p>다항식 공간 <m>P(\mathbb{R})</m>에서 정의되는 곱셈 연산자 <m>T(p(x)) = x \cdot p(x)</m>를 생각합시다. <m>T</m> 역시 덧셈과 스칼라 곱을 보존하는 선형 연산자입니다.</p>
+      <p>다항식 공간 <m>\mathbb{R}[x]</m>에서 정의되는 곱셈 연산자 <m>T(p(x)) = x \cdot p(x)</m>를 생각합시다. <m>T</m> 역시 덧셈과 스칼라 곱을 보존하는 선형 연산자입니다.</p>
       <p>어떤 다항식 <m>p(x) = a_0 + a_1x + \dots + a_kx^k</m>에 <m>x</m>를 곱하면 그 결과는 <m>a_0x + a_1x^2 + \dots + a_kx^{k+1}</m>이 됩니다. 이 결과물의 가장 큰 특징은 <strong>상수항이 반드시 <m>0</m></strong>이라는 점입니다.</p>
       <p>역으로, 상수항이 0인 임의의 다항식 <m>q(x) = x(b_1 + b_2x + \dots)</m>는 <m>p(x) = b_1 + b_2x + \dots</m>라는 다항식을 <m>T</m>에 통과시켜 얻을 수 있습니다. 따라서 <m>T</m>의 이미지는 다음과 같은 부분공간이 됩니다.</p>
       <md>
-        <mrow>\operatorname{im}(T) = \{ q(x) \in P(\mathbb{R}) \mid q(0) = 0 \} = \operatorname{span}\{x, x^2, x^3, \dots\}</mrow>
+        <mrow>\operatorname{im}(T) = \{ q(x) \in \mathbb{R}[x] \mid q(0) = 0 \} = \operatorname{span}\{x, x^2, x^3, \dots\}</mrow>
       </md>
-      <p>이는 상수항을 가진 다항식(예: <m>q(x) = x+1</m>)들을 포함하지 못하므로, 전체 공간 <m>P(\mathbb{R})</m>의 진부분공간입니다. 즉, 곱셈 연산자 <m>T</m>는 전사 함수가 아닙니다. 그러나 <m>x \cdot p(x) = 0</m>이 되려면 <m>p(x)</m> 자체가 영다항식이어야 하므로 <m>\ker(T) = \{\mathbf{0}\}</m>이며, 따라서 단사 함수입니다.</p>
+      <p>이는 상수항을 가진 다항식(예: <m>q(x) = x+1</m>)들을 포함하지 못하므로, 전체 공간 <m>\mathbb{R}[x]</m>의 진부분공간입니다. 즉, 곱셈 연산자 <m>T</m>는 전사 함수가 아닙니다. 그러나 <m>x \cdot p(x) = 0</m>이 되려면 <m>p(x)</m> 자체가 영다항식이어야 하므로 <m>\ker(T) = \{\mathbf{0}\}</m>이며, 따라서 단사 함수입니다.</p>
     </statement>
   </example>
+  <exercises xml:id="exercises-01-03">
+    <exercise xml:id="ex-kernel-geometric-meaning">
+      <title>커널의 기하학적 의미</title>
+      <statement>
+        <p>선형 변환 <m>T: \mathbb{R}^3 \to \mathbb{R}^2</m>가 <m>T(x, y, z) = (x - y, z)</m>로 주어졌다. 이 변환의 커널 <m>\ker(T)</m>를 구하고, 그것이 <m>\mathbb{R}^3</m>의 어떤 기하학적 대상(점, 선, 면 등)을 나타내는지 서술하시오.</p>
+      </statement>
+    </exercise>
 
+    <exercise xml:id="ex-injectivity-preserves-linear-independence">
+      <title>단사 변환과 선형 독립성</title>
+      <statement>
+        <p>단사 선형 변환 <m>T: V \to W</m>가 주어졌다. 정의역 <m>V</m>의 부분집합 <m>\{v_1, v_2, \dots, v_k\}</m>가 선형 독립이면, 그들의 상(Image)인 <m>\{T(v_1), T(v_2), \dots, T(v_k)\}</m> 역시 <m>W</m>에서 선형 독립이 됨을 증명하시오.</p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-kernel-of-second-derivative">
+      <title>이계 미분 연산자의 커널</title>
+      <statement>
+        <p>다항식 공간 <m>\mathbb{R}[x]_{\le 3}</m>에서 <m>\mathbb{R}[x]_{\le 3}</m>로 가는 두 번 미분 연산자 <m>D^2(p(x)) = p''(x)</m>를 생각하자. <m>\ker(D^2)</m>의 기저를 구하시오.</p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-composition-kernel-image-relations">
+      <title>합성 변환의 커널과 이미지</title>
+      <statement>
+        <p>두 선형 변환 <m>T: V \to W</m>와 <m>S: W \to Z</m>가 주어졌을 때, 합성 변환 <m>S \circ T: V \to Z</m>에 대하여 다음 포함 관계가 성립함을 증명하시오.</p>
+        <ol>
+          <li><m>\ker(T) \subseteq \ker(S \circ T)</m></li>
+          <li><m>\operatorname{im}(S \circ T) \subseteq \operatorname{im}(S)</m></li>
+        </ol>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-dimension-condition-non-surjective">
+      <title>차원 부등식과 전사성</title>
+      <statement>
+        <p>체 <m>\mathbb{F}</m> 위의 유한 차원 벡터 공간 <m>V, W</m>와 선형 변환 <m>T: V \to W</m>에 대하여, <m>V</m>의 차원이 <m>W</m>의 차원보다 작다면(<m>\dim(V) &lt; \dim(W)</m>), <m>T</m>는 결코 전사 함수가 될 수 없음을 생성의 관점에서 간단히 설명하시오.</p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-image-of-nontrivial-linear-functional">
+      <title>선형 범함수의 치역</title>
+      <statement>
+        <p>선형변환 <m>f: V \to \mathbb{F}</m>가 영 변환이 아니라고 가정하자. <m>f</m>의 치역 <m>\operatorname{im}(f)</m>는 무엇인지 체 <m>\mathbb{F}</m>의 부분공간 관점에서 구하시오.
+          <fn><p>
+            <m>F</m>상의 벡터공간 <m>V</m>가 있을 때, 선형변환 <m>f: V \to \mathbb{F}</m>를 선형 범함수(linear functional)라고 부릅니다.
+          </p></fn>
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-scalar-multiplication-transformation">
+      <title>스칼라 곱셈 변환</title>
+      <statement>
+        <p>체 <m>\mathbb{F}</m> 위의 벡터 공간 <m>V</m>와 고정된 영이 아닌 벡터 <m>v_0 \in V</m>를 생각하자. 함수 <m>T: \mathbb{F} \to V</m>를 <m>T(c) = cv_0</m>로 정의할 때, <m>T</m>가 선형 변환임을 보이고, <m>T</m>의 커널과 이미지를 각각 구하시오.</p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-surjective-implies-finite-dimensional-image">
+      <title>전사 변환과 유한 차원성</title>
+      <statement>
+        <p>선형 변환 <m>T: V \to W</m>가 전사 함수(Surjective)라고 가정하자. 만약 정의역 <m>V</m>가 유한 차원 벡터 공간이라면, 공역 <m>W</m> 역시 반드시 유한 차원 벡터 공간이 됨을 <m>V</m>의 기저를 이용하여 증명하시오.</p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-composition-identity-injectivity-surjectivity">
+      <title>항등 합성과 단사성, 전사성</title>
+      <statement>
+        <p>두 선형 연산자 <m>S, T: V \to V</m>에 대하여, 두 변환의 합성 <m>S \circ T</m>가 항등 연산자 <m>I</m>라고 가정하자 (<m>S \circ T = I</m>). 이때 <m>T</m>는 반드시 단사 함수이어야 하고, <m>S</m>는 반드시 전사 함수이어야 함을 증명하시오.</p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-complex-operator-property">
+      <title>복소 선형 연산자의 성질</title>
+      <statement>
+        <p><m>V</m>를 복소수 체 <m>\mathbb{C}</m> 위의 벡터 공간이라 하고, 선형 연산자 <m>T: V \to V</m>가 <m>T(iv) = -iT(v)</m> (단, <m>i</m>는 허수단위)를 만족한다고 하자. <m>T</m>의 이미지가 <m>\ker(T)</m>에 포함될 수 있는가?</p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-image-intersection-subspaces">
+      <title>이미지와 교집합</title>
+      <statement>
+        <p>선형 변환 <m>T: V \to W</m>와 정의역 <m>V</m>의 두 부분공간 <m>U_1, U_2</m>에 대하여 다음 물음에 답하시오.</p>
+        <ol>
+          <li><m>T(U_1 \cap U_2) \subseteq T(U_1) \cap T(U_2)</m> 가 항상 성립함을 증명하시오.</li>
+          <li>위의 포함 관계에서 등호가 성립하지 않는 구체적인 선형 변환 <m>T</m>와 부분공간 <m>U_1, U_2</m>의 반례를 제시하시오.</li>
+          <li>만약 <m>T</m>가 단사 함수라면, 항상 <m>T(U_1 \cap U_2) = T(U_1) \cap T(U_2)</m> 가 성립하게 됨을 증명하시오.</li>
+        </ol>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-sylvester-rank-inequality">
+      <title>실베스터의 부등식</title>
+      <statement>
+        <p><m>V</m>를 유한차원 벡터공간이라 하고, <m>S, T: V \to V</m>를 선형 연산자라 하자. 다음을 증명하시오:</p>
+        <me>\dim(\ker(ST)) \le \dim(\ker(S)) + \dim(\ker(T))</me>
+        <aside><p>
+          정의역과 공역이 같은 선형변환을 선형 연산자라고 합니다. 연산자:operator
+        </p></aside>
+      </statement>
+    </exercise>
+  </exercises>
 </section>

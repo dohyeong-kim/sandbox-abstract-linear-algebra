@@ -41,7 +41,7 @@
     <example xml:id="ex-standard-basis-for-polynomial-space">
       <title>다항식 공간의 기저</title>
       <statement>
-      <p>다항식 공간 <m>P_n(\mathbb{F})</m> (차수가 <m>n</m> 이하인 다항식들의 공간)에서 집합 <m>\beta = \{1, x, x^2, \dots, x^n\}</m>은 기저입니다. 이들은 공간을 생성하며, 영다항식이 되기 위한 유일한 조건은 모든 계수가 0이 되는 것뿐이므로 선형 독립입니다. 이를 <term>표준 기저</term><aside><p>표준 기저:standard basis</p></aside>라 부릅니다.<fn><p>단항식 기저라고 부를 수도 있습니다.</p></fn></p>
+      <p>다항식 공간 <m>\mathbb{F}[x]_{\le n}</m> (차수가 <m>n</m> 이하인 다항식들의 공간)에서 집합 <m>\beta = \{1, x, x^2, \dots, x^n\}</m>은 기저입니다. 이들은 공간을 생성하며, 영다항식이 되기 위한 유일한 조건은 모든 계수가 0이 되는 것뿐이므로 선형 독립입니다. 이를 <term>표준 기저</term><aside><p>표준 기저:standard basis</p></aside>라 부릅니다.<fn><p>단항식 기저라고 부를 수도 있습니다.</p></fn></p>
       </statement>
     </example>
 
