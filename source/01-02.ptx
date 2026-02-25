@@ -56,7 +56,6 @@
         <p>초른의 보조정리를 적용하기 위해, <m>\mathcal{P}</m> 안의 임의의 사슬(Chain) <m>\mathcal{C}</m>가 <m>\mathcal{P}</m> 안에서 상계(Upper bound)를 가짐을 보여야 합니다. 사슬 <m>\mathcal{C}</m>에 속하는 모든 선형 독립 집합들의 합집합을 <m>U</m>라고 정의합니다.
         <md><mrow>U = \bigcup_{S \in \mathcal{C}} S</mrow></md>
         이 합집합 <m>U</m>가 <m>\mathcal{P}</m>의 원소, 즉 <m>U</m> 역시 선형 독립임을 증명합니다.</p>
-  
         <p>선형 독립성을 확인하기 위해, <m>U</m>에서 임의의 유한 개의 벡터 <m>v_1, v_2, \dots, v_n</m>을 택하고 이들의 선형결합이 영벡터가 된다고 가정합니다.
         <md><mrow>c_1 v_1 + c_2 v_2 + \dots + c_n v_n = \mathbf{0} \quad (c_i \in \mathbb{F})</mrow></md>
         <m>U</m>의 정의에 의해, 각각의 <m>v_i</m>는 <m>\mathcal{C}</m>에 속하는 어떤 집합 <m>S_i</m>의 원소입니다. <m>\mathcal{C}</m>는 사슬이므로 임의의 두 원소는 포함 관계를 가집니다. 유한 개의 집합 <m>S_1, S_2, \dots, S_n</m> 중에서 포함 관계에 따라 가장 큰 집합을 <m>S_k</m>라고 하면, 모든 <m>v_1, \dots, v_n</m>은 <m>S_k</m>에 속하게 됩니다. 그런데 <m>S_k \in \mathcal{C} \subseteq \mathcal{P}</m>이므로 <m>S_k</m>는 선형 독립입니다. 따라서 위 선형결합을 만족하는 스칼라는 오직 <m>c_1 = c_2 = \dots = c_n = 0</m> 뿐입니다. 이는 <m>U</m>에 속하는 임의의 유한 부분집합이 선형 독립임을 의미하므로, <m>U</m> 자체도 선형 독립입니다. 따라서 <m>U \in \mathcal{P}</m>입니다.</p>
