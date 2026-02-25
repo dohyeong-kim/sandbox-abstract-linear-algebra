@@ -101,28 +101,28 @@
       </statement>
       <proof>
       <p>
-        <m>\dim(W) = k</m>, <m>\dim(V) = n</m>이라 하자. <m>W</m>의 기저를 <m>\{w_1, \dots, w_k\}</m>라 할 때, 기저 확장 정리(<xref ref="exercise-extension-of-linearly-independent-set"/>)에 의해 이를 <m>V</m>의 기저 <m>\{w_1, \dots, w_k, v_1, \dots, v_{n-k}\}</m>로 확장할 수 있다.
+        <m>\dim(W) = k</m>, <m>\dim(V) = n</m>이라 합시다. <m>W</m>의 기저를 <m>\{w_1, \dots, w_k\}</m>라 할 때, 기저 확장 정리(<xref ref="exercise-extension-of-linearly-independent-set"/>)에 의해 이를 <m>V</m>의 기저 <m>\{w_1, \dots, w_k, v_1, \dots, v_{n-k}\}</m>로 확장할 수 있습니다.
       </p>
       <p>
-        집합 <m>B = \{v_1 + W, \dots, v_{n-k} + W\}</m>가 <m>V/W</m>의 기저가 됨을 주장한다.
+        집합 <m>B = \{v_1 + W, \dots, v_{n-k} + W\}</m>가 <m>V/W</m>의 기저가 됨을 주장합니다.
       </p>
       <p>
-        <em>생성</em>: 임의의 잉여류 <m>x + W \in V/W</m>에 대해 <m>x \in V</m>이므로 <m>x = \sum_{i=1}^k a_i w_i + \sum_{j=1}^{n-k} b_j v_j</m>로 쓸 수 있다. 따라서
+        <em>생성</em>: 임의의 잉여류 <m>x + W \in V/W</m>에 대해 <m>x \in V</m>이므로 <m>x = \sum_{i=1}^k a_i w_i + \sum_{j=1}^{n-k} b_j v_j</m>로 쓸 수 있습니다. 따라서
         <me>x + W = \left( \sum_{i=1}^k a_i w_i + \sum_{j=1}^{n-k} b_j v_j \right) + W = \sum_{j=1}^{n-k} b_j (v_j + W)</me>
         (첫 번째 항은 <m>W</m>에 흡수됨).
       </p>
       <p>
-        <em>선형독립</em>: <m>\sum_{j=1}^{n-k} c_j (v_j + W) = 0_{V/W} = W</m> 라 가정하자. 이는 <m>\left(\sum_{j=1}^{n-k} c_j v_j\right) + W = W</m> 임을 의미하며, 따라서 <m>\sum_{j=1}^{n-k} c_j v_j \in W</m> 이다.
+        <em>선형독립</em>: <m>\sum_{j=1}^{n-k} c_j (v_j + W) = 0_{V/W} = W</m> 라 가정합시다. 이는 <m>\left(\sum_{j=1}^{n-k} c_j v_j\right) + W = W</m> 임을 의미하며, 따라서 <m>\sum_{j=1}^{n-k} c_j v_j \in W</m> 입니다.
       </p>
       <p>
         <example>
           <p>
-            즉, <m>\sum_{j=1}^{n-k} c_j v_j = \sum_{i=1}^k d_i w_i</m>를 만족하는 스칼라 <m>d_i</m>가 존재한다. 이 식을 정리하면 <m>\sum_{j=1}^{n-k} c_j v_j - \sum_{i=1}^k d_i w_i = 0</m> 이 되는데, 확장된 기저의 선형 독립성에 의해 모든 <m>c_j = 0</m> 이다.
+        즉, <m>\sum_{j=1}^{n-k} c_j v_j = \sum_{i=1}^k d_i w_i</m>를 만족하는 스칼라 <m>d_i</m>가 존재합니다. 이 식을 정리하면 <m>\sum_{j=1}^{n-k} c_j v_j - \sum_{i=1}^k d_i w_i = 0</m> 이 되는데, 확장된 기저의 선형 독립성에 의해 모든 <m>c_j = 0</m> 입니다.
           </p>
         </example>
       </p>
       <p>
-        따라서 <m>B</m>는 <m>V/W</m>의 기저이며, 그 크기는 <m>n - k</m> 이다.
+        따라서 <m>B</m>는 <m>V/W</m>의 기저이며, 그 크기는 <m>n - k</m> 입니다.
       </p>
       </proof>
     </theorem>
@@ -140,7 +140,7 @@
     <title>코커널</title>
     <statement>
     <p>
-      <m>T: V \to W</m>가 선형변환일 때, <m>T</m>의 <term>코커널</term>은 공역 <m>W</m>를 <m>T</m>의 치역으로 나눈 몫공간으로 정의되며 <m>\text{coker}(T)</m>로 표기한다.
+      <m>T: V \to W</m>가 선형변환일 때, <m>T</m>의 <term>코커널</term>은 공역 <m>W</m>를 <m>T</m>의 치역으로 나눈 몫공간으로 정의되며 <m>\text{coker}(T)</m>로 표기합니다.
       <me>\text{coker}(T) = W / \text{im}(T)</me>
     </p>
     </statement>
@@ -169,11 +169,19 @@
       </p>
     </exercise>
 
+    
     <exercise xml:id="ex-matrix-similarity">
-      <title>행렬의 닮음</title>
+      <title>닮음과 동치관계</title>
+      <definition xml:id="def-matrix-similarity">
+        <title>행렬의 닮음</title>
+        <statement>
+        <p>
+          <m>n \times n</m> 행렬의 공간 <m>M_{n \times n}(\mathbb{F})</m>에서, 어떤 가역행렬 <m>P</m>가 존재하여 <m>B = P^{-1}AP</m>를 만족할 때 <m>A \sim B</m>라 정의한다. 이를 <term>닮음</term>이라 한다.<aside><p>닮음:similarity</p></aside>
+        </p>
+        </statement>
+      </definition>
       <p>
-        <m>n \times n</m> 행렬의 공간 <m>M_{n \times n}(\mathbb{F})</m>에서, 어떤 가역행렬 <m>P</m>가 존재하여 <m>B = P^{-1}AP</m>를 만족할 때 <m>A \sim B</m>라 정의하자(이를 행렬의 닮음이라 한다). 이 관계가 동치관계임을 증명하시오.
-        <aside><p>닮음:similarity</p></aside>
+      정의 <xref ref="def-matrix-similarity"/>의 행렬의 닮음 관계가 동치관계임을 증명하시오.
       </p>
     </exercise>
 
@@ -216,8 +224,15 @@
 
     <exercise xml:id="ex-induced-map-quotient-space">
       <title>불변 부분공간과 유도된 사상</title>
+      <definition xml:id="def-invariant-subspace">
+        <statement>
+          <p>
+            <m>\mathbb{F}</m>상의 벡터공간 <m>V</m>와 그 부분공간 <m>W</m>가 주어졌을 때, 임의의 <m>v \in W</m>에 대하여 <m>T(v) \in W</m>가 성립하면, 이때 <m>W</m>를 <term><m>T</m>-불변 부분공간</term>이라고 합니다. <aside><p>불변 부분공간:invariant subspace</p></aside>
+          </p>
+        </statement>
+      </definition>
       <p>
-        체 <m>\mathbb{F}</m> 상의 벡터공간 <m>V</m>와 그 부분공간 <m>W</m>에 대하여, 선형 연산자 <m>T: V \to V</m>가 <m>T(W) \subseteq W</m> (즉, <m>W</m>가 <m>T</m>-불변 부분공간)를 만족한다고 하자. 이때 사상 <m>\bar{T}: V/W \to V/W</m>를 <m>\bar{T}(v+W) = T(v)+W</m>로 정의하면 이 사상이 잘 정의된 선형변환임을 증명하시오.
+        체 <m>\mathbb{F}</m> 상의 벡터공간 <m>V</m>와 선형 연산자 <m>T\colon V\to V</m>가 주어졌다. <m>T</m>-불변 부분공간 <m>W\subset V</m>에 대하여, 사상 <m>\bar{T}: V/W \to V/W</m>를 <m>\bar{T}(v+W) = T(v)+W</m>로 정의하면 이 사상이 잘 정의된 선형변환임을 증명하시오.
       </p>
     </exercise>
   </exercises>
