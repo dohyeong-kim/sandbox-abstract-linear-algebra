@@ -133,6 +133,33 @@
       <m>\mathbb{R}^3</m>에서 평면 <m>W = \{ (x, y, z) \mid x+y+z=0 \}</m>를 생각해 봅시다. <m>\dim(\mathbb{R}^3) = 3</m>이고 <m>\dim(W) = 2</m>이므로, 몫공간 <m>\mathbb{R}^3/W</m>의 차원은 <m>3 - 2 = 1</m>입니다. 이상의 대수적 관찰을 직관적으로 표현하자면 3차원 공간을 특정 평면의 방향으로 압축하여 1차원 직선을 얻었다고 할 수 있습니다.
       </p>
     </example>
+
+    <theorem xml:id="thm-rank-nullity">
+      <title>선형변환의 기본정리</title>
+      <statement>
+      <p>
+        <m>V</m>와 <m>W</m>가 체 <m>\mathbb{F}</m> 위의 유한차원 벡터공간이고 <m>T: V \to W</m>가 선형변환일 때, 다음이 성립한다:
+        <me>\dim(\ker(T)) + \dim(\operatorname{im}(T)) = \dim(V)</me>
+      </p>
+      </statement>
+      <proof>
+      <p>
+        <m>\ker(T)</m>의 기저를 <m>\{v_1, \dots, v_k\}</m>라 하고, 기저 확장 정리에 의해 이를 <m>V</m>의 기저 <m>\{v_1, \dots, v_k, w_1, \dots, w_{n-k}\}</m>로 확장합시다. 여기서 <m>\dim(V) = n</m>입니다.
+      </p>
+      <p>
+        집합 <m>\{T(w_1), \dots, T(w_{n-k})\}</m>가 <m>\operatorname{im}(T)</m>의 기저가 됨을 보입시다.
+      </p>
+      <p>
+        <em>생성</em>: 임의의 <m>y \in \operatorname{im}(T)</m>에 대해 <m>y = T(x)</m>인 <m>x \in V</m>가 존재합니다. <m>x = \sum_{i=1}^k a_i v_i + \sum_{j=1}^{n-k} b_j w_j</m>로 나타낼 수 있으므로, <m>T(x) = \sum_{j=1}^{n-k} b_j T(w_j)</m>입니다.
+      </p>
+      <p>
+        <em>선형독립</em>: <m>\sum_{j=1}^{n-k} c_j T(w_j) = 0</m>이면 <m>T\left(\sum_{j=1}^{n-k} c_j w_j\right) = 0</m>이므로 <m>\sum_{j=1}^{n-k} c_j w_j \in \ker(T)</m>입니다. 따라서 <m>\sum_{j=1}^{n-k} c_j w_j = \sum_{i=1}^k d_i v_i</m>인 스칼라 <m>d_i</m>가 존재합니다. <m>V</m>의 기저 선형독립성에 의해 모든 <m>c_j = 0</m>입니다.
+      </p>
+      <p>
+        그러므로 <m>\dim(\ker(T)) = k</m>이고 <m>\dim(\operatorname{im}(T)) = n - k</m>이므로, <m>\dim(\ker(T)) + \dim(\operatorname{im}(T)) = n = \dim(V)</m>입니다.
+      </p>
+      </proof>
+    </theorem>
   </subsection>
   <subsection xml:id="subsec-cokernel">
     <title>코커널</title>
@@ -212,6 +239,18 @@
       <p>
       체 <m>\mathbb{F}</m> 상의 행렬 <m>A = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}</m> 로 정의되는 선형변환 <m>L_A: \mathbb{F}^2 \to \mathbb{F}^2</m> 의 커널을 <m>W</m>라 하자. 몫공간 <m>\mathbb{F}^2/W</m> 의 기저를 하나 찾으시오.
       </p>
+    </exercise>
+    <exercise xml:id="ex-rank-nullity-for-matrix">
+      <title>행렬에 관한 기본정리(랭크-널리티 정리)</title>
+      <statement>
+        <p>
+          <m>A</m>가 <m>m \times n</m> 행렬이고 <m>L_A: \mathbb{F}^n \to \mathbb{F}^m</m>이 그에 대응하는 선형변환일 때, 다음을 증명하시오:
+          <me>\dim(\ker(L_A)) + \dim(\operatorname{im}(L_A)) = n.</me>
+        </p>
+      </statement>
+      
+      
+      
     </exercise>
 
 

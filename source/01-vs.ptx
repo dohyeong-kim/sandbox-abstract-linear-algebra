@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<chapter xml:id="ch-vector-space" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>벡터공간 </title>
+<chapter xml:id="01-vector-space" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>벡터공간과 선형변환</title>
 
   <introduction>
     <p>

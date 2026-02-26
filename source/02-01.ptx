@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="02-01-isomorphisms" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>동형사상</title>
+  <p>
+    두 벡터공간이 포함하는 원소의 구체적인 형태와 무관하게, 두 공간 사이를 오가며 덧셈과 스칼라 곱셈의 구조를 보존할 수 있다면 두 공간은 본질적으로 같다고 볼 수 있습니다. 이를 엄밀하게 규정하기 위해 <q>역변환</q>의 개념을 도입합니다. 일반적으로 역이 존재하는 사상을 <term>가역</term>이라고 합니다. <aside><p>가역:invertible</p></aside>
+  </p>
+  
+  <definition xml:id="def-isomorphism">
+    <title>동형사상</title>
+    <statement>
+      <p>
+        <aside><p>동형사상:isomorphism</p></aside>
+        임의의 체 <m>\mathbb{F}</m> 위에서 정의된 두 벡터공간 <m>V</m>와 <m>W</m>에 대하여, 선형변환 <m>T: V \to W</m>가 가역일 때 <m>T</m>를 <term>동형사상</term>이라 한다. 즉, 다음을 만족하는 선형변환 <m>S: W \to V</m> 가 존재할 때 <m>T</m>를 동형사상이라 정의한다:
+        <me>S \circ T = I_V \quad \text{이고} \quad T \circ S = I_W</me>
+        (단, <m>I_V</m>와 <m>I_W</m>는 각각 <m>V</m>와 <m>W</m> 상의 항등변환이다.)
+      </p>
+      <p>
+        이때 <m>S</m>를 <m>T</m>의 역변환이라 하고 <m>T^{-1}</m>으로 표기한다.
+      </p>
+      <p>
+        동형사상이 존재하는 경우 두 공간 <m>V</m>와 <m>W</m>는 서로 <term>동형</term>이라 하며, <m>V \cong W</m>로 표기한다. <aside><p>동형:isomorphic</p></aside>
+        동형사상을 명시할 때에는 <m>T \colon V \xrightarrow{\sim}W</m>로 표기한다.
+      </p>
+    </statement>
+  </definition>
+  
+  <example xml:id="ex-isomorphism-polynomial">
+    <title>동형사상의 예시:다항식공간과 표준벡터공간</title>
+
+    
+    <statement>
+      <p>
+        체 <m>\mathbb{F}</m> 위의 <m>n</m>차 이하 다항식 공간 <m>\mathbb{F}[x]_{\le n}</m>과 열벡터 공간 <m>\mathbb{F}^{n+1}</m>은 동형입니다. 선형변환 <m>T: \mathbb{F}[x]_{\le n} \to \mathbb{F}^{n+1}</m>을 
+        <me>T(a_0 + a_1 x + \dots + a_n x^n) = (a_0, a_1, \dots, a_n)</me>
+        로 정의합시다. 이에 대한 역변환 <m>S: \mathbb{F}^{n+1} \to \mathbb{F}[x]_{\le n}</m>를 
+        <me>S((c_0, c_1, \dots, c_n)) = c_0 + c_1 x + \dots + c_n x^n</me>
+        으로 정의하면 <m>S</m> 역시 선형변환이며 <m>S \circ T = I_{\mathbb{F}[x]_{\le n}}</m> 이고 <m>T \circ S = I_{\mathbb{F}^{n+1}}</m> 을 만족합니다. 따라서 <m>T</m>는 동형사상입니다.
+      </p>
+    </statement>
+  </example>
+
+  <p>
+    동형사상의 정의는 역변환의 존재에 기반하지만, 우리가 익히 아는 집합론적 조건인 일대일대응으로 해석하는 것이 가능합니다.
+  </p>
+  <proposition xml:id="prop-bijection-isomorphism">
+    <title>일대일대응과 동형사상</title>
+    <statement>
+      <p>
+        선형변환 <m>T: V \to W</m>에 대하여, <m>T</m>가 집합적으로 일대일대응일 필요충분조건은 <m>T</m>가 동형사상인 것이다. (즉, 전단사 선형변환의 역함수는 항상 선형변환이 된다.)
+      </p>
+    </statement>
+    <proof>
+      <p>
+        <m>(\Leftarrow)</m> <m>T</m>가 동형사상이면 역함수 <m>S: W \to V</m>가 존재하므로, 집합론의 기본 성질에 의해 <m>T</m>는 전단사입니다.
+      </p>
+      <p>
+        <m>(\Rightarrow)</m> <m>T</m>가 전단사이므로 역함수 <m>T^{-1}: W \to V</m>가 존재합니다. 이 역함수가 선형변환임을 보이면 충분합니다. 임의의 <m>w_1, w_2 \in W</m>와 체의 스칼라 <m>c \in \mathbb{F}</m>에 대하여, <m>T</m>가 전사이므로 <m>T(v_1) = w_1</m>이고 <m>T(v_2) = w_2</m>를 만족하는 <m>v_1, v_2 \in V</m>가 유일하게 존재합니다.
+      </p>
+      <p>
+        선형변환 <m>T</m>의 덧셈 보존성에 의해 <m>T(v_1 + v_2) = T(v_1) + T(v_2) = w_1 + w_2</m>입니다. 양변에 역함수를 취하면 <m>T^{-1}(w_1 + w_2) = v_1 + v_2 = T^{-1}(w_1) + T^{-1}(w_2)</m>가 성립합니다.
+      </p>
+      <p>
+        또한 <m>T</m>의 스칼라 곱 보존성에 의해 <m>T(c v_1) = c T(v_1) = c w_1</m>입니다. 양변에 역함수를 취하면 <m>T^{-1}(c w_1) = c v_1 = c T^{-1}(w_1)</m>입니다.
+      </p>
+      <p>
+        따라서 <m>T^{-1}</m>는 선형변환이므로, <m>T</m>는 역선형변환을 갖는 동형사상입니다.
+      </p>
+    </proof>
+  </proposition>
+  
+  
+  <theorem xml:id="thm-dimension-isomorphism">
+    <title>차원과 동형</title>
+    <statement>
+      <p>
+        유한차원 벡터공간 <m>V</m>와 <m>W</m>가 동형일 필요충분조건은 두 공간의 차원이 같은 것, 즉
+        <me>V \cong W \iff \dim(V) = \dim(W)</me>
+        이다.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        <m>(\Rightarrow)</m> <m>V \cong W</m>라 가정하고 <m>T: V \to W</m>를 동형사상이라 합시다. 역변환이 존재하므로 <xref ref="prop-bijection-isomorphism"/>에 의해 <m>T</m>는 전단사입니다. 단사이므로 <m>\ker(T) = \{0_V\}</m>이고, 전사이므로 <m>\text{im}(T) = W</m>입니다. <xref ref="thm-rank-nullity"/>에 의해
+        <me>\dim(V) = \dim(\ker(T)) + \dim(\text{im}(T)) = 0 + \dim(W) = \dim(W)</me>
+        입니다.
+      </p>
+      <p>
+        <m>(\Leftarrow)</m> <m>\dim(V) = \dim(W) = n</m>이라 가정합시다. <m>V</m>의 기저를 <m>\{v_1, \dots, v_n\}</m>이라 하고, <m>W</m>의 기저를 <m>\{w_1, \dots, w_n\}</m>이라 합시다. 선형변환 <m>T: V \to W</m>를 기저 원소들의 대응인 <m>T(v_i) = w_i</m>로 정의하고 선형으로 확장합시다.
+      </p>
+      <p>
+        <m>T\left(\sum_{i=1}^n c_i v_i\right) = 0_W</m>라고 가정하면 선형성에 의해 <m>\sum_{i=1}^n c_i w_i = 0_W</m>입니다. 기저 <m>\{w_i\}</m>는 선형독립이므로 모든 계수 <m>c_i = 0</m>입니다. 따라서 <m>\ker(T) = \{0_V\}</m>이므로 <m>T</m>는 단사입니다. 치역 <m>\text{im}(T)</m>는 공역 <m>W</m>의 기저를 모두 포함하므로 <m>\text{im}(T) = W</m>이고 <m>T</m>는 전사입니다. 따라서 <m>T</m>는 전단사 선형변환이므로 <xref ref="prop-bijection-isomorphism"/>에 의해 동형사상입니다.
+      </p>
+    </proof>
+  </theorem>
+  
+  
+  <example xml:id="ex-matrix-space-isomorphism">
+    <title>행렬공간과 열벡터공간의 동형</title>
+    <statement>
+      <p>
+        체 <m>\mathbb{F}</m> 상의 <m>2 \times 2</m> 행렬 공간 <m>M_{2 \times 2}(\mathbb{F})</m>은 차원이 4이고, 표준 벡터공간 <m>\mathbb{F}^4</m> 역시 차원이 4입니다. <xref ref="thm-dimension-isomorphism"/>에 의해 두 공간은 동형입니다. 우리가 행렬끼리 더하고 스칼라곱을 취할 때, 4개의 성분을 가진 하나의 긴 열벡터로 취급해도 되는 이유입니다.
+      </p>
+    </statement>
+  </example>
+  <subsection xml:id="subsec-direct-sums">
+    <title>직합</title>
+    <p>
+      직합은 벡터공간을 겹치지 않는 부분공간들의 합으로 분해하여 공간의 구조를 단순화하는 강력한 방법입니다.<aside><p>직합:direct sum</p></aside>
+    </p>
+  
+    <definition xml:id="def-direct-sum">
+      <title>직합</title>
+      <statement>
+      <p>
+        벡터공간 <m>V</m>의 두 부분공간 <m>U, W</m>에 대하여, <m>V = U + W</m> 이고 <m>U \cap W = \{0_V\}</m> 일 때, <m>V</m>는 <m>U</m>와 <m>W</m>의 <term>직합</term>이라 하고 <m>V = U \oplus W</m> 로 표기한다. <aside><p>직합:direct sum</p></aside>
+      </p>
+      </statement>
+    </definition>
+
+    <example xml:id="ex-direct-sum-f3">
+      <title>직합의 예시: <m>\mathbb{F}^3</m>의 분해</title>
+      <statement>
+      <p>
+        공간 <m>\mathbb{F}^3</m>에서 부분공간 <m>U = \{ (x, y, 0) \mid x, y \in \mathbb{F} \}</m>와 <m>W = \{ (0, 0, z) \mid z \in \mathbb{F} \}</m>를 고려하자. 임의의 벡터 <m>(a, b, c) \in \mathbb{F}^3</m>는 <m>(a, b, 0) \in U</m>와 <m>(0, 0, c) \in W</m>의 합으로 유일하게 표현되며, <m>U \cap W = \{(0, 0, 0)\}</m>이므로 <m>\mathbb{F}^3 = U \oplus W</m>가 성립한다.
+      </p>
+      </statement>
+    </example>
+    
+    <proposition xml:id="prop-direct-sum-characterization">
+      <title>직합의 동치조건</title>
+      <statement>
+        <p>
+          벡터공간 <m>V</m>가 두 부분공간 <m>U</m>와 <m>W</m>의 직합일 필요충분조건은 임의의 <m>v \in V</m>가 <m>v = u + w</m> (단, <m>u \in U, w \in W</m>)의 형태로 유일하게 표현되는 것이다.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          <m>(\Rightarrow)</m> <m>V = U \oplus W</m> 라 가정하자. <m>V = U+W</m> 이므로 임의의 <m>v \in V</m> 에 대해 최소한 하나의 합 표현은 존재한다. 만약 어떤 벡터가 <m>v = u_1 + w_1 = u_2 + w_2</m> 로 두 가지 방식으로 표현된다고 하자. 이 식을 이항하면 <m>u_1 - u_2 = w_2 - w_1</m> 이 성립한다. 좌변은 <m>U</m>의 원소이고 우변은 <m>W</m>의 원소이므로, 이 새로운 벡터는 <m>U \cap W</m> 에 속한다. 직합의 조건에 의해 <m>U \cap W = \{0_V\}</m> 이므로 <m>u_1 - u_2 = 0_V</m> 이고 <m>w_2 - w_1 = 0_V</m> 이다. 즉 <m>u_1 = u_2</m> 이고 <m>w_1 = w_2</m> 이므로 합의 표현은 유일하다.
+        </p>
+        <p>
+          <m>(\Leftarrow)</m> 모든 <m>v \in V</m> 가 <m>v = u+w</m> 로 유일하게 표현된다고 가정하자. <m>V=U+W</m> 임은 정의에 의해 자명하다. 교집합의 원소 <m>x \in U \cap W</m> 를 고려하자. <m>x</m>는 <m>x = x + 0_V</m> (여기서 <m>x \in U, 0_V \in W</m>)로 표현될 수 있고, 동시에 <m>x = 0_V + x</m> (여기서 <m>0_V \in U, x \in W</m>)로도 표현될 수 있다. 표현의 유일성 가정에 의해 <m>x = 0_V</m> 이어야 하므로 <m>U \cap W = \{0_V\}</m> 이다. 따라서 <m>V = U \oplus W</m> 이다.
+        </p>
+      </proof>
+    </proposition>
+    <example xml:id="ex-even-odd-functions">
+      <title>기함수와 우함수로 분해</title>
+      <statement>
+      <p>
+        체 <m>\mathbb{F}</m>의 표수가 2가 아니라고 가정하자. <m>\mathbb{F}</m>에서 <m>\mathbb{F}</m>로 가는 모든 함수들의 벡터공간을 <m>V</m>라 하자. 우함수의 공간을 <m>U = \{ f \in V \mid f(-x) = f(x) \}</m>라 하고, 기함수의 공간을 <m>W = \{ f \in V \mid f(-x) = -f(x) \}</m>라 하자.
+      </p>
+      <p>
+        임의의 함수 <m>f \in V</m>는 다음과 같이 쓸 수 있다.
+        <me>f(x) = \underbrace{\frac{f(x) + f(-x)}{2}}_{\in U} + \underbrace{\frac{f(x) - f(-x)}{2}}_{\in W}</me>
+        따라서 <m>V = U + W</m>이다. (표수가 2가 아니므로 2로 나눌 수 있다.)
+      </p>
+      <p>
+        만약 어떤 함수 <m>g \in U \cap W</m>라면, <m>g(x) = g(-x)</m>이고 동시에 <m>g(x) = -g(-x)</m>이어야 하므로 <m>g(x) = -g(x)</m>이다. 이는 <m>2g(x) = 0</m>을 의미하며, 표수가 2가 아니므로 <m>g</m>는 영함수이다. 즉 <m>U \cap W = \{0_V\}</m>이다.
+      </p>
+      <p>
+        결론적으로 <m>V = U \oplus W</m>가 성립한다.
+      </p>
+      </statement>
+    </example>
+    <example xml:id="ex-symmetric-antisymmetric-decomposition">
+      <title>대칭행렬과 반대칭행렬의 직합</title>
+      <statement>
+      <p>
+        체 <m>\mathbb{F}</m>의 표수(characteristic)가 2가 아닐 때, <m>n \times n</m> 정사각행렬의 공간 <m>M_{n \times n}(\mathbb{F})</m>은 대칭행렬들의 부분공간 <m>U</m>와 반대칭행렬들의 부분공간 <m>W</m>의 직합이다. 임의의 행렬 <m>A</m>는 유일하게 <m>A = 2^{-1}(A + A^T) + 2^{-1}(A - A^T)</m>로 쪼개어지며, 두 공간의 교집합은 영행렬 뿐이기 때문이다.
+      </p>
+      </statement>
+    </example>
+    <p>
+      이제 직합의 개념을 임의의 개수 부분공간족으로 확장합니다.
+      <aside><p>족:family</p></aside>
+    </p>
+
+
+    <definition xml:id="def-direct-sum-infinite">
+      <title>직합 (일반적인 경우)</title>
+      <statement>
+      <p>
+        <m>V</m>를 벡터공간이라 하고, <m>\{U_i\}_{i \in I}</m>를 인덱스 집합 <m>I</m>에 의해 인덱스된 <m>V</m>의 부분공간들의 족이라 하자. 다음 두 조건을 만족할 때 <m>V</m>는 부분공간들 <m>U_i</m>의 <term>직합</term>이라 하고, <m>V = \bigoplus_{i \in I} U_i</m>로 표기한다.
+      </p>
+      <p>
+        <em>생성:</em> <m>V = \sum_{i \in I} U_i</m>. (즉, <m>V</m>의 모든 원소는 <m>U_i</m>들의 원소들의 유한 개의 합으로 표현된다.)
+      </p>
+      <p>
+        <em>독립성:</em> 임의의 인덱스 <m>j \in I</m>에 대하여, <m>U_j \cap \sum_{i \in I, i \neq j} U_i = \{0_V\}</m>이다.
+      </p>
+      </statement>
+    </definition>
+
+
+    <proposition xml:id="prop-direct-sum-uniqueness">
+      <title>직합과 분해의 유일성</title>
+      <statement>
+      <p>
+        벡터공간 <m>V</m>가 부분공간 족 <m>\{U_i\}_{i \in I}</m>의 직합일 필요충분조건은 임의의 0이 아닌 벡터 <m>v \in V</m>가 영벡터가 아닌 유한 개의 <m>u_{i_k} \in U_{i_k}</m>들의 합으로 유일하게 표현되는 것이다.
+      </p>
+      </statement>
+      <proof>
+      <p>
+        <m>(\Rightarrow)</m> <m>V = \bigoplus_{i \in I} U_i</m>라 가정하자. 첫 번째 조건에 의해 임의의 <m>v</m>는 유한 합으로 표현된다. 이 표현이 유일하지 않아 <m>v = \sum_{k=1}^n u_{i_k} = \sum_{k=1}^n w_{i_k}</m>라 하자 (필요시 영벡터를 더해 같은 인덱스 집합에 대한 합으로 맞춘다). 이를 이항하면 <m>\sum_{k=1}^n (u_{i_k} - w_{i_k}) = 0_V</m>이다. 만약 어떤 <m>j</m>에 대해 <m>u_{i_j} - w_{i_j} \neq 0_V</m>라면, <m>u_{i_j} - w_{i_j} = \sum_{k \neq j} -(u_{i_k} - w_{i_k})</m>가 된다. 좌변은 <m>U_{i_j}</m>에 속하고 우변은 <m>\sum_{k \neq j} U_{i_k}</m>에 속하므로, 이는 두 공간의 교집합에 영벡터가 아닌 원소가 존재함을 의미하여 직합의 두 번째 조건에 모순된다. 따라서 모든 <m>k</m>에 대해 <m>u_{i_k} = w_{i_k}</m>이며 표현은 유일하다.
+      </p>
+      <p>
+        <m>(\Leftarrow)</m> 모든 <m>v</m>가 유한 합으로 유일하게 표현된다고 가정하자. 유한 합으로 표현되므로 <m>V = \sum_{i \in I} U_i</m>이다. 어떤 <m>j</m>에 대해 <m>x \in U_j \cap \sum_{i \neq j} U_i</m>가 존재하여 <m>x \neq 0_V</m>라면, <m>x = u_j \in U_j</m>이며 동시에 <m>x = u_{k_1} + \dots + u_{k_m}</m> (<m>k_l \neq j</m>)로 표현된다. 이는 <m>x</m>를 두 가지 다른 방식으로 표현한 것이 되어 유일성 가정에 모순이다. 따라서 교집합은 <m>\{0_V\}</m>이며 직합의 조건을 만족한다.
+      </p>
+      </proof>
+    </proposition>
+
+    
+    <example xml:id="ex-polynomial-space-direct-sum">
+      <title>다항식공간의 직합 분해</title>
+      <statement>
+      <p>
+      체 <m>\mathbb{F}</m> 상의 모든 다항식들의 공간 <m>\mathbb{F}[x]</m>를 고려하자. 각 음이 아닌 정수 <m>i \ge 0</m>에 대하여 <m>U_i</m>를 단항식 <m>x^i</m>가 생성하는 1차원 부분공간, 즉 <m>U_i = \{ c x^i \mid c \in \mathbb{F} \}</m>라 하자. 임의의 다항식은 이 단항식들의 유한 합으로 유일하게 표현되므로, <m>\mathbb{F}[x] = \bigoplus_{i=0}^\infty U_i</m>이다.
+      </p>
+      </statement>
+    </example>
+    
+    <p>
+      이 무한 직합의 개념은 선형대수학의 가장 근본적인 대상인 기저의 본질을 새롭게 규명해 줍니다. 기저란 다름 아닌, 전체 공간을 1차원 공간들의 직합으로 분해하는 방법입니다.
+    </p>
+
+    <theorem xml:id="thm-basis-direct-sum">
+      <title>기저와 1차원 공간의 직합 분해</title>
+      <statement>
+      <p>
+        벡터공간 <m>V</m>의 원소들의 집합 <m>B = \{v_i\}_{i \in I}</m> (단, <m>v_i \neq 0_V</m>) 가 주어졌다고 하자. <m>B</m>가 <m>V</m>의 기저가 될 필요충분조건은 <m>V</m>가 기저 원소들이 생성하는 1차원 부분공간들의 직합으로 분해되는 것이다. 즉,
+        <me>V = \bigoplus_{i \in I} \text{span}(v_i)</me>
+      </p>
+      </statement>
+      <proof>
+      <p>
+        각 인덱스 <m>i \in I</m> 에 대하여 <m>U_i = \text{span}(v_i) = \{ c v_i \mid c \in \mathbb{F} \}</m> 인 1차원 부분공간을 생각하자.
+      </p>
+      <p>
+        <m>(\Rightarrow)</m> <m>B</m>가 기저라고 가정하자. 기저의 정의에 의해 <m>B</m>는 <m>V</m>를 생성하므로, 임의의 <m>v \in V</m> 는 <m>B</m>의 원소들의 유한 선형결합 <m>\sum c_k v_{i_k}</m> 로 표현된다. 각 <m>c_k v_{i_k}</m> 는 <m>U_{i_k}</m> 의 원소이므로 <m>V = \sum_{i \in I} U_i</m> 이다. 또한 기저는 선형독립이므로 0을 표현하는 방법은 모든 계수가 0인 경우뿐이다. 이는 <xref ref="prop-direct-sum-characterization"/>에서 증명한 바와 같이 원소의 표현이 유일함을 의미하며, 직합의 조건을 만족한다. 따라서 <m>V = \bigoplus_{i \in I} \text{span}(v_i)</m> 이다.
+      </p>
+      <p>
+        <m>(\Leftarrow)</m> <m>V = \bigoplus_{i \in I} \text{span}(v_i)</m> 라 가정하자. 첫 번째 조건인 <m>V = \sum_{i \in I} \text{span}(v_i)</m> 에 의해 <m>B</m>는 <m>V</m>를 생성한다. 이제 선형독립성을 보이기 위해 유한 개의 원소에 대한 선형결합 <m>\sum_{k=1}^n c_k v_{i_k} = 0_V</m> 라 가정하자. 각 항 <m>c_k v_{i_k}</m> 는 서로 다른 부분공간 <m>U_{i_k}</m> 의 원소이다. <m>0_V</m>를 표현하는 방법은 각 성분이 영벡터인 경우, 즉 모든 <m>k</m>에 대해 <m>c_k v_{i_k} = 0_V</m> 인 경우 뿐이다 (<xref ref="prop-direct-sum-uniqueness"/>의 유일성). <m>v_{i_k} \neq 0_V</m> 이므로 모든 <m>c_k = 0</m> 이다. 따라서 <m>B</m>는 선형독립이며 <m>V</m>의 기저이다.
+      </p>
+      </proof>
+    </theorem>
+    
+    <example xml:id="ex-standard-basis-direct-sum">
+      <title>표준기저와 직합 분해</title>
+      <statement>
+      <p>
+        공간 <m>\mathbb{F}^n</m>은 표준기저 <m>e_1, e_2, \dots, e_n</m>을 가진다. <xref ref="thm-basis-direct-sum"/>에 의해 <m>\mathbb{F}^n</m>은 각 좌표축을 의미하는 1차원 부분공간들의 직합으로 분해된다:
+        <me>\mathbb{F}^n = \text{span}(e_1) \oplus \text{span}(e_2) \oplus \dots \oplus \text{span}(e_n)</me>
+        기저를 찾는다는 것은 엉켜있는 다차원 공간을 본질적으로 서로 독립적인 1차원 직선들의 합집합으로 말끔하게 분리해 내는 작업과 동일하다.
+      </p>
+      </statement>
+    </example>
+    
+  </subsection>
+  <exercises>
+    <exercise>
+      <statement>
+        <p>
+          체 <m>\mathbb{F}</m> 위에서 정의된 벡터공간 <m>V</m>의 차원이 5이고 <m>W</m>의 차원이 6일 때, 두 공간 사이에 역변환을 갖는 선형변환(동형사상)이 존재할 수 있는가? 논리적 근거를 제시하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          선형변환 <m>T: \mathbb{F}^3 \to \mathbb{F}^3</m> 가 <m>T(x,y,z) = (x, y, 0)</m> 으로 정의될 때, 이 변환이 동형사상이 아닌 이유를 가역성의 관점에서 밝히시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          선형변환 <m>T: V \to W</m> 가 동형사상일 때, 그 역변환 <m>T^{-1}: W \to V</m> 가 유일하게 존재함을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          선형변환 <m>T: V \to W</m> 가 동형사상이라 하자. 집합 <m>\{v_1, \dots, v_n\}</m> 이 <m>V</m>의 기저이면, 집합 <m>\{T(v_1), \dots, T(v_n)\}</m> 은 <m>W</m>의 기저임을 역변환 <m>T^{-1}</m>를 명시적으로 사용하여 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          체 <m>\mathbb{F}</m> 상의 벡터공간들의 모임 위에서 동형관계 <m>\cong</m>가 동치관계가 됨을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          선형변환 <m>T: V \to W</m> 가 동형사상이고 <m>U</m>가 <m>V</m>의 부분공간이라 할 때, 부분공간의 치역 <m>T(U)</m> 가 <m>W</m>의 부분공간이 됨을 보이고, <m>\dim(U) = \dim(T(U))</m> 가 성립함을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          체 <m>\mathbb{F}</m> 위에서 <m>2 \times 2</m> 대칭행렬(symmetric matrix)들의 공간이 <m>\mathbb{F}^3</m> 와 동형임을 구체적인 동형사상을 구성하여 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          유한차원 벡터공간 <m>V, W</m>에 대하여, 단사인 선형변환 <m>T: V \to W</m> 와 단사인 선형변환 <m>S: W \to V</m> 가 모두 존재하면 두 공간은 반드시 동형(<m>V \cong W</m>)임을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          세 부분공간의 합에 대하여, <m>U_1 \cap U_2 = \{0_V\}</m>, <m>U_2 \cap U_3 = \{0_V\}</m>, <m>U_3 \cap U_1 = \{0_V\}</m> 이라는 '쌍마다의 교집합이 영공간'이라는 조건이 합공간 <m>U_1 + U_2 + U_3</m> 가 직합이 되기 위한 충분조건이 아님을 <m>\mathbb{F}^2</m> 내의 1차원 부분공간 세 개를 이용하여 반례를 구성하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>M_{2 \times 2}(\mathbb{F})</m> 공간에서 대각성분이 모두 0인 행렬들의 공간을 <m>W</m>라 하고, 스칼라 행렬(단위행렬의 상수배)들의 공간을 <m>U</m>라 할 때, 두 공간의 합 <m>U+W</m> 가 직합인지 판별하고 그 합공간의 차원을 구하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          임의의 벡터공간 <m>V</m>와 그 부분공간 <m>U</m>가 주어졌을 때, <m>V = U \oplus W</m> 를 만족하는 여공간 <m>W</m>가 항상 존재함을 기저 확장 정리를 이용하여 증명하시오.
+          <aside><p>여공간:complementary subspace</p></aside>
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>V = \bigoplus_{i \in I} U_i</m> 이고 <m>W</m>가 또 다른 벡터공간이라 하자. 각 <m>U_i</m> 에 정의된 임의의 선형변환 족 <m>T_i: U_i \to W</m> 가 주어졌을 때, <m>V</m>에서 <m>W</m>로 가는 선형변환 <m>T</m> 중 모든 <m>i \in I</m> 에 대해 <m>T|_{U_i} = T_i</m> 를 만족하는 <m>T</m>가 유일하게 존재함을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise>
+      <statement>
+        <p>
+          부분공간 교집합의 직합 보존 실패: 벡터공간 <m>V</m>가 부분공간들의 직합 <m>V = \bigoplus_{i \in I} W_i</m> 로 주어지고 각 <m>W_i</m> 가 유한차원이라 하자. 임의의 부분공간 <m>U \subseteq V</m> 가 주어졌을 때, <m>U</m>가 반드시 <m>\bigoplus_{i \in I} (U \cap W_i)</m> 로 분해되지는 않음을 증명하시오. 이를 보이기 위한 명확한 기하학적 반례를 <m>\mathbb{R}^2</m> 공간 상에서 제시하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <definition xml:id="def-linear-transformation-space">
+      <title>선형변환의 공간</title>
+      <statement>
+        <p>
+          체 <m>\mathbb{F}</m> 위에서 정의된 두 벡터공간 <m>V</m>와 <m>W</m>에 대하여, <m>V</m>에서 <m>W</m>로 가는 모든 선형변환들의 집합을 <m>\mathcal{L}(V,W)</m> (또는 <m>\text{Hom}(V,W)</m>)라 표기한다. 임의의 <m>S,T \in \mathcal{L}(V,W)</m>와 <m>c \in \mathbb{F}</m>, 그리고 벡터 <m>v \in V</m>에 대하여 덧셈과 스칼라 곱셈을 다음과 같이 함수 단위로 정의한다:
+        </p>
+        <p>
+          <em>덧셈:</em> <m>(S+T)(v) = S(v) + T(v)</m>
+        </p>
+        <p>
+          <em>스칼라 곱셈:</em> <m>(cT)(v) = c \cdot T(v)</m>
+        </p>
+        <p>
+          이러한 연산들에 대해 <m>\mathcal{L}(V,W)</m>는 벡터공간을 이루며, 이를 <m>V</m>에서 <m>W</m>로 가는 선형변환들의 벡터공간이라 한다.
+        </p>
+      </statement>
+    </definition>
+
+    <exercise>
+      <statement>
+        <p>
+          <m>V</m>와 <m>W</m>가 유한차원 벡터공간일 때, <m>\mathcal{L}(V,W) </m>와 <m>M_{\dim(W) \times \dim(V)}(\mathbb{F})</m> 사이의 동형사상을 하나 구하고, 이를 이용하여 <m>\mathcal{L}(V,W)</m>의 차원이 <m>\dim(V) \cdot \dim(W)</m>임을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
+
+</section>

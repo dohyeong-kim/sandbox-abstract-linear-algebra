@@ -13,6 +13,7 @@
 
     <!-- Include chapters -->
     <xi:include href="./01-vs.ptx" />
+    <xi:include href="./02-iso.ptx" />
     <xi:include href="./99-appendices.ptx" />
     <xi:include href="./ch-chapter-title.ptx" />
 
