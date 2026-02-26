@@ -95,16 +95,16 @@
     </example>
 
     <example xml:id="ex-matrix-transformation">
-      <title>행렬 변환</title>
+      <title>행렬 곱과 선형변환</title>
       <statement>
-      <p><m>A</m>를 성분이 <m>\mathbb{F}</m>에 있는 <m>m \times n</m> 행렬이라 합시다. 열벡터로 표현된 유클리드 공간 사이의 함수 <m>L_A: \mathbb{F}^n \to \mathbb{F}^m</m>을 행렬의 곱셈을 이용하여 <m>L_A(x) = Ax</m>로 정의합시다. 행렬 대수학의 분배법칙과 스칼라 곱 결합법칙에 의해 <m>A(cx + dy) = c(Ax) + d(Ay)</m>가 성립하므로, <m>L_A</m>는 선형 변환입니다. (추후 모든 유한 차원 벡터 공간의 선형 변환은 적당한 기저를 선택함으로써 이러한 행렬 변환으로 완벽하게 번역될 수 있음을 배우게 됩니다.)</p>
+      <p><m>A</m>를 성분이 <m>\mathbb{F}</m>에 있는 <m>m \times n</m> 행렬이라 합시다. 열벡터로 표현된 표준 선형공간 사이의 함수 <m>L_A: \mathbb{F}^n \to \mathbb{F}^m</m>을 행렬의 곱셈을 이용하여 <m>L_A(x) = Ax</m>로 정의합시다. 행렬 대수학의 분배법칙과 스칼라 곱 결합법칙에 의해 <m>A(cx + dy) = c(Ax) + d(Ay)</m>가 성립하므로, <m>L_A</m>는 선형 변환입니다.</p>
       </statement>
     </example>
 
     <example xml:id="ex-nonlinear-counterexample-translation">
       <title>선형 변환이 아닌 반례</title>
       <statement>
-      <p><m>\mathbb{F}^2</m>에서 <m>\mathbb{F}^2</m>로 가는 함수 <m>T(x, y) = (x+1, y)</m>를 생각합시다. 명제 1에 의하면 선형 변환은 반드시 영벡터를 영벡터로 보내야 합니다. 그러나 <m>T(0, 0) = (1, 0) \neq (0, 0)</m>이므로 <m>T</m>는 선형 변환이 아닙니다. (기하학적으로 원점을 지나는 평행이동이 아닌 일반적인 평행이동은 선형 변환이 아닙니다. 이를 <q>아핀 변환</q>이라고 구별하여 부릅니다.)
+      <p><m>\mathbb{F}^2</m>에서 <m>\mathbb{F}^2</m>로 가는 함수 <m>T(x, y) = (x+1, y)</m>를 생각합시다. <xref ref="prop-preservation-of-zero-vector"/> 에 의하면 선형 변환은 반드시 영벡터를 영벡터로 보내야 합니다. 그러나 <m>T(0, 0) = (1, 0) \neq (0, 0)</m>이므로 <m>T</m>는 선형 변환이 아닙니다. (기하학적으로 원점을 지나는 평행이동이 아닌 일반적인 평행이동은 선형 변환이 아닙니다. 이를 <q>아핀 변환</q>이라고 구별하여 부릅니다.)
       <aside><p>아핀 변환:affine transformation</p></aside></p>
       </statement>
     </example>
@@ -234,9 +234,13 @@
       </p>
     </statement>
   </definition>
-  <p>
-    <m>m \times n</m> 행렬 <m>A</m>가 나타내는 선형변환 <m>L_A: \mathbb{F}^n \to \mathbb{F}^m</m>의 랭크는 행렬 <m>A</m>의 열벡터 중 선형 독립인 최대 집합의 크기와 같습니다. <m>L_A</m>의 랭크는 <m>A</m>의 열공간의 차원과 일치합니다.
-  </p>
+  <example xml:id="ex-rank-of-matrix-transformation">
+    <title>행렬 변환의 랭크</title>
+    <statement>
+      <m>m \times n</m> 행렬 <m>A</m>가 나타내는 선형변환 <m>L_A: \mathbb{F}^n \to \mathbb{F}^m</m>의 랭크는 행렬 <m>A</m>의 열벡터 중 선형 독립인 최대 집합의 크기와 같습니다. <m>L_A</m>의 랭크는 <m>A</m>의 열공간의 차원과 일치합니다. 따라서, 열공간의 차원으로 정의한 랭크의 개념은 선형변환의 랭크 개념과 부합합니다. 
+    </statement>
+  </example>
+
   <exercises xml:id="exercises-01-03">
     <exercise xml:id="ex-kernel-geometric-meaning">
       <title>커널의 기하학적 의미</title>
@@ -314,8 +318,7 @@
       <statement>
         <p><m>V</m>를 복소수 체 <m>\mathbb{C}</m> 위의 벡터 공간이라 하고, 선형 연산자 <m>T: V \to V</m>가 <m>T(iv) = -iT(v)</m> (단, <m>i</m>는 허수단위)를 만족한다고 하자. <m>T</m>의 이미지가 <m>\ker(T)</m>에 포함될 수 있는가?</p>
       </statement>
-    </exercise>
-
+    </exercise>    
     <exercise xml:id="ex-image-intersection-subspaces">
       <title>이미지와 교집합</title>
       <statement>
