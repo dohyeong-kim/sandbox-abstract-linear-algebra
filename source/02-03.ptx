@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="02-03-product-projection-dual" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>직곱, 사영, 쌍대공간</title>
+  <subsection xml:id="subsection-projection">
+    <title>사영</title>
+    <p>
+      사영은 전체 공간의 벡터를 특정한 부분공간의 성분으로만 투영시키는 선형 연산자입니다. 사영 연산자는 대수적으로 주어진 공간을 분해합니다.
+    </p>
+    <definition xml:id="def-projection">
+      <statement>
+        <p>
+          체 <m>\mathbb{F}</m> 위의 벡터공간 <m>V</m> 상의 선형 연산자 <m>P: V \to V</m> 가 <m>P^2 = P</m> 를 만족할 때, <m>P</m>를 사영이라 한다.
+        </p>
+      </statement>
+    </definition>
+    <theorem xml:id="thm-projection-decomposition">
+      <title>사영의 직합 분해</title>
+      <statement>
+        <p>
+          선형 연산자 <m>P: V \to V</m> 가 사영이면, <m>V = \ker(P) \oplus \text{im}(P)</m> 로 직합 분해된다.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          임의의 <m>v \in V</m> 에 대하여, 항등식 <m>v = (v - P(v)) + P(v)</m> 를 고려합니다. <m>P(v) \in \text{im}(P)</m> 임은 자명합니다. <m>v - P(v)</m> 에 연산자 <m>P</m>를 적용하면 <m>P(v - P(v)) = P(v) - P^2(v)</m> 입니다. 사영의 정의에 의해 <m>P^2 = P</m> 이므로, <m>P(v) - P(v) = 0_V</m> 입니다. 따라서 <m>v - P(v) \in \ker(P)</m> 입니다. 이는 <m>V = \ker(P) + \text{im}(P)</m> 임을 보여줍니다.
+        </p>
+        <p>
+          교집합을 확인하기 위해 <m>x \in \ker(P) \cap \text{im}(P)</m> 라 가정합니다. <m>x \in \text{im}(P)</m> 이므로 어떤 <m>y \in V</m> 에 대해 <m>x = P(y)</m> 입니다. 양변에 <m>P</m>를 취하면 <m>P(x) = P^2(y) = P(y) = x</m> 입니다. 그런데 <m>x \in \ker(P)</m> 이기도 하므로 <m>P(x) = 0_V</m> 입니다. 따라서 <m>x = 0_V</m> 입니다.
+        </p>
+        <p>
+          교집합이 영벡터뿐이므로 <m>V = \ker(P) \oplus \text{im}(P)</m> 입니다.
+        </p>
+      </proof>
+    </theorem>
+    <question xml:id="qstn-projection-example-1">
+      <title>사영과 제1동형정리</title>
+      <statement>
+        <p>
+          연산자 <m>P: V \to V</m> 가 사영일 때, 사상 <m>\bar{P}: V/\ker(P) \to \text{im}(P)</m> 를 <m>\bar{P}(v + \ker(P)) = P(v)</m> 로 정의하면 이는 동형사상이다.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          선형변환 <m>P</m>에 대하여 제1동형정리를 직접 적용한 결과입니다. 사영 <m>P</m>의 치역은 <m>\text{im}(P)</m> 이고 커널은 <m>\ker(P)</m> 이므로, <m>V</m>를 <m>\ker(P)</m> 로 나눈 몫공간은 치역 <m>\text{im}(P)</m> 와 동형이 됩니다. 앞선 <xref ref="thm-projection-decomposition"/>의 직합 분해 <m>V = \ker(P) \oplus \text{im}(P)</m> 의 관점에서 보면, 전체 공간에서 한쪽 직합 성분인 <m>\ker(P)</m> 를 동치 관계로 묶어 무시(몫공간)하고 나면, 나머지 직합 성분인 <m>\text{im}(P)</m> 만이 구조적으로 남게 됨을 대수적으로 확언하는 것입니다.
+        </p>
+      </solution>
+    </question>
+    <example xml:id="ex-projection-example-2">
+      <title>간단한 사영</title>
+      <statement>
+        <p>
+          <m>\mathbb{F}^2</m> 에서 선형 연산자 <m>P(x,y) = (x,0)</m> 을 생각하자. <m>P^2 = P</m> 이므로 사영이다. <m>\ker(P)</m> 는 y축이고 <m>\text{im}(P)</m> 는 x축이다. <xref ref="thm-first-isomorphism">제1동형정리</xref>에 의해 <m>\mathbb{F}^2 / (\text{y축}) \cong \text{x축}</m> 이 성립한다.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsection-direct-product">
+    <title>직곱</title>
+    <p>
+      직곱은 독립적으로 존재하는 여러 공간들을 하나로 합쳐서 더 큰 공간을 만들어내는 대수적 조립법입니다. 
+    </p>
+    <definition xml:id="def-direct-product">
+      <title>직곱</title>
+      <statement>
+        <p>
+          체 <m>\mathbb{F}</m> 위의 두 벡터공간 <m>V</m>와 <m>W</m>에 대하여, 데카르트 곱 <m>V \times W = \{ (v, w) \mid v \in V, w \in W \}</m> 상에 덧셈과 스칼라 곱셈을 성분별로 정의한 벡터공간을 <m>V</m>와 <m>W</m>의 직곱이라 한다.
+        </p>
+      </statement>
+    </definition>
+    <question xml:id="qstn-direct-product-1">
+      <title>직곱 공간에서의 제2동형정리 응용</title>
+      <statement>
+        <p>
+          직곱 공간 <m>X = V \times W</m> 내에 두 부분공간 <m>\tilde{V} = \{ (v, 0_W) \mid v \in V \}</m> 와 <m>\tilde{W} = \{ (0_V, w) \mid w \in W \}</m> 를 정의하자. 사상 <m>\Phi: \tilde{V} \to X/\tilde{W}</m> 를 <m>\Phi((v, 0_W)) = (v, 0_W) + \tilde{W}</m> 로 정의할 때, 이는 동형사상이다.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          부분공간 <m>\tilde{V}</m> 와 <m>\tilde{W}</m> 에 대하여 <xref ref="thm-second-isomorphism">제2동형정리</xref>를 적용합니다. 제2동형정리에 의해 동형사상 <m>\Psi: \tilde{V} / (\tilde{V} \cap \tilde{W}) \to (\tilde{V} + \tilde{W}) / \tilde{W}</m> 가 성립합니다.
+        </p>
+        <p>
+          직곱의 구조상 <m>\tilde{V} + \tilde{W} = X</m> 전체 공간이 되며, 교집합 <m>\tilde{V} \cap \tilde{W} = \{ (0_V, 0_W) \}</m> 로 자명한 영벡터 공간입니다.
+        </p>
+        <p>
+          따라서 우변의 합공간 몫은 <m>X / \tilde{W}</m> 가 되고, 좌변의 교집합 몫은 <m>\tilde{V} / \{ (0_V, 0_W) \}</m> 가 되며, 이는 <m>\tilde{V}</m> 자신과 자연스럽게 동형입니다.
+        </p>
+        <p>
+          결과적으로 제2동형정리의 (<xref ref="thm-second-isomorphism"/>)사상은 <m>\tilde{V}</m> 의 원소 <m>(v, 0_W)</m> 를 몫공간 <m>X/\tilde{W}</m> 의 잉여류 <m>(v, 0_W) + \tilde{W}</m> 로 보내는 동형사상 <m>\Phi</m> 로 단순화됩니다. 이는 직곱으로 만든 거대한 공간에서 한 부분공간을 몫으로 제거하면 다른 부분공간이 보존됨을 대수적으로 증명합니다.
+        </p>
+      </solution>
+    </question>
+    <example xml:id="ex-direct-product-2">
+      <title>다항식 공간과 표준공간의 직곱</title>
+      <statement>
+        <p>
+          다항식 공간 <m>\mathbb{F}[x]_{\le 2}</m> 와 표준 공간 <m>\mathbb{F}^2</m> 의 직곱 <m>\mathbb{F}[x]_{\le 2} \times \mathbb{F}^2</m> 를 고려합시다. 이 5차원 공간에서 두 번째 성분이 영벡터인 부분공간을 몫공간으로 나누어 무시하면, 남은 몫공간은 다항식 공간 <m>\mathbb{F}[x]_{\le 2}</m>과 동형입니다.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsection-dual-space">
+    <title>쌍대공간</title>
+    <p>
+      벡터공간의 원소들을 스칼라 값으로 대응시키는 선형범함수들의 모임을 쌍대공간이라 합니다. 이 쌍대공간의 구조 속에서 부분공간을 무화시키는 소멸자 개념을 도입하면, 제3동형정리가 적용되는 대수적 쌍대성을 확인할 수 있습니다.
+    </p>
+    <definition xml:id="def-dual-space">
+      <title>쌍대공간</title>
+      <statement>
+        <p>
+          체 <m>\mathbb{F}</m> 위의 벡터공간 <m>V</m> 에 대하여, <m>V</m>에서 스칼라 체 <m>\mathbb{F}</m> 로 가는 선형범함수들의 공간 <m>\mathcal{L}(V, \mathbb{F})</m> 를 <m>V</m>의 쌍대공간이라 하고 <m>V^*</m> 로 표기한다.
+        </p>
+      </statement>
+    </definition>
+    <definition xml:id="def-annihilator">
+      <title>소멸자</title>
+      <statement>
+        <p>
+          <m>V</m>의 부분공간 <m>U</m>에 대하여, <m>U</m>의 모든 원소를 0으로 보내는 <m>V^*</m> 의 부분공간을 <m>U</m>의 소멸자라 하고 <m>U^0 = \{ f \in V^* \mid f(u) = 0 \text{ for all } u \in U \}</m> 로 정의한다.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      소멸자는 몫공간과 쌍대공간을 잇는 핵심 다리 역할을 하며, 자연스러운 동형사상 <m>V^* / U^0 \cong U^*</m> 를 유도합니다. 이를 바탕으로 제3동형정리를 적용합니다.
+    </p>
+    <question xml:id="qstn-dual-space-1">
+      <title>쌍대공간에서의 제3동형정리 응용</title>
+      <statement>
+        <p>
+          <m>V</m>가 벡터공간이고 <m>U</m>와 <m>W</m>가 <m>U \subseteq W \subseteq V</m> 를 만족하는 부분공간이라 하자. 소멸자의 정의에 의해 <m>W^0 \subseteq U^0 \subseteq V^*</m> 가 성립한다. 이때<xref ref="thm-third-isomorphism">제3동형정리</xref>에 의해 사상 <m>\Psi: (V^* / W^0) / (U^0 / W^0) \to V^* / U^0</m> 는 동형사상임을 보이시오.
+          </p>
+      </statement>
+      <solution>
+        <p>
+          부분공간의 포함 관계 <m>U \subseteq W \subseteq V</m> 가 주어지면, 더 큰 공간을 0으로 만드는 조건이 더 까다로우므로 소멸자의 포함 관계는 역전되어 <m>W^0 \subseteq U^0 \subseteq V^*</m> 가 됩니다.
+        </p>
+        <p>
+          이 쌍대공간 <m>V^*</m> 내의 세 겹 포함 관계에 대하여 <xref ref="thm-third-isomorphism">제3동형정리</xref>를 그대로 적용하면, 몫공간의 몫공간 <m>(V^* / W^0) / (U^0 / W^0)</m> 가 <m>V^* / U^0</m> 와 동형이 되는 사상 <m>\Psi</m> 가 확립됩니다.
+        </p>
+      </solution>
+    </question>
+    <example xml:id="ex-dual-space-2">
+      <title>3차원 공간의 쌍대공간</title>
+      <statement>
+        <p>
+            <m>V = \mathbb{R}^3</m>, <m>W</m>를 <m>xy</m>-평면, <m>U</m>를 x축이라 합시다. <m>W^0</m> 는 z축 방향의 범함수들이고, <m>U^0</m> 는 y축과 z축 방향의 범함수들입니다. <xref ref="thm-third-isomorphism">제3동형정리</xref>의 사상 <m>\Psi</m> 는 <m>y, z</m>축 범함수들 중 <m>z</m>축 범함수를 무시한 공간의 몫이, 전체 공간에서 바로 <m>y, z</m>축 범함수들을 무시하고 남은 <m>x</m>축 범함수의 구조와 동형임을 입증합니다.
+        </p>
+      </statement>
+    </example>
+    <definition xml:id="def-dual-map">
+      <title>쌍대사상</title>
+      <statement>
+      <p>
+        체 <m>\mathbb{F}</m> 상의 두 벡터공간 <m>V, W</m>와 선형변환 <m>T: V \to W</m>가 주어졌다고 하자. <m>T</m>의 쌍대사상 <m>T^*: W^* \to V^*</m>는 임의의 선형범함수 <m>g \in W^*</m>에 대하여 다음과 같이 합성함수로 정의된다.
+      </p>
+      <p>
+        <m>T^*(g) = g \circ T</m>
+      </p>
+      <p>
+        즉, 임의의 <m>v \in V</m>에 대하여 <m>(T^*(g))(v) = g(T(v))</m>이다.
+      </p>
+      </statement>
+    </definition>
+
+    <example xml:id="ex-dual-map-example-1">
+      <title>쌍대사상의 계산</title>
+      <statement>
+      <p>
+        <m>V = \mathbb{R}^2, W = \mathbb{R}^2</m>이고 <m>T(x, y) = (x+y, x)</m>라 하자. <m>g \in W^*</m>가 <m>g(u, v) = 2u - v</m>로 주어졌을 때, <m>T^*(g)</m>를 계산해 보자.
+      </p>
+      <p>
+        <m>(T^*(g))(x, y) = g(T(x, y)) = g(x+y, x) = 2(x+y) - x = x + 2y</m>
+      </p>
+      <p>
+        따라서 <m>T^*(g)</m>는 <m>V</m> 상의 선형범함수 <m>(x, y) \mapsto x+2y</m>가 된다.
+      </p>
+      </statement>
+    </example>
+
+    <example xml:id="ex-dual-map-example-2">
+      <title>미분 연산자의 쌍대사상</title>
+      <statement>
+      <p>
+        미분 연산자 <m>D: \mathbb{F}[x]_{\le 2} \to \mathbb{F}[x]_{\le 1}</m>를 <m>D(p(x)) = p'(x)</m>로 정의하자. <m>W = \mathbb{F}[x]_{\le 1}</m> 상의 선형범함수 <m>g</m>를 <m>g(q) = q(0)</m> (상수항 평가)로 두면, <m>D^*(g) \in \mathbb{F}[x]_{\le 2}^*</m>는 <m>(D^*(g))(p) = g(D(p)) = g(p') = p'(0)</m>이 된다. 즉, 원래 다항식의 1차항 계수를 추출하는 범함수가 된다.
+      </p>
+      </statement>
+    </example>
+
+    <theorem xml:id="thm-dual-map-linearity">
+      <title>쌍대사상의 선형성</title>
+      <statement>
+      <p>
+        선형변환 <m>T: V \to W</m>에 대하여, 쌍대사상 <m>T^*: W^* \to V^*</m>는 선형변환이다.
+      </p>
+      </statement>
+      <proof>
+      <p>
+        임의의 <m>g_1, g_2 \in W^*</m>와 스칼라 <m>c \in \mathbb{F}</m>에 대하여, <m>V</m>의 임의의 원소 <m>v</m>를 취해 값을 평가하면 다음과 같다.
+      </p>
+      <p>
+        <m>(T^*(cg_1 + g_2))(v) = (cg_1 + g_2)(T(v)) = c g_1(T(v)) + g_2(T(v))</m>
+      </p>
+      <p>
+        <m>= c(T^*(g_1))(v) + (T^*(g_2))(v) = (cT^*(g_1) + T^*(g_2))(v)</m>
+      </p>
+      <p>
+        모든 <m>v \in V</m>에 대해 위 등식이 성립하므로, <m>T^*(cg_1 + g_2) = cT^*(g_1) + T^*(g_2)</m>이다.
+      </p>
+      </proof>
+    </theorem>
+
+    <definition xml:id="def-dual-basis">
+      <title>쌍대기저</title>
+      <statement>
+      <p>
+        체 <m>\mathbb{F}</m> 상의 유한차원 벡터공간 <m>V</m>의 기저를 <m>\mathcal{B} = \{v_1, \dots, v_n\}</m>이라 하자. 쌍대공간 <m>V^*</m>의 원소들로 이루어진 집합 <m>\mathcal{B}^* = \{f_1, \dots, f_n\}</m>이 모든 <m>1 \le i, j \le n</m>에 대하여 다음을 만족할 때, 이를 <m>\mathcal{B}</m>에 대한 쌍대기저라고 한다.
+      </p>
+      <p>
+        <m>f_i(v_j) = \delta_{ij} = \begin{cases} 1 &amp; \text{if } i=j \\ 0 &amp; \text{if } i \neq j \end{cases}</m>
+      </p>
+      </statement>
+    </definition>
+
+    <example xml:id="ex-dual-basis-example-1">
+      <title>표준기저의 쌍대기저</title>
+      <statement>
+      <p>
+        <m>V = \mathbb{F}^3</m>이고 <m>\mathcal{B}</m>가 표준기저 <m>\{e_1, e_2, e_3\}</m>일 때, 쌍대기저 <m>\mathcal{B}^* = \{f_1, f_2, f_3\}</m>의 각 <m>f_i</m>는 벡터 <m>(x_1, x_2, x_3)</m>에서 <m>i</m>번째 성분 <m>x_i \in \mathbb{F}</m>를 추출하는 사상이다. 즉, <m>f_1(x_1, x_2, x_3) = x_1</m>이다.
+      </p>
+      </statement>
+    </example>
+
+    <theorem xml:id="thm-dual-basis-theorem">
+      <title>쌍대기저의 기저성</title>
+      <statement>
+      <p>
+        유한차원 벡터공간 <m>V</m>의 기저 <m>\mathcal{B} = \{v_1, \dots, v_n\}</m>에 대한 쌍대기저 <m>\mathcal{B}^* = \{f_1, \dots, f_n\}</m>는 쌍대공간 <m>V^*</m>의 기저이다.
+      </p>
+      </statement>
+      <proof>
+      <p>
+        먼저 <m>\mathcal{B}^*</m>가 선형독립임을 보이자. <m>\sum_{i=1}^n c_i f_i = 0</m> (영범함수)라 가정하자. 임의의 기저 벡터 <m>v_k</m>에 이 범함수를 적용하면,
+      </p>
+      <p>
+        <m>0 = \left(\sum_{i=1}^n c_i f_i\right)(v_k) = \sum_{i=1}^n c_i f_i(v_k) = \sum_{i=1}^n c_i \delta_{ik} = c_k</m>
+      </p>
+      <p>
+        이다. 따라서 모든 <m>k</m>에 대해 <m>c_k = 0</m>이므로 <m>\mathcal{B}^*</m>는 선형독립이다.
+      </p>
+      <p>
+        다음으로 <m>\mathcal{B}^*</m>가 <m>V^*</m>를 생성함을 보이자. 임의의 <m>g \in V^*</m>에 대하여, <m>g(v_i) = a_i</m>라 두자. 새로운 범함수 <m>h = \sum_{i=1}^n a_i f_i</m>를 생각하면, 임의의 <m>v_k</m>에 대하여
+      </p>
+      <p>
+        <m>h(v_k) = \sum_{i=1}^n a_i f_i(v_k) = a_k = g(v_k)</m>
+      </p>
+      <p>
+        이다. <m>h</m>와 <m>g</m>가 기저 <m>\mathcal{B}</m>의 모든 원소에서 같은 값을 가지므로 <m>h = g</m>이다. 즉, <m>g</m>는 <m>\mathcal{B}^*</m>의 선형결합으로 표현되므로 <m>\mathcal{B}^*</m>는 <m>V^*</m>의 기저이다.
+      </p>
+      </proof>
+    </theorem>
+
+    <example xml:id="ex-dual-basis-example-2">
+      <title>다항식 공간의 쌍대기저</title>
+      <statement>
+      <p>
+        <m>V = \mathbb{F}[x]_{\le 1}</m>이고 기저가 <m>\mathcal{B} = \{1, x+1\}</m>이라 하자. 쌍대기저 <m>\{f_1, f_2\}</m>를 구하려면, <m>f_1(1)=1, f_1(x+1)=0</m> 및 <m>f_2(1)=0, f_2(x+1)=1</m>을 만족해야 한다. 임의의 다항식 <m>p(x) = ax+b</m> (<m>a, b \in \mathbb{F}</m>)에 대하여, <m>p(x) = (b-a) \cdot 1 + a \cdot (x+1)</m>로 표현할 수 있으므로 <m>f_1(p) = -a+b</m>, <m>f_2(p) = a</m>로 주어짐을 확인할 수 있으며, 이 두 범함수는 <m>\mathbb{F}[x]_{\le 1} ^*</m>의 기저가 된다.
+      </p>
+      </statement>
+    </example>
+
+    <example xml:id="ex-dual-map-example-3">
+      <title>쌍대사상의 구체적 계산</title>
+      <statement>
+      <p>
+        <m>V = \mathbb{F}^2, W = \mathbb{F}^2</m>이고 <m>T(x, y) = (x+y, x)</m>라 하자. 쌍대사상 <m>T^*: W^* \to V^*</m>를 구체적으로 계산해보자.
+      </p>
+      </statement>
+    </example>
+  </subsection>
+
+  <exercises>
+    <exercise xml:id="exercise-direct-sum-direct-product-isomorphism">
+      <title>직합과 직곱의 동형성</title>
+      <statement>
+        <p>
+          임의의 체 <m>\mathbb{F}</m> 상의 두 벡터공간 <m>V_1, V_2</m>가 주어졌다고 하자. 직합 <m>V_1 \oplus V_2</m>에서 직곱 <m>V_1 \times V_2</m>로 가는 선형사상 <m>T</m>와 그 역변환 <m>T^{-1}</m>를 명시적으로 구성하여, 두 공간이 역변환이 존재하는 선형사상을 통해 동형임을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="exercise-annihilator-computation">
+      <title>소멸자의 계산</title>
+      <statement>
+        <p>
+          체 <m>\mathbb{F}</m> 상의 벡터공간 <m>V = \mathbb{F}^3</m>을 생각하자. 부분공간 <m>W = \text{span}\{(1, 0, 0), (0, 1, 0)\}</m>에 대하여 <m>W</m>의 소멸자 <m>W^0</m>를 구하고, 그 기저를 제시하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="exercise-dual-map-scalar-multiplication">
+      <title>쌍대사상의 스칼라 곱</title>
+      <statement>
+        <p>
+          체 <m>\mathbb{F}</m> 상의 벡터공간 <m>V, W</m>와 선형사상 <m>T: V \to W</m>가 주어져 있다. 임의의 스칼라 <m>c \in \mathbb{F}</m>에 대하여 쌍대사상의 스칼라 곱이 <m>(cT)^* = cT^*</m>를 만족함을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="exercise-quotient-dual-annihilator-isomorphism">
+      <title>몫공간의 쌍대공간과 소멸자의 동형성</title>
+      <statement>
+        <p>
+          체 <m>\mathbb{F}</m> 상의 유한차원 벡터공간 <m>V</m>와 그 부분공간 <m>W</m>가 주어져 있다. 몫공간 <m>V/W</m>의 임의의 잉여류를 <m>[v] = v + W</m>로 나타낼 때, <m>v</m>는 이 잉여류의 대표원이다. 사상 <m>\Phi: (V/W)^* \to W^0</m>를 <m>\Phi(f)(v) = f([v])</m>로 정의하자. <m>\Phi</m>를 계산할 때 대표원의 선택에 의존하지 않고 잘 정의됨을 보이고, <m>\Phi</m>의 역변환을 명시적으로 구성하여 이 사상이 역변환이 존재하는 선형사상임을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="exercise-dual-map-injectivity-surjectivity">
+      <title>쌍대사상의 단사성과 전사성</title>
+      <statement>
+        <p>
+          체 <m>\mathbb{F}</m> 상의 벡터공간 <m>V, W</m>와 선형사상 <m>T: V \to W</m>에 대하여, <m>T</m>가 단사일 필요충분조건은 쌍대사상 <m>T^*: W^* \to V^*</m>가 전사임을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="exercise-evaluation-functionals-basis">
+      <title>평가범함수의 기저성</title>
+      <statement>
+        <p>
+          서로 다른 3개의 체 <m>\mathbb{F}</m>의 원소 <m>c_0, c_1, c_2</m>가 있다. <m>\mathbb{F}</m> 계수를 가지는 2차 이하의 다항식 공간 <m>\mathbb{F}[x]_{\le 2}</m> 상의 선형범함수 <m>\varphi_i: \mathbb{F}[x]_{\le 2} \to \mathbb{F}</m>를 <m>\varphi_i(p) = p(c_i)</m>로 정의하자. 집합 <m>\{\varphi_0, \varphi_1, \varphi_2\}</m>가 쌍대공간 <m>\mathbb{F}[x]_{\le 2}^*</m>의 기저가 됨을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="exercise-annihilator-sum-intersection">
+      <title>소멸자의 합과 교집합</title>
+      <statement>
+        <p>
+          유한차원 벡터공간 <m>V</m>의 두 부분공간 <m>W_1, W_2</m>에 대하여, 소멸자의 합과 교집합에 관한 다음 등식이 성립함을 증명하시오.
+        </p>
+        <ol>
+          <li><m>(W_1 + W_2)^0 = W_1^0 \cap W_2^0</m></li>
+          <li><m>(W_1 \cap W_2)^0 = W_1^0 + W_2^0</m></li>
+        </ol>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="exercise-evaluation-map-isomorphism">
+      <title>평가사상이 동형사상임의 증명</title>
+      <statement>
+        <p>
+          <m>V</m>가 유한차원 벡터공간일 때, 자연스러운 평가사상 <m>J: V \to V^{**}</m>를 <m>J(v)(f) = f(v)</m>로 정의하자. <m>J</m>가 선형사상임을 보이고, 이 사상의 역변환이 존재함을 증명하여 <m>J</m>가 동형사상임을 결론 지으시오.
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
+</section>

@@ -4,7 +4,7 @@
   <title>동형정리</title>
   
   
-<subsection xml:id="02-02-first-isomorphism-theorem">
+<subsection xml:id="subsec-first-isomorphism-theorem">
   <title>제1동형정리 <aside><p>동형정리:Isomorphism Theorem</p></aside></title>
   <p>제1동형정리는 선형변환에 의해 잃어버린 정보(커널)를 무시하고 나면, 남은 몫공간에서 치역으로 가는 자연스러운 사상이 완벽한 구조적 보존을 이룸을 보여줍니다.</p>
   
@@ -33,7 +33,7 @@
   </example>
 </subsection>
 
-<subsection xml:id="02-02-second-isomorphism-theorem">
+<subsection xml:id="subsec-second-isomorphism-theorem">
   <title>제2동형정리 </title>
   <p>제2동형정리는 한 공간 안에서 두 부분공간이 겹치고 더해질 때, 교집합으로 나눈 몫공간과 합공간에서 나눈 몫공간 사이를 잇는 자연스러운 사상이 존재함을 보여줍니다.</p>
   
@@ -60,7 +60,7 @@
   </example>
 </subsection>
 
-<subsection xml:id="02-02-third-isomorphism-theorem">
+<subsection xml:id="subsec-third-isomorphism-theorem">
   <title>제3동형정리 </title>
   <p>제3동형정리는 몫공간을 다시 부분 몫공간으로 나누는 중첩된 구조를 하나의 몫공간으로 풀어내는 동형사상을 제시합니다.</p>
   
@@ -88,55 +88,55 @@
   </example>
 </subsection>
 <exercises>
-  <exercise>
+  <exercise xml:id="exercise-first-isomorphism-well-defined">
     <statement>
-      <p>제1동형정리의 사상 <m>\bar{T}: V/\ker(T) \to \text{im}(T)</m> 가 잘 정의됨을 보일 때, 대표원의 차이 <m>v_1 - v_2</m> 가 반드시 어느 공간에 속해야 하는지 쓰시오.</p>
+      <p><xref ref="thm-first-isomorphism">제1동형정리</xref>의 사상 <m>\bar{T}: V/\ker(T) \to \text{im}(T)</m> 가 잘 정의됨을 보일 때, 대표원의 차이 <m>v_1 - v_2</m> 가 반드시 어느 공간에 속해야 하는지 쓰시오.</p>
     </statement>
   </exercise>
 
-  <exercise>
+  <exercise xml:id="exercise-second-isomorphism-trivial-intersection">
     <statement>
-      <p>제2동형정리의 사상 <m>\Phi</m> 에서, 만약 <m>U \cap W = \{0_V\}</m> 이라면 정의역 <m>U / (U \cap W)</m> 는 대수적으로 어떤 공간과 동형이 되는가?</p>
+      <p><xref ref="thm-second-isomorphism">제2동형정리</xref>의 사상 <m>\Phi</m> 에서, 만약 <m>U \cap W = \{0_V\}</m> 이라면 정의역 <m>U / (U \cap W)</m> 는 대수적으로 어떤 공간과 동형이 되는가?</p>
     </statement>
   </exercise>
 
-  <exercise>
+  <exercise xml:id="exercise-third-isomorphism-zero-element">
     <statement>
-      <p>제3동형정리의 사상 <m>\Psi</m> 의 정의에서, 정의역의 영벡터 역할을 하는 잉여류는 무엇인지 명시하시오.</p>
+      <p><xref ref="thm-third-isomorphism">제3동형정리</xref>의 사상 <m>\Psi</m> 의 정의에서, 정의역의 영벡터 역할을 하는 잉여류는 무엇인지 명시하시오.</p>
     </statement>
   </exercise>
 
-  <exercise>
+  <exercise xml:id="exercise-first-isomorphism-dimension">
     <statement>
-      <p><m>T: \mathbb{R}^4 \to \mathbb{R}^3</m> 가 <m>T(x,y,z,w) = (x+y, y+z, 0)</m> 으로 주어졌을 때, 제1동형정리의 동형사상 <m>\bar{T}</m> 의 정의역과 치역의 차원을 각각 계산하여 일치함을 확인하시오.</p>
+      <p><m>T: \mathbb{R}^4 \to \mathbb{R}^3</m> 가 <m>T(x,y,z,w) = (x+y, y+z, 0)</m> 으로 주어졌을 때, <xref ref="thm-first-isomorphism">제1동형정리</xref>의 동형사상 <m>\bar{T}</m> 의 정의역과 치역의 차원을 각각 계산하여 일치함을 확인하시오.</p>
     </statement>
   </exercise>
 
-  <exercise>
+  <exercise xml:id="exercise-second-isomorphism-injectivity">
     <statement>
-      <p>제2동형정리에서 정의된 사상 <m>\Phi(u + (U \cap W)) = u + W</m> 가 단사임을 제1동형정리의 유도 과정을 거치지 않고, <m>\ker(\Phi)</m> 를 직접 계산하여 증명하시오.</p>
+      <p><xref ref="thm-second-isomorphism">제2동형정리</xref>에서 정의된 사상 <m>\Phi(u + (U \cap W)) = u + W</m> 가 단사임을 <xref ref="thm-first-isomorphism">제1동형정리</xref>의 유도 과정을 거치지 않고, <m>\ker(\Phi)</m> 를 직접 계산하여 증명하시오.</p>
     </statement>
   </exercise>
 
-  <exercise>
+  <exercise xml:id="exercise-third-isomorphism-auxiliary-map">
     <statement>
-      <p>제3동형정리의 증명 과정에서 정의된 보조 사상 <m>S: V/U \to V/W</m> 에 대하여, 이 사상이 전단사가 되기 위한 부분공간 <m>U, W</m> 의 조건을 구하시오.</p>
+      <p><xref ref="thm-third-isomorphism">제3동형정리</xref>의 증명 과정에서 정의된 보조 사상 <m>S: V/U \to V/W</m> 에 대하여, 이 사상이 전단사가 되기 위한 부분공간 <m>U, W</m> 의 조건을 구하시오.</p>
     </statement>
   </exercise>
 
-  <exercise>
+  <exercise xml:id="exercise-third-isomorphism-dimension-formula">
     <statement>
       <p>유한차원 공간 <m>V</m>와 부분공간 <m>U \subseteq W \subseteq V</m> 에 대하여, <m>\Psi</m> 가 동형사상임을 이용하여 <m>\dim((V/U)/(W/U)) = \dim(V/W)</m> 가 성립함을 차원 공식을 통해 대수적으로 전개하여 검증하시오.</p>
     </statement>
   </exercise>
 
-  <exercise>
+  <exercise xml:id="exercise-composition-kernel-image">
     <statement>
-      <p>선형변환 <m>S: V \to W</m> 와 <m>L: W \to Z</m> 에 대하여 <m>L \circ S</m> 가 영사상이라 하자. 이때 제1동형정리의 동형사상을 적절히 응용하여 <m>\text{im}(S)</m> 가 <m>\ker(L)</m> 의 부분공간이 됨을 논리적으로 서술하시오.</p>
+      <p>선형변환 <m>S: V \to W</m> 와 <m>L: W \to Z</m> 에 대하여 <m>L \circ S</m> 가 영사상이라 하자. 이때 <xref ref="thm-first-isomorphism">제1동형정리</xref>의 동형사상을 적절히 응용하여 <m>\text{im}(S)</m> 가 <m>\ker(L)</m> 의 부분공간이 됨을 논리적으로 서술하시오.</p>
     </statement>
   </exercise>
 
-  <exercise>
+  <exercise xml:id="exercise-subspace-correspondence-theorem">
     <statement>
       <p><em>부분공간 대응 정리:</em> <m>V</m>가 벡터공간이고 <m>U</m>가 그 부분공간일 때, <m>U</m>를 포함하는 <m>V</m>의 모든 부분공간들의 집합 <m>\mathcal{S} = \{ W \mid U \subseteq W \subseteq V \}</m> 와 몫공간 <m>V/U</m> 의 모든 부분공간들의 집합 <m>\mathcal{T}</m> 를 고려하자. 사상 <m>\Lambda: \mathcal{S} \to \mathcal{T}</m> 를 <m>\Lambda(W) = W/U</m> 로 정의할 때, 이 사상 <m>\Lambda</m> 가 전단사이며 부분공간의 포함 관계를 보존함을 증명하시오.</p>
     </statement>
@@ -149,7 +149,8 @@
     </p>
   </definition>
     
-  <exercise>
+  <exercise xml:id="exercise-nilpotent-operator-non-decomposability">
+    <title>멱영성과 직합 분해의 불가능성</title>
     <statement>
       <p><em>멱영 연산자와 직합 분해의 불가능성:</em> 유한차원 공간 <m>V</m> 상의 선형 연산자 <m>N: V \to V</m>가 <m>N^2 = 0</m> 이고 <m>N \neq 0</m> 를 만족한다고 하자. 이때 <m>\text{im}(N) \subseteq \ker(N)</m> 임을 증명하고, 이를 바탕으로 공간 <m>V</m>가 결코 <m>\ker(N)</m>과 <m>\text{im}(N)</m>의 직합으로 분해될 수 없음을 논리적으로 규명하시오.</p>
     </statement>
