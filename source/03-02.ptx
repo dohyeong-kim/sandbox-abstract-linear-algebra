@@ -58,7 +58,7 @@
 
     <example xml:id="ex-antisymmetry">
       <title>반대칭성의 확인</title>
-      <p>앞선 예제의 <m>D(v_1, v_2) = x_1 y_2 - x_2 y_1</m>에서 인수의 순서를 바꾸어 <m>D(v_2, v_1)</m>을 계산합니다 <m>x_2 y_1 - x_1 y_2 = -(x_1 y_2 - x_2 y_1) = -D(v_1, v_2)</m>가 됨을 확인할 수 있습니다.</p>
+      <p><xref ref="ex-2d-determinant"/>의 <m>D(v_1, v_2) = x_1 y_2 - x_2 y_1</m>에서 인수의 순서를 바꾸어 <m>D(v_2, v_1)</m>을 계산합니다 <m>x_2 y_1 - x_1 y_2 = -(x_1 y_2 - x_2 y_1) = -D(v_1, v_2)</m>가 됨을 확인할 수 있습니다.</p>
     </example>
   </subsection>
 
@@ -133,7 +133,7 @@
       </statement>
     </definition>
 
-    <example xml:id="ex-charoly-calc">
+    <example xml:id="ex-charpoly-calc">
       <title>특성다항식의 계산</title>
       <p><m>A = \begin{pmatrix} 2 &amp; 1 \\ 0 &amp; 3 \end{pmatrix}</m>의 특성다항식을 구하자.</p>
       <p><m>xI - A = \begin{pmatrix} x-2 &amp; -1 \\ 0 &amp; x-3 \end{pmatrix}</m></p>
@@ -152,7 +152,7 @@
 
     <example xml:id="ex-eigenvalue">
       <title>특성다항식의 근과 고윳값</title>
-      <p>위 예제의 행렬 <m>A</m>에서 특성다항식 <m>p_A(x) = (x-2)(x-3)</m>의 근은 2와 3이다. 정리<xref ref="thm-eigenvalue-root"/>에 따라 행렬 <m>A</m>의 고윳값은 오직 2와 3뿐이다.</p>
+      <p><xref ref="ex-charpoly-calc"/>의 행렬 <m>A</m>에서 특성다항식 <m>p_A(x) = (x-2)(x-3)</m>의 근은 2와 3이다. 정리<xref ref="thm-eigenvalue-root"/>에 따라 행렬 <m>A</m>의 고윳값은 오직 2와 3뿐이다.</p>
     </example>
   </subsection>
 
@@ -205,4 +205,55 @@
     </example>
   </subsection>
 
+  <exercises>
+    <exercise xml:id="ex-03-02-bilinear-proof">
+      <title>이중선형성 보이기</title>
+      <p>체 <m>\mathbb{F}</m> 상의 벡터공간 <m>V_1 = \mathbb{F}^m</m>, <m>V_2 = \mathbb{F}^n</m>과 행렬 공간 <m>W = M_{m \times n}(\mathbb{F})</m>에 대하여, 함수 <m>f: V_1 \times V_2 \to W</m>를 <m>f(u, v) = u v^T</m> (단, <m>u, v</m>는 열벡터)로 정의하자. <m>f</m>가 일반화된 다중선형함수(이중선형함수)의 정의를 만족함을 증명하시오.</p>
+    </exercise>
+
+    <exercise xml:id="ex-03-02-zero-eigenvalue">
+      <title>비가역성과 영 고윳값</title>
+      <p>행렬 <m>A</m>가 비가역일 필요충분조건은 스칼라 0이 <m>A</m>의 고윳값이 되는 것임을 특성다항식의 상수항 성질을 이용하여 증명하시오.</p>
+    </exercise>
+
+    <exercise xml:id="ex-03-02-multiplicity-range">
+      <title>대수적 중복도와 기하적 중복도의 범위</title>
+      <p>주어진 행렬 <m>A \in M_{3 \times 3}(\mathbb{F})</m>의 특성다항식이 <m>p_A(x) = (x-1)^2(x+2)</m>일 때, 고윳값 1의 대수적 중복도와 가능한 기하적 중복도의 범위를 명시하시오.</p>
+    </exercise>
+
+    <exercise xml:id="ex-03-02-derivative-diagonalization">
+      <title>미분연산자의 대각화 가능성</title>
+      <p>다항식 공간 <m>V = \mathbb{F}[x]_{\le 2}</m>에서 미분연산자 <m>D(p(x)) = p'(x)</m>의 기저 <m>\{1, x, x^2\}</m>에 대한 특성다항식을 구하고, 정리 <xref ref="thm-diagonalization-condition"/>을 바탕으로 <m>D</m>가 대각화 가능한지 판별하시오.</p>
+    </exercise>
+
+    <exercise xml:id="ex-03-02-triangular-determinant">
+      <title>상삼각행렬의 행렬식</title>
+      <p>상삼각행렬의 행렬식이 주대각성분들의 곱이 됨을 행렬식의 다중선형성과 교대성을 이용하여 귀납적으로 증명하시오.</p>
+    </exercise>
+
+    <exercise xml:id="ex-03-02-inverse-charoly">
+      <title>역행렬의 특성다항식</title>
+      <p>역행렬이 존재하는 행렬 <m>A</m>에 대하여, <m>A^{-1}</m>의 특성다항식 <m>p_{A^{-1}}(x)</m>를 <m>A</m>의 특성다항식 <m>p_A(x)</m>를 이용하여 표현하시오.</p>
+    </exercise>
+
+    <exercise xml:id="ex-03-02-similar-charoly">
+      <title>닮음 행렬의 특성다항식</title>
+      <p>두 행렬 <m>A, B</m>가 닮음 관계에 있으면(즉, 가역행렬 <m>P</m>에 대해 <m>B = P^{-1}AP</m>) 서로 같은 특성다항식을 가짐을 명제 <xref ref="prop-det-multiplicative"/>를 통해 증명하시오.</p>
+    </exercise>
+
+    <exercise xml:id="ex-03-02-diagonalizable-repeated-root">
+      <title>중근을 가지는 대각화 가능한 행렬</title>
+      <p><m>\mathbb{F}</m> 상에서 대각화 가능하지만 특성다항식이 중근을 가지는 <m>3 \times 3</m> 행렬의 구체적인 예시를 하나 제시하고 그 이유를 설명하시오.</p>
+    </exercise>
+
+    <exercise xml:id="ex-03-02-block-triangular-charoly">
+      <title>블록 상삼각행렬의 특성다항식</title>
+      <p><m>n \times n</m> 블록 상삼각행렬 <m>M = \begin{pmatrix} A &amp; B \\ 0 &amp; C \end{pmatrix}</m> (단, <m>A, C</m>는 각각 정사각행렬)이 주어졌을 때, <m>M</m>의 특성다항식이 <m>p_M(x) = p_A(x)p_C(x)</m>가 됨을 정리 <xref ref="thm-det-existence"/>의 존재성 부분을 바탕으로 엄밀하게 증명하시오.</p>
+    </exercise>
+
+    <exercise xml:id="ex-03-02-rotation-matrix-complex">
+      <title>회전변환의 특성다항식과 확장체</title>
+      <p>체 <m>\mathbb{F} = \mathbb{R}</m> 위에서 <m>A = \begin{pmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{pmatrix}</m>의 특성다항식을 구하시오. 이 특성다항식이 <m>\mathbb{R}</m> 위에서 일차식으로 분해되지 않음을 보이고, 만약 체를 <m>\mathbb{F} = \mathbb{C}</m>로 확장한다면 기하적 중복도와 대수적 중복도가 어떻게 변화하는지 논증하여 대각화 가능성을 비교 분석하시오.</p>
+    </exercise>
+  </exercises>
 </section>
