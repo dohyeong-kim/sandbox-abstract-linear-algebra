@@ -242,103 +242,103 @@
   </example>
 
   <exercises xml:id="exercises-01-03">
-    <exercise xml:id="ex-kernel-geometric-meaning">
+    <exercise xml:id="exercise-kernel-geometric-meaning">
       <title>커널의 기하학적 의미</title>
       <statement>
-        <p>선형 변환 <m>T: \mathbb{R}^3 \to \mathbb{R}^2</m>가 <m>T(x, y, z) = (x - y, z)</m>로 주어졌다. 이 변환의 커널 <m>\ker(T)</m>를 구하고, 그것이 <m>\mathbb{R}^3</m>의 어떤 기하학적 대상(점, 선, 면 등)을 나타내는지 서술하시오.</p>
+      <p>선형 변환 <m>T: \mathbb{R}^3 \to \mathbb{R}^2</m>가 <m>T(x, y, z) = (x - y, z)</m>로 주어졌다. 이 변환의 커널 <m>\ker(T)</m>를 구하고, 그것이 <m>\mathbb{R}^3</m>의 어떤 기하학적 대상(점, 선, 면 등)을 나타내는지 서술하시오.</p>
       </statement>
     </exercise>
 
-    <exercise xml:id="ex-injectivity-preserves-linear-independence">
+    <exercise xml:id="exercise-injectivity-preserves-linear-independence">
       <title>단사 변환과 선형 독립성</title>
       <statement>
-        <p>단사 선형 변환 <m>T: V \to W</m>가 주어졌다. 정의역 <m>V</m>의 부분집합 <m>\{v_1, v_2, \dots, v_k\}</m>가 선형 독립이면, 그들의 상(Image)인 <m>\{T(v_1), T(v_2), \dots, T(v_k)\}</m> 역시 <m>W</m>에서 선형 독립이 됨을 증명하시오.</p>
+      <p>단사 선형 변환 <m>T: V \to W</m>가 주어졌다. 정의역 <m>V</m>의 부분집합 <m>\{v_1, v_2, \dots, v_k\}</m>가 선형 독립이면, 그들의 상(Image)인 <m>\{T(v_1), T(v_2), \dots, T(v_k)\}</m> 역시 <m>W</m>에서 선형 독립이 됨을 증명하시오.</p>
       </statement>
     </exercise>
 
-    <exercise xml:id="ex-kernel-of-second-derivative">
+    <exercise xml:id="exercise-kernel-of-second-derivative">
       <title>이계 미분 연산자의 커널</title>
       <statement>
-        <p>다항식 공간 <m>\mathbb{R}[x]_{\le 3}</m>에서 <m>\mathbb{R}[x]_{\le 3}</m>로 가는 두 번 미분 연산자 <m>D^2(p(x)) = p''(x)</m>를 생각하자. <m>\ker(D^2)</m>의 기저를 구하시오.</p>
+      <p>다항식 공간 <m>\mathbb{R}[x]_{\le 3}</m>에서 <m>\mathbb{R}[x]_{\le 3}</m>로 가는 두 번 미분 연산자 <m>D^2(p(x)) = p''(x)</m>를 생각하자. <m>\ker(D^2)</m>의 기저를 구하시오.</p>
       </statement>
     </exercise>
 
-    <exercise xml:id="ex-composition-kernel-image-relations">
+    <exercise xml:id="exercise-composition-kernel-image-relations">
       <title>합성 변환의 커널과 이미지</title>
       <statement>
-        <p>두 선형 변환 <m>T: V \to W</m>와 <m>S: W \to Z</m>가 주어졌을 때, 합성 변환 <m>S \circ T: V \to Z</m>에 대하여 다음 포함 관계가 성립함을 증명하시오.</p>
-        <ol>
-          <li><m>\ker(T) \subseteq \ker(S \circ T)</m></li>
-          <li><m>\operatorname{im}(S \circ T) \subseteq \operatorname{im}(S)</m></li>
-        </ol>
+      <p>두 선형 변환 <m>T: V \to W</m>와 <m>S: W \to Z</m>가 주어졌을 때, 합성 변환 <m>S \circ T: V \to Z</m>에 대하여 다음 포함 관계가 성립함을 증명하시오.</p>
+      <ol>
+        <li><m>\ker(T) \subseteq \ker(S \circ T)</m></li>
+        <li><m>\operatorname{im}(S \circ T) \subseteq \operatorname{im}(S)</m></li>
+      </ol>
       </statement>
     </exercise>
 
-    <exercise xml:id="ex-dimension-condition-non-surjective">
+    <exercise xml:id="exercise-dimension-condition-non-surjective">
       <title>차원 부등식과 전사성</title>
       <statement>
-        <p>체 <m>\mathbb{F}</m> 위의 유한 차원 벡터 공간 <m>V, W</m>와 선형 변환 <m>T: V \to W</m>에 대하여, <m>V</m>의 차원이 <m>W</m>의 차원보다 작다면(<m>\dim(V) &lt; \dim(W)</m>), <m>T</m>는 결코 전사 함수가 될 수 없음을 생성의 관점에서 간단히 설명하시오.</p>
+      <p>체 <m>\mathbb{F}</m> 위의 유한 차원 벡터 공간 <m>V, W</m>와 선형 변환 <m>T: V \to W</m>에 대하여, <m>V</m>의 차원이 <m>W</m>의 차원보다 작다면(<m>\dim(V) &lt; \dim(W)</m>), <m>T</m>는 결코 전사 함수가 될 수 없음을 생성의 관점에서 간단히 설명하시오.</p>
       </statement>
     </exercise>
 
-    <exercise xml:id="ex-image-of-nontrivial-linear-functional">
+    <exercise xml:id="exercise-image-of-nontrivial-linear-functional">
       <title>선형 범함수의 치역</title>
       <statement>
-        <p>선형변환 <m>f: V \to \mathbb{F}</m>가 영 변환이 아니라고 가정하자. <m>f</m>의 치역 <m>\operatorname{im}(f)</m>는 무엇인지 체 <m>\mathbb{F}</m>의 부분공간 관점에서 구하시오.
-          <fn><p>
-            <m>F</m>상의 벡터공간 <m>V</m>가 있을 때, 선형변환 <m>f: V \to \mathbb{F}</m>를 선형 범함수(linear functional)라고 부릅니다.
-          </p></fn>
-        </p>
+      <p>선형변환 <m>f: V \to \mathbb{F}</m>가 영 변환이 아니라고 가정하자. <m>f</m>의 치역 <m>\operatorname{im}(f)</m>는 무엇인지 체 <m>\mathbb{F}</m>의 부분공간 관점에서 구하시오.
+        <fn><p>
+        <m>F</m>상의 벡터공간 <m>V</m>가 있을 때, 선형변환 <m>f: V \to \mathbb{F}</m>를 선형 범함수(linear functional)라고 부릅니다.
+        </p></fn>
+      </p>
       </statement>
     </exercise>
 
-    <exercise xml:id="ex-scalar-multiplication-transformation">
+    <exercise xml:id="exercise-scalar-multiplication-transformation">
       <title>스칼라 곱셈 변환</title>
       <statement>
-        <p>체 <m>\mathbb{F}</m> 위의 벡터 공간 <m>V</m>와 고정된 영이 아닌 벡터 <m>v_0 \in V</m>를 생각하자. 함수 <m>T: \mathbb{F} \to V</m>를 <m>T(c) = cv_0</m>로 정의할 때, <m>T</m>가 선형 변환임을 보이고, <m>T</m>의 커널과 이미지를 각각 구하시오.</p>
+      <p>체 <m>\mathbb{F}</m> 위의 벡터 공간 <m>V</m>와 고정된 영이 아닌 벡터 <m>v_0 \in V</m>를 생각하자. 함수 <m>T: \mathbb{F} \to V</m>를 <m>T(c) = cv_0</m>로 정의할 때, <m>T</m>가 선형 변환임을 보이고, <m>T</m>의 커널과 이미지를 각각 구하시오.</p>
       </statement>
     </exercise>
 
-    <exercise xml:id="ex-surjective-implies-finite-dimensional-image">
+    <exercise xml:id="exercise-surjective-implies-finite-dimensional-image">
       <title>전사 변환과 유한 차원성</title>
       <statement>
-        <p>선형 변환 <m>T: V \to W</m>가 전사 함수(Surjective)라고 가정하자. 만약 정의역 <m>V</m>가 유한 차원 벡터 공간이라면, 공역 <m>W</m> 역시 반드시 유한 차원 벡터 공간이 됨을 <m>V</m>의 기저를 이용하여 증명하시오.</p>
+      <p>선형 변환 <m>T: V \to W</m>가 전사 함수(Surjective)라고 가정하자. 만약 정의역 <m>V</m>가 유한 차원 벡터 공간이라면, 공역 <m>W</m> 역시 반드시 유한 차원 벡터 공간이 됨을 <m>V</m>의 기저를 이용하여 증명하시오.</p>
       </statement>
     </exercise>
 
-    <exercise xml:id="ex-composition-identity-injectivity-surjectivity">
+    <exercise xml:id="exercise-composition-identity-injectivity-surjectivity">
       <title>항등 합성과 단사성, 전사성</title>
       <statement>
-        <p>두 선형 연산자 <m>S, T: V \to V</m>에 대하여, 두 변환의 합성 <m>S \circ T</m>가 항등 연산자 <m>I</m>라고 가정하자 (<m>S \circ T = I</m>). 이때 <m>T</m>는 반드시 단사 함수이어야 하고, <m>S</m>는 반드시 전사 함수이어야 함을 증명하시오.</p>
+      <p>두 선형 연산자 <m>S, T: V \to V</m>에 대하여, 두 변환의 합성 <m>S \circ T</m>가 항등 연산자 <m>I</m>라고 가정하자 (<m>S \circ T = I</m>). 이때 <m>T</m>는 반드시 단사 함수이어야 하고, <m>S</m>는 반드시 전사 함수이어야 함을 증명하시오.</p>
       </statement>
     </exercise>
 
-    <exercise xml:id="ex-complex-operator-property">
+    <exercise xml:id="exercise-complex-operator-property">
       <title>복소 선형 연산자의 성질</title>
       <statement>
-        <p><m>V</m>를 복소수 체 <m>\mathbb{C}</m> 위의 벡터 공간이라 하고, 선형 연산자 <m>T: V \to V</m>가 <m>T(iv) = -iT(v)</m> (단, <m>i</m>는 허수단위)를 만족한다고 하자. <m>T</m>의 이미지가 <m>\ker(T)</m>에 포함될 수 있는가?</p>
+      <p><m>V</m>를 복소수 체 <m>\mathbb{C}</m> 위의 벡터 공간이라 하고, 선형 연산자 <m>T: V \to V</m>가 <m>T(iv) = -iT(v)</m> (단, <m>i</m>는 허수단위)를 만족한다고 하자. <m>T</m>의 이미지가 <m>\ker(T)</m>에 포함될 수 있는가?</p>
       </statement>
     </exercise>    
-    <exercise xml:id="ex-image-intersection-subspaces">
+    <exercise xml:id="exercise-image-intersection-subspaces">
       <title>이미지와 교집합</title>
       <statement>
-        <p>선형 변환 <m>T: V \to W</m>와 정의역 <m>V</m>의 두 부분공간 <m>U_1, U_2</m>에 대하여 다음 물음에 답하시오.</p>
-        <ol>
-          <li><m>T(U_1 \cap U_2) \subseteq T(U_1) \cap T(U_2)</m> 가 항상 성립함을 증명하시오.</li>
-          <li>위의 포함 관계에서 등호가 성립하지 않는 구체적인 선형 변환 <m>T</m>와 부분공간 <m>U_1, U_2</m>의 반례를 제시하시오.</li>
-          <li>만약 <m>T</m>가 단사 함수라면, 항상 <m>T(U_1 \cap U_2) = T(U_1) \cap T(U_2)</m> 가 성립하게 됨을 증명하시오.</li>
-        </ol>
+      <p>선형 변환 <m>T: V \to W</m>와 정의역 <m>V</m>의 두 부분공간 <m>U_1, U_2</m>에 대하여 다음 물음에 답하시오.</p>
+      <ol>
+        <li><m>T(U_1 \cap U_2) \subseteq T(U_1) \cap T(U_2)</m> 가 항상 성립함을 증명하시오.</li>
+        <li>위의 포함 관계에서 등호가 성립하지 않는 구체적인 선형 변환 <m>T</m>와 부분공간 <m>U_1, U_2</m>의 반례를 제시하시오.</li>
+        <li>만약 <m>T</m>가 단사 함수라면, 항상 <m>T(U_1 \cap U_2) = T(U_1) \cap T(U_2)</m> 가 성립하게 됨을 증명하시오.</li>
+      </ol>
       </statement>
     </exercise>
 
-    <exercise xml:id="ex-sylvester-rank-inequality">
+    <exercise xml:id="exercise-sylvester-rank-inequality">
       <title>실베스터의 부등식</title>
       <statement>
-        <p><m>V</m>를 유한차원 벡터공간이라 하고, <m>S, T: V \to V</m>를 선형 연산자라 하자. 다음을 증명하시오:</p>
-        <me>\dim(\ker(ST)) \le \dim(\ker(S)) + \dim(\ker(T))</me>
-        <aside><p>
-          정의역과 공역이 같은 선형변환을 선형 연산자라고 합니다. 연산자:operator
-        </p></aside>
+      <p><m>V</m>를 유한차원 벡터공간이라 하고, <m>S, T: V \to V</m>를 선형 연산자라 하자. 다음을 증명하시오:</p>
+      <me>\dim(\ker(ST)) \le \dim(\ker(S)) + \dim(\ker(T))</me>
+      <aside><p>
+        정의역과 공역이 같은 선형변환을 선형 연산자라고 합니다. 연산자:operator
+      </p></aside>
       </statement>
     </exercise>
   </exercises>

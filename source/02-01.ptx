@@ -257,7 +257,7 @@
     
   </subsection>
   <exercises>
-    <exercise>
+    <exercise xml:id="exercise-isomorphism-dimension">
       <statement>
         <p>
           체 <m>\mathbb{F}</m> 위에서 정의된 벡터공간 <m>V</m>의 차원이 5이고 <m>W</m>의 차원이 6일 때, 두 공간 사이에 역변환을 갖는 선형변환(동형사상)이 존재할 수 있는가? 논리적 근거를 제시하시오.
@@ -265,7 +265,7 @@
       </statement>
     </exercise>
 
-    <exercise>
+    <exercise xml:id="exercise-projection-not-isomorphism">
       <statement>
         <p>
           선형변환 <m>T: \mathbb{F}^3 \to \mathbb{F}^3</m> 가 <m>T(x,y,z) = (x, y, 0)</m> 으로 정의될 때, 이 변환이 동형사상이 아닌 이유를 가역성의 관점에서 밝히시오.
@@ -273,7 +273,7 @@
       </statement>
     </exercise>
 
-    <exercise>
+    <exercise xml:id="exercise-inverse-uniqueness">
       <statement>
         <p>
           선형변환 <m>T: V \to W</m> 가 동형사상일 때, 그 역변환 <m>T^{-1}: W \to V</m> 가 유일하게 존재함을 증명하시오.
@@ -281,7 +281,7 @@
       </statement>
     </exercise>
 
-    <exercise>
+    <exercise xml:id="exercise-isomorphism-basis">
       <statement>
         <p>
           선형변환 <m>T: V \to W</m> 가 동형사상이라 하자. 집합 <m>\{v_1, \dots, v_n\}</m> 이 <m>V</m>의 기저이면, 집합 <m>\{T(v_1), \dots, T(v_n)\}</m> 은 <m>W</m>의 기저임을 역변환 <m>T^{-1}</m>를 명시적으로 사용하여 증명하시오.
@@ -289,7 +289,7 @@
       </statement>
     </exercise>
 
-    <exercise>
+    <exercise xml:id="exercise-isomorphism-equivalence">
       <statement>
         <p>
           체 <m>\mathbb{F}</m> 상의 벡터공간들의 모임 위에서 동형관계 <m>\cong</m>가 동치관계가 됨을 증명하시오.
@@ -297,7 +297,7 @@
       </statement>
     </exercise>
 
-    <exercise>
+    <exercise xml:id="exercise-isomorphism-subspace">
       <statement>
         <p>
           선형변환 <m>T: V \to W</m> 가 동형사상이고 <m>U</m>가 <m>V</m>의 부분공간이라 할 때, 부분공간의 치역 <m>T(U)</m> 가 <m>W</m>의 부분공간이 됨을 보이고, <m>\dim(U) = \dim(T(U))</m> 가 성립함을 증명하시오.
@@ -305,7 +305,7 @@
       </statement>
     </exercise>
 
-    <exercise>
+    <exercise xml:id="exercise-symmetric-matrix-isomorphism">
       <statement>
         <p>
           체 <m>\mathbb{F}</m> 위에서 <m>2 \times 2</m> 대칭행렬(symmetric matrix)들의 공간이 <m>\mathbb{F}^3</m> 와 동형임을 구체적인 동형사상을 구성하여 증명하시오.
@@ -313,7 +313,7 @@
       </statement>
     </exercise>
 
-    <exercise>
+    <exercise xml:id="exercise-injective-isomorphism">
       <statement>
         <p>
           유한차원 벡터공간 <m>V, W</m>에 대하여, 단사인 선형변환 <m>T: V \to W</m> 와 단사인 선형변환 <m>S: W \to V</m> 가 모두 존재하면 두 공간은 반드시 동형(<m>V \cong W</m>)임을 증명하시오.
@@ -321,7 +321,7 @@
       </statement>
     </exercise>
 
-    <exercise>
+    <exercise xml:id="exercise-direct-sum-counterexample">
       <statement>
         <p>
           세 부분공간의 합에 대하여, <m>U_1 \cap U_2 = \{0_V\}</m>, <m>U_2 \cap U_3 = \{0_V\}</m>, <m>U_3 \cap U_1 = \{0_V\}</m> 이라는 '쌍마다의 교집합이 영공간'이라는 조건이 합공간 <m>U_1 + U_2 + U_3</m> 가 직합이 되기 위한 충분조건이 아님을 <m>\mathbb{F}^2</m> 내의 1차원 부분공간 세 개를 이용하여 반례를 구성하시오.
@@ -329,7 +329,7 @@
       </statement>
     </exercise>
 
-    <exercise>
+    <exercise xml:id="exercise-direct-sum-scalar-matrix">
       <statement>
         <p>
           <m>M_{2 \times 2}(\mathbb{F})</m> 공간에서 대각성분이 모두 0인 행렬들의 공간을 <m>W</m>라 하고, 스칼라 행렬(단위행렬의 상수배)들의 공간을 <m>U</m>라 할 때, 두 공간의 합 <m>U+W</m> 가 직합인지 판별하고 그 합공간의 차원을 구하시오.
@@ -337,7 +337,7 @@
       </statement>
     </exercise>
 
-    <exercise>
+    <exercise xml:id="exercise-complementary-subspace">
       <statement>
         <p>
           임의의 벡터공간 <m>V</m>와 그 부분공간 <m>U</m>가 주어졌을 때, <m>V = U \oplus W</m> 를 만족하는 여공간 <m>W</m>가 항상 존재함을 기저 확장 정리를 이용하여 증명하시오.
@@ -346,7 +346,7 @@
       </statement>
     </exercise>
 
-    <exercise>
+    <exercise xml:id="exercise-direct-sum-linear-map">
       <statement>
         <p>
           <m>V = \bigoplus_{i \in I} U_i</m> 이고 <m>W</m>가 또 다른 벡터공간이라 하자. 각 <m>U_i</m> 에 정의된 임의의 선형변환 족 <m>T_i: U_i \to W</m> 가 주어졌을 때, <m>V</m>에서 <m>W</m>로 가는 선형변환 <m>T</m> 중 모든 <m>i \in I</m> 에 대해 <m>T|_{U_i} = T_i</m> 를 만족하는 <m>T</m>가 유일하게 존재함을 증명하시오.
@@ -354,7 +354,7 @@
       </statement>
     </exercise>
 
-    <exercise>
+    <exercise xml:id="exercise-direct-sum-intersection">
       <statement>
         <p>
           부분공간 교집합의 직합 보존 실패: 벡터공간 <m>V</m>가 부분공간들의 직합 <m>V = \bigoplus_{i \in I} W_i</m> 로 주어지고 각 <m>W_i</m> 가 유한차원이라 하자. 임의의 부분공간 <m>U \subseteq V</m> 가 주어졌을 때, <m>U</m>가 반드시 <m>\bigoplus_{i \in I} (U \cap W_i)</m> 로 분해되지는 않음을 증명하시오. 이를 보이기 위한 명확한 기하학적 반례를 <m>\mathbb{R}^2</m> 공간 상에서 제시하시오.
@@ -380,7 +380,7 @@
       </statement>
     </definition>
 
-    <exercise>
+    <exercise xml:id="exercise-linear-transformation-space-dimension">
       <statement>
         <p>
           <m>V</m>와 <m>W</m>가 유한차원 벡터공간일 때, <m>\mathcal{L}(V,W) </m>와 <m>M_{\dim(W) \times \dim(V)}(\mathbb{F})</m> 사이의 동형사상을 하나 구하고, 이를 이용하여 <m>\mathcal{L}(V,W)</m>의 차원이 <m>\dim(V) \cdot \dim(W)</m>임을 증명하시오.

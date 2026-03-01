@@ -174,105 +174,105 @@
   </definition>
   </subsection>
 
-  <exercises xml:id="exercises-01-04">
-    <exercise xml:id="ex-partition-equivalence" >
-      <title>분할과 동치관계</title>
-      <p>
-        집합 <m>X = \{a, b, c, d\}</m>에 대한 분할이 <m>\mathcal{P} = \{\{a, b\}, \{c\}, \{d\}\}</m>로 주어졌을 때, 이 분할이 유도하는 동치관계 <m>\sim</m>의 모든 순서쌍 <m>(x, y) \in X \times X</m>를 나열하시오.
-      </p>
-    </exercise>
-
-    <exercise xml:id="ex-non-equivalence-relation">
-      <title>동치관계가 아닌 관계</title>
-      <p>
-        실수 집합 <m>\mathbb{R}</m> 상의 관계 <m>x \sim y \iff x \le y</m>가 주어졌다. 이 관계가 동치관계가 되지 못하는 이유를 설명하시오.
-      </p>
-    </exercise>
-
-    <exercise xml:id="ex-quotient-space-dimension-calculation">
-      <title>몫공간의 차원</title>
-      <p>
-      체 <m>\mathbb{F}</m> 위에서 정의된 8차원 벡터공간 <m>V</m>와 그 3차원 부분공간 <m>W</m>가 있다. 몫공간 <m>V/W</m>의 차원을 구하시오.
-      </p>
-    </exercise>
-
-    
-    <exercise xml:id="ex-matrix-similarity">
-      <title>닮음과 동치관계</title>
-      <definition xml:id="def-matrix-similarity">
-        <title>행렬의 닮음</title>
-        <statement>
+    <exercises xml:id="exercises-01-04">
+      <exercise xml:id="exercise-partition-equivalence" >
+        <title>분할과 동치관계</title>
         <p>
-          <m>n \times n</m> 행렬의 공간 <m>M_{n \times n}(\mathbb{F})</m>에서, 어떤 가역행렬 <m>P</m>가 존재하여 <m>B = P^{-1}AP</m>를 만족할 때 <m>A \sim B</m>라 정의한다. 이를 <term>닮음</term>이라 한다.<aside><p>닮음:similarity</p></aside>
+          집합 <m>X = \{a, b, c, d\}</m>에 대한 분할이 <m>\mathcal{P} = \{\{a, b\}, \{c\}, \{d\}\}</m>로 주어졌을 때, 이 분할이 유도하는 동치관계 <m>\sim</m>의 모든 순서쌍 <m>(x, y) \in X \times X</m>를 나열하시오.
         </p>
-        </statement>
-      </definition>
-      <p>
-      정의 <xref ref="def-matrix-similarity"/>의 행렬의 닮음 관계가 동치관계임을 증명하시오.
-      </p>
-    </exercise>
+      </exercise>
 
-    <exercise xml:id="ex-intersection-subspace-equivalence">
-      <title>부분공간의 교집합 위의 동치관계</title>
-      <p>
-        벡터공간 <m>V</m> 내의 두 부분공간 <m>W_1, W_2</m>가 주어졌다. <m>V</m> 상의 관계를 <m>v_1 \sim v_2 \iff v_1 - v_2 \in W_1 \cap W_2</m>로 정의할 때, 이것이 동치관계임을 증명하시오.
-      </p>
-    </exercise>
-
-    <exercise xml:id="ex-polynomial-derivative-equivalence">
-      <title>다항식의 미분과 동치관계</title>
-      <p>
-        다항식 공간 <m>\mathbb{R}[x]_{\le n}</m>에서 <m>p(x) \sim q(x) \iff p'(x) = q'(x)</m>로 정의할 때, 이것이 동치관계임을 증명하고 임의의 다항식 <m>p(x)</m>의 동치류 <m>[p(x)]</m>를 집합 조건 제시법으로 명확히 묘사하시오.
-      </p>
-    </exercise>
-
-    <exercise xml:id="ex-quotient-space-upper-triangular">
-      <title>상삼각행렬과 몫공간의 차원</title>
-      <p>
-      체 <m>\mathbb{F}</m> 성분을 갖는 <m>2 \times 2</m> 행렬 공간 <m>V = M_{2 \times 2}(\mathbb{F})</m>에서 상삼각행렬들의 부분공간을 <m>W</m>라 하자. 몫공간 <m>V/W</m>의 차원을 구하시오.
-      <aside><p>상삼각행렬:upper triangular matrix</p></aside>
-      </p>
-    </exercise>
-
-    <exercise xml:id="ex-cokernel-basis">
-      <title>코커널과 기저</title>
-      <p>
-      체 <m>\mathbb{F}</m> 상의 행렬 <m>A = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}</m> 로 정의되는 선형변환 <m>L_A: \mathbb{F}^2 \to \mathbb{F}^2</m> 의 커널을 <m>W</m>라 하자. 몫공간 <m>\mathbb{F}^2/W</m> 의 기저를 하나 찾으시오.
-      </p>
-    </exercise>
-    <exercise xml:id="ex-rank-nullity-for-matrix">
-      <title>행렬에 관한 기본정리(랭크-널리티 정리)</title>
-      <statement>
+      <exercise xml:id="exercise-non-equivalence-relation">
+        <title>동치관계가 아닌 관계</title>
         <p>
-          <m>A</m>가 <m>m \times n</m> 행렬이고 <m>L_A: \mathbb{F}^n \to \mathbb{F}^m</m>이 그에 대응하는 선형변환일 때, 다음을 증명하시오:
-          <me>\dim(\ker(L_A)) + \dim(\operatorname{im}(L_A)) = n.</me>
+          실수 집합 <m>\mathbb{R}</m> 상의 관계 <m>x \sim y \iff x \le y</m>가 주어졌다. 이 관계가 동치관계가 되지 못하는 이유를 설명하시오.
         </p>
-      </statement>
-      
-      
-      
-    </exercise>
+      </exercise>
 
+      <exercise xml:id="exercise-quotient-space-dimension-calculation">
+        <title>몫공간의 차원</title>
+        <p>
+        체 <m>\mathbb{F}</m> 위에서 정의된 8차원 벡터공간 <m>V</m>와 그 3차원 부분공간 <m>W</m>가 있다. 몫공간 <m>V/W</m>의 차원을 구하시오.
+        </p>
+      </exercise>
 
-    <exercise xml:id="ex-matrix-equivalence-rank">
-      <title>행렬의 동치와 계수</title>
-      <p>
-      <m>M_{m \times n}(F)</m>에서 두 행렬 <m>A, B</m>에 대해, 가역행렬인 <m>P \in M_{m \times m}(F)</m>와 <m>Q \in M_{n \times n}(F)</m>가 존재하여 <m>A = PBQ</m>를 만족할 때 <m>A \sim B</m>라 정의하자. 이 관계가 동치관계임을 증명하고, 두 행렬이 이 관계 하에서 동치일 필요충분조건은 두 행렬의 계수가 같음임을 증명하시오. (즉, 랭크는 이 동치관계의 완전한 불변량입니다.)
-      </p>
-    </exercise>
+      
+      <exercise xml:id="exercise-matrix-similarity">
+        <title>닮음과 동치관계</title>
+        <definition xml:id="def-matrix-similarity">
+          <title>행렬의 닮음</title>
+          <statement>
+          <p>
+            <m>n \times n</m> 행렬의 공간 <m>M_{n \times n}(\mathbb{F})</m>에서, 어떤 가역행렬 <m>P</m>가 존재하여 <m>B = P^{-1}AP</m>를 만족할 때 <m>A \sim B</m>라 정의한다. 이를 <term>닮음</term>이라 한다.<aside><p>닮음:similarity</p></aside>
+          </p>
+          </statement>
+        </definition>
+        <p>
+        정의 <xref ref="def-matrix-similarity"/>의 행렬의 닮음 관계가 동치관계임을 증명하시오.
+        </p>
+      </exercise>
 
-    <exercise xml:id="ex-induced-map-quotient-space">
-      <title>불변 부분공간과 유도된 사상</title>
-      <definition xml:id="def-invariant-subspace">
+      <exercise xml:id="exercise-intersection-subspace-equivalence">
+        <title>부분공간의 교집합 위의 동치관계</title>
+        <p>
+          벡터공간 <m>V</m> 내의 두 부분공간 <m>W_1, W_2</m>가 주어졌다. <m>V</m> 상의 관계를 <m>v_1 \sim v_2 \iff v_1 - v_2 \in W_1 \cap W_2</m>로 정의할 때, 이것이 동치관계임을 증명하시오.
+        </p>
+      </exercise>
+
+      <exercise xml:id="exercise-polynomial-derivative-equivalence">
+        <title>다항식의 미분과 동치관계</title>
+        <p>
+          다항식 공간 <m>\mathbb{R}[x]_{\le n}</m>에서 <m>p(x) \sim q(x) \iff p'(x) = q'(x)</m>로 정의할 때, 이것이 동치관계임을 증명하고 임의의 다항식 <m>p(x)</m>의 동치류 <m>[p(x)]</m>를 집합 조건 제시법으로 명확히 묘사하시오.
+        </p>
+      </exercise>
+
+      <exercise xml:id="exercise-quotient-space-upper-triangular">
+        <title>상삼각행렬과 몫공간의 차원</title>
+        <p>
+        체 <m>\mathbb{F}</m> 성분을 갖는 <m>2 \times 2</m> 행렬 공간 <m>V = M_{2 \times 2}(\mathbb{F})</m>에서 상삼각행렬들의 부분공간을 <m>W</m>라 하자. 몫공간 <m>V/W</m>의 차원을 구하시오.
+        <aside><p>상삼각행렬:upper triangular matrix</p></aside>
+        </p>
+      </exercise>
+
+      <exercise xml:id="exercise-cokernel-basis">
+        <title>코커널과 기저</title>
+        <p>
+        체 <m>\mathbb{F}</m> 상의 행렬 <m>A = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}</m> 로 정의되는 선형변환 <m>L_A: \mathbb{F}^2 \to \mathbb{F}^2</m> 의 커널을 <m>W</m>라 하자. 몫공간 <m>\mathbb{F}^2/W</m> 의 기저를 하나 찾으시오.
+        </p>
+      </exercise>
+      <exercise xml:id="exercise-rank-nullity-for-matrix">
+        <title>행렬에 관한 기본정리(랭크-널리티 정리)</title>
         <statement>
           <p>
-            <m>\mathbb{F}</m>상의 벡터공간 <m>V</m>와 그 부분공간 <m>W</m>가 주어졌을 때, 임의의 <m>v \in W</m>에 대하여 <m>T(v) \in W</m>가 성립하면, 이때 <m>W</m>를 <term><m>T</m>-불변 부분공간</term>이라고 합니다. <aside><p>불변 부분공간:invariant subspace</p></aside>
+            <m>A</m>가 <m>m \times n</m> 행렬이고 <m>L_A: \mathbb{F}^n \to \mathbb{F}^m</m>이 그에 대응하는 선형변환일 때, 다음을 증명하시오:
+            <me>\dim(\ker(L_A)) + \dim(\operatorname{im}(L_A)) = n.</me>
           </p>
         </statement>
-      </definition>
-      <p>
-        체 <m>\mathbb{F}</m> 상의 벡터공간 <m>V</m>와 선형 연산자 <m>T\colon V\to V</m>가 주어졌다. <m>T</m>-불변 부분공간 <m>W\subset V</m>에 대하여, 사상 <m>\bar{T}: V/W \to V/W</m>를 <m>\bar{T}(v+W) = T(v)+W</m>로 정의하면 이 사상이 잘 정의된 선형변환임을 증명하시오.
-      </p>
-    </exercise>
-  </exercises>
+        
+        
+        
+      </exercise>
+
+
+      <exercise xml:id="exercise-matrix-equivalence-rank">
+        <title>행렬의 동치와 계수</title>
+        <p>
+        <m>M_{m \times n}(F)</m>에서 두 행렬 <m>A, B</m>에 대해, 가역행렬인 <m>P \in M_{m \times m}(F)</m>와 <m>Q \in M_{n \times n}(F)</m>가 존재하여 <m>A = PBQ</m>를 만족할 때 <m>A \sim B</m>라 정의하자. 이 관계가 동치관계임을 증명하고, 두 행렬이 이 관계 하에서 동치일 필요충분조건은 두 행렬의 계수가 같음임을 증명하시오. (즉, 랭크는 이 동치관계의 완전한 불변량입니다.)
+        </p>
+      </exercise>
+
+      <exercise xml:id="exercise-induced-map-quotient-space">
+        <title>불변 부분공간과 유도된 사상</title>
+        <definition xml:id="def-invariant-subspace">
+          <statement>
+            <p>
+              <m>\mathbb{F}</m>상의 벡터공간 <m>V</m>와 그 부분공간 <m>W</m>가 주어졌을 때, 임의의 <m>v \in W</m>에 대하여 <m>T(v) \in W</m>가 성립하면, 이때 <m>W</m>를 <term><m>T</m>-불변 부분공간</term>이라고 합니다. <aside><p>불변 부분공간:invariant subspace</p></aside>
+            </p>
+          </statement>
+        </definition>
+        <p>
+          체 <m>\mathbb{F}</m> 상의 벡터공간 <m>V</m>와 선형 연산자 <m>T\colon V\to V</m>가 주어졌다. <m>T</m>-불변 부분공간 <m>W\subset V</m>에 대하여, 사상 <m>\bar{T}: V/W \to V/W</m>를 <m>\bar{T}(v+W) = T(v)+W</m>로 정의하면 이 사상이 잘 정의된 선형변환임을 증명하시오.
+        </p>
+      </exercise>
+    </exercises>
 </section>

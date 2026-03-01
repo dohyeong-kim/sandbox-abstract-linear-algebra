@@ -145,7 +145,7 @@
       <title>3차원 공간의 쌍대공간</title>
       <statement>
         <p>
-            <m>V = \mathbb{R}^3</m>, <m>W</m>를 <m>xy</m>-평면, <m>U</m>를 x축이라 합시다. <m>W^0</m> 는 z축 방향의 범함수들이고, <m>U^0</m> 는 y축과 z축 방향의 범함수들입니다. <xref ref="thm-third-isomorphism">제3동형정리</xref>의 사상 <m>\Psi</m> 는 <m>y, z</m>축 범함수들 중 <m>z</m>축 범함수를 무시한 공간의 몫이, 전체 공간에서 바로 <m>y, z</m>축 범함수들을 무시하고 남은 <m>x</m>축 범함수의 구조와 동형임을 입증합니다.
+          <m>V = \mathbb{R}^3</m>, <m>W</m>를 <m>xy</m>-평면, <m>U</m>를 x축이라 합시다. <m>W^0</m> 는 z축 방향의 범함수들이고, <m>U^0</m> 는 y축과 z축 방향의 범함수들입니다. <xref ref="thm-third-isomorphism">제3동형정리</xref>의 사상 <m>\Psi</m> 는 <m>y, z</m>축 범함수들 중 <m>z</m>축 범함수를 무시한 공간의 몫이, 전체 공간에서 바로 <m>y, z</m>축 범함수들을 무시하고 남은 <m>x</m>축 범함수의 구조와 동형임을 입증합니다.
         </p>
       </statement>
     </example>
@@ -153,13 +153,13 @@
       <title>쌍대사상</title>
       <statement>
       <p>
-        체 <m>\mathbb{F}</m> 상의 두 벡터공간 <m>V, W</m>와 선형변환 <m>T: V \to W</m>가 주어졌다고 하자. <m>T</m>의 쌍대사상 <m>T^*: W^* \to V^*</m>는 임의의 선형범함수 <m>g \in W^*</m>에 대하여 다음과 같이 합성함수로 정의된다.
+      체 <m>\mathbb{F}</m> 상의 두 벡터공간 <m>V, W</m>와 선형변환 <m>T: V \to W</m>가 주어졌다고 합시다. <m>T</m>의 쌍대사상 <m>T^*: W^* \to V^*</m>는 임의의 선형범함수 <m>g \in W^*</m>에 대하여 다음과 같이 합성함수로 정의된다.
       </p>
       <p>
-        <m>T^*(g) = g \circ T</m>
+      <m>T^*(g) = g \circ T</m>
       </p>
       <p>
-        즉, 임의의 <m>v \in V</m>에 대하여 <m>(T^*(g))(v) = g(T(v))</m>이다.
+      즉, 임의의 <m>v \in V</m>에 대하여 <m>(T^*(g))(v) = g(T(v))</m>이다.
       </p>
       </statement>
     </definition>
@@ -168,7 +168,7 @@
       <title>쌍대사상의 계산</title>
       <statement>
       <p>
-        <m>V = \mathbb{R}^2, W = \mathbb{R}^2</m>이고 <m>T(x, y) = (x+y, x)</m>라 하자. <m>g \in W^*</m>가 <m>g(u, v) = 2u - v</m>로 주어졌을 때, <m>T^*(g)</m>를 계산해 보자.
+        <m>V = \mathbb{R}^2, W = \mathbb{R}^2</m>이고 <m>T(x, y) = (x+y, x)</m>라 합시다. <m>g \in W^*</m>가 <m>g(u, v) = 2u - v</m>로 주어졌을 때, <m>T^*(g)</m>를 계산해 봅시다.
       </p>
       <p>
         <m>(T^*(g))(x, y) = g(T(x, y)) = g(x+y, x) = 2(x+y) - x = x + 2y</m>
@@ -183,7 +183,7 @@
       <title>미분 연산자의 쌍대사상</title>
       <statement>
       <p>
-        미분 연산자 <m>D: \mathbb{F}[x]_{\le 2} \to \mathbb{F}[x]_{\le 1}</m>를 <m>D(p(x)) = p'(x)</m>로 정의하자. <m>W = \mathbb{F}[x]_{\le 1}</m> 상의 선형범함수 <m>g</m>를 <m>g(q) = q(0)</m> (상수항 평가)로 두면, <m>D^*(g) \in \mathbb{F}[x]_{\le 2}^*</m>는 <m>(D^*(g))(p) = g(D(p)) = g(p') = p'(0)</m>이 된다. 즉, 원래 다항식의 1차항 계수를 추출하는 범함수가 된다.
+        미분 연산자 <m>D: \mathbb{F}[x]_{\le 2} \to \mathbb{F}[x]_{\le 1}</m>를 <m>D(p(x)) = p'(x)</m>로 정의합시다. <m>W = \mathbb{F}[x]_{\le 1}</m> 상의 선형범함수 <m>g</m>를 <m>g(q) = q(0)</m> (상수항 평가)로 두면, <m>D^*(g) \in \mathbb{F}[x]_{\le 2}^*</m>는 <m>(D^*(g))(p) = g(D(p)) = g(p') = p'(0)</m>이 된다. 즉, 원래 다항식의 1차항 계수를 추출합니다 범함수가 된다.
       </p>
       </statement>
     </example>
@@ -197,7 +197,7 @@
       </statement>
       <proof>
       <p>
-        임의의 <m>g_1, g_2 \in W^*</m>와 스칼라 <m>c \in \mathbb{F}</m>에 대하여, <m>V</m>의 임의의 원소 <m>v</m>를 취해 값을 평가하면 다음과 같다.
+        임의의 <m>g_1, g_2 \in W^*</m>와 스칼라 <m>c \in \mathbb{F}</m>에 대하여, <m>V</m>의 임의의 원소 <m>v</m>를 취해 값을 평가합니다.
       </p>
       <p>
         <m>(T^*(cg_1 + g_2))(v) = (cg_1 + g_2)(T(v)) = c g_1(T(v)) + g_2(T(v))</m>
@@ -206,7 +206,7 @@
         <m>= c(T^*(g_1))(v) + (T^*(g_2))(v) = (cT^*(g_1) + T^*(g_2))(v)</m>
       </p>
       <p>
-        모든 <m>v \in V</m>에 대해 위 등식이 성립하므로, <m>T^*(cg_1 + g_2) = cT^*(g_1) + T^*(g_2)</m>이다.
+        모든 <m>v \in V</m>에 대해 위 등식이 성립하므로, <m>T^*(cg_1 + g_2) = cT^*(g_1) + T^*(g_2)</m>입니다.
       </p>
       </proof>
     </theorem>
@@ -215,10 +215,10 @@
       <title>쌍대기저</title>
       <statement>
       <p>
-        체 <m>\mathbb{F}</m> 상의 유한차원 벡터공간 <m>V</m>의 기저를 <m>\mathcal{B} = \{v_1, \dots, v_n\}</m>이라 하자. 쌍대공간 <m>V^*</m>의 원소들로 이루어진 집합 <m>\mathcal{B}^* = \{f_1, \dots, f_n\}</m>이 모든 <m>1 \le i, j \le n</m>에 대하여 다음을 만족할 때, 이를 <m>\mathcal{B}</m>에 대한 쌍대기저라고 한다.
+      체 <m>\mathbb{F}</m> 상의 유한차원 벡터공간 <m>V</m>의 기저를 <m>\mathcal{B} = \{v_1, \dots, v_n\}</m>이라 합시다. 쌍대공간 <m>V^*</m>의 원소들로 이루어진 집합 <m>\mathcal{B}^* = \{f_1, \dots, f_n\}</m>이 모든 <m>1 \le i, j \le n</m>에 대하여 다음을 만족할 때, 이를 <m>\mathcal{B}</m>에 대한 쌍대기저라고 합니다.
       </p>
       <p>
-        <m>f_i(v_j) = \delta_{ij} = \begin{cases} 1 &amp; \text{if } i=j \\ 0 &amp; \text{if } i \neq j \end{cases}</m>
+      <m>f_i(v_j) = \delta_{ij} = \begin{cases} 1 &amp; \text{if } i=j \\ 0 &amp; \text{if } i \neq j \end{cases}</m>
       </p>
       </statement>
     </definition>
