@@ -10,4 +10,5 @@
   <xi:include href="99-01-fields.ptx" />
   <xi:include href="99-02-sets.ptx" />
   <xi:include href="99-03-equivalence.ptx" />
+  <xi:include href="99-04-perm.ptx" />
 </chapter>

@@ -3,6 +3,206 @@
 <section xml:id="03-02-char" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>행렬식과 특성다항식</title>
 
+  <p> 행렬식은 정사각행렬이나 선형변환의 가역성을 판별하고, 부피의 변화율을 측정하며, 고윳값을 계산하는 핵심적인 대수적 도구입니다. 이 절에서는 서로 다른 벡터공간들의 곱 위에서 정의되는 일반적인 다중선형함수의 개념으로부터 출발하여 행렬식을 특정하고, 이를 바탕으로 특성다항식을 도입하며, 대각화 가능한 필요조건을 확립합니다. </p>
   
+  <subsection xml:id="03-02-multilinear">
+    <title>다중선형함수와 교대형식</title>
+    
+    <p>가장 일반적인 형태의 다중선형함수는 여러 개의 (서로 다를 수 있는) 벡터공간들에서 벡터를 하나씩 가져와 새로운 벡터를 만들어내는 함수로서, 각각의 입력 슬롯에 대해 선형성을 보존합니다.</p>
+
+    <definition xml:id="def-multilinear">
+      <title>다중선형함수</title>
+      <statement>
+        <p>체 <m>\mathbb{F}</m> 상의 <m>n</m>개의 벡터공간 <m>V_1, V_2, \dots, V_n</m>과 공역 벡터공간 <m>W</m>에 대하여, 함수 <m>D: V_1 \times V_2 \times \dots \times V_n \to W</m>가 각 변수에 대하여 선형성을 만족할 때, 이를 <term>다중선형함수</term>라고 합니다. <aside><p>다중선형함수:multilinear function</p></aside> 즉, 임의의 <m>1 \le i \le n</m>과 스칼라 <m>c \in \mathbb{F}</m>, 벡터 <m>v_i, u_i \in V_i</m>에 대하여 (나머지 변수들은 고정된 상태에서) 다음이 성립합니다.
+        <me>D(v_1, \dots, v_{i-1}, cv_i + u_i, v_{i+1}, \dots, v_n) = cD(v_1, \dots, v_{i-1}, v_i, v_{i+1}, \dots, v_n) + D(v_1, \dots, v_{i-1}, u_i, v_{i+1}, \dots, v_n)</me>
+        </p>
+      </statement>
+    </definition>
+
+    <example xml:id="ex-bilinear">
+      <title>외적으로 정의된 이중선형함수</title>
+      <p>서로 다른 차원을 가지는 두 벡터공간 <m>V_1 = \mathbb{F}^m</m>, <m>V_2 = \mathbb{F}^n</m>과 공역 <m>W = M_{m \times n}(\mathbb{F})</m>를 생각하자. 두 열벡터 <m>u \in \mathbb{F}^m, v \in \mathbb{F}^n</m>에 대하여 <m>D(u, v) = u v^T</m>로 정의된 함수는 첫 번째 변수 <m>u</m>와 두 번째 변수 <m>v</m> 각각에 대하여 행렬 곱셈의 분배법칙을 만족하므로 이중선형함수이다.<aside><p>이중선형함수:bilinear function</p></aside></p>
+    </example>
+
+    <p>다중선형함수 중에서도 정의역의 벡터공간들이 모두 같은 특수한 경우(<m>V_1 = V_2 = \dots = V_n = V</m>)이자 공역이 스칼라 체(<m>W = \mathbb{F}</m>)인 경우에 집중합니다. 이때, 관습적으로 함수 대신 <q>형식</q>이라는 용어를 사용합니다.</p>
+
+    <definition xml:id="def-alternating">
+      <title>교대형식</title>
+      <statement>
+        <p>체 <m>\mathbb{F}</m>로 매핑되는 다중선형함수 <m>D: V \times \dots \times V \to \mathbb{F}</m>에 대하여, 인접한 두 인수가 같을 때 함수의 값이 항등적으로 0이 되면, 즉 임의의 <m>i</m>에 대하여 <m>v_i = v_{i+1}</m>일 때 <m>D(v_1, \dots, v_n) = 0</m>이면, <m>D</m>를 <term>교대형식</term>이라고 합니다.</p>
+        <aside><p>교대형식: alternating form</p></aside>
+      </statement>
+    </definition>
+
+    <example xml:id="ex-2d-determinant">
+      <title>2차원 교대형식</title>
+      <p><m>V = \mathbb{F}^2</m>라 합시다. 두 열벡터 <m>v_1 = (x_1, y_1)^T, v_2 = (x_2, y_2)^T</m>를 받아 <m>D(v_1, v_2) = x_1 y_2 - x_2 y_1</m>을 계산하는 함수를 생각합시다. 만약 <m>v_1 = v_2</m>라면 <m>D(v_1, v_1) = x_1 y_1 - x_1 y_1 = 0</m>이므로 이는 교대형식입니다.</p>
+    </example>
+
+
+    <lemma xml:id="lem-antisymmetry">
+      <title>교대형식의 반대칭성</title>
+      <statement>
+        <p><m>D</m>가 교대형식이면, 임의의 두 인접한 인수의 자리를 바꿀 때 함수의 부호가 반대로 바뀐다. 즉, <m>D(\dots, v_i, v_{i+1}, \dots) = -D(\dots, v_{i+1}, v_i, \dots)</m>가 성립한다.</p>
+      </statement>
+      <proof>
+        <p><m>D</m>가 교대형식이고 다중선형임을 합시다. <m>i</m>번째와 <m>i+1</m>번째 인수에 벡터 <m>v_i + v_{i+1}</m>을 대입합시다.
+        <me>0 = D(\dots, v_i + v_{i+1}, v_i + v_{i+1}, \dots)</me>
+        다중선형성에 의해 우변을 전개하면 다음과 같습니다.
+        <me>0 = D(\dots, v_i, v_i, \dots) + D(\dots, v_i, v_{i+1}, \dots) + D(\dots, v_{i+1}, v_i, \dots) + D(\dots, v_{i+1}, v_{i+1}, \dots)</me>
+        교대형식의 정의에 의해 첫 번째 항과 네 번째 항은 0입니다. 따라서
+        <me>0 = D(\dots, v_i, v_{i+1}, \dots) + D(\dots, v_{i+1}, v_i, \dots)</me>
+        이므로 <m>D(\dots, v_i, v_{i+1}, \dots) = -D(\dots, v_{i+1}, v_i, \dots)</m>가 성립합니다. </p>
+      </proof>
+    </lemma>
+
+    <example xml:id="ex-antisymmetry">
+      <title>반대칭성의 확인</title>
+      <p>앞선 예제의 <m>D(v_1, v_2) = x_1 y_2 - x_2 y_1</m>에서 인수의 순서를 바꾸어 <m>D(v_2, v_1)</m>을 계산합니다 <m>x_2 y_1 - x_1 y_2 = -(x_1 y_2 - x_2 y_1) = -D(v_1, v_2)</m>가 됨을 확인할 수 있습니다.</p>
+    </example>
+  </subsection>
+
+  <subsection xml:id="03-02-determinant">
+    <title>행렬식의 정의와 특성화</title>
+    <p>
+      행렬식은 <m>n \times n</m> 행렬의 열벡터들을 입력으로 받아 스칼라를 출력하는 교대형식입니다. 행렬식의 기초적 성질을 유도하기 위해 필요한 치환에 관련된 사실들은 부록을 참조하십시오.
+    </p>
+    <theorem xml:id="thm-det-existence">
+      <title>행렬식의 존재성과 유일성</title>
+      <statement>
+        <p><m>n \times n</m> 행렬의 각 열벡터를 변수로 받는 함수 <m>D: \mathbb{F}^n \times \dots \times \mathbb{F}^n \to \mathbb{F}</m> 중에서 다음 세 가지 성질을 모두 만족하는 함수는 유일하게 존재한다.</p>
+        <ul>
+          <li><p><term>다중선형성</term>: 각 열벡터에 대하여 선형이다.</p></li>
+          <li><p><term>교대성</term>: 인접한 두 열벡터가 같으면 값은 0이다.</p></li>
+          <li><p><term>정규화</term>: <m>D(e_1, \dots, e_n) = 1</m>이다. (단, <m>e_i</m>는 표준기저벡터)</p></li>
+        </ul>
+      </statement>
+      <proof>
+        <p><term>유일성</term>: 함수 <m>D</m>가 위 세 성질을 만족한다고 가정하자. 행렬 <m>A</m>의 <m>j</m>번째 열벡터를 <m>v_j</m>라 하고, 이를 표준기저들의 선형결합 <m>v_j = \sum_{i=1}^n A_{ij} e_i</m>로 표현하자. 다중선형성을 반복 적용하면 <m>D(A) = D(v_1, \dots, v_n)</m>는 다음과 같이 전개된다.
+        <me>D(A) = \sum_{i_1=1}^n \dots \sum_{i_n=1}^n A_{i_1 1} \dots A_{i_n n} D(e_{i_1}, \dots, e_{i_n})</me>
+        교대성(및 반대칭성)에 의해 인덱스 <m>i_1, \dots, i_n</m> 중 중복되는 것이 하나라도 있으면 <m>D(e_{i_1}, \dots, e_{i_n}) = 0</m>이다. 따라서 중복이 없는 경우, 즉 인덱스가 <m>1, \dots, n</m>의 순열 <m>\sigma</m>를 이루는 경우만 남는다.
+        <me>D(A) = \sum_{\sigma \in S_n} A_{\sigma(1) 1} \dots A_{\sigma(n) n} D(e_{\sigma(1)}, \dots, e_{\sigma(n)})</me>
+        반대칭성을 적용하여 순열 <m>\sigma</m>를 항등순열로 되돌리려면 부호 함수 <m>\text{sgn}(\sigma)</m>가 곱해진다.
+        <me>D(A) = \sum_{\sigma \in S_n} \text{sgn}(\sigma) A_{\sigma(1) 1} \dots A_{\sigma(n) n} D(e_1, \dots, e_n)</me>
+        정규화 조건에 의해 <m>D(e_1, \dots, e_n) = 1</m>이므로, <m>D(A)</m>의 값은 행렬 <m>A</m>의 성분들에 의해 유일하게 결정된다.</p>
+
+        <p><term>존재성</term>: 위 전개 과정에서 유도된 식 <m>D(A) = \sum_{\sigma \in S_n} \text{sgn}(\sigma) A_{\sigma(1) 1} \dots A_{\sigma(n) n}</m>으로 함수를 정의하면, 이 함수가 다중선형성, 교대성, 정규화를 모두 만족함을 대수적으로 검증할 수 있다. <m>\blacksquare</m></p>
+      </proof>
+    </theorem>
+
+    <definition xml:id="def-determinant">
+      <title>행렬식</title>
+      <statement>
+        <p>정리<xref ref="thm-det-existence"/>에서 특성화된 유일한 함수 <m>D(A)</m>를 행렬 <m>A</m>의 행렬식이라 하고, <m>\det(A)</m>로 표기한다.</p>
+      </statement>
+    </definition>
+
+    <example xml:id="ex-2x2-det">
+      <title>2×2 행렬의 행렬식</title>
+      <p><m>A = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}</m>의 행렬식을 계산하자. 열벡터 <m>v_1 = a e_1 + c e_2, v_2 = b e_1 + d e_2</m>이다.</p>
+      <p><m>\det(A) = \det(a e_1 + c e_2, b e_1 + d e_2)</m></p>
+      <p><m>= ab \det(e_1, e_1) + ad \det(e_1, e_2) + cb \det(e_2, e_1) + cd \det(e_2, e_2)</m></p>
+      <p>교대성에 의해 <m>\det(e_1, e_1) = \det(e_2, e_2) = 0</m>이고, 반대칭성에 의해 <m>\det(e_2, e_1) = -\det(e_1, e_2)</m>이다. 정규화에 의해 <m>\det(e_1, e_2) = 1</m>이므로, <m>\det(A) = ad - bc</m>이다.</p>
+    </example>
+
+    <proposition xml:id="prop-det-multiplicative">
+      <title>행렬식의 곱셈 성질</title>
+      <statement>
+        <p>두 행렬 <m>A, B \in M_{n \times n}(\mathbb{F})</m>에 대하여, <m>\det(AB) = \det(A)\det(B)</m>가 성립한다.</p>
+      </statement>
+      <proof>
+        <p>행렬 <m>B</m>가 가역이 아니라고 가정하자. 그러면 <m>AB</m> 역시 가역이 아니므로 두 행렬의 열벡터들은 모두 선형종속이다. 선형종속인 열벡터들의 다중선형 교대형식 값은 항시 0이므로 <m>\det(AB) = 0</m>이고 <m>\det(B) = 0</m>이다. 따라서 <m>0 = 0</m>으로 등식이 성립한다.</p>
+
+        <p>행렬 <m>B</m>가 가역이라 가정하자(<m>\det(B) \neq 0</m>). 새로운 함수 <m>f: M_{n \times n}(\mathbb{F}) \to \mathbb{F}</m>를 <m>f(A) = \frac{\det(AB)}{\det(B)}</m>로 정의하자. 함수 <m>f</m>가 인접한 열이 같은 행렬에서 0을 반환하고 각 열에 대해 다중선형성을 만족함은 행렬곱의 성질과 행렬식의 선형성으로부터 즉각적으로 유도된다. 또한 <m>f(I) = \frac{\det(B)}{\det(B)} = 1</m>이므로 정규화 조건도 만족한다. 정리<xref ref="thm-det-existence"/>의 행렬식의 유일성에 의해 <m>f(A) = \det(A)</m>가 되어야만 한다. 따라서 <m>\det(AB) = \det(A)\det(B)</m>이다. <m>\blacksquare</m></p>
+      </proof>
+    </proposition>
+
+    <example xml:id="ex-det-inverse">
+      <title>가역행렬의 행렬식</title>
+      <p><m>\det(I) = \det(A A^{-1}) = \det(A)\det(A^{-1}) = 1</m>이므로, 가역행렬 <m>A</m>에 대하여 <m>\det(A^{-1}) = \frac{1}{\det(A)}</m>가 성립함을 직관적으로 확인할 수 있다.</p>
+    </example>
+  </subsection>
+
+  <subsection xml:id="03-02-charoly">
+    <title>특성다항식</title>
+
+    <definition xml:id="def-charoly">
+      <title>특성다항식</title>
+      <statement>
+        <p>유한차원 벡터공간 <m>V</m> 상의 선형변환 <m>T</m>와 그 행렬표현 <m>A \in M_{n \times n}(\mathbb{F})</m>를 생각하자. 새로운 변수 <m>x</m>에 대하여 다항식환 <m>\mathbb{F}[x]</m>의 원소로 정의되는 다항식 <m>p_T(x) = \det(xI - A)</m>를 변환 <m>T</m> (또는 행렬 <m>A</m>)의 특성다항식이라고 한다.</p>
+      </statement>
+    </definition>
+
+    <example xml:id="ex-charoly-calc">
+      <title>특성다항식의 계산</title>
+      <p><m>A = \begin{pmatrix} 2 &amp; 1 \\ 0 &amp; 3 \end{pmatrix}</m>의 특성다항식을 구하자.</p>
+      <p><m>xI - A = \begin{pmatrix} x-2 &amp; -1 \\ 0 &amp; x-3 \end{pmatrix}</m></p>
+      <p><m>p_A(x) = \det(xI - A) = (x-2)(x-3) - (-1)(0) = x^2 - 5x + 6</m>이다.</p>
+    </example>
+
+    <theorem xml:id="thm-eigenvalue-root">
+      <title>고윳값과 특성다항식의 근</title>
+      <statement>
+        <p>스칼라 <m>\lambda \in \mathbb{F}</m>가 선형변환 <m>T</m>의 고윳값이 될 필요충분조건은 특성다항식의 근, 즉 <m>p_T(\lambda) = 0</m>이 되는 것이다.</p>
+      </statement>
+      <proof>
+        <p><m>\lambda</m>가 고윳값일 필요충분조건은 <m>T(v) = \lambda v</m>를 만족하는 영이 아닌 벡터 <m>v</m>가 존재하는 것이다. 이는 식 <m>(\lambda I - T)(v) = 0</m>과 동치이며, 변환 <m>\lambda I - T</m>가 단사가 아님을 의미한다. 유한차원 공간에서 선형변환이 단사가 아닌 것은 그 행렬표현 <m>\lambda I - A</m>가 비가역인 것과 동치이며, 행렬이 비가역일 필요충분조건은 그 행렬식이 0인 것이다. 따라서 <m>\det(\lambda I - A) = p_T(\lambda) = 0</m>이다. <m>\blacksquare</m></p>
+      </proof>
+    </theorem>
+
+    <example xml:id="ex-eigenvalue">
+      <title>특성다항식의 근과 고윳값</title>
+      <p>위 예제의 행렬 <m>A</m>에서 특성다항식 <m>p_A(x) = (x-2)(x-3)</m>의 근은 2와 3이다. 정리<xref ref="thm-eigenvalue-root"/>에 따라 행렬 <m>A</m>의 고윳값은 오직 2와 3뿐이다.</p>
+    </example>
+  </subsection>
+
+  <subsection xml:id="03-02-diagonalization">
+    <title>특성다항식을 이용한 대각화 필요조건</title>
+
+    <definition xml:id="def-multiplicity">
+      <title>대수적 중복도와 기하적 중복도</title>
+      <statement>
+        <p>선형변환 <m>T</m>의 고윳값 <m>\lambda</m>에 대하여, 다항식 <m>p_T(x)</m>가 인수로 가지는 <m>(x-\lambda)</m>의 최대 거듭제곱 횟수 <m>m</m>을 <m>\lambda</m>의 대수적 중복도라 한다. 한편, <m>\lambda</m>에 대응하는 고유공간 <m>E_\lambda</m>의 차원 <m>\dim(E_\lambda)</m>를 <m>\lambda</m>의 기하적 중복도라 한다.</p>
+      </statement>
+    </definition>
+
+    <example xml:id="ex-multiplicity">
+      <title>대수적 중복도와 기하적 중복도의 비교</title>
+      <p><m>A = \begin{pmatrix} 2 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}</m>의 특성다항식은 <m>p_A(x) = (x-2)^2</m>이다. 고윳값 2의 대수적 중복도는 2이다. 고유공간 <m>E_2</m>를 구하기 위해 <m>(2I - A)v = 0</m>을 풀면 <m>v = (x_1, 0)^T</m> 형태만 가능하므로 <m>\dim(E_2) = 1</m>이다. 따라서 기하적 중복도는 1이다.</p>
+    </example>
+
+    <proposition xml:id="prop-multiplicity-inequality">
+      <title>중복도의 대소 관계</title>
+      <statement>
+        <p>임의의 고윳값 <m>\lambda</m>에 대하여, 그 기하적 중복도는 대수적 중복도보다 작거나 같다.</p>
+      </statement>
+      <proof>
+        <p>고윳값 <m>\lambda_0</m>의 기하적 중복도를 <m>k</m>라 하자. 고유공간 <m>E_{\lambda_0}</m>의 기저 <m>\{v_1, \dots, v_k\}</m>를 선택하고, 이를 확장하여 <m>V</m>의 전체 기저 <m>\beta</m>를 구성한다. 기저 <m>\beta</m>에 대한 <m>T</m>의 행렬표현은 다음과 같은 블록 상삼각행렬 형태를 지닌다.
+        <me>[T]_\beta = \begin{pmatrix} \lambda_0 I_k &amp; B \\ 0 &amp; C \end{pmatrix}</me>
+        특성다항식은 기저 선택과 무관하므로 위 블록 행렬을 이용해 계산할 수 있다.
+        <me>p_T(x) = \det\begin{pmatrix} (x-\lambda_0)I_k &amp; -B \\ 0 &amp; xI_{n-k} - C \end{pmatrix} = \det((x-\lambda_0)I_k) \det(xI_{n-k} - C) = (x-\lambda_0)^k p_C(x)</me>
+        다항식 <m>p_T(x)</m>가 적어도 인자 <m>(x-\lambda_0)^k</m>를 포함하므로, 대수적 중복도는 최소한 <m>k</m> 이상이다. <m>\blacksquare</m></p>
+      </proof>
+    </proposition>
+
+    <theorem xml:id="thm-diagonalization-condition">
+      <title>대각화의 필요조건</title>
+      <statement>
+        <p>유한차원 벡터공간 <m>V</m> 상의 선형변환 <m>T</m>가 대각화 가능하면, 특성다항식 <m>p_T(x)</m>는 <m>\mathbb{F}</m> 위에서 일차식의 곱으로 완전히 분해되고, 각각의 고윳값에 대하여 기하적 중복도와 대수적 중복도가 정확히 일치한다.</p>
+      </statement>
+      <proof>
+        <p><m>T</m>가 대각화 가능하므로, 고유벡터들로만 구성된 <m>V</m>의 기저 <m>\beta</m>가 존재한다. 기저 <m>\beta</m>에 대한 <m>T</m>의 행렬표현 <m>A = [T]_\beta</m>는 대각행렬이며, 대각성분들은 고윳값 <m>\lambda_1, \dots, \lambda_n</m>이다.</p>
+
+        <p><m>A</m>의 특성다항식을 계산하면 <m>p_T(x) = \det(xI - A) = (x-\lambda_1)\dots(x-\lambda_n)</m>이다. 이는 특성다항식이 일차식의 곱으로 완전히 분해됨을 증명한다.</p>
+
+        <p>동일한 고윳값 <m>\lambda</m>가 대각성분에 나타나는 횟수를 <m>m</m>이라 하면 이는 명백히 대수적 중복도이다. 행렬 <m>A</m>가 대각행렬이므로 변환 <m>\lambda I - T</m>의 행렬표현은 대각성분 중 <m>m</m>개가 0이고 나머지는 0이 아닌 대각행렬이 된다. 따라서 이 변환의 핵(고유공간 <m>E_\lambda</m>)의 차원은 정확히 <m>m</m>이 되어 기하적 중복도와 대수적 중복도가 일치한다. <m>\blacksquare</m></p>
+      </proof>
+    </theorem>
+
+    <example xml:id="ex-non-diagonalizable">
+      <title>대각화 불가능한 행렬</title>
+      <p>명제<xref ref="prop-multiplicity-inequality"/>의 예제에서 본 행렬 <m>A = \begin{pmatrix} 2 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}</m>는 고윳값 2에 대해 대수적 중복도는 2이지만 기하적 중복도는 1이었다. 두 중복도가 일치하지 않으므로 정리<xref ref="thm-diagonalization-condition"/>의 대각화 필요조건을 위반하며, 따라서 이 행렬은 대각화 불가능하다.</p>
+    </example>
+  </subsection>
 
 </section>

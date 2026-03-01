@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="99-04-perm" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>치환 </title>
+
+    <subsection xml:id="99-04-perm-transposition">
+      <title>치환과 호환</title>
+
+      <definition xml:id="def-permutation-symmetric-group">
+      <statement>
+      <p>집합 <m>I_n = \{1, 2, \dots, n\}</m>에서 자기 자신으로 가는 전단사함수 <m>\sigma: I_n \to I_n</m>를 치환이라 한다. <m>I_n</m> 위의 모든 치환들의 집합은 함수의 합성에 대하여 군을 이루며, 이를 대칭군이라 하고 <m>S_n</m>으로 표기한다.</p>
+      </statement>
+      </definition>
+
+      <example xml:id="ex-cycle-notation">
+      <title>순환 표기법</title>
+      <p><m>S_3</m>의 원소 <m>\sigma</m>가 <m>\sigma(1)=2, \sigma(2)=3, \sigma(3)=1</m>로 주어졌을 때, 원소들이 순환하는 구조를 직관적으로 파악하기 위해 이를 순환 표기법으로 <m>\sigma = (1 \ 2 \ 3)</m>과 같이 나타낸다.</p>
+      </example>
+
+      <definition xml:id="def-transposition">
+      <statement>
+      <p>두 개의 원소만 자리를 바꾸고 나머지 원소들은 모두 고정하는 치환을 호환이라 한다. 즉, <m>i \neq j</m>인 두 원소 <m>i, j</m>에 대하여 <m>(i \ j)</m>로 표기되는 치환이다.</p>
+      </statement>
+      </definition>
+
+      <proposition xml:id="prop-transposition-product">
+      <statement>
+      <p><m>n \ge 2</m>일 때, <m>S_n</m>의 임의의 치환은 유한 개의 호환들의 합성으로 표현될 수 있다.</p>
+      </statement>
+      <proof>
+      <p>임의의 치환은 서로소인 순환들의 곱으로 유일하게 분해된다. 임의의 길이 <m>k</m>인 순환 <m>(a_1 \ a_2 \ \dots \ a_k)</m>는 다음과 같이 <m>k-1</m>개의 호환의 곱으로 분해될 수 있다.
+      <md><mrow>(a_1 \ a_2 \ \dots \ a_k) = (a_1 \ a_k)(a_1 \ a_{k-1})\dots(a_1 \ a_2)</mrow></md>
+      모든 치환은 순환들의 곱이므로, 결과적으로 유한 개의 호환들의 곱으로 표현된다. <m>\blacksquare</m></p>
+      </proof>
+      </proposition>
+
+      <example xml:id="ex-cycle-decomposition">
+      <title>순환의 호환 분해</title>
+      <p>순환 <m>(1 \ 2 \ 3 \ 4)</m>는 <m>(1 \ 4)(1 \ 3)(1 \ 2)</m>로 분해된다. 치환 역시 함수이므로, 합성은 오른쪽에서 왼쪽으로 적용됨에 유의해야 한다.</p>
+      </example>
+    </subsection>
+
+    <subsection xml:id="99-04-perm-sign">
+      <title>치환의 부호</title>
+
+      <definition xml:id="def-inversion-sign">
+      <statement>
+      <p>치환 <m>\sigma \in S_n</m>에 대하여, <m>i &lt; j</m>이면서 <m>\sigma(i) &gt; \sigma(j)</m>를 만족하는 쌍 <m>(i, j)</m>를 <m>\sigma</m>의 반전이라 한다. 반전의 총 개수를 <m>N(\sigma)</m>라 할 때, <m>\sigma</m>의 부호 <m>\text{sgn}(\sigma)</m>를 다음과 같이 정의한다.
+      <md><mrow>\text{sgn}(\sigma) = (-1)^{N(\sigma)}</mrow></md></p>
+      </statement>
+      </definition>
+
+      <lemma xml:id="lem-sign-polynomial">
+      <statement>
+      <p>치환의 부호는 다음 다항식의 비로도 표현된다.
+      <md><mrow>\text{sgn}(\sigma) = \prod_{1 \le i &lt; j \le n} \frac{\sigma(j) - \sigma(i)}{j - i}</mrow></md></p>
+      </statement>
+      <proof>
+      <p>위 식의 우변에서 분자와 분모는 부호만 다를 뿐 정확히 같은 절댓값의 항들을 가진다. <m>i &lt; j</m>인 쌍에 대하여 <m>\sigma(i) &lt; \sigma(j)</m>이면 분자의 해당 항은 양수이고, <m>\sigma(i) &gt; \sigma(j)</m>이면 반전이므로 음수이다. 따라서 음수 항의 개수는 정확히 반전의 개수 <m>N(\sigma)</m>와 일치하므로, 전체 곱의 결과는 <m>(-1)^{N(\sigma)}</m>가 된다. <m>\blacksquare</m></p>
+      </proof>
+      </lemma>
+
+      <example xml:id="ex-sign-calculation">
+      <title>부호 계산</title>
+      <p><m>S_3</m>에서 <m>\sigma = (1 \ 3)</m>을 생각하자. <m>\sigma(1)=3, \sigma(2)=2, \sigma(3)=1</m>이다. <m>i &lt; j</m>인 쌍은 <m>(1,2), (1,3), (2,3)</m>이며, 각각의 상은 <m>(\sigma(1),\sigma(2))=(3,2)</m>, <m>(\sigma(1),\sigma(3))=(3,1)</m>, <m>(\sigma(2),\sigma(3))=(2,1)</m>이다. 세 경우 모두 앞의 값이 뒤의 값보다 크므로 반전이다. 총 반전의 수는 3이며, <m>\text{sgn}(\sigma) = (-1)^3 = -1</m>이다.</p>
+      </example>
+
+      <theorem xml:id="thm-sign-homomorphism">
+      <statement>
+      <p>임의의 두 치환 <m>\sigma, \tau \in S_n</m>에 대하여, <m>\text{sgn}(\sigma \tau) = \text{sgn}(\sigma)\text{sgn}(\tau)</m>가 성립한다.</p>
+      </statement>
+      <proof>
+      <p>보조정리 <xref ref="lem-sign-polynomial"/>의 표현을 사용한다.
+      <md><mrow>\text{sgn}(\sigma \tau) = \prod_{i &lt; j} \frac{\sigma(\tau(j)) - \sigma(\tau(i))}{j - i} = \prod_{i &lt; j} \left( \frac{\sigma(\tau(j)) - \sigma(\tau(i))}{\tau(j) - \tau(i)} \cdot \frac{\tau(j) - \tau(i)}{j - i} \right)</mrow></md>
+      우변의 두 번째 인자들의 곱은 정의에 의해 <m>\text{sgn}(\tau)</m>이다. 첫 번째 인자들의 곱을 살펴보면, 쌍 <m>\{\tau(i), \tau(j)\}</m>는 1부터 <m>n</m>까지의 서로 다른 두 정수의 모든 가능한 쌍을 정확히 한 번씩 순회한다. <m>\tau(i) &lt; \tau(j)</m>이든 <m>\tau(i) &gt; \tau(j)</m>이든 분수식의 값은 변하지 않으므로, 이 곱은 결국 <m>\prod_{x &lt; y} \frac{\sigma(y) - \sigma(x)}{y - x}</m>와 같으며 이는 <m>\text{sgn}(\sigma)</m>이다. 따라서 <m>\text{sgn}(\sigma \tau) = \text{sgn}(\sigma)\text{sgn}(\tau)</m>이다. <m>\blacksquare</m></p>
+      </proof>
+      </theorem>
+
+      <example xml:id="ex-sign-parity">
+      <title>호환 개수의 홀짝성</title>
+      <p>모든 호환은 홀수 개의 반전을 가지므로 부호가 <m>-1</m>이다. 치환 <m>\sigma</m>가 <m>k</m>개의 호환의 곱으로 표현된다면, 부호 함수의 곱셈 성질에 의해 <m>\text{sgn}(\sigma) = (-1)^k</m>가 된다. 즉, 치환을 호환의 곱으로 분해하는 방법은 유일하지 않지만, 호환 개수의 홀짝성은 항상 일정하게 보존됨을 알 수 있다.</p>
+      </example>
+    </subsection>
+
+
+
+</section>
