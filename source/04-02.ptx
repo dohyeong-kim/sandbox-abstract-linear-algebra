@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="04-02-real-to-complex" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>실수에서 복소수로의 확장</title>
+  <p>
+    실수 성분 행렬 분석 과정에서 복소수를 도입하는 과정을 엄밀하게 기술하기 위하여 텐서곱을 사용할 수 있습니다. 텐서곱을 사용하는 방법은, 실수에서 복소수로의 확장 뿐만아니라 일반적인 확장체에 대해서도 적용됩니다.<fn>주어진 체를 포함하는 더 큰 체를 확장체라고 합니다.</fn>
+    <aside><p>확장체:extension field</p></aside>
+  </p>
+  <subsection xml:id="subsec-extension-field">
+    <title>확장체</title>
+    <definition xml:id="def-extension-field">
+      <title>확장체</title>
+      <statement>
+        <p>
+          두 체 <m>\mathbb{F}</m>와 <m>K</m>에 대하여, <m>\mathbb{F}</m>가 <m>K</m>의 부분체일 때 <m>K</m>를 <m>\mathbb{F}</m>의 확장체라 하고 기호로 <m>K/\mathbb{F}</m>와 같이 표기한다. 이때 체 <m>K</m>의 원소들끼리의 덧셈과, <m>\mathbb{F}</m>의 원소(스칼라)와 <m>K</m>의 원소(벡터) 사이의 체의 곱셈 연산을 생각하면, 확장체 <m>K</m>는 자연스럽게 기저체 <m>\mathbb{F}</m> 상의 벡터공간이 된다. 이 벡터공간의 차원을 <m>K</m>의 <m>\mathbb{F}</m> 위에서의 차수라 부르며 <m>[K:\mathbb{F}]</m>로 표기한다.
+        </p>
+      </statement>
+    </definition>
+
+    <example xml:id="ex-extension-field-examples">
+      <title>확장체의 예시</title>
+      <statement>
+        <p>
+          우리가 가장 친숙하게 다루는 수 체계인 유리수체 <m>\mathbb{Q}</m>, 실수체 <m>\mathbb{R}</m>, 복소수체 <m>\mathbb{C}</m>는 훌륭한 확장체의 예시이다.
+        </p>
+        <ul>
+          <li>
+            <p>
+              <m>\mathbb{R}/\mathbb{Q}</m>: 실수체 <m>\mathbb{R}</m>은 유리수체 <m>\mathbb{Q}</m>의 확장체이다. <m>\mathbb{R}</m>을 <m>\mathbb{Q}</m> 상의 벡터공간으로 바라볼 때, 무수히 많은 무리수들의 선형독립성으로 인해 그 벡터공간의 차원 <m>[\mathbb{R}:\mathbb{Q}]</m>는 무한대가 된다.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\mathbb{C}/\mathbb{R}</m>: 복소수체 <m>\mathbb{C}</m>는 방정식 <m>x^2 + 1 = 0</m>의 근인 <m>i</m>를 추가하여 실수체 <m>\mathbb{R}</m>을 확장한 체이다. <m>\mathbb{C}</m>의 임의의 원소는 <m>a + bi</m> (<m>a, b \in \mathbb{R}</m>)로 유일하게 표현되므로, <m>\mathbb{C}</m>를 <m>\mathbb{R}</m> 상의 벡터공간으로 볼 때 기저는 <m>\{1, i\}</m>가 되며 그 차원 <m>[\mathbb{C}:\mathbb{R}]</m>은 정확히 2이다.
+            </p>
+          </li>
+        </ul>
+      </statement>
+    </example>
+    
+  </subsection>
+  <subsection xml:id="subsec-scalar-extension">
+    <title>스칼라 확장</title>
+    
+    <definition xml:id="def-scalar-extension">
+      <title>스칼라 확장</title>
+      <statement>
+        <p>
+          체 <m>\mathbb{F}</m>와 그 확장체 <m>K</m>을 생각하자. 체 <m>K</m>은 스스로가 <m>\mathbb{F}</m> 상의 벡터공간이기도 하다. 체 <m>\mathbb{F}</m> 상의 벡터공간 <m>V</m>가 주어졌을 때, 텐서곱을 이용하여 새로운 공간 <m>V_K = K \otimes_{\mathbb{F}} V</m>를 구성할 수 있다. 이 텐서곱 공간 <m>V_K</m> 위에 새로운 스칼라 <m>k \in K</m>에 대한 곱셈을 단일 텐서에 대하여 다음과 같이 정의한다.
+          <me>k(c \otimes v) = (kc) \otimes v \quad (c \in K, v \in V)</me>
+          이 스칼라 곱셈을 선형적으로 확장하면 <m>V_K</m>은 체 <m>K</m> 상의 벡터공간이 되며, 이를 <m>V</m>의 체 <m>K</m>로의 스칼라 확장이라 한다.
+        </p>
+      </statement>
+    </definition>
+    
+    <theorem xml:id="thm-basis-dimension-preservation">
+      <title>기저와 차원의 보존</title>
+      <statement>
+        <p>
+          체 <m>\mathbb{F}</m> 상의 벡터공간 <m>V</m>의 기저를 <m>\beta = \{v_1, \dots, v_n\}</m>이라 하자. 스칼라 확장을 통해 얻은 <m>K</m>-벡터공간 <m>V_K</m>에 대하여, 집합 <m>\beta' = \{1 \otimes v_1, \dots, 1 \otimes v_n\}</m>은 <m>V_K</m>의 <m>K</m>-기저가 된다. 특히, <m>V</m>의 <m>\mathbb{F}</m> 위에서의 차원과 <m>V_K</m>의 <m>K</m> 위에서의 차원은 동일하다.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          <m>V_K</m>의 임의의 원소는 <m>c_j \in K</m>과 <m>u_j \in V</m>에 대하여 <m>\sum c_j \otimes u_j</m>의 형태를 가진다. 기저 <m>\beta</m>에 대하여 <m>u_j = \sum_{i=1}^n a_{ji} v_i</m> (<m>a_{ji} \in \mathbb{F}</m>)로 유일하게 표현된다. 텐서곱의 쌍선형성에 의해 다음이 성립한다.
+          <me>\sum_j c_j \otimes u_j = \sum_j c_j \otimes \left(\sum_i a_{ji} v_i\right) = \sum_i \left(\sum_j c_j a_{ji}\right) \otimes v_i = \sum_i \left(\sum_j c_j a_{ji}\right) (1 \otimes v_i)</me>
+          스칼라 체 <m>K</m> 안에서 <m>l_i = \sum_j c_j a_{ji}</m>라 두면 임의의 원소는 <m>\sum l_i (1 \otimes v_i)</m>로 표현되므로, <m>\beta'</m>는 <m>V_K</m>을 <m>K</m> 위에서 생성한다.
+        </p>
+        <p>
+          선형독립성을 보이기 위해 <m>\sum_{i=1}^n l_i (1 \otimes v_i) = 0</m> (<m>l_i \in K</m>)이라 가정하자. 텐서곱의 정의에 의해 이 식은 <m>\sum_{i=1}^n l_i \otimes v_i = 0</m>과 같다. 체 <m>K</m>을 <m>\mathbb{F}</m>-벡터공간으로 보았을 때 그 기저를 <m>\{e_k\}</m>라 하면, <m>l_i = \sum_k b_{ik} e_k</m> (<m>b_{ik} \in \mathbb{F}</m>)로 전개할 수 있다.
+        </p>
+        <p>
+          이를 대입하면 <m>\sum_k \sum_i (b_{ik} e_k \otimes v_i) = \sum_{k, i} b_{ik} (e_k \otimes v_i) = 0</m>이 된다. <m>V_K</m>을 <m>\mathbb{F}</m>-벡터공간으로 보았을 때 <m>\{e_k \otimes v_i\}</m>는 기저를 이루므로, 모든 <m>b_{ik} = 0</m>이어야 한다. 따라서 모든 <m>l_i = 0</m>이 되어 <m>\beta'</m>는 <m>K</m> 위에서 선형독립이다.
+        </p>
+      </proof>
+    </theorem>
+    
+    <example xml:id="ex-polynomial-scalar-extension">
+      <title>다항식 공간의 스칼라 확장</title>  
+      <statement>
+        <p>
+          <m>\mathbb{F} = \mathbb{R}</m>, <m>K = \mathbb{C}</m>라 하자. <m>V = \mathbb{R}[x]_{\le 2}</m>는 실수 계수를 가지는 2차 이하의 다항식 공간이다. 스칼라 확장 <m>\mathbb{C} \otimes_{\mathbb{R}} V</m>를 취하면, 기저 <m>\{1, x, x^2\}</m>은 집합 <m>\{1 \otimes 1, 1 \otimes x, 1 \otimes x^2\}</m>으로 대응되며 이는 <m>\mathbb{C}[x]_{\le 2}</m>의 복소수 기저와 완벽하게 식별된다. 즉, 실수 다항식 공간에 복소수 스칼라를 곱할 수 있는 권한을 부여하여 복소 다항식 공간을 얻어낸 것이다.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+
+<subsection xml:id="subsec-extension-of-maps">
+  
+  <title>사상의 확장</title>
+  <p>
+    스칼라 확장은 벡터공간뿐만 아니라 선형사상에도 자연스럽게 확장될 수 있습니다. 체 <m>\mathbb{F}</m> 상의 선형변환 <m>T: V \to W</m>가 주어졌을 때, 텐서곱을 이용하여 <m>K</m>-선형변환 <m>T_K: V_K \to W_K</m>를 다음과 같이 정의할 수 있습니다.
+      <me>T_K(c \otimes v) = c \otimes T(v) \quad (c \in K, v \in V)</me>
+      이 정의는 선형성에 의해 전체 공간으로 확장되며, 결과적으로 <m>T_K</m>는 체 <m>K</m> 상의 선형변환이 됩니다. 이 과정은 원래의 선형변환이 확장된 공간에서도 동일한 행위를 하도록 보장합니다.
+  </p>
+  <proposition xml:id="prop-linear-map-space-scalar-extension">
+    <title>선형사상 공간과 스칼라 확장의 가환성</title>
+    <statement>
+      <p>
+        체 <m>\mathbb{F}</m> 상의 유한차원 벡터공간 <m>V, W</m>와 확장체 <m>K</m>에 대하여, 다음 <m>K</m>-벡터공간의 자연스러운 동형사상이 성립한다.
+        <me>K \otimes_{\mathbb{F}} \mathcal{L}_{\mathbb{F}}(V, W) \cong \mathcal{L}_K(V_K, W_K)</me>
+        즉, 선형사상 공간을 먼저 구성하고 스칼라를 나중에 확장하는 것과, 각각 스칼라 확장을 거친 공간들 사이에서 선형사상 공간을 새롭게 구성하는 것은 대수적으로 완전히 동일하다.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        사상 <m>B: K \times \mathcal{L}_{\mathbb{F}}(V, W) \to \mathcal{L}_K(V_K, W_K)</m>을 <m>B(c, T) = c T_K</m>로 정의하자. 여기서 <m>T_K: V_K \to W_K</m>은 <m>T_K(a \otimes v) = (ca) \otimes T(v)</m>로 작용하는 <m>K</m>-선형사상이다. 사상 <m>B</m>는 <m>c</m>와 <m>T</m> 각각에 대해 선형성을 가지므로 <m>\mathbb{F}</m>-쌍선형사상이다.
+      </p>
+      <p>
+        텐서곱의 보편성질에 의해, <m>\Phi(c \otimes T) = c T_K</m>을 만족하는 <m>\mathbb{F}</m>-선형사상 <m>\Phi: K \otimes_{\mathbb{F}} \mathcal{L}_{\mathbb{F}}(V, W) \to \mathcal{L}_K(V_K, W_K)</m>이 유일하게 존재한다. 또한 임의의 스칼라 <m>k \in K</m>에 대하여 <m>\Phi(k(c \otimes T)) = \Phi((kc) \otimes T) = (kc)T_K = k(cT_K) = k\Phi(c \otimes T)</m>가 성립하므로, 이 사상 <m>\Phi</m>는 사실 <m>K</m>-선형사상이다.
+      </p>
+      <p>
+        <m>V</m>와 <m>W</m>의 <m>\mathbb{F}</m>-차원을 각각 <m>n, m</m>이라 하자. 양변의 <m>K</m>-벡터공간으로서의 차원을 계산해 보면 모두 <m>nm</m>으로 동일하다.
+      </p>
+      <p>
+        <m>V</m>의 기저 <m>\{v_1, \dots, v_n\}</m>와 <m>W</m>의 기저 <m>\{w_1, \dots, w_m\}</m>에 대하여, <m>v_i</m>를 <m>w_j</m>로 보내고 나머지는 영벡터로 보내는 기본 선형사상 <m>E_{ji} \in \mathcal{L}_{\mathbb{F}}(V, W)</m>들을 생각하자. 사상 <m>\Phi</m>에 의해 <m>1 \otimes E_{ji}</m>는 기저 <m>1 \otimes v_k</m>를 <m>\delta_{ik} (1 \otimes w_j)</m>로 보내는 공역의 기본 <m>K</m>-선형사상으로 매핑된다. 이 결과물들이 <m>\mathcal{L}_K(V_K, W_K)</m>의 <m>K</m>-기저를 완벽하게 생성하므로 <m>\Phi</m>는 전사사상이며, 양변의 차원이 유한하고 동일하므로 전단사 동형사상이 된다.
+      </p>
+    </proof>
+  </proposition>
+
+  <example xml:id="ex-linear-map-scalar-extension">
+    <title>선형사상 공간의 스칼라 확장</title>
+    <statement>
+      <p>
+        실수 공간 <m>V = \mathbb{R}^n, W = \mathbb{R}^m</m>과 복소수체 <m>\mathbb{C}</m>를 생각하자. 실수 위에서의 선형사상 공간 <m>\mathcal{L}_{\mathbb{R}}(\mathbb{R}^n, \mathbb{R}^m)</m>은 <m>m \times n</m> 실수 행렬 공간 <m>M_{m \times n}(\mathbb{R})</m>과 동형이다. <xref ref="prop-linear-map-space-scalar-extension"/>에 따르면, 이 실수 행렬 공간을 복소수체로 스칼라 확장한 <m>\mathbb{C} \otimes_{\mathbb{R}} M_{m \times n}(\mathbb{R})</m>은, 확장된 공간 <m>\mathbb{C}^n</m>에서 <m>\mathbb{C}^m</m>으로 가는 선형사상 공간인 복소 행렬 공간 <m>M_{m \times n}(\mathbb{C})</m>와 동형이 된다. 요컨대, 복소수 텐서를 곱하는 행위는 실수 행렬의 각 성분에 <m>i</m>를 포함한 복소수를 허용하여 행렬 공간 전체를 복소 행렬 공간으로 확장하는 직관적인 과정과 정확히 일치한다.
+      </p>
+    </statement>
+  </example>
+  </subsection>
+
+  <exercises>
+    <exercise xml:id="exercise-tensor-product-dimension">
+      <title>텐서곱 공간의 차원</title>
+      <statement>
+        <p>
+          텐서곱 공간 <m>\mathbb{C} \otimes_{\mathbb{R}} \mathbb{C}</m>를 <m>\mathbb{C}</m>-벡터공간으로 보았을 때의 차원과, <m>\mathbb{R}</m>-벡터공간으로 보았을 때의 차원을 각각 구하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="exercise-conjugate-antilinear-involution">
+      <title>켤레선형 대합의 판별</title>
+      <statement>
+        <p>
+          복소 벡터공간 <m>\mathbb{C}^2</m>에서 <m>S(z_1, z_2) = (\bar{z}_2, \bar{z}_1)</m>로 정의된 변환이 켤레선형 대합인지 확인하여 실수 구조가 될 수 있는지 판별하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="exercise-scalar-extension-dimension">
+      <title>스칼라 확장의 차원</title>
+      <statement>
+        <p>
+          스칼라 확장의 기저 보존 정리(정리 <xref ref="thm-basis-dimension-preservation"/>)를 이용하여, 유한차원 공간 <m>V</m>의 차원이 <m>n</m>일 때 <m>V_{\mathbb{C}}</m>의 실수 위에서의 차원을 명시하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="exercise-scalar-extension-direct-sum">
+      <title>스칼라 확장과 직합</title>
+      <statement>
+        <p>
+          두 <m>\mathbb{R}</m>-벡터공간 <m>V, W</m>에 대하여, 스칼라 확장이 직합 구조를 보존함을 증명하시오:
+          <me>\mathbb{C} \otimes_{\mathbb{R}} (V \oplus W) \cong (\mathbb{C} \otimes_{\mathbb{R}} V) \oplus (\mathbb{C} \otimes_{\mathbb{R}} W)</me>
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="exercise-induced-map-linearity">
+      <title>유도된 사상의 선형성</title>
+      <statement>
+        <p>
+          선형사상 <m>T: V \to W</m>가 주어졌을 때, 텐서곱 공간 상의 유도된 사상 <m>T_{\mathbb{C}}: V_{\mathbb{C}} \to W_{\mathbb{C}}</m>를 <m>T_{\mathbb{C}}(c \otimes v) = c \otimes T(v)</m>로 정의한다. 이 사상이 복소수 상에서 선형사상이 됨을 보이시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="exercise-matrix-representation-preservation">
+      <title>스칼라 확장 후 행렬표현의 불변성</title>
+      <statement>
+        <p>
+          앞선 문제의 사상 <m>T_{\mathbb{C}}</m>에 대하여, 공간 <m>V</m>와 <m>W</m>의 <m>\mathbb{R}</m>-기저 <m>\alpha, \beta</m>를 그대로 스칼라 확장한 <m>\mathbb{C}</m>-기저 <m>\alpha', \beta'</m>을 선택했을 때 행렬표현 <m>[T_{\mathbb{C}}]_{\alpha'}^{\beta'}</m>가 원래의 행렬표현 <m>[T]_\alpha^\beta</m>와 정확히 일치함을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="exercise-trace-determinant-invariance">
+      <title>대각합과 행렬식의 불변성</title>
+      <statement>
+        <p>
+          정사각행렬을 이용해 정의된 선형변환에 대하여, 스칼라 확장을 취하더라도 변환의 행렬 대각합과 행렬식이 변하지 않음을 앞선 문제의 결과를 이용하여 논증하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="exercise-fixed-point-space">
+      <title>실수 구조의 고정원소 공간</title>
+      <statement>
+        <p>
+          <m>\mathbb{C}^2</m> 상의 실수 구조 <m>S(z_1, z_2) = (i\bar{z}_2, -i\bar{z}_1)</m>에 대하여, 하강 정리에 등장하는 고정원소 공간 <m>V = \{w \in \mathbb{C}^2 \mid S(w) = w\}</m>의 <m>\mathbb{R}</m>-기저를 구체적으로 찾으시오.
+        </p>
+      </statement>
+    </exercise>
+
+  </exercises>
+</section>

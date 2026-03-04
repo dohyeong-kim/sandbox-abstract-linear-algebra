@@ -231,9 +231,9 @@
         <p>
           <definition xml:id="def-odd-function">
             <title>기함수</title>
-            <aside><p>기함수-우함수</p></aside>
             <statement>
               <p>
+                <aside><p>기함수-우함수</p></aside>
                 함수 <m>f \in V</m>가 모든 실수 <m>x \in \mathbb{R}</m>에 대하여 다음 조건을 만족할 때, <m>f</m>를 <term>기함수</term>
                 <aside><p>기함수:odd function, 홀함수라고도 부름</p></aside>라고 한다.
                 <md><mrow>f(-x) = -f(x)</mrow></md>

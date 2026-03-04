@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="04-01-tensor-product" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>텐서곱</title>
+    <p> 이 절에서는, 텐서곱을 정의하고 기본 성질을 알아봅니다.</p>
+
+    <subsection xml:id="04-tnsr-univprop">
+      <title>텐서곱과 보편성질</title>
+      <p>
+      쌍선형사상은 각 변수에 대해 선형성을 가지지만, 전체 공간의 관점에서는 선형사상이 아니기 때문에 다루기가 까다롭습니다. 수학자들은 세상의 모든 쌍선형사상을 단순한 선형사상으로 취급할 수 있게 해주는 '완벽한 중간 기착지'를 고안해냈으며, 이를 보편성질을 통해 정의합니다.
+      </p>
+      <definition xml:id="def-tensor-prod-univprop">
+      <title>텐서곱의 보편성질</title>
+      <statement>
+        <p>
+        체 <m>\mathbb{F}</m> 상의 두 벡터공간 <m>V, W</m>가 주어졌다고 하자. 어떤 벡터공간 <m>T</m>와 쌍선형사상 <m>\otimes: V \times W \to T</m>의 쌍 <m>(T, \otimes)</m>가 다음 조건을 만족할 때, 이를 <m>V</m>와 <m>W</m>의 텐서곱이라 한다.
+        </p>
+        <p>
+        임의의 벡터공간 <m>Z</m>와 임의의 쌍선형사상 <m>B: V \times W \to Z</m>가 주어질 때마다, 다음 등식을 만족하는 선형사상 <m>\tilde{B}: T \to Z</m>가 유일하게 존재한다.
+        <me>B = \tilde{B} \circ \otimes</me>
+        </p>
+        <p>
+        이때 벡터공간 <m>T</m>를 <m>V \otimes W</m>로 표기하고, 쌍선형사상 <m>\otimes</m>에 의한 <m>(v, w)</m>의 상 <m>\otimes(v, w)</m>를 간단히 <m>v \otimes w</m>로 표기한다.
+        </p>
+      </statement>
+      </definition>
+
+      <p>
+      이 정의는 무척 부드럽고 유연합니다. <m>V \times W</m>에서 출발하는 임의의 쌍선형사상 <m>B</m>는 반드시 텐서곱이라는 관문을 통과한 뒤, 단순한 선형사상 <m>\tilde{B}</m>가 되어 목적지 <m>Z</m>로 향해야 한다는 뜻입니다.
+      </p>
+      <example xml:id="ex-scalar-mult-tensor">
+      <title>스칼라 곱셈과 텐서곱</title>
+      <statement>
+        <p>
+        스칼라 곱셈 사상 <m>B: \mathbb{F} \times V \to V</m>를 <m>B(c, v) = cv</m>로 정의하면 이는 쌍선형사상입니다. 보편성질에 의해 <m>\tilde{B}(c \otimes v) = cv</m>를 만족하는 유일한 선형사상 <m>\tilde{B}: \mathbb{F} \otimes V \to V</m>가 존재합니다.
+        </p>
+      </statement>
+      </example>
+    </subsection>
+
+    <subsection xml:id="04-tnsr-uniqueness">
+      <title>텐서곱의 유일성과 차원</title>
+      <p>
+      보편성질로 정의된 대상은 그 역할을 완벽히 수행하기 때문에, 존재하기만 한다면 구조적으로 완전히 유일합니다.
+      </p>
+      <theorem xml:id="thm-tensor-uniqueness-structured">
+      <title>텐서곱의 유일성</title>
+      <statement>
+        <p>
+        보편성질을 만족하는 두 텐서곱 <m>(T_1, \otimes_1)</m>과 <m>(T_2, \otimes_2)</m>가 존재한다면, 다음 등식을 만족하는 동형사상 <m>f: T_1 \to T_2</m>가 유일하게 존재한다.
+        <me>f \circ \otimes_1 = \otimes_2</me>
+        즉, 두 벡터공간은 단순히 동형일 뿐만 아니라, 텐서곱을 정의하는 쌍선형사상의 구조까지 완벽하게 보존하는 의미에서 유일하다.
+        </p>
+      </statement>
+      <proof>
+        <p>
+        <m>T_1</m>이 보편성질을 만족하는 텐서곱이고 <m>\otimes_2: V \times W \to T_2</m>가 쌍선형사상이므로, 보편성질의 정의에 의해 다음을 만족하는 선형사상 <m>f: T_1 \to T_2</m>가 유일하게 존재한다.
+        <me>\otimes_2 = f \circ \otimes_1</me>
+        </p>
+        <p>
+        반대로 <m>T_2</m> 역시 보편성질을 만족하는 텐서곱이고 <m>\otimes_1: V \times W \to T_1</m>이 쌍선형사상이므로, 다음을 만족하는 선형사상 <m>g: T_2 \to T_1</m>이 유일하게 존재한다.
+        <me>\otimes_1 = g \circ \otimes_2</me>
+        </p>
+        <p>
+        이제 이 두 식을 대입하여 합성하면 다음을 얻는다.
+        <me>\otimes_1 = g \circ (f \circ \otimes_1) = (g \circ f) \circ \otimes_1</me>
+        </p>
+        <p>
+        여기서 <m>T_1</m>의 보편성질을 다시 적용하자. 목적지 공간을 <m>Z = T_1</m>으로 두고, 주어진 쌍선형사상을 <m>B = \otimes_1</m>로 생각한다. 보편성질에 의해 <m>\otimes_1 = h \circ \otimes_1</m>을 만족하는 선형사상 <m>h: T_1 \to T_1</m>은 유일해야 한다.
+        </p>
+        <p>
+        그런데 항등사상 <m>I_{T_1}</m>이 분명히 <m>\otimes_1 = I_{T_1} \circ \otimes_1</m>을 만족하므로, 선형사상의 유일성에 의해 반드시 <m>g \circ f = I_{T_1}</m>이어야만 한다.
+        </p>
+        <p>
+        정확히 대칭적인 논리로, <m>T_2</m>의 보편성질을 목적지 <m>Z = T_2</m>와 쌍선형사상 <m>B = \otimes_2</m>에 대하여 적용하면 다음이 성립한다.
+        <me>\otimes_2 = (f \circ g) \circ \otimes_2 \implies f \circ g = I_{T_2}</me>
+        </p>
+        <p>
+        결과적으로 <m>f</m>와 <m>g</m>는 서로의 역변환이다. 따라서 <m>f</m>는 전단사 선형사상인 동형사상이며, 정의에 따라 <m>f \circ \otimes_1 = \otimes_2</m>를 만족하므로 두 텐서곱 공간은 그 내부의 쌍선형 연산 구조까지 완벽하게 동일하다. 
+        </p>
+      </proof>
+      </theorem>
+
+      <theorem xml:id="thm-tensor-existence">
+      <title>텐서곱의 존재성</title>
+      <statement>
+        <p>
+        체 <m>\mathbb{F}</m> 상의 임의의 두 벡터공간 <m>V</m>와 <m>W</m>에 대하여, 텐서곱의 보편성질을 완벽하게 만족하는 쌍 <m>(V \otimes W, \otimes)</m>가 항상 존재한다.
+        </p>
+      </statement>
+      <proof>
+        <p>
+        <title>1단계: 자유벡터공간의 구성</title>
+        집합 <m>V \times W</m>의 모든 원소 <m>(v, w)</m>들을 기저로 가지는 거대한 자유벡터공간 <m>F</m>를 구성한다. 이 공간 <m>F</m>의 원소는 기호 <m>(v, w)</m>들의 유한 선형결합으로 표현된다.
+        </p>
+        <p>
+        <title>2단계: 쌍선형성을 강제하는 부분공간 정의</title>
+        우리가 최종적으로 원하는 연산 <m>\otimes</m>는 쌍선형사상이어야 한다. 이를 위해 <m>F</m> 안에서 다음 형태의 모든 벡터들에 의해 생성되는 부분공간 <m>S</m>를 정의한다. (단, <m>v, v_1, v_2 \in V</m>, <m>w, w_1, w_2 \in W</m>, <m>c \in \mathbb{F}</m>)
+        </p>
+        <ul>
+          <li><m>(v_1 + v_2, w) - (v_1, w) - (v_2, w)</m></li>
+          <li><m>(cv, w) - c(v, w)</m></li>
+          <li><m>(v, w_1 + w_2) - (v, w_1) - (v, w_2)</m></li>
+          <li><m>(v, cw) - c(v, w)</m></li>
+        </ul>
+        <p>
+        <title>3단계: 몫공간의 구성 및 자연스러운 사상 정의</title>
+        이제 <m>F</m>를 부분공간 <m>S</m>로 나눈 몫공간을 <m>V \otimes W = F/S</m>로 정의한다. 임의의 잉여류 대표원 <m>(v, w)</m>에 대응하는 잉여류 <m>(v, w) + S</m>를 기호 <m>v \otimes w</m>로 표기한다.
+        </p>
+        <p>
+        사상 <m>\otimes: V \times W \to V \otimes W</m>를 <m>\otimes(v, w) = v \otimes w</m>로 정의하자. 부분공간 <m>S</m>를 법으로 몫공간을 취했으므로, <m>S</m>의 생성원들은 모두 이 몫공간에서 영벡터가 된다. 이 구조적 특징으로 인해 사상 <m>\otimes</m>는 자연스럽게 쌍선형사상이 된다. (예를 들어, <m>(v_1 + v_2) \otimes w = (v_1 + v_2, w) + S = ((v_1, w) + (v_2, w)) + S = v_1 \otimes w + v_2 \otimes w</m>가 성립한다.)
+        </p>
+        <p>
+        <title>4단계: 보편성질의 검증</title>
+        이 몫공간이 실제로 보편성질을 만족하는지 확인하자. 임의의 벡터공간 <m>Z</m>와 쌍선형사상 <m>B: V \times W \to Z</m>가 주어졌다고 가정한다.
+        </p>
+        <p>
+        집합 <m>V \times W</m>에서 <m>Z</m>로 가는 함수 <m>B</m>를 자유벡터공간 <m>F</m>의 기저 위에서 정의된 함수로 보고, 이를 전체 공간으로 선형적으로 확장하여 유일한 선형사상 <m>\bar{B}: F \to Z</m>를 얻는다. 기저에서의 값은 <m>\bar{B}(v, w) = B(v, w)</m>이다.
+        </p>
+        <p>
+        <m>B</m>가 원래 쌍선형사상이었으므로, 부분공간 <m>S</m>의 모든 생성원들은 <m>\bar{B}</m>에 의해 영벡터로 맵핑된다. (예: <m>\bar{B}((cv, w) - c(v, w)) = B(cv, w) - cB(v, w) = 0</m>). 따라서 <m>S \subseteq \ker(\bar{B})</m>가 성립한다.
+        </p>
+        <p>
+        <xref ref="thm-first-isomorphism">동형정리</xref>에 의해, <m>S</m>가 커널에 포함되므로 선형사상 <m>\tilde{B}: F/S \to Z</m>가 유일하게 유도된다. 이 유도된 사상은 <m>\tilde{B}(v \otimes w) = \tilde{B}((v, w) + S) = \bar{B}(v, w) = B(v, w)</m>를 완벽하게 만족한다.
+        </p>
+        <p>
+        결과적으로 <m>\tilde{B} \circ \otimes = B</m>를 만족하는 유일한 선형사상 <m>\tilde{B}</m>를 항상 찾을 수 있으므로, 우리가 구성한 몫공간 <m>F/S</m>는 텐서곱의 보편성질을 충족하며 그 존재성이 증명되었다. <m>\blacksquare</m>
+        </p>
+      </proof>
+      </theorem>
+
+      <question xml:id="qstn-tensor-zero-from-construction">
+      <title>몫공간 구성에서 영벡터 성질</title>
+      <statement>
+        <p>
+        이 대수적 구성을 통해 직관적인 등식 <m>v \otimes 0 = 0</m>을 몫공간의 관점에서 엄밀하게 확인할 수 있습니다。
+      </p>
+      </statement>
+      <solution>
+        <p>
+          사상 <m>\otimes</m>의 정의에 의해 <m>v \otimes 0 = (v, 0) + S</m>입니다. 부분공간 <m>S</m>의 생성원 중 <m>(v, 0+0) - (v, 0) - (v, 0)</m>을 생각해보면, 이는 식을 정리했을 때 <m>-(v, 0)</m>이 되고 이 벡터가 <m>S</m>에 속한다는 뜻입니다. <m>S</m>는 부분공간이므로 양변에 <m>-1</m>을 곱한 <m>(v, 0)</m> 역시 <m>S</m>에 속합니다.
+        </p>
+        <p>
+          자신이 속한 부분공간을 법으로 하는 잉여류는 영벡터를 나타내므로, <m>(v, 0) + S = 0 + S</m>가 되어 텐서곱 공간에서 영벡터가 됨을 명확하게 보여줍니다.
+        </p>
+      </solution>
+      </question>
+
+      <theorem xml:id="thm-tensor-basis-dimension">
+      <title>텐서곱의 기저와 차원</title>
+      <statement>
+        <p>
+        체 <m>\mathbb{F}</m> 상의 유한차원 벡터공간 <m>V</m>와 <m>W</m>의 기저를 각각 <m>\{v_1, \dots, v_n\}</m>과 <m>\{w_1, \dots, w_m\}</m>이라 하자. 이때 집합 <m>\{v_i \otimes w_j \mid 1 \le i \le n, 1 \le j \le m\}</m>은 <m>V \otimes W</m>의 기저가 된다. 특히, <m>\dim(V \otimes W) = \dim(V)\dim(W)</m>이다.
+        </p>
+      </statement>
+      <proof>
+        <p>
+        형식적인 기호 <m>v_i \otimes w_j</m>들을 기저로 가지는 <m>nm</m> 차원 벡터공간 <m>T</m>를 구성하고, <m>v = \sum a_i v_i</m>와 <m>w = \sum b_j w_j</m>에 대하여 사상 <m>\otimes: V \times W \to T</m>를 <m>v \otimes w = \sum_{i,j} a_i b_j (v_i \otimes w_j)</m>로 정의한다. 임의의 쌍선형사상 <m>B</m>가 주어졌을 때 <m>\tilde{B}(v_i \otimes w_j) = B(v_i, w_j)</m>로 선형사상을 유일하게 정의할 수 있으며, 이 구조가 보편성질을 완벽하게 만족함을 대수적으로 쉽게 확인할 수 있다. <m>\blacksquare</m>
+        </p>
+      </proof>
+      </theorem>
+      <example xml:id="ex-tensor-F2-F2">
+      <title>표준 텐서곱의 기저</title>
+      <statement>
+        <p>
+        <m>\mathbb{F}^2</m>의 표준기저를 <m>\{e_1, e_2\}</m>라 할 때, 텐서곱 <m>\mathbb{F}^2 \otimes \mathbb{F}^2</m>는 차원이 4이며 기저는 <m>\{e_1 \otimes e_1, e_1 \otimes e_2, e_2 \otimes e_1, e_2 \otimes e_2\}</m>가 됩니다. 임의의 원소는 이 네 기저 벡터의 선형결합으로 표현됩니다.
+        </p>
+      </statement>
+      </example>
+    </subsection>
+
+    <subsection xml:id="04-tnsr-linear-maps">
+      <title>선형사상 공간의 텐서곱 표현</title>
+      <p>
+      텐서곱의 가장 놀라운 응용 중 하나는, 한 공간에서 다른 공간으로 가는 모든 선형사상들의 모임을 텐서곱으로 완벽하게 분해하여 표현할 수 있다는 점입니다.
+      </p>
+      <theorem xml:id="thm-tensor-linear-maps">
+      <title>선형사상 공간의 텐서곱 표현</title>
+      <statement>
+        <p>
+        체 <m>\mathbb{F}</m> 상의 유한차원 벡터공간 <m>V, W</m>에 대하여, 텐서곱 공간 <m>V^* \otimes W</m>는 선형사상들의 공간 <m>\mathcal{L}(V, W)</m>와 동형이다. (단, <m>V^*</m>는 <m>V</m>의 쌍대공간이다.)
+        </p>
+      </statement>
+      <proof>
+        <p>
+        사상 <m>B: V^* \times W \to \mathcal{L}(V, W)</m>를 <m>B(f, w)(v) = f(v)w</m>로 정의하자. <m>B</m>는 함수 <m>f</m>와 벡터 <m>w</m> 각각에 대하여 선형성을 가지므로 쌍선형사상이다.
+        </p>
+        <p>
+        텐서곱의 보편성질에 의해, <m>\tilde{B}(f \otimes w)(v) = f(v)w</m>를 만족하는 유일한 선형사상 <m>\tilde{B}: V^* \otimes W \to \mathcal{L}(V, W)</m>가 존재한다.
+        </p>
+        <p>
+        <m>V</m>의 기저를 <m>\{v_1, \dots, v_n\}</m>, 이에 대응하는 쌍대기저를 <m>\{f_1, \dots, f_n\}</m>이라 하고, <m>W</m>의 기저를 <m>\{w_1, \dots, w_m\}</m>이라 하자.
+        </p>
+        <p>
+        <m>V^* \otimes W</m>의 기저 원소 <m>f_i \otimes w_j</m>에 대한 <m>\tilde{B}</m>의 상을 살펴보면, <m>\tilde{B}(f_i \otimes w_j)(v_k) = f_i(v_k)w_j = \delta_{ik}w_j</m>이다.
+        </p>
+        <p>
+        이는 정확히 기저 벡터 <m>v_i</m>를 <m>w_j</m>로 보내고 나머지 기저 벡터들은 영벡터로 보내는 기본적인 행렬 단위 사상들에 해당하며, 이 사상들은 <m>\mathcal{L}(V, W)</m>의 기저를 이룬다.
+        </p>
+        <p>
+        선형사상 <m>\tilde{B}</m>가 기저를 기저로 맵핑하므로, <m>\tilde{B}</m>는 동형사상이다. <m>\blacksquare</m>
+        </p>
+      </proof>
+      </theorem>
+      <example xml:id="ex-tensor-linear-map">
+      <title>선형사상과 행렬 표현</title>
+      <statement>
+        <p>
+        <m>V = \mathbb{R}^2</m>, <m>W = \mathbb{R}^2</m>일 때, 단일 텐서 <m>f \otimes w \in V^* \otimes W</m>가 어떤 선형사상을 나타내는지 확인해 보자. <m>f(x, y) = x+y</m>이고 <m>w = (1, 2)</m>라면, 대응되는 선형사상 <m>T(v) = f(v)w</m>는 <m>T(x,y) = (x+y)(1, 2) = (x+y, 2x+2y)</m>가 된다. 이 선형변환의 행렬은 <m>\begin{pmatrix} 1 &amp; 1 \\ 2 &amp; 2 \end{pmatrix}</m>이며 랭크가 1이다. 즉, 텐서곱의 순수 원소들은 랭크가 1인 선형변환을 구성하는 기본 블록 역할을 한다.
+        </p>
+      </statement>
+      </example>
+    </subsection>
+
+    <exercises xml:id="04-tnsr-exercises">
+  <title>연습문제</title>
+  
+  <exercise xml:id="ex-tensor-with-scalars">
+  <title>스칼라와의 텐서곱</title>
+  <statement>
+    <p>
+    체 <m>\mathbb{F}</m> 상의 벡터공간 <m>V</m>에 대하여, 스칼라 체 <m>\mathbb{F}</m>를 텐서곱한 공간 <m>V \otimes \mathbb{F}</m>가 원래의 공간 <m>V</m>와 동형임을 증명하시오. 
+    </p>
+  </statement>
+  </exercise>
+
+  <exercise xml:id="ex-tensor-dimension">
+  <title>텐서곱 공간의 차원</title>
+  <statement>
+    <p>
+    체 <m>\mathbb{F}</m> 상의 벡터공간 <m>\mathbb{F}^2</m>와 <m>\mathbb{F}^3</m>의 텐서곱 공간 <m>\mathbb{F}^2 \otimes \mathbb{F}^3</m>의 차원을 구하고, 표준기저를 이용하여 이 공간의 모든 기저 원소들을 나열하시오.
+    </p>
+  </statement>
+  </exercise>
+
+  <exercise xml:id="ex-tensor-scalar">
+  <title>스칼라 배수와 텐서곱</title>
+  <statement>
+    <p>
+    스칼라 <m>c \in \mathbb{F}</m>에 대하여 <m>c(v \otimes w) = (cv) \otimes w = v \otimes (cw)</m>가 성립함을 쌍선형성을 통해 보이시오.
+    </p>
+  </statement>
+  </exercise>
+
+  <exercise xml:id="ex-tensor-commutative">
+  <title>텐서곱의 교환성</title>
+  <statement>
+    <p>
+    보편성질을 직접 적용하여, 임의의 두 벡터공간 <m>V</m>와 <m>W</m>에 대하여 동형사상 <m>V \otimes W \cong W \otimes V</m>가 존재함을 증명하시오.
+    </p>
+  </statement>
+  </exercise>
+
+  <exercise xml:id="ex-tensor-field">
+  <title>체와의 텐서곱</title>
+  <statement>
+    <p>
+    임의의 벡터공간 <m>V</m>에 대하여 자연스러운 동형사상 <m>V \otimes \mathbb{F} \cong V</m>가 성립함을 쌍선형사상의 보편성질을 이용하여 증명하시오.
+    </p>
+  </statement>
+  </exercise>
+
+  <exercise xml:id="ex-tensor-decomposable">
+  <title>분해 불가능한 텐서</title>
+  <statement>
+    <p>
+    텐서곱 공간 <m>V \otimes W</m>의 모든 원소가 <m>v \otimes w</m> 형태의 단일 텐서로만 이루어져 있는 것은 아님을 보이기 위해, 적당한 기저를 선택하여 두 텐서의 합 <m>v_1 \otimes w_1 + v_2 \otimes w_2</m>가 단일 텐서로 표현될 수 없는 구체적인 예시를 하나 제시하시오.
+    </p>
+  </statement>
+  </exercise>
+
+  <exercise xml:id="ex-tensor-map">
+  <title>텐서곱의 함수 정의</title>
+  <statement>
+    <p>
+    두 선형사상 <m>S: V_1 \to V_2</m>와 <m>T: W_1 \to W_2</m>가 주어졌을 때, 텐서곱 공간 사이의 선형사상 <m>S \otimes T: V_1 \otimes W_1 \to V_2 \otimes W_2</m>를 단일 텐서에 대하여 <m>(S \otimes T)(v \otimes w) = S(v) \otimes T(w)</m>로 정의한다. 이 사상이 잘 정의된 선형사상임을 보편성질을 통해 증명하시오.
+    </p>
+  </statement>
+  </exercise>
+
+  <exercise xml:id="ex-tensor-matrix">
+  <title>행렬 공간과 텐서곱</title>
+  <statement>
+    <p>
+    행렬 공간 <m>M_{m \times n}(\mathbb{F})</m>가 텐서곱 공간 <m>\mathbb{F}^m \otimes \mathbb{F}^n</m>과 자연스럽게 동형임을 보이고, 이 동형사상 아래에서 랭크가 1인 행렬들이 정확히 영벡터가 아닌 단일 텐서 <m>v \otimes w</m>에 대응됨을 증명하시오.
+    </p>
+  </statement>
+  </exercise>
+
+  <exercise xml:id="ex-tensor-associative">
+  <title>텐서곱의 결합성</title>
+  <statement>
+    <p>
+    세 벡터공간 <m>U, V, W</m>에 대하여 동형사상 <m>(U \otimes V) \otimes W \cong U \otimes (V \otimes W)</m>가 성립함을 삼중선형사상(trilinear map)의 보편성질을 새롭게 정의하여 증명하시오.
+    </p>
+  </statement>
+  </exercise>
+
+  <exercise xml:id="ex-tensor-trace">
+  <title>대각합과 텐서곱</title>
+  <statement>
+    <p>
+    <xref ref="thm-tensor-linear-maps"/>의 동형사상 <m>V^* \otimes V \cong \mathcal{L}(V, V)</m>를 생각하자. 이 텐서곱 공간 위에 선형범함수 <m>\text{tr}: V^* \otimes V \to \mathbb{F}</m>를 단일 텐서에 대하여 <m>\text{tr}(f \otimes v) = f(v)</m>로 정의하여 선형적으로 확장하자. 이 선형범함수가 <m>\mathcal{L}(V, V)</m> 상의 선형변환의 행렬 대각합 연산과 동일함을 증명하시오.
+    </p>
+  </statement>
+  </exercise>
+
+  </exercises>
+  
+
+</section>

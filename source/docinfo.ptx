@@ -25,12 +25,13 @@
   <!-- for those in the next element. -->
   <latex-image-preamble> \usepackage{tikz, pgfplots} \usetikzlibrary{positioning,matrix,arrows} \usetikzlibrary{shapes,decorations,shadows,fadings,patterns} \usetikzlibrary{decorations.markings} </latex-image-preamble>
 
-  <!-- It is possible to rename elements: -->
-  <!-- <rename element="assemblage" xml:lang="en-US">Summary</rename> -->
-
+  
   <!-- Specify the default type of cross reference: -->
   <!-- <cross-references text="type-global" /> -->
   
+  <!-- It is possible to rename elements: -->
+  <!-- <rename element="assemblage" xml:lang="en-US">Summary</rename> -->
+
   <!-- elemet 제목 한글화  -->
   <rename element="example">예시</rename> <!--잘 작동함-->
   <rename element="theorem">정리</rename> <!--잘 작동함-->

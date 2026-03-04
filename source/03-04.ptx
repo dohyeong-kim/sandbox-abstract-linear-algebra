@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="03-04-triangulation-and-jordan" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>삼각화와 조르당 표준형</title>
+  <p>
+    임의의 선형변환이 대각화 가능한 것은 아닙니다. 하지만 체 <m>\mathbb{F}</m> 위에서 특성다항식이 일차식으로 완전히 분해된다는 조건만 만족한다면, 대각행렬에 가장 가까운 형태인 상삼각행렬, 나아가 구조적 유일성을 담보하는 조르단 표준형으로 변환을 단순화할 수 있습니다.
+  </p>
+  <subsection xml:id="03-04-01-triangulation">
+    <title>몫공간을 이용한 삼각화</title>
+
+    <definition xml:id="def-triangularizable">
+      <title>삼각화</title>
+      <statement>
+        <p>
+          체 <m>\mathbb{F}</m> 상의 유한차원 벡터공간 <m>V</m>와 선형변환 <m>T: V \to V</m>에 대하여, <m>V</m>의 어떤 순서기저 <m>\beta</m>에 대한 행렬표현 <m>[T]_\beta</m>가 상삼각행렬일 때, 선형변환 <m>T</m>를 <term>삼각화</term> 가능하다고 한다.<aside><p>삼각화:triangularization</p></aside>
+        </p>
+      </statement>
+    </definition>
+
+    <example>
+      <title>다항식 공간에서의 삼각화</title>
+      <statement>
+        <p>
+          공간 <m>V = \mathbb{F}[x]_{\le 2}</m>에서 선형변환 <m>T(p(x)) = p(x) + p'(x)</m>를 생각하자. 표준기저 <m>\beta = \{1, x, x^2\}</m>에 대하여 작용을 평가하면 <m>T(1) = 1</m>, <m>T(x) = x + 1</m>, <m>T(x^2) = x^2 + 2x</m>이다. 이 기저에 대한 행렬표현은
+          <me>
+            [T]_\beta = \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 2 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}
+          </me>
+          이므로 상삼각행렬이다. 따라서 <m>T</m>는 삼각화 가능한 변환이다.
+        </p>
+      </statement>
+    </example>
+
+    <theorem xml:id="thm-triangularization">
+      <title>삼각화의 필요충분조건</title>
+      <statement>
+        <p>
+          유한차원 벡터공간 <m>V</m> 상의 선형변환 <m>T</m>가 삼각화 가능할 필요충분조건은 <m>T</m>의 특성다항식 <m>p_T(x)</m>가 체 <m>\mathbb{F}</m> 위에서 일차식들의 곱으로 완전히 분해되는 것이다.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          <m>(\implies)</m> <m>T</m>가 삼각화 가능하다고 가정하면 상삼각행렬 <m>A = [T]_\beta</m>를 가지는 기저 <m>\beta</m>가 존재한다. 상삼각행렬의 행렬식은 주대각성분의 곱이므로, 대각성분들을 <m>c_i</m>라 할 때 <m>p_T(x) = \det(xI - A) = (x-c_1)(x-c_2)\dots(x-c_n)</m>이 되어 <m>\mathbb{F}</m> 위에서 일차식으로 완전히 분해된다.
+        </p>
+        <p>
+          <m>(\impliedby)</m> 공간의 차원 <m>n</m>에 대한 수학적 귀납법을 적용한다. <m>n=1</m>일 때는 자명하게 삼각화 가능하다. 차수가 <m>n-1</m> 이하인 모든 공간에 대해 정리가 성립한다고 가정하자. <m>p_T(x)</m>가 일차식으로 분해되므로 최소한 하나의 고윳값 <m>\lambda_1 \in \mathbb{F}</m>와 그에 대응하는 고유벡터 <m>v_1</m>을 가진다. <m>W = \text{span}\{v_1\}</m>은 1차원 <m>T</m>-불변공간이다.
+        </p>
+        <p>
+          몫공간 <m>V/W</m>를 구성하고 유도된 선형변환 <m>\overline{T}: V/W \to V/W</m>를 <m>\overline{T}(v+W) = T(v)+W</m>로 정의한다. 이 사상은 대표원의 선택과 무관하게 잘 정의된다. 기저 확장을 통해 계산해 보면 <m>p_T(x) = (x-\lambda_1)p_{\overline{T}}(x)</m>가 성립함을 알 수 있으므로, <m>p_{\overline{T}}(x)</m> 역시 <m>\mathbb{F}</m> 위에서 일차식으로 분해된다.
+        </p>
+        <p>
+          <m>V/W</m>의 차원은 <m>n-1</m>이므로 귀납법의 가정에 의해 상삼각행렬을 만드는 <m>V/W</m>의 기저 <m>\{u_2+W, \dots, u_n+W\}</m>가 존재한다. 각 잉여류의 대표원 <m>u_i</m>들을 선택하여 새로운 집합 <m>\alpha = \{v_1, u_2, \dots, u_n\}</m>을 구성하면, 이는 <m>V</m>의 기저가 되며 이 기저에 대한 <m>T</m>의 행렬표현은 첫 번째 열이 0(첫 번째 성분 제외)이고 나머지 부분은 <m>V/W</m>의 상삼각행렬을 포함하는 형태이므로 전체 행렬 역시 상삼각행렬이 된다. <m>\blacksquare</m>
+        </p>
+      </proof>
+    </theorem>
+
+    <example>
+      <title>실수와 복소수에서의 삼각화 가능성</title>
+      <statement>
+        <p>
+          실수체 <m>\mathbb{R}</m> 위에서 <m>A = \begin{pmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{pmatrix}</m>의 특성다항식은 <m>x^2 + 1</m>이므로 <m>\mathbb{R}</m>에서 일차식으로 분해되지 않는다. 정리<nbsp/><xref ref="thm-triangularization"/>에 의해 이 행렬은 실수 범위 내에서 삼각화가 불가능하다. 하지만 복소수체 <m>\mathbb{C}</m>로 확장하면 <m>(x-i)(x+i)</m>로 분해되므로 삼각화, 나아가 대각화까지 가능해진다.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+
+  <subsection xml:id="03-04-02-generalized-eigenspace">
+    <title>일반화된 고유공간 분해</title>
+    
+    <p>
+      대각화가 불가능한 행렬을 분석하기 위해 고유공간의 개념을 확장해야 합니다.
+    </p>
+
+    <definition xml:id="def-generalized-eigenvector">
+      <title>일반화된 고유벡터와 일반화된 고유공간</title>
+      <statement>
+        <p>
+          선형변환 <m>T</m>와 고윳값 <m>\lambda</m>에 대하여,<aside><p>일반화된 고유벡터:generalized eigenvector</p></aside> 어떤 양의 정수 <m>k</m>가 존재하여 <m>(T - \lambda I)^k(v) = 0</m>을 만족하는 영벡터가 아닌 벡터 <m>v</m>를 <term>일반화된 고유벡터</term>라 한다. 주어진 <m>\lambda</m>에 대응하는 모든 일반화된 고유벡터와 영벡터의 집합을 <term>일반화된 고유공간</term>이라 하고 <m>K_\lambda</m>로 표기한다.
+          <aside>
+            <p>
+              일반화된 고유공간:generalized eigenspace
+            </p>
+          </aside>
+        </p>
+      </statement>
+    </definition>
+
+    <example>
+      <title>일반화된 고유공간의 예</title>
+      <statement>
+        <p>
+          <m>A = \begin{pmatrix} 2 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}</m>에서 고윳값은 2이다. 고유공간 <m>E_2</m>는 <m>(1, 0)^T</m>가 생성하는 1차원 공간이지만, <m>(A - 2I)^2 = \begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}^2 = \begin{pmatrix} 0 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}</m>이므로 벡터 <m>(0, 1)^T</m>는 일반화된 고유벡터이다. 따라서 <m>K_2 = \mathbb{F}^2</m> 전체가 된다.
+        </p>
+      </statement>
+    </example>
+
+    <theorem xml:id="thm-primary-decomposition-split">
+      <title>소분해 정리</title>
+      <statement>
+        <p>
+          선형변환 <m>T</m>의 특성다항식이 <m>p_T(x) = (x-\lambda_1)^{m_1}\dots(x-\lambda_k)^{m_k}</m>로 분해될 때, 벡터공간 <m>V</m>는 각 고윳값에 대응하는 일반화된 고유공간들의 직합으로 분해되며, 각 <m>K_{\lambda_i}</m>는 <m>T</m>-불변공간이다. 즉,
+          <me>
+            V = K_{\lambda_1} \oplus K_{\lambda_2} \oplus \dots \oplus K_{\lambda_k}
+          </me>
+        </p>
+      </statement>
+      <proof>
+        <p>
+          <m>q_i(x) = p_T(x) / (x-\lambda_i)^{m_i}</m>라 정의하자. 다항식 <m>q_1(x), \dots, q_k(x)</m>는 공통 인수를 가지지 않으므로 최대공약수가 1이다. 다항식 환의 베주 항등식에 의해 <m>\sum_{i=1}^k a_i(x)q_i(x) = 1</m>을 만족하는 다항식 <m>a_i(x)</m>들이 존재한다.
+        </p>
+        <p>
+          여기에 선형변환 <m>T</m>를 대입하면 <m>I = \sum_{i=1}^k a_i(T)q_i(T)</m>이다. 임의의 <m>v \in V</m>에 대하여 <m>v = \sum_{i=1}^k a_i(T)q_i(T)(v)</m>로 분해된다. <m>v_i = a_i(T)q_i(T)(v)</m>라 두자.
+        </p>
+        <p>
+          케일리-해밀턴 정리에 의해 <m>p_T(T) = 0</m>이므로, <m>(T-\lambda_i I)^{m_i}(v_i) = a_i(T) p_T(T)(v) = 0</m>이 성립한다. 따라서 <m>v_i \in K_{\lambda_i}</m>이며, <m>V</m>가 일반화된 고유공간들의 합으로 표현됨을 보였다.
+        </p>
+        <p>
+          직합임을 보이기 위해 <m>v_1 + \dots + v_k = 0</m> (<m>v_i \in K_{\lambda_i}</m>)이라 가정하고 양변에 적절한 다항식 작용소를 곱해 교차 항들을 소거하는 과정을 거치면 모든 <m>i</m>에 대해 <m>v_i = 0</m>임을 이끌어낼 수 있다. 또한, 다항식 작용소들은 서로 교환법칙을 만족하므로 <m>T</m>를 <m>K_{\lambda_i}</m>의 원소에 작용시킨 결과는 다시 <m>K_{\lambda_i}</m>에 속하게 되어 <m>T</m>-불변성이 보장된다. <m>\blacksquare</m>
+        </p>
+      </proof>
+    </theorem>
+
+    <example>
+      <title>소분해 정리의 응용</title>
+      <statement>
+        <p>
+          특성다항식이 <m>p_T(x) = (x-1)^2(x-2)</m>인 변환에 대하여, 공간 <m>V</m>는 고윳값 1에 대한 일반화된 고유공간 <m>K_1</m>과 고윳값 2에 대한 일반화된 고유공간 <m>K_2</m>(여기서는 대수적 중복도가 1이므로 일반 고유공간 <m>E_2</m>와 일치함)의 직합 <m>V = K_1 \oplus K_2</m>로 완벽하게 분리된다. <m>T</m>의 작용은 이 두 독립적인 블록 안에서의 작용으로 완전히 분해된다.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+
+  <subsection xml:id="03-04-03-jordan-form">
+    <title>조르당 표준형</title>
+    
+    <p>
+      직합으로 분해된 각각의 일반화된 고유공간 <m>K_\lambda</m> 내부에서, 변환 <m>T - \lambda I</m>는 멱영 작용소(거듭제곱하면 영변환이 되는 작용소)가 됩니다. 이 멱영 작용소의 구조를 파헤쳐 얻는 가장 단순한 행렬표현이 조르당 블록입니다.
+    </p>
+
+    <definition xml:id="def-jordan-block">
+      <title>조르당 블록과 조르당 행렬</title>
+      <statement>
+        <p>
+          <aside>
+            <p>조르당 블록:Jordan block</p>
+          </aside>
+          대각성분이 모두 <m>\lambda</m>이고, 바로 위 대각선 성분이 모두 1이며, 나머지 성분은 모두 0인 정사각행렬을 <m>\lambda</m>에 대한 <term>조르당 블록</term>이라 한다. 주대각선을 따라 조르당 블록들이 나열된 블록 대각행렬을 <term>조르당 행렬</term>이라 한다.
+          <aside>
+            <p>조르당 행렬:Jordan matrix</p>
+          </aside>
+        </p>
+      </statement>
+    </definition>
+
+    <example>
+      <title>조르당 블록의 예</title>
+      <statement>
+        <p>
+          고윳값 <m>\lambda=3</m>에 대한 <m>2 \times 2</m> 조르당 블록은 <m>\begin{pmatrix} 3 &amp; 1 \\ 0 &amp; 3 \end{pmatrix}</m>이다. 이 행렬의 특성다항식은 <m>(x-3)^2</m>이며, <m>(A-3I)^2 = 0</m>이므로 행렬 전체가 일반화된 고유벡터들로 구성되어 있음을 알 수 있다.
+        </p>
+      </statement>
+    </example>
+
+    <theorem xml:id="thm-jordan-canonical-form">
+      <title>조르당 표준형 정리</title>
+      <statement>
+        <p>
+          특성다항식이 체 <m>\mathbb{F}</m> 위에서 일차식으로 분해되는 유한차원 공간 <m>V</m> 상의 선형변환 <m>T</m>에 대하여, <m>V</m>는 <m>T</m>의 행렬표현이 조르당 행렬이 되도록 하는 기저(조르당 기저)를 가진다. 또한 이 조르당 행렬은 블록들의 나열 순서를 제외하면 유일하게 결정된다.
+        </p>
+      </statement>
+      <proof>
+        <p>
+          <xref ref="thm-primary-decomposition-split">소분해 정리</xref>에 의해 <m>V = \bigoplus K_{\lambda_i}</m>로 분해되므로, 각 <m>K_{\lambda_i}</m>에 제한된 변환 <m>T_i</m>에 대해서만 증명하면 충분하다. <m>N = T_i - \lambda_i I</m>라 두면 <m>N</m>은 <m>K_{\lambda_i}</m> 위에서 멱영 작용소이다.
+        </p>
+        <p>
+          멱영 작용소에 대하여, 영이 아닌 어떤 벡터 <m>v</m>와 <m>N^k(v)=0</m>이 되는 최소의 <m>k</m>를 생각하자. 집합 <m>\{v, N(v), \dots, N^{k-1}(v)\}</m>은 선형독립을 이루며 이를 순환 기저라 한다. 멱영 작용소의 구조 정리에 의해 <m>K_{\lambda_i}</m>는 이러한 순환 기저들이 생성하는 순환 부분공간들의 직합으로 분해된다.
+        </p>
+        <p>
+          각 순환 기저의 순서를 역순인 <m>\alpha = \{N^{k-1}(v), \dots, N(v), v\}</m>로 나열하자. <m>N(N^{k-1}(v)) = 0</m>, <m>N(N^{j-1}(v)) = N^j(v)</m>가 성립하므로, 이 기저에 대한 <m>N</m>의 행렬표현은 대각성분이 0이고 바로 위 대각선이 1인 조르당 블록이 된다. <m>T_i = N + \lambda_i I</m>이므로 <m>T_i</m>의 행렬표현은 대각성분이 <m>\lambda_i</m>인 조르당 블록이 된다. 이들을 모두 모으면 조르당 행렬이 형성되며, 기저의 구조적 유일성에 의해 조르당 블록들의 크기와 개수는 유일하게 고정된다.
+        </p>
+      </proof>
+    </theorem>
+
+    <example>
+      <title>조르당 표준형의 결정</title>
+      <statement>
+        <p>
+          행렬 <m>A</m>의 특성다항식이 <m>(x-2)^4</m>이고 최소다항식이 <m>(x-2)^2</m>라 하자. 최소다항식의 차수는 가장 큰 조르당 블록의 크기를 나타내므로, 가장 큰 블록은 <m>2 \times 2</m>이다. 공간의 차원이 4이므로 남은 크기 2를 채우는 블록 구성은 <m>2 \times 2</m> 블록 하나 추가이거나, <m>1 \times 1</m> 블록 두 개 추가이다. 이를 확정하기 위해 <m>\dim(E_2)</m>(기하적 중복도)를 확인하면 된다. 기하적 중복도는 조르당 블록의 총 개수와 일치하기 때문이다. 만약 <m>\dim(E_2) = 2</m>라면, <m>2 \times 2</m> 블록 두 개로 구성된 유일한 조르당 표준형을 갖는다.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+  <exercises xml:id="03-04-exercises">
+      <title>연습문제</title>
+    <exercise xml:id="ex-triangularization-over-reals">
+      <title>실수체에서의 삼각화 불가능성</title>
+      <statement>
+        <p>
+          실수체 <m>\mathbb{R}</m> 위에서 행렬 <m>A = \begin{pmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{pmatrix}</m>의 특성다항식을 구하고, <m>\mathbb{R}</m> 위에서 삼각화가 불가능한 이유를 설명하시오. 또한 체를 복소수체 <m>\mathbb{C}</m>로 확장했을 때 삼각화가 가능해짐을 보이시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-jordan-block-powers">
+      <title>조르당 블록의 거듭제곱</title>
+      <statement>
+        <p>
+          고윳값이 <m>\lambda</m>인 <m>3 \times 3</m> 조르당 블록 <m>J</m>에 대하여, 행렬 <m>N = J - \lambda I</m>라 할 때 거듭제곱 <m>N^2</m>과 <m>N^3</m>을 직접 행렬 곱셈을 통해 계산하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-eigenvectors-vs-generalized">
+      <title>고유벡터와 일반화된 고유벡터</title>
+      <statement>
+        <p>
+          선형변환 <m>T</m>에 대하여 벡터 <m>v</m>가 고윳값 <m>\lambda</m>에 대응하는 고유벡터라면, <m>v</m>는 정의에 의해 항상 <m>\lambda</m>에 대한 일반화된 고유벡터가 됨을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-quotient-space-map-welldefined">
+      <title>몫공간의 선형변환 정의의 타당성</title>
+      <statement>
+        <p>
+          <m>T</m>-불변 부분공간 <m>W</m>에 대하여 몫공간 <m>V/W</m> 상의 선형변환 <m>\overline{T}</m>를 <m>\overline{T}(v+W) = T(v)+W</m>로 정의할 때, <m>v</m>는 이 잉여류의 대표원이다. 서로 다른 두 대표원 <m>v_1, v_2</m>가 동일한 잉여류를 나타낼 때, <m>\overline{T}</m>의 함숫값이 대표원의 선택과 무관하게 잘 정의됨을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-inductive-proof-triangularization">
+      <title>삼각화의 귀납적 증명</title>
+      <statement>
+        <p>
+          유한차원 벡터공간 <m>V</m> 상의 선형변환 <m>T</m>의 특성다항식이 체 <m>\mathbb{F}</m> 위에서 일차식들의 곱으로 완전히 분해될 때, <m>T</m>가 삼각화 가능함을 몫공간의 차원에 대한 수학적 귀납법을 사용하여 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-minimal-poly-jordan-block-size">
+      <title>최소다항식과 조르당 블록의 크기</title>
+      <statement>
+        <p>
+          선형변환 <m>T</m>의 최소다항식이 <m>m_T(x) = (x-\lambda_1)^{k_1}\dots(x-\lambda_r)^{k_r}</m>일 때, 조르당 표준형에서 각 고윳값 <m>\lambda_i</m>에 대한 조르당 블록들 중 가장 큰 블록의 크기가 정확히 <m>k_i</m>가 됨을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-matrix-transpose-similarity">
+      <title>행렬과 전치행렬의 닮음성</title>
+      <statement>
+        <p>
+          특성다항식이 일차식으로 분해되는 임의의 정사각행렬 <m>A</m>와 그 전치행렬 <m>A^T</m>는 동일한 조르당 표준형을 가짐을 논증하고, 이를 통해 <m>A</m>와 <m>A^T</m>가 서로 닮음 관계임을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-determine-jordan-forms">
+      <title>조르당 표준형의 결정</title>
+      <statement>
+        <p>
+          체 <m>\mathbb{F}</m> 위에서 어떤 <m>5 \times 5</m> 행렬의 특성다항식이 <m>(x-1)^3(x+2)^2</m>이고 최소다항식이 <m>(x-1)^2(x+2)</m>일 때, 가능한 조르당 표준형을 블록 대각행렬 형태로 모두 나열하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-nilpotent-operator-triangularization">
+      <title>멱영 작용소의 삼각화</title>
+      <statement>
+        <p>
+          멱영 작용소 <m>N: V \to V</m>는 모든 고윳값이 0이므로 항상 삼각화 가능함을 보이고, 적절한 기저를 선택했을 때 주대각성분이 모두 0인 상삼각행렬로 표현됨을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
+  
+
+</section>

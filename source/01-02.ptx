@@ -221,6 +221,9 @@
     <exercise xml:id="exercise-basis-for-trace-zero-matrices">
       <title>대각합이 0인 행렬의 기저</title>
       <statement>
+        <aside>
+          <p>대각합:trace</p>
+        </aside>
       <p><m>2 \times 2</m> 실수 행렬 공간 <m>M_{2 \times 2}(\mathbb{R})</m>에서 대각합(trace)이 0인 행렬들의 부분공간 <m>W</m>를 생각하자. <m>W</m>의 기저를 하나 찾고, 그것이 기저의 조건을 모두 만족함을 증명하시오.</p>
       </statement>
     </exercise>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="04-tnsr" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>텐서곱</title>
+  <introduction>
+    <p>
+      이 장에서는 텐서곱에 대해 배웁니다. 텐서곱은 선형대수학에서 매우 중요한 개념으로, 두 선형공간을 결합하여 새로운 선형공간을 만드는 방법을 제공합니다. 텐서는 미분기하학에서 유래하였으나, 이 장에서는 대수적 개념으로서의 텐서곱을 다룹니다. 텐서곱은 미분기하학 외 다양한 수학 전문분야 뿐만아니라 양자역학, 기계학습, 구조역학 등에 응용됩니다.
+    </p>
+  </introduction>
+  <xi:include href="04-01.ptx" />
+  <xi:include href="04-02.ptx" />
+</chapter>

@@ -2,14 +2,121 @@
 
 <section xml:id="03-03-cayley" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>케일리-해밀턴 정리와 최소다항식</title>
-
-    
-  <subsection xml:id="03-03-01-cayley-hamilton">
-    <title>케일리-해밀턴 정리</title>
+  <p>
+    이 절에서는 특성방정식 내용을 심화하여 케일리-해밀턴 정리와 최소다항식에 대해 알아봅니다. 그 과정에서 사용될 수반행렬과 크라메르 공식에 대해 먼저 알아봅시다.
+  </p>
+  <subsection xml:id="03-03-00-adjugate-cramer">
+    <title>수반행렬과 크라메르 공식</title>
 
     <p>
-    다항식의 인수 성질을 바탕으로 행렬과 선형변환을 완전히 지배하는 핵심 다항식들의 정체를 파악합니다.
+    크라메르 공식과 수반행렬앞서 케일리-해밀턴 정리의 증명에서 핵심적인 역할을 하게 될 수반행렬 항등식은, 행렬식의 여인수 전개를 활용하여 역행렬과 연립일차방정식의 해를 명시적인 공식으로 표현할 수 있게 해줍니다.
     </p>
+
+    <definition xml:id="def-adjugate-matrix">
+      <title>수반행렬</title>
+      <statement>
+        <p>
+        체 <m>\mathbb{F}</m> 상의 행렬 <m>A \in M_{n \times n}(\mathbb{F})</m>에 대하여, <m>A</m>의 <m>i</m>행과 <m>j</m>열을 제거한 <m>(n-1) \times (n-1)</m> 부분행렬의 행렬식을 <m>M_{ij}</m>라 하자. 이때 <m>C_{ij} = (-1)^{i+j} M_{ij}</m>를 성분 <m>A_{ij}</m>에 대한 여인수라 한다. 여인수들을 성분으로 하는 행렬의 전치행렬을 <m>A</m>의 수반행렬이라 하고 <m>\text{adj}(A)</m>로 표기한다. 즉, <m>\text{adj}(A)</m>의 <m>i</m>행 <m>j</m>열 성분은 <m>C_{ji}</m>이다.
+        </p>
+      </statement>
+    </definition>
+
+    <theorem xml:id="thm-adjugate-identity">
+      <title>수반행렬 항등식</title>
+      <statement>
+        <p>
+        임의의 정사각행렬 <m>A \in M_{n \times n}(\mathbb{F})</m>에 대하여 다음 등식이 성립한다.
+        <me>A \text{adj}(A) = \text{adj}(A) A = \det(A) I</me>
+        </p>
+      </statement>
+      <proof>
+        <p>
+        행렬곱 <m>A \text{adj}(A)</m>의 <m>(i, j)</m> 성분을 계산해 보자. 행렬곱의 정의와 수반행렬의 정의에 의해 이 성분은 다음과 같이 전개된다.
+        <me>\sum_{k=1}^n A_{ik} (\text{adj}(A))_{kj} = \sum_{k=1}^n A_{ik} C_{jk}</me>
+        </p>
+
+        <p>
+        만약 <m>i = j</m>라면, 위 식은 행렬 <m>A</m>의 <m>i</m>번째 행에 대한 여인수 전개와 정확히 일치하므로 그 값은 <m>\det(A)</m>가 된다.
+        </p>
+
+        <p>
+        만약 <m>i \neq j</m>라면, 위 식은 행렬 <m>A</m>에서 <m>j</m>번째 행을 <m>i</m>번째 행의 복사본으로 대체하여 만든 새로운 행렬의 <m>j</m>번째 행에 대한 여인수 전개와 같다. 이 새로운 행렬은 똑같은 행을 두 개 가지게 되므로 교대성에 의해 행렬식은 항등적으로 0이 된다.
+        </p>
+
+        <p>
+        따라서 <m>A \text{adj}(A)</m>의 대각성분은 모두 <m>\det(A)</m>이고 나머지 성분은 모두 0이 되어 <m>\det(A) I</m>가 된다. 우측 곱인 <m>\text{adj}(A) A</m> 역시 열에 대한 여인수 전개를 통해 동일하게 증명된다.
+        </p>
+      </proof>
+    </theorem>
+
+    <example xml:id="ex-adjugate-2x2">
+      <title>2×2 행렬의 수반행렬</title>
+      <statement>
+        <p>
+        행렬 <m>A = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}</m>의 수반행렬을 구해보자. <m>C_{11} = d</m>, <m>C_{12} = -c</m>, <m>C_{21} = -b</m>, <m>C_{22} = a</m>이므로, 이를 행렬로 구성하고 전치하면 <m>\text{adj}(A) = \begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix}</m>가 된다.
+        </p>
+
+        <p>
+        직접 곱해보면 <m>A \text{adj}(A) = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix} \begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix} = \begin{pmatrix} ad-bc &amp; 0 \\ 0 &amp; ad-bc \end{pmatrix} = (ad-bc)I</m>가 되어 정리가 성립함을 확인할 수 있다. 역행렬이 존재할 조건인 <m>\det(A) = ad-bc \neq 0</m>이 성립하면, <m>A^{-1} = \frac{1}{\det(A)}\text{adj}(A)</m>임을 즉각적으로 얻는다.
+        </p>
+      </statement>
+    </example>
+
+    <theorem xml:id="thm-cramer-rule">
+      <title>크라메르 공식</title>
+      <statement>
+        <p>
+        가역행렬 <m>A \in M_{n \times n}(\mathbb{F})</m>와 열벡터 <m>b \in \mathbb{F}^n</m>에 대하여, 연립일차방정식 <m>Ax = b</m>의 유일한 해 <m>x = (x_1, \dots, x_n)^T</m>의 각 성분은 다음과 같이 주어진다.
+        <me>x_i = \frac{\det(A_i)}{\det(A)}</me>
+        여기서 <m>A_i</m>는 행렬 <m>A</m>의 <m>i</m>번째 열을 상수 벡터 <m>b</m>로 대체한 행렬이다.
+        </p>
+      </statement>
+      <proof>
+        <p>
+        행렬 <m>A</m>가 가역이므로 <m>\det(A) \neq 0</m>이며, 연립방정식의 해는 <m>x = A^{-1}b</m>로 유일하게 존재한다. 수반행렬 항등식에 의해 <m>A^{-1} = \frac{1}{\det(A)}\text{adj}(A)</m>이므로, 다음이 성립한다.
+        <me>x = \frac{1}{\det(A)}\text{adj}(A)b</me>
+        </p>
+
+        <p>
+        해 벡터 <m>x</m>의 <m>i</m>번째 성분 <m>x_i</m>를 구하기 위해 행렬곱을 전개하면 다음과 같다.
+        <me>x_i = \frac{1}{\det(A)} \sum_{j=1}^n (\text{adj}(A))_{ij} b_j = \frac{1}{\det(A)} \sum_{j=1}^n C_{ji} b_j</me>
+        </p>
+
+        <p>
+        여기서 합 <m>\sum_{j=1}^n b_j C_{ji}</m>를 관찰해 보자. 이는 행렬 <m>A</m>의 <m>i</m>번째 열의 각 성분 <m>A_{ji}</m>를 <m>b_j</m>로 바꾼 뒤, <m>i</m>번째 열에 대하여 여인수 전개를 수행한 식과 정확히 일치한다. 행렬 <m>A</m>의 <m>i</m>번째 열을 <m>b</m>로 대체한 행렬이 곧 <m>A_i</m>이므로, 이 합은 <m>\det(A_i)</m>가 된다. 따라서 <m>x_i = \frac{\det(A_i)}{\det(A)}</m>이다.
+        </p>
+      </proof>
+    </theorem>
+
+    <example xml:id="ex-cramer-2x2-system">
+      <title>크라메르 공식을 이용한 연립방정식 풀이</title>
+      <statement>
+        <p>
+        체 <m>\mathbb{F}</m> 위에서 다음 연립방정식을 크라메르 공식을 통해 풀어보자.
+        <md>
+          <mrow>2x_1 + x_2 &amp;= 5</mrow>
+          <mrow>x_1 + 3x_2 &amp;= 5</mrow>
+        </md>
+        </p>
+
+        <p>
+        계수행렬 <m>A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 3 \end{pmatrix}</m>, <m>b = \begin{pmatrix} 5 \\ 5 \end{pmatrix}</m>이다. <m>\det(A) = 2(3) - 1(1) = 5</m>이다.
+        </p>
+
+        <p>
+        <m>x_1</m>을 구하기 위해 첫 번째 열을 <m>b</m>로 바꾼 행렬 <m>A_1 = \begin{pmatrix} 5 &amp; 1 \\ 5 &amp; 3 \end{pmatrix}</m>을 구성하면, <m>\det(A_1) = 15 - 5 = 10</m>이다. 따라서 <m>x_1 = 10/5 = 2</m>이다.
+        </p>
+
+        <p>
+        <m>x_2</m>를 구하기 위해 두 번째 열을 <m>b</m>로 바꾼 행렬 <m>A_2 = \begin{pmatrix} 2 &amp; 5 \\ 1 &amp; 5 \end{pmatrix}</m>를 구성하면, <m>\det(A_2) = 10 - 5 = 5</m>이다. 따라서 <m>x_2 = 5/5 = 1</m>이다.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+
+
+  <subsection xml:id="03-03-01-cayley-hamilton">
+    <title>케일리-해밀턴 정리</title>
 
     <p>
     모든 정사각행렬은 특정한 다항식 방정식의 해가 되며, 그 다항식은 바로 자기 자신의 특성다항식입니다. 증명 과정에서 특성다항식의 <m>x</m>에 행렬 <m>A</m>를 단순히 대입하는 행위는 대수적으로 정의되지 않음에 극도로 유의해야 합니다.
@@ -92,6 +199,30 @@
     </statement>
     </definition>
 
+    <question xml:id="qstn-alternative-proof-minimal-polynomial">
+    <title>다른 증명:최소다항식의 존재성</title>
+    <statement>
+      <p>
+      체 <m>\mathbb{F}</m> 상의 유한차원 벡터공간 <m>V</m> 상의 선형변환 <m>T</m>에 대하여, <m>f(T) = 0</m> (영변환)을 만족하는 영이 아닌 다항식 <m>f(x) \in \mathbb{F}[x]</m>가 반드시 존재함을 케일리-해밀턴 정리를 사용하지 않고 다음 집합
+      <me>\{I, T, T^2, \dots, T^{n^2}\}</me>
+      의 선형독립성을 분석하여 증명하시오.
+      </p>
+    </statement>
+    <solution>
+      <p>
+      벡터공간 <m>V</m>의 차원을 <m>n</m>이라 하자. <m>V</m>에서 <m>V</m>로 가는 선형변환들의 공간 <m>\mathcal{L}(V)</m>의 차원은 <m>n^2</m>이다. 선형변환 <m>T</m>의 거듭제곱들로 이루어진 다음 집합을 생각하자.
+      <me>\{I, T, T^2, \dots, T^{n^2}\}</me>
+      이 집합의 원소 개수는 <m>n^2 + 1</m>개이므로, 벡터공간 <m>\mathcal{L}(V)</m>의 차원인 <m>n^2</m>보다 크다. 따라서 이 거듭제곱들은 선형종속이어야만 한다.
+      </p>
+
+      <p>
+      선형종속의 정의에 의해, 모두가 영은 아닌 스칼라 <m>c_0, c_1, \dots, c_k \in \mathbb{F}</m> (<m>k \le n^2</m>)가 존재하여 다음 등식을 만족한다.
+      <me>c_0 I + c_1 T + c_2 T^2 + \dots + c_k T^k = 0</me>
+      이때 다항식 <m>f(x) = c_k x^k + \dots + c_1 x + c_0</m>를 구성하면, <m>f(x)</m>는 영다항식이 아니며 평가 사상에 의해 <m>f(T) = 0</m>을 만족한다. 따라서 <m>T</m>를 소멸시키는 영이 아닌 다항식이 최소한 하나 존재함이 증명되었다.
+      </p>
+    </solution>
+    </question>
+
     <example xml:id="ex-minimal-identity">
     <title>항등행렬의 최소다항식</title>
     <statement>
@@ -150,9 +281,103 @@
     <title>비슷한 고윳값을 가진 행렬들의 최소다항식</title>
     <statement>
       <p>
-      두 행렬 <m>A = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 2 \end{pmatrix}</m>와 <m>B = \begin{pmatrix} 2 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}</m>는 모두 특성다항식이 <m>p(x) = (x-2)^2</m>이다. 고윳값은 오직 2뿐이므로, 정리 7에 따라 최소다항식은 반드시 <m>(x-2)</m>를 인수로 포함해야 한다. 행렬 <m>A</m>는 <m>A - 2I = 0</m>이므로 최소다항식이 <m>m_A(x) = x-2</m>이지만, 행렬 <m>B</m>는 <m>B - 2I \neq 0</m>이므로 일차식을 인수로 가지면서 영행렬을 만드는 다항식은 특성다항식 본인인 <m>m_B(x) = (x-2)^2</m>가 된다. 이는 서로 다른 대수적 구조를 최소다항식이 예민하게 구별해냄을 보여준다.
+      두 행렬 <m>A = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 2 \end{pmatrix}</m>와 <m>B = \begin{pmatrix} 2 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}</m>는 모두 특성다항식이 <m>p(x) = (x-2)^2</m>이다. 고윳값은 오직 2뿐이므로, 정리 7에 따라 최소다항식은 반드시 <m>(x-2)</m>를 인수로 포함해야 한다. 행렬 <m>A</m>는 <m>A - 2I = 0</m>이므로 최소다항식이 <m>m_A(x) = x-2</m>이지만, 행렬 <m>B</m>는 <m>B - 2I \neq 0</m>이므로 일차식을 인수로 가지면서 영행렬을 만드는 다항식은 특성다항식 본인인 <m>m_B(x) = (x-2)^2</m>가 된다. 이는 서로 다른 대수적 구조를 최소다항식이 세밀하게 구별해냄을 보여준다.
       </p>
     </statement>
     </example>
   </subsection>
+  
+  <exercises xml:id="exercises-03-03">
+    <title>연습문제</title>
+    
+    <exercise xml:id="ex-matrix-in-a-polynomial">
+      <title>다항식 속 행렬</title>
+      <statement>
+        <p>
+        다항식 <m>f(x) = x^2 + 2x + 1</m>과 정사각행렬 <m>A</m>에 대하여 평가 사상을 거친 결과 <m>f(A)</m>를 행렬 기호를 사용하여 구체적으로 나열하고, 이것이 <m>(A+I)^2</m>과 동일하게 전개됨을 보이시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-zero-eigenvalue">
+      <title>영고윳값과 단사성</title>
+      <statement>
+        <p>
+        체 <m>\mathbb{F}</m> 상의 행렬 <m>A</m>와 스칼라 <m>0 \in \mathbb{F}</m>에 대하여, <m>0</m>이 특성다항식의 근이 될 필요충분조건은 변환 <m>A</m>가 단사가 아님을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-minimal-polynomial-diagonal">
+      <title>대각행렬의 최소다항식</title>
+      <statement>
+        <p>
+        서로 다른 대각성분 <m>\lambda_1, \dots, \lambda_n</m>을 가지는 대각행렬 <m>D</m>의 최소다항식이 대각성분들을 모두 근으로 가지는 1차식들의 곱이 됨을 예제를 들어 설명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-minimal-polynomial-invertible">
+      <title>역행렬과 최소다항식</title>
+      <statement>
+        <p>
+        케일리-해밀턴 정리를 활용하여, 역행렬이 존재하는 <m>n \times n</m> 정사각행렬 <m>A</m>의 역행렬을 차수가 <m>n-1</m> 이하인 <m>A</m>의 다항식 형태로 표현할 수 있음을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-similar-minimal-polynomial">
+      <title>유사 행렬과 최소다항식</title>
+      <statement>
+        <p>
+        역행렬이 존재하는 행렬 <m>P</m>에 대하여 <m>B = P^{-1}AP</m>가 성립할 때, 행렬 <m>A</m>의 소멸자 집합과 행렬 <m>B</m>의 소멸자 집합이 정확히 동일함을 보이고, 이로부터 두 행렬이 같은 최소다항식을 가짐을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-minimal-polynomial-eigenvalues">
+      <title>최소다항식과 고윳값</title>
+      <statement>
+        <p>
+        어떤 행렬 <m>A</m>의 최소다항식이 <m>m_A(x) = x^2 - 5x + 6</m>으로 주어졌다. 인수 성질을 활용하여 이 행렬의 모든 고윳값을 확정하고 그 근거를 제시하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-gcd-of-polynomials">
+      <title>다항식의 최대공약수</title>
+      <statement>
+        <p>
+        보충 읽기자료의 정리 1(나눗셈 알고리즘)과 정리 2(최소 차수 다항식의 인수 성질)를 결합하여, 두 다항식 <m>f(x), g(x)</m>의 공통 인수 중 차수가 가장 높은 다항식(최대공약수) <m>d(x)</m>가 존재함을 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-characteristic-and-minimal-polynomial">
+      <title>특성다항식과 최소다항식</title>
+      <statement>
+        <p>
+        다항식 공간 <m>V = \mathbb{F}[x]_{\le 2}</m> 위에서 정의된 선형변환 <m>T(p(x)) = p(x) + p'(x)</m>에 대하여 기저 <m>1, x, x^2</m>을 선택하여 특성다항식을 구하고, 그에 따른 최소다항식을 확정하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-block-upper-triangular-minimal-polynomial">
+      <title>블록 상삼각행렬의 최소다항식</title>
+      <statement>
+        <p>
+        블록 상삼각행렬 <m>M = \begin{pmatrix} A &amp; B \\ 0 &amp; C \end{pmatrix}</m>에 대하여, <m>M</m>의 최소다항식 <m>m_M(x)</m>가 대각 블록의 두 최소다항식의 곱 <m>m_A(x)m_C(x)</m>의 인수(약수)가 됨을 블록 행렬의 평가 성질을 통해 엄밀히 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="ex-direct-sum-decomposition">
+      <title>직합 분해</title>
+      <statement>
+        <p>
+        임의의 선형변환 <m>T</m>에 대한 어떤 다항식 <m>f(x)</m>가 서로 공통인 인수를 가지지 않는 두 다항식의 곱 <m>f(x) = f_1(x)f_2(x)</m>로 인수분해된다고 하자. 다항식의 최대공약수 성질을 이용해 <m>a(x)f_1(x) + b(x)f_2(x) = 1</m>을 만족하는 <m>a(x), b(x)</m>가 존재함을 근거로, 변환의 덧셈 분해인 부분공간의 직합 <m>V = \ker(f_1(T)) \oplus \ker(f_2(T))</m>를 증명하시오.
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
 </section>
