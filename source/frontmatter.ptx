@@ -15,14 +15,13 @@
       <today />
     </date>
 
+
     <!-- 
-    <website>
+      <website>
+        <url href="https://www.math.snu.ac.kr/~dohyeongkim">저자웹사이트</url>
+      </website>
+    -->
       
-    </website>
-    !-->
-    <p>
-      <url href="https://www.math.snu.ac.kr/~dohyeongkim">웹페이지</url>
-    </p>
 
     <copyright>
       <year>2026<ndash />2026</year>
@@ -44,6 +43,15 @@
 
   <colophon xml:id="front-colophon">
     <colophon-items/>
+
   </colophon>
+  <section xml:id="sec-preface">
+    <title>소개</title>
+    <p>
+      이 책은 서울대학교 수리과학부에서 2026년 1학기에 수리과학 주전공 및 복수전공 대상으로 개설된 "선형대수학1" 강의 자료로 작성되었습니다. 그 과정에서 다수의 자료를 참고하였으며 저자가 창작한 내용은 전혀 없습니다. 모든 오류는 전적으로 저자의 책임입니다. 문의나 오류 제보는 <url href="https://www.math.snu.ac.kr/~dohyeongkim">저자웹사이트</url>의 연락처를 통해 해주시기 바랍니다.
+    </p>
+    
+  </section>
+
 </frontmatter>
 
