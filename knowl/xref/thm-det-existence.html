@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">3.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">행렬식의 존재성과 유일성.</span>
+</h4>
+<div class="para">
+<span class="process-math">\(n \times n\)</span> 행렬의 각 열벡터를 변수로 받는 함수 <span class="process-math">\(D: \mathbb{F}^n \times \dots \times \mathbb{F}^n \to \mathbb{F}\)</span> 중에서 다음 세 가지 성질을 모두 만족하는 함수는 유일하게 존재한다.</div> <ul class="disc" id="thm-det-existence-2-2">
+<li><div class="para">
+<dfn class="terminology">다중선형성</dfn>: 각 열벡터에 대하여 선형이다.</div></li>
+<li><div class="para">
+<dfn class="terminology">교대성</dfn>: 인접한 두 열벡터가 같으면 값은 0이다.</div></li>
+<li><div class="para">
+<dfn class="terminology">정규화</dfn>: <span class="process-math">\(D(e_1, \dots, e_n) = 1\)</span>이다. (단, <span class="process-math">\(e_i\)</span>는 표준기저벡터)</div></li>
+</ul></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">
+<dfn class="terminology">유일성</dfn>: 함수 <span class="process-math">\(D\)</span>가 위 세 성질을 만족한다고 가정하자. 행렬 <span class="process-math">\(A\)</span>의 <span class="process-math">\(j\)</span>번째 열벡터를 <span class="process-math">\(v_j\)</span>라 하고, 이를 표준기저들의 선형결합 <span class="process-math">\(v_j = \sum_{i=1}^n A_{ij} e_i\)</span>로 표현하자. 다중선형성을 반복 적용하면 <span class="process-math">\(D(A) = D(v_1, \dots, v_n)\)</span>는 다음과 같이 전개된다.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D(A) = \sum_{i_1=1}^n \dots \sum_{i_n=1}^n A_{i_1 1} \dots A_{i_n n} D(e_{i_1}, \dots, e_{i_n})
+\end{equation*}
+</div>
+<div class="para">교대성(및 반대칭성)에 의해 인덱스 <span class="process-math">\(i_1, \dots, i_n\)</span> 중 중복되는 것이 하나라도 있으면 <span class="process-math">\(D(e_{i_1}, \dots, e_{i_n}) = 0\)</span>이다. 따라서 중복이 없는 경우, 즉 인덱스가 <span class="process-math">\(1, \dots, n\)</span>의 순열 <span class="process-math">\(\sigma\)</span>를 이루는 경우만 남는다.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D(A) = \sum_{\sigma \in S_n} A_{\sigma(1) 1} \dots A_{\sigma(n) n} D(e_{\sigma(1)}, \dots, e_{\sigma(n)})
+\end{equation*}
+</div>
+<div class="para">반대칭성을 적용하여 순열 <span class="process-math">\(\sigma\)</span>를 항등순열로 되돌리려면 부호 함수 <span class="process-math">\(\text{sgn}(\sigma)\)</span>가 곱해진다.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D(A) = \sum_{\sigma \in S_n} \text{sgn}(\sigma) A_{\sigma(1) 1} \dots A_{\sigma(n) n} D(e_1, \dots, e_n)
+\end{equation*}
+</div>
+<div class="para">정규화 조건에 의해 <span class="process-math">\(D(e_1, \dots, e_n) = 1\)</span>이므로, <span class="process-math">\(D(A)\)</span>의 값은 행렬 <span class="process-math">\(A\)</span>의 성분들에 의해 유일하게 결정된다.</div>
+</div>
+<div class="para">
+<dfn class="terminology">존재성</dfn>: 위 전개 과정에서 유도된 식 <span class="process-math">\(D(A) = \sum_{\sigma \in S_n} \text{sgn}(\sigma) A_{\sigma(1) 1} \dots A_{\sigma(n) n}\)</span>으로 함수를 정의하면, 이 함수가 다중선형성, 교대성, 정규화를 모두 만족함을 대수적으로 검증할 수 있다. <span class="process-math">\(\blacksquare\)</span>
+</div></article></details><span class="incontext"><a class="internal" href="03-02-char.html#thm-det-existence">in-context</a></span>
+</body>
+</html>

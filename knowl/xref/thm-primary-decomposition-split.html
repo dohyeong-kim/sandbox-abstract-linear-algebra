@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">3.4.7</span><span class="period">.</span><span class="space"> </span><span class="title">소분해 정리.</span>
+</h4>
+<div class="para logical">
+<div class="para">선형변환 <span class="process-math">\(T\)</span>의 특성다항식이 <span class="process-math">\(p_T(x) = (x-\lambda_1)^{m_1}\dots(x-\lambda_k)^{m_k}\)</span>로 분해될 때, 벡터공간 <span class="process-math">\(V\)</span>는 각 고윳값에 대응하는 일반화된 고유공간들의 직합으로 분해되며, 각 <span class="process-math">\(K_{\lambda_i}\)</span>는 <span class="process-math">\(T\)</span>-불변공간이다. 즉,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+V = K_{\lambda_1} \oplus K_{\lambda_2} \oplus \dots \oplus K_{\lambda_k}
+\end{equation*}
+</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">
+<span class="process-math">\(q_i(x) = p_T(x) / (x-\lambda_i)^{m_i}\)</span>라 정의하자. 다항식 <span class="process-math">\(q_1(x), \dots, q_k(x)\)</span>는 공통 인수를 가지지 않으므로 최대공약수가 1이다. 다항식 환의 베주 항등식에 의해 <span class="process-math">\(\sum_{i=1}^k a_i(x)q_i(x) = 1\)</span>을 만족하는 다항식 <span class="process-math">\(a_i(x)\)</span>들이 존재한다.</div>
+<div class="para">여기에 선형변환 <span class="process-math">\(T\)</span>를 대입하면 <span class="process-math">\(I = \sum_{i=1}^k a_i(T)q_i(T)\)</span>이다. 임의의 <span class="process-math">\(v \in V\)</span>에 대하여 <span class="process-math">\(v = \sum_{i=1}^k a_i(T)q_i(T)(v)\)</span>로 분해된다. <span class="process-math">\(v_i = a_i(T)q_i(T)(v)\)</span>라 두자.</div>
+<div class="para">케일리-해밀턴 정리에 의해 <span class="process-math">\(p_T(T) = 0\)</span>이므로, <span class="process-math">\((T-\lambda_i I)^{m_i}(v_i) = a_i(T) p_T(T)(v) = 0\)</span>이 성립한다. 따라서 <span class="process-math">\(v_i \in K_{\lambda_i}\)</span>이며, <span class="process-math">\(V\)</span>가 일반화된 고유공간들의 합으로 표현됨을 보였다.</div>
+<div class="para">직합임을 보이기 위해 <span class="process-math">\(v_1 + \dots + v_k = 0\)</span> (<span class="process-math">\(v_i \in K_{\lambda_i}\)</span>)이라 가정하고 양변에 적절한 다항식 작용소를 곱해 교차 항들을 소거하는 과정을 거치면 모든 <span class="process-math">\(i\)</span>에 대해 <span class="process-math">\(v_i = 0\)</span>임을 이끌어낼 수 있다. 또한, 다항식 작용소들은 서로 교환법칙을 만족하므로 <span class="process-math">\(T\)</span>를 <span class="process-math">\(K_{\lambda_i}\)</span>의 원소에 작용시킨 결과는 다시 <span class="process-math">\(K_{\lambda_i}\)</span>에 속하게 되어 <span class="process-math">\(T\)</span>-불변성이 보장된다. <span class="process-math">\(\blacksquare\)</span>
+</div></article></details><span class="incontext"><a class="internal" href="03-04-triangulation-and-jordan.html#thm-primary-decomposition-split">in-context</a></span>
+</body>
+</html>

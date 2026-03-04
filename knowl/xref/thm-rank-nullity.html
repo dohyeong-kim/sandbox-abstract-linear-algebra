@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">1.4.10</span><span class="period">.</span><span class="space"> </span><span class="title">선형변환의 기본정리.</span>
+</h4>
+<div class="para logical">
+<div class="para">
+<span class="process-math">\(V\)</span>와 <span class="process-math">\(W\)</span>가 체 <span class="process-math">\(\mathbb{F}\)</span> 위의 유한차원 벡터공간이고 <span class="process-math">\(T: V \to W\)</span>가 선형변환일 때, 다음이 성립한다:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\dim(\ker(T)) + \dim(\operatorname{im}(T)) = \dim(V)
+\end{equation*}
+</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">
+<span class="process-math">\(\ker(T)\)</span>의 기저를 <span class="process-math">\(\{v_1, \dots, v_k\}\)</span>라 하고, 기저 확장 정리에 의해 이를 <span class="process-math">\(V\)</span>의 기저 <span class="process-math">\(\{v_1, \dots, v_k, w_1, \dots, w_{n-k}\}\)</span>로 확장합시다. 여기서 <span class="process-math">\(\dim(V) = n\)</span>입니다.</div>
+<div class="para">집합 <span class="process-math">\(\{T(w_1), \dots, T(w_{n-k})\}\)</span>가 <span class="process-math">\(\operatorname{im}(T)\)</span>의 기저가 됨을 보입시다.</div>
+<div class="para">
+<em class="emphasis">생성</em>: 임의의 <span class="process-math">\(y \in \operatorname{im}(T)\)</span>에 대해 <span class="process-math">\(y = T(x)\)</span>인 <span class="process-math">\(x \in V\)</span>가 존재합니다. <span class="process-math">\(x = \sum_{i=1}^k a_i v_i + \sum_{j=1}^{n-k} b_j w_j\)</span>로 나타낼 수 있으므로, <span class="process-math">\(T(x) = \sum_{j=1}^{n-k} b_j T(w_j)\)</span>입니다.</div>
+<div class="para">
+<em class="emphasis">선형독립</em>: <span class="process-math">\(\sum_{j=1}^{n-k} c_j T(w_j) = 0\)</span>이면 <span class="process-math">\(T\left(\sum_{j=1}^{n-k} c_j w_j\right) = 0\)</span>이므로 <span class="process-math">\(\sum_{j=1}^{n-k} c_j w_j \in \ker(T)\)</span>입니다. 따라서 <span class="process-math">\(\sum_{j=1}^{n-k} c_j w_j = \sum_{i=1}^k d_i v_i\)</span>인 스칼라 <span class="process-math">\(d_i\)</span>가 존재합니다. <span class="process-math">\(V\)</span>의 기저 선형독립성에 의해 모든 <span class="process-math">\(c_j = 0\)</span>입니다.</div>
+<div class="para">그러므로 <span class="process-math">\(\dim(\ker(T)) = k\)</span>이고 <span class="process-math">\(\dim(\operatorname{im}(T)) = n - k\)</span>이므로, <span class="process-math">\(\dim(\ker(T)) + \dim(\operatorname{im}(T)) = n = \dim(V)\)</span>입니다.</div></article></details><span class="incontext"><a class="internal" href="01-04-quotients-cokernel.html#thm-rank-nullity">in-context</a></span>
+</body>
+</html>

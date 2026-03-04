@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>케일리-해밀턴 정리와 최소다항식</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="추상선형대수학">
+<meta property="book:author" content="김도형">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.16';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.0f480e95eedd3cd4.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.75d8d8257df1449f.css">
+<style>
+#01-vector-space-2-2-2 { counter-set: 01-vector-space-2-2-2 0; }
+#01-vector-space-2-2-2 > li::marker { content: ""counter(01-vector-space-2-2-2,decimal)"."; }
+#01-vector-space-2-2-2 > li { counter-increment: 01-vector-space-2-2-2; }
+#def-vector-space-1-2 { counter-set: def-vector-space-1-2 0; }
+#def-vector-space-1-2 > li::marker { content: ""counter(def-vector-space-1-2,decimal)"."; }
+#def-vector-space-1-2 > li { counter-increment: def-vector-space-1-2; }
+#ex-vector-space-2-2 { counter-set: ex-vector-space-2-2 0; }
+#ex-vector-space-2-2 > li::marker { content: ""counter(ex-vector-space-2-2,decimal)"."; }
+#ex-vector-space-2-2 > li { counter-increment: ex-vector-space-2-2; }
+#prop-basic-properties-2-2 { counter-set: prop-basic-properties-2-2 0; }
+#prop-basic-properties-2-2 > li::marker { content: ""counter(prop-basic-properties-2-2,decimal)"."; }
+#prop-basic-properties-2-2 > li { counter-increment: prop-basic-properties-2-2; }
+#thm-subspace-test-2-2 { counter-set: thm-subspace-test-2-2 0; }
+#thm-subspace-test-2-2 > li::marker { content: ""counter(thm-subspace-test-2-2,decimal)"."; }
+#thm-subspace-test-2-2 > li { counter-increment: thm-subspace-test-2-2; }
+#exercise-span-intersection-2-2 { counter-set: exercise-span-intersection-2-2 0; }
+#exercise-span-intersection-2-2 > li::marker { content: "("counter(exercise-span-intersection-2-2,lower-alpha)")"; }
+#exercise-span-intersection-2-2 > li { counter-increment: exercise-span-intersection-2-2; }
+#def-basis-3-1-6 { counter-set: def-basis-3-1-6 0; }
+#def-basis-3-1-6 > li::marker { content: ""counter(def-basis-3-1-6,decimal)"."; }
+#def-basis-3-1-6 > li { counter-increment: def-basis-3-1-6; }
+#def-linear-transformation-2-1-11 { counter-set: def-linear-transformation-2-1-11 0; }
+#def-linear-transformation-2-1-11 > li::marker { content: ""counter(def-linear-transformation-2-1-11,decimal)"."; }
+#def-linear-transformation-2-1-11 > li { counter-increment: def-linear-transformation-2-1-11; }
+#prop-preservation-of-zero-vector-1-1-2 { counter-set: prop-preservation-of-zero-vector-1-1-2 0; }
+#prop-preservation-of-zero-vector-1-1-2 > li::marker { content: ""counter(prop-preservation-of-zero-vector-1-1-2,decimal)"."; }
+#prop-preservation-of-zero-vector-1-1-2 > li { counter-increment: prop-preservation-of-zero-vector-1-1-2; }
+#ex-kernel-examples-2-1 { counter-set: ex-kernel-examples-2-1 0; }
+#ex-kernel-examples-2-1 > li::marker { content: ""counter(ex-kernel-examples-2-1,decimal)"."; }
+#ex-kernel-examples-2-1 > li { counter-increment: ex-kernel-examples-2-1; }
+#exercise-composition-kernel-image-relations-2-2 { counter-set: exercise-composition-kernel-image-relations-2-2 0; }
+#exercise-composition-kernel-image-relations-2-2 > li::marker { content: "("counter(exercise-composition-kernel-image-relations-2-2,lower-alpha)")"; }
+#exercise-composition-kernel-image-relations-2-2 > li { counter-increment: exercise-composition-kernel-image-relations-2-2; }
+#exercise-image-intersection-subspaces-2-2 { counter-set: exercise-image-intersection-subspaces-2-2 0; }
+#exercise-image-intersection-subspaces-2-2 > li::marker { content: "("counter(exercise-image-intersection-subspaces-2-2,lower-alpha)")"; }
+#exercise-image-intersection-subspaces-2-2 > li { counter-increment: exercise-image-intersection-subspaces-2-2; }
+#prop-coset-relation-is-equivalence-2-1-2 { counter-set: prop-coset-relation-is-equivalence-2-1-2 0; }
+#prop-coset-relation-is-equivalence-2-1-2 > li::marker { content: ""counter(prop-coset-relation-is-equivalence-2-1-2,decimal)"."; }
+#prop-coset-relation-is-equivalence-2-1-2 > li { counter-increment: prop-coset-relation-is-equivalence-2-1-2; }
+#prop-quotient-space-operations-3-1-5 { counter-set: prop-quotient-space-operations-3-1-5 0; }
+#prop-quotient-space-operations-3-1-5 > li::marker { content: ""counter(prop-quotient-space-operations-3-1-5,decimal)"."; }
+#prop-quotient-space-operations-3-1-5 > li { counter-increment: prop-quotient-space-operations-3-1-5; }
+#exercise-annihilator-sum-intersection-2-2 { counter-set: exercise-annihilator-sum-intersection-2-2 0; }
+#exercise-annihilator-sum-intersection-2-2 > li::marker { content: "("counter(exercise-annihilator-sum-intersection-2-2,lower-alpha)")"; }
+#exercise-annihilator-sum-intersection-2-2 > li { counter-increment: exercise-annihilator-sum-intersection-2-2; }
+#def-field-3 { counter-set: def-field-3 0; }
+#def-field-3 > li::marker { content: ""counter(def-field-3,decimal)"."; }
+#def-field-3 > li { counter-increment: def-field-3; }
+#def-field-3-1-2 { counter-set: def-field-3-1-2 0; }
+#def-field-3-1-2 > li::marker { content: "("counter(def-field-3-1-2,lower-alpha)")"; }
+#def-field-3-1-2 > li { counter-increment: def-field-3-1-2; }
+#def-field-3-2-2 { counter-set: def-field-3-2-2 0; }
+#def-field-3-2-2 > li::marker { content: "("counter(def-field-3-2-2,lower-alpha)")"; }
+#def-field-3-2-2 > li { counter-increment: def-field-3-2-2; }
+#ex-fields-basic-examples-2 { counter-set: ex-fields-basic-examples-2 0; }
+#ex-fields-basic-examples-2 > li::marker { content: ""counter(ex-fields-basic-examples-2,decimal)"."; }
+#ex-fields-basic-examples-2 > li { counter-increment: ex-fields-basic-examples-2; }
+#ex-fields-nonexamples-2 { counter-set: ex-fields-nonexamples-2 0; }
+#ex-fields-nonexamples-2 > li::marker { content: ""counter(ex-fields-nonexamples-2,decimal)"."; }
+#ex-fields-nonexamples-2 > li { counter-increment: ex-fields-nonexamples-2; }
+#def-equivalence-relation-3 { counter-set: def-equivalence-relation-3 0; }
+#def-equivalence-relation-3 > li::marker { content: ""counter(def-equivalence-relation-3,decimal)"."; }
+#def-equivalence-relation-3 > li { counter-increment: def-equivalence-relation-3; }
+#ex-residues-and-equivalences-3-1 { counter-set: ex-residues-and-equivalences-3-1 0; }
+#ex-residues-and-equivalences-3-1 > li::marker { content: ""counter(ex-residues-and-equivalences-3-1,decimal)"."; }
+#ex-residues-and-equivalences-3-1 > li { counter-increment: ex-residues-and-equivalences-3-1; }
+#def-partition-3 { counter-set: def-partition-3 0; }
+#def-partition-3 > li::marker { content: ""counter(def-partition-3,decimal)"."; }
+#def-partition-3 > li { counter-increment: def-partition-3; }
+</style>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">추상선형대수학:</span> <span class="subtitle">벡터공간과 대수학의 원리</span></a></h1>
+<p class="byline">김도형</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="03-02-char.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="03-char.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="03-04-triangulation-and-jordan.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">머릿말</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-preface.html" class="internal"><span class="codenumber">1</span> <span class="title">소개</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="01-vector-space.html" class="internal"><span class="codenumber">1</span> <span class="title">벡터공간과 선형변환</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="01-01-vector-spaces.html" class="internal"><span class="codenumber">1.1</span> <span class="title">벡터공간, 부분공간, 선형결합</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-01-vector-spaces.html#subsec-vector-spaces" class="internal"><span class="codenumber">1.1.1</span> <span class="title">벡터공간</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-01-vector-spaces.html#subsec-subspaces" class="internal"><span class="codenumber">1.1.2</span> <span class="title">부분공간</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-01-vector-spaces.html#subsec-linear-combinations" class="internal"><span class="codenumber">1.1.3</span> <span class="title">선형결합</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="01-01-vector-spaces.html#exercises-01-01" class="internal"><span class="codenumber">1.1.4</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="01-02-basis.html" class="internal"><span class="codenumber">1.2</span> <span class="title">기저의 존재성과 차원</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-02-basis.html#subsec-introduction-basis" class="internal"><span class="codenumber">1.2.1</span> <span class="title">기저의 존재성과 차원에 대한 소개</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-02-basis.html#subsec-existence-of-basis" class="internal"><span class="codenumber">1.2.2</span> <span class="title">기저의 정의와 존재</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-02-basis.html#subsec-invariance-of-basis-size" class="internal"><span class="codenumber">1.2.3</span> <span class="title">기저의 크기 불변성</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="01-02-basis.html#exercises-01-02" class="internal"><span class="codenumber">1.2.4</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="01-03-linear-transformation.html" class="internal"><span class="codenumber">1.3</span> <span class="title">선형변환, 커널, 이미지</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-03-linear-transformation.html#subsec-linear-transformations" class="internal"><span class="codenumber">1.3.1</span> <span class="title">선형변환의 정의</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-03-linear-transformation.html#subsec-kernel" class="internal"><span class="codenumber">1.3.2</span> <span class="title">커널</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-03-linear-transformation.html#subsec-image-of-linear-transformation" class="internal"><span class="codenumber">1.3.3</span> <span class="title">선형변환의 이미지</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="01-03-linear-transformation.html#exercises-01-03" class="internal"><span class="codenumber">1.3.4</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="01-04-quotients-cokernel.html" class="internal"><span class="codenumber">1.4</span> <span class="title">몫과 코커널</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-04-quotients-cokernel.html#subsec-quotients" class="internal"><span class="codenumber">1.4.1</span> <span class="title">몫</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-04-quotients-cokernel.html#subsec-cokernel" class="internal"><span class="codenumber">1.4.2</span> <span class="title">코커널</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="01-04-quotients-cokernel.html#exercises-01-04" class="internal"><span class="codenumber">1.4.3</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="02-isomorphisms.html" class="internal"><span class="codenumber">2</span> <span class="title">동형사상과 동형정리</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="02-01-isomorphisms.html" class="internal"><span class="codenumber">2.1</span> <span class="title">동형사상</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="02-01-isomorphisms.html#subsec-direct-sums" class="internal"><span class="codenumber">2.1.1</span> <span class="title">직합</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="02-01-isomorphisms.html#02-01-isomorphisms-10" class="internal"><span class="codenumber">2.1.2</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="02-02-isomorphism-theorems.html" class="internal"><span class="codenumber">2.2</span> <span class="title">동형정리</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="02-02-isomorphism-theorems.html#subsec-first-isomorphism-theorem" class="internal"><span class="codenumber">2.2.1</span> <span class="title">제1동형정리 <aside class="aside aside-like" id="subsec-first-isomorphism-theorem-1-1"><div class="para" id="subsec-first-isomorphism-theorem-1-1-1">동형정리:Isomorphism Theorem</div></aside></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="02-02-isomorphism-theorems.html#subsec-second-isomorphism-theorem" class="internal"><span class="codenumber">2.2.2</span> <span class="title">제2동형정리</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="02-02-isomorphism-theorems.html#subsec-third-isomorphism-theorem" class="internal"><span class="codenumber">2.2.3</span> <span class="title">제3동형정리</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="02-02-isomorphism-theorems.html#02-02-isomorphism-theorems-5" class="internal"><span class="codenumber">2.2.4</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="02-03-product-projection-dual.html" class="internal"><span class="codenumber">2.3</span> <span class="title">직곱, 사영, 쌍대공간</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="02-03-product-projection-dual.html#subsection-projection" class="internal"><span class="codenumber">2.3.1</span> <span class="title">사영</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="02-03-product-projection-dual.html#subsection-direct-product" class="internal"><span class="codenumber">2.3.2</span> <span class="title">직곱</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="02-03-product-projection-dual.html#subsection-dual-space" class="internal"><span class="codenumber">2.3.3</span> <span class="title">쌍대공간</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="02-03-product-projection-dual.html#02-03-product-projection-dual-5" class="internal"><span class="codenumber">2.3.4</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="03-char.html" class="internal"><span class="codenumber">3</span> <span class="title">대각화, 케일리-해밀턴, 최소다항식</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="03-01-eigen.html" class="internal"><span class="codenumber">3.1</span> <span class="title">고윳값, 고유벡터, 대각화</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="03-01-eigen.html#subsec-eigenvalues-eigenvectors" class="internal"><span class="codenumber">3.1.1</span> <span class="title">고윳값, 고유벡터, 그리고 고유공간</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="03-01-eigen.html#subsec-eigenvector-independence" class="internal"><span class="codenumber">3.1.2</span> <span class="title">고유벡터의 선형독립성</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="03-01-eigen.html#subsec-diagonalization" class="internal"><span class="codenumber">3.1.3</span> <span class="title">선형변환의 대각화와 행렬의 대각화</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="03-01-eigen.html#exercises-03-eigen" class="internal"><span class="codenumber">3.1.4</span> <span class="title">고윳값, 고유벡터, 대각화 연습문제</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="03-02-char.html" class="internal"><span class="codenumber">3.2</span> <span class="title">행렬식과 특성다항식</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="03-02-char.html#03-02-multilinear" class="internal"><span class="codenumber">3.2.1</span> <span class="title">다중선형함수와 교대형식</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="03-02-char.html#03-02-determinant" class="internal"><span class="codenumber">3.2.2</span> <span class="title">행렬식의 정의와 특성화</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="03-02-char.html#03-02-charoly" class="internal"><span class="codenumber">3.2.3</span> <span class="title">특성다항식</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="03-02-char.html#03-02-diagonalization" class="internal"><span class="codenumber">3.2.4</span> <span class="title">특성다항식을 이용한 대각화 필요조건</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="03-02-char.html#03-02-char-7" class="internal"><span class="codenumber">3.2.5</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="03-03-cayley.html" class="internal"><span class="codenumber">3.3</span> <span class="title">케일리-해밀턴 정리와 최소다항식</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="03-03-cayley.html#03-03-00-adjugate-cramer" class="internal"><span class="codenumber">3.3.1</span> <span class="title">수반행렬과 크라메르 공식</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="03-03-cayley.html#03-03-01-cayley-hamilton" class="internal"><span class="codenumber">3.3.2</span> <span class="title">케일리-해밀턴 정리</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="03-03-cayley.html#03-03-02-minimal-polynomial" class="internal"><span class="codenumber">3.3.3</span> <span class="title">최소다항식의 정의와 인수 성질</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="03-03-cayley.html#exercises-03-03" class="internal"><span class="codenumber">3.3.4</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="03-04-triangulation-and-jordan.html" class="internal"><span class="codenumber">3.4</span> <span class="title">삼각화와 조르당 표준형</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="03-04-triangulation-and-jordan.html#03-04-01-triangulation" class="internal"><span class="codenumber">3.4.1</span> <span class="title">몫공간을 이용한 삼각화</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="03-04-triangulation-and-jordan.html#03-04-02-generalized-eigenspace" class="internal"><span class="codenumber">3.4.2</span> <span class="title">일반화된 고유공간 분해</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="03-04-triangulation-and-jordan.html#03-04-03-jordan-form" class="internal"><span class="codenumber">3.4.3</span> <span class="title">조르당 표준형</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="03-04-triangulation-and-jordan.html#03-04-exercises" class="internal"><span class="codenumber">3.4.4</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="04-tnsr.html" class="internal"><span class="codenumber">4</span> <span class="title">텐서곱</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="04-01-tensor-product.html" class="internal"><span class="codenumber">4.1</span> <span class="title">텐서곱</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="04-01-tensor-product.html#04-tnsr-univprop" class="internal"><span class="codenumber">4.1.1</span> <span class="title">텐서곱과 보편성질</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="04-01-tensor-product.html#04-tnsr-uniqueness" class="internal"><span class="codenumber">4.1.2</span> <span class="title">텐서곱의 유일성과 차원</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="04-01-tensor-product.html#04-tnsr-linear-maps" class="internal"><span class="codenumber">4.1.3</span> <span class="title">선형사상 공간의 텐서곱 표현</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="04-01-tensor-product.html#04-tnsr-exercises" class="internal"><span class="codenumber">4.1.4</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="04-02-real-to-complex.html" class="internal"><span class="codenumber">4.2</span> <span class="title">실수에서 복소수로의 확장</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="04-02-real-to-complex.html#subsec-extension-field" class="internal"><span class="codenumber">4.2.1</span> <span class="title">확장체</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="04-02-real-to-complex.html#subsec-scalar-extension" class="internal"><span class="codenumber">4.2.2</span> <span class="title">스칼라 확장</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="04-02-real-to-complex.html#subsec-extension-of-maps" class="internal"><span class="codenumber">4.2.3</span> <span class="title">사상의 확장</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="04-02-real-to-complex.html#04-02-real-to-complex-6" class="internal"><span class="codenumber">4.2.4</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-appendices.html" class="internal"><span class="codenumber">5</span> <span class="title">부록</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-fields.html" class="internal"><span class="codenumber">5.1</span> <span class="title">체</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="99-02-set-theory-background.html" class="internal"><span class="codenumber">5.2</span> <span class="title">집합</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="99-02-set-theory-background.html#subsec-zorn" class="internal"><span class="codenumber">5.2.1</span> <span class="title">초른의 보조정리</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="99-02-set-theory-background.html#subsec-schroeder-bernstein" class="internal"><span class="codenumber">5.2.2</span> <span class="title">슈뢰더-베른슈타인 정리</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="99-02-set-theory-background.html#subsec-arithmetic-of-cardinals" class="internal"><span class="codenumber">5.2.3</span> <span class="title">기수의 산술</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="99-03-equivalence.html" class="internal"><span class="codenumber">5.3</span> <span class="title">동치관계와 분할</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="99-04-perm.html" class="internal"><span class="codenumber">5.4</span> <span class="title">치환</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="99-04-perm.html#99-04-perm-transposition" class="internal"><span class="codenumber">5.4.1</span> <span class="title">치환과 호환</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="99-04-perm.html#99-04-perm-sign" class="internal"><span class="codenumber">5.4.2</span> <span class="title">치환의 부호</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="99-05-poly.html" class="internal"><span class="codenumber">5.5</span> <span class="title">다항식</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="99-05-poly.html#subsec-poly-division-algorithm" class="internal"><span class="codenumber">5.5.1</span> <span class="title">다항식의 나눗셈 알고리즘</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="99-05-poly.html#subsec-poly-minimal-degree" class="internal"><span class="codenumber">5.5.2</span> <span class="title">최소 차수 다항식의 인수 성질</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="99-05-poly.html#subsec-poly-matrix-evaluation" class="internal"><span class="codenumber">5.5.3</span> <span class="title">행렬 평가 사상</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">맺음말</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="03-03-cayley"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">3.3</span><span class="space"> </span><span class="title">케일리-해밀턴 정리와 최소다항식</span>
+</h2>
+<div class="para" id="03-03-cayley-2">이 절에서는 특성방정식 내용을 심화하여 케일리-해밀턴 정리와 최소다항식에 대해 알아봅니다. 그 과정에서 사용될 수반행렬과 크라메르 공식에 대해 먼저 알아봅시다.</div>
+<section class="subsection" id="03-03-00-adjugate-cramer"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.3.1</span><span class="space"> </span><span class="title">수반행렬과 크라메르 공식</span>
+</h3>
+<div class="para" id="03-03-00-adjugate-cramer-2">크라메르 공식과 수반행렬앞서 케일리-해밀턴 정리의 증명에서 핵심적인 역할을 하게 될 수반행렬 항등식은, 행렬식의 여인수 전개를 활용하여 역행렬과 연립일차방정식의 해를 명시적인 공식으로 표현할 수 있게 해줍니다.</div>
+<article class="definition definition-like" id="def-adjugate-matrix"><h4 class="heading">
+<span class="type">정의</span><span class="space"> </span><span class="codenumber">3.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">수반행렬.</span>
+</h4>
+<div class="para" id="def-adjugate-matrix-2-1">체 <span class="process-math">\(\mathbb{F}\)</span> 상의 행렬 <span class="process-math">\(A \in M_{n \times n}(\mathbb{F})\)</span>에 대하여, <span class="process-math">\(A\)</span>의 <span class="process-math">\(i\)</span>행과 <span class="process-math">\(j\)</span>열을 제거한 <span class="process-math">\((n-1) \times (n-1)\)</span> 부분행렬의 행렬식을 <span class="process-math">\(M_{ij}\)</span>라 하자. 이때 <span class="process-math">\(C_{ij} = (-1)^{i+j} M_{ij}\)</span>를 성분 <span class="process-math">\(A_{ij}\)</span>에 대한 여인수라 한다. 여인수들을 성분으로 하는 행렬의 전치행렬을 <span class="process-math">\(A\)</span>의 수반행렬이라 하고 <span class="process-math">\(\text{adj}(A)\)</span>로 표기한다. 즉, <span class="process-math">\(\text{adj}(A)\)</span>의 <span class="process-math">\(i\)</span>행 <span class="process-math">\(j\)</span>열 성분은 <span class="process-math">\(C_{ji}\)</span>이다.</div></article><article class="theorem theorem-like" id="thm-adjugate-identity"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">3.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">수반행렬 항등식.</span>
+</h4>
+<div class="para logical" id="thm-adjugate-identity-2-1">
+<div class="para">임의의 정사각행렬 <span class="process-math">\(A \in M_{n \times n}(\mathbb{F})\)</span>에 대하여 다음 등식이 성립한다.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A \text{adj}(A) = \text{adj}(A) A = \det(A) I
+\end{equation*}
+</div>
+</div></article><details id="thm-adjugate-identity-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="thm-adjugate-identity-3-1">
+<div class="para">행렬곱 <span class="process-math">\(A \text{adj}(A)\)</span>의 <span class="process-math">\((i, j)\)</span> 성분을 계산해 보자. 행렬곱의 정의와 수반행렬의 정의에 의해 이 성분은 다음과 같이 전개된다.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{k=1}^n A_{ik} (\text{adj}(A))_{kj} = \sum_{k=1}^n A_{ik} C_{jk}
+\end{equation*}
+</div>
+</div>
+<div class="para" id="thm-adjugate-identity-3-2">만약 <span class="process-math">\(i = j\)</span>라면, 위 식은 행렬 <span class="process-math">\(A\)</span>의 <span class="process-math">\(i\)</span>번째 행에 대한 여인수 전개와 정확히 일치하므로 그 값은 <span class="process-math">\(\det(A)\)</span>가 된다.</div>
+<div class="para" id="thm-adjugate-identity-3-3">만약 <span class="process-math">\(i \neq j\)</span>라면, 위 식은 행렬 <span class="process-math">\(A\)</span>에서 <span class="process-math">\(j\)</span>번째 행을 <span class="process-math">\(i\)</span>번째 행의 복사본으로 대체하여 만든 새로운 행렬의 <span class="process-math">\(j\)</span>번째 행에 대한 여인수 전개와 같다. 이 새로운 행렬은 똑같은 행을 두 개 가지게 되므로 교대성에 의해 행렬식은 항등적으로 0이 된다.</div>
+<div class="para" id="thm-adjugate-identity-3-4">따라서 <span class="process-math">\(A \text{adj}(A)\)</span>의 대각성분은 모두 <span class="process-math">\(\det(A)\)</span>이고 나머지 성분은 모두 0이 되어 <span class="process-math">\(\det(A) I\)</span>가 된다. 우측 곱인 <span class="process-math">\(\text{adj}(A) A\)</span> 역시 열에 대한 여인수 전개를 통해 동일하게 증명된다.</div></article></details><details id="ex-adjugate-2x2" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예시</span><span class="space"> </span><span class="codenumber">3.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">2×2 행렬의 수반행렬.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-adjugate-2x2-2-1">행렬 <span class="process-math">\(A = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\)</span>의 수반행렬을 구해보자. <span class="process-math">\(C_{11} = d\text{,}\)</span> <span class="process-math">\(C_{12} = -c\text{,}\)</span> <span class="process-math">\(C_{21} = -b\text{,}\)</span> <span class="process-math">\(C_{22} = a\)</span>이므로, 이를 행렬로 구성하고 전치하면 <span class="process-math">\(\text{adj}(A) = \begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix}\)</span>가 된다.</div> <div class="para" id="ex-adjugate-2x2-2-2">직접 곱해보면 <span class="process-math">\(A \text{adj}(A) = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix} \begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix} = \begin{pmatrix} ad-bc &amp; 0 \\ 0 &amp; ad-bc \end{pmatrix} = (ad-bc)I\)</span>가 되어 정리가 성립함을 확인할 수 있다. 역행렬이 존재할 조건인 <span class="process-math">\(\det(A) = ad-bc \neq 0\)</span>이 성립하면, <span class="process-math">\(A^{-1} = \frac{1}{\det(A)}\text{adj}(A)\)</span>임을 즉각적으로 얻는다.</div></article></details><article class="theorem theorem-like" id="thm-cramer-rule"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">3.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">크라메르 공식.</span>
+</h4>
+<div class="para logical" id="thm-cramer-rule-2-1">
+<div class="para">가역행렬 <span class="process-math">\(A \in M_{n \times n}(\mathbb{F})\)</span>와 열벡터 <span class="process-math">\(b \in \mathbb{F}^n\)</span>에 대하여, 연립일차방정식 <span class="process-math">\(Ax = b\)</span>의 유일한 해 <span class="process-math">\(x = (x_1, \dots, x_n)^T\)</span>의 각 성분은 다음과 같이 주어진다.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x_i = \frac{\det(A_i)}{\det(A)}
+\end{equation*}
+</div>
+<div class="para">여기서 <span class="process-math">\(A_i\)</span>는 행렬 <span class="process-math">\(A\)</span>의 <span class="process-math">\(i\)</span>번째 열을 상수 벡터 <span class="process-math">\(b\)</span>로 대체한 행렬이다.</div>
+</div></article><details id="thm-cramer-rule-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="thm-cramer-rule-3-1">
+<div class="para">행렬 <span class="process-math">\(A\)</span>가 가역이므로 <span class="process-math">\(\det(A) \neq 0\)</span>이며, 연립방정식의 해는 <span class="process-math">\(x = A^{-1}b\)</span>로 유일하게 존재한다. 수반행렬 항등식에 의해 <span class="process-math">\(A^{-1} = \frac{1}{\det(A)}\text{adj}(A)\)</span>이므로, 다음이 성립한다.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x = \frac{1}{\det(A)}\text{adj}(A)b
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="thm-cramer-rule-3-2">
+<div class="para">해 벡터 <span class="process-math">\(x\)</span>의 <span class="process-math">\(i\)</span>번째 성분 <span class="process-math">\(x_i\)</span>를 구하기 위해 행렬곱을 전개하면 다음과 같다.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x_i = \frac{1}{\det(A)} \sum_{j=1}^n (\text{adj}(A))_{ij} b_j = \frac{1}{\det(A)} \sum_{j=1}^n C_{ji} b_j
+\end{equation*}
+</div>
+</div>
+<div class="para" id="thm-cramer-rule-3-3">여기서 합 <span class="process-math">\(\sum_{j=1}^n b_j C_{ji}\)</span>를 관찰해 보자. 이는 행렬 <span class="process-math">\(A\)</span>의 <span class="process-math">\(i\)</span>번째 열의 각 성분 <span class="process-math">\(A_{ji}\)</span>를 <span class="process-math">\(b_j\)</span>로 바꾼 뒤, <span class="process-math">\(i\)</span>번째 열에 대하여 여인수 전개를 수행한 식과 정확히 일치한다. 행렬 <span class="process-math">\(A\)</span>의 <span class="process-math">\(i\)</span>번째 열을 <span class="process-math">\(b\)</span>로 대체한 행렬이 곧 <span class="process-math">\(A_i\)</span>이므로, 이 합은 <span class="process-math">\(\det(A_i)\)</span>가 된다. 따라서 <span class="process-math">\(x_i = \frac{\det(A_i)}{\det(A)}\)</span>이다.</div></article></details><details id="ex-cramer-2x2-system" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예시</span><span class="space"> </span><span class="codenumber">3.3.5</span><span class="period">.</span><span class="space"> </span><span class="title">크라메르 공식을 이용한 연립방정식 풀이.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="ex-cramer-2x2-system-2-1">
+<div class="para">체 <span class="process-math">\(\mathbb{F}\)</span> 위에서 다음 연립방정식을 크라메르 공식을 통해 풀어보자.</div>
+<div class="displaymath process-math" id="ex-cramer-2x2-system-2-1-2">
+\begin{align*}
+2x_1 + x_2 &amp;= 5\\
+x_1 + 3x_2 &amp;= 5
+\end{align*}
+</div>
+</div> <div class="para" id="ex-cramer-2x2-system-2-2">계수행렬 <span class="process-math">\(A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 3 \end{pmatrix}\text{,}\)</span> <span class="process-math">\(b = \begin{pmatrix} 5 \\ 5 \end{pmatrix}\)</span>이다. <span class="process-math">\(\det(A) = 2(3) - 1(1) = 5\)</span>이다.</div> <div class="para" id="ex-cramer-2x2-system-2-3">
+<span class="process-math">\(x_1\)</span>을 구하기 위해 첫 번째 열을 <span class="process-math">\(b\)</span>로 바꾼 행렬 <span class="process-math">\(A_1 = \begin{pmatrix} 5 &amp; 1 \\ 5 &amp; 3 \end{pmatrix}\)</span>을 구성하면, <span class="process-math">\(\det(A_1) = 15 - 5 = 10\)</span>이다. 따라서 <span class="process-math">\(x_1 = 10/5 = 2\)</span>이다.</div> <div class="para" id="ex-cramer-2x2-system-2-4">
+<span class="process-math">\(x_2\)</span>를 구하기 위해 두 번째 열을 <span class="process-math">\(b\)</span>로 바꾼 행렬 <span class="process-math">\(A_2 = \begin{pmatrix} 2 &amp; 5 \\ 1 &amp; 5 \end{pmatrix}\)</span>를 구성하면, <span class="process-math">\(\det(A_2) = 10 - 5 = 5\)</span>이다. 따라서 <span class="process-math">\(x_2 = 5/5 = 1\)</span>이다.</div></article></details></section><section class="subsection" id="03-03-01-cayley-hamilton"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.3.2</span><span class="space"> </span><span class="title">케일리-해밀턴 정리</span>
+</h3>
+<div class="para" id="03-03-01-cayley-hamilton-2">모든 정사각행렬은 특정한 다항식 방정식의 해가 되며, 그 다항식은 바로 자기 자신의 특성다항식입니다. 증명 과정에서 특성다항식의 <span class="process-math">\(x\)</span>에 행렬 <span class="process-math">\(A\)</span>를 단순히 대입하는 행위는 대수적으로 정의되지 않음에 극도로 유의해야 합니다.</div>
+<article class="theorem theorem-like" id="thm-cayley-hamilton"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">3.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">케일리-해밀턴 정리.</span>
+</h4>
+<div class="para logical" id="thm-cayley-hamilton-2-1">
+<div class="para">체 <span class="process-math">\(\mathbb{F}\)</span> 상의 임의의 정사각행렬 <span class="process-math">\(A\)</span>에 대하여, 그 특성다항식을 <span class="process-math">\(p_A(x) = \det(xI - A)\)</span>라 하자. 다항식 <span class="process-math">\(p_A(x)\)</span>에 행렬 <span class="process-math">\(A\)</span>를 대입하면 영행렬이 된다. 즉,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p_A(A) = 0
+\end{equation*}
+</div>
+</div></article><details id="thm-cayley-hamilton-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="thm-cayley-hamilton-3-1">
+<div class="para">다항식을 성분으로 가지는 행렬 <span class="process-math">\(xI - A\)</span>를 생각하자. 행렬식의 전개와 크라메르 공식에서 유도되는 수반행렬 항등식은 가환인 다항식 성분 위에서도 그대로 성립하므로 다음 등식을 세울 수 있다.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(xI - A)\text{adj}(xI - A) = \det(xI - A)I = p_A(x)I
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="thm-cayley-hamilton-3-2">
+<div class="para">행렬 <span class="process-math">\(B(x) = \text{adj}(xI - A)\)</span>의 각 성분은 <span class="process-math">\(xI - A\)</span>의 부분행렬의 행렬식이므로, <span class="process-math">\(x\)</span>에 대한 차수가 최대 <span class="process-math">\(n-1\)</span>인 다항식들이다. 따라서 <span class="process-math">\(B(x)\)</span>를 행렬을 계수로 가지는 다항식 형태로 전개할 수 있다.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+B(x) = B_{n-1}x^{n-1} + B_{n-2}x^{n-2} + \dots + B_1 x + B_0
+\end{equation*}
+</div>
+</div>
+<div class="para logical" id="thm-cayley-hamilton-3-3">
+<div class="para">특성다항식을 <span class="process-math">\(p_A(x) = x^n + c_{n-1}x^{n-1} + \dots + c_1 x + c_0\)</span>라 하자. 앞선 수반행렬 항등식 좌우변의 다항식 계수(행렬)들을 차수별로 비교하면 <span class="process-math">\(n+1\)</span>개의 연립방정식을 얻는다.</div>
+<div class="displaymath process-math" id="thm-cayley-hamilton-3-3-3">
+\begin{align*}
+x^n: \quad B_{n-1} &amp;= I\\
+x^{n-1}: \quad B_{n-2} - A B_{n-1} &amp;= c_{n-1}I\\
+&amp;\vdots\\
+x^1: \quad B_0 - A B_1 &amp;= c_1 I\\
+x^0: \quad -A B_0 &amp;= c_0 I
+\end{align*}
+</div>
+</div>
+<div class="para logical" id="thm-cayley-hamilton-3-4">
+<div class="para">이 <span class="process-math">\(n+1\)</span>개의 등식 중 <span class="process-math">\(x^k\)</span>에 해당하는 등식의 양변 왼쪽에 행렬 <span class="process-math">\(A^k\)</span>를 곱하자.</div>
+<div class="displaymath process-math" id="thm-cayley-hamilton-3-4-4">
+\begin{align*}
+A^n B_{n-1} &amp;= A^n\\
+A^{n-1} B_{n-2} - A^n B_{n-1} &amp;= c_{n-1} A^{n-1}\\
+&amp;\vdots\\
+A B_0 - A^2 B_1 &amp;= c_1 A\\
+-A B_0 &amp;= c_0 I
+\end{align*}
+</div>
+</div>
+<div class="para" id="thm-cayley-hamilton-3-5">새롭게 얻어진 이 <span class="process-math">\(n+1\)</span>개의 등식을 양변 모두 더한다. 좌변은 이웃한 항들이 연쇄적으로 상쇄되어 정확히 영행렬만 남는다. 우변을 모두 더한 결과는 <span class="process-math">\(A^n + c_{n-1}A^{n-1} + \dots + c_1 A + c_0 I\)</span>가 되며, 이는 행렬 평가 사상의 정의에 의해 <span class="process-math">\(p_A(A)\)</span>이다. 결론적으로 영행렬과 <span class="process-math">\(p_A(A)\)</span>는 일치한다.</div></article></details><details id="ex-cayley-hamilton-2x2" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예시</span><span class="space"> </span><span class="codenumber">3.3.7</span><span class="period">.</span><span class="space"> </span><span class="title">2×2 행렬의 케일리-해밀턴 정리.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-cayley-hamilton-2x2-2-1">행렬 <span class="process-math">\(A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}\)</span>를 생각하자. 특성다항식은 <span class="process-math">\(p_A(x) = (x-1)(x-4) - 6 = x^2 - 5x - 2\)</span>이다. 행렬 <span class="process-math">\(A\)</span>의 거듭제곱을 직접 계산하여 대입하면 <span class="process-math">\(A^2 - 5A - 2I = \begin{pmatrix} 7 &amp; 10 \\ 15 &amp; 22 \end{pmatrix} - \begin{pmatrix} 5 &amp; 10 \\ 15 &amp; 20 \end{pmatrix} - \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 2 \end{pmatrix} = \begin{pmatrix} 0 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}\)</span>이 되어 정리가 참임을 확인할 수 있다.</div></article></details></section><section class="subsection" id="03-03-02-minimal-polynomial"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.3.3</span><span class="space"> </span><span class="title">최소다항식의 정의와 인수 성질</span>
+</h3>
+<div class="para" id="03-03-02-minimal-polynomial-2">케일리-해밀턴 정리는 행렬 <span class="process-math">\(A\)</span>를 영행렬로 만드는 다항식이 최소한 하나는 존재함을 보장합니다. 이제 나눗셈 알고리즘과 최소 차수 성질을 결합하여 행렬의 구조를 극적으로 단순화할 최소다항식을 정의합니다.</div>
+<article class="definition definition-like" id="def-minimal-polynomial"><h4 class="heading">
+<span class="type">정의</span><span class="space"> </span><span class="codenumber">3.3.8</span><span class="period">.</span><span class="space"> </span><span class="title">최소다항식.</span>
+</h4>
+<div class="para" id="def-minimal-polynomial-2-1">어떤 행렬 <span class="process-math">\(A\)</span>에 대하여 <span class="process-math">\(f(A) = 0\)</span>을 만족하는 다항식 <span class="process-math">\(f(x)\)</span>들의 집합을 소멸자 집합이라 하자. 케일리-해밀턴 정리에 의해 특성다항식이 이 집합에 속하므로, 이 집합은 결코 영다항식만으로 이루어지지 않았다. 또한 이 집합은 다항식의 덧셈과 임의의 다항식과의 곱셈에 대해 닫혀 있으므로, 보충 읽기자료의 정리 2(최소 차수 다항식의 인수 성질)를 완벽하게 만족한다.</div> <div class="para" id="def-minimal-polynomial-2-2">이 집합 안에서 차수가 가장 낮으면서 최고차항 계수가 1인 다항식은 유일하게 결정되며, 이를 행렬 <span class="process-math">\(A\)</span>의 최소다항식이라 정의하고 <span class="process-math">\(m_A(x)\)</span>로 표기한다.</div></article><details id="qstn-alternative-proof-minimal-polynomial" class="question example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예제</span><span class="space"> </span><span class="codenumber">3.3.9</span><span class="period">.</span><span class="space"> </span><span class="title">다른 증명:최소다항식의 존재성.</span>
+</h4></summary><article class="question example-like knowl__content"><div class="para logical" id="qstn-alternative-proof-minimal-polynomial-2-1">
+<div class="para">체 <span class="process-math">\(\mathbb{F}\)</span> 상의 유한차원 벡터공간 <span class="process-math">\(V\)</span> 상의 선형변환 <span class="process-math">\(T\)</span>에 대하여, <span class="process-math">\(f(T) = 0\)</span> (영변환)을 만족하는 영이 아닌 다항식 <span class="process-math">\(f(x) \in \mathbb{F}[x]\)</span>가 반드시 존재함을 케일리-해밀턴 정리를 사용하지 않고 다음 집합</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\{I, T, T^2, \dots, T^{n^2}\}
+\end{equation*}
+</div>
+<div class="para">의 선형독립성을 분석하여 증명하시오.</div>
+</div>
+<div class="solutions"><details id="qstn-alternative-proof-minimal-polynomial-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="qstn-alternative-proof-minimal-polynomial-3-1">
+<div class="para">벡터공간 <span class="process-math">\(V\)</span>의 차원을 <span class="process-math">\(n\)</span>이라 하자. <span class="process-math">\(V\)</span>에서 <span class="process-math">\(V\)</span>로 가는 선형변환들의 공간 <span class="process-math">\(\mathcal{L}(V)\)</span>의 차원은 <span class="process-math">\(n^2\)</span>이다. 선형변환 <span class="process-math">\(T\)</span>의 거듭제곱들로 이루어진 다음 집합을 생각하자.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\{I, T, T^2, \dots, T^{n^2}\}
+\end{equation*}
+</div>
+<div class="para">이 집합의 원소 개수는 <span class="process-math">\(n^2 + 1\)</span>개이므로, 벡터공간 <span class="process-math">\(\mathcal{L}(V)\)</span>의 차원인 <span class="process-math">\(n^2\)</span>보다 크다. 따라서 이 거듭제곱들은 선형종속이어야만 한다.</div>
+</div>
+<div class="para logical" id="qstn-alternative-proof-minimal-polynomial-3-2">
+<div class="para">선형종속의 정의에 의해, 모두가 영은 아닌 스칼라 <span class="process-math">\(c_0, c_1, \dots, c_k \in \mathbb{F}\)</span> (<span class="process-math">\(k \le n^2\)</span>)가 존재하여 다음 등식을 만족한다.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+c_0 I + c_1 T + c_2 T^2 + \dots + c_k T^k = 0
+\end{equation*}
+</div>
+<div class="para">이때 다항식 <span class="process-math">\(f(x) = c_k x^k + \dots + c_1 x + c_0\)</span>를 구성하면, <span class="process-math">\(f(x)\)</span>는 영다항식이 아니며 평가 사상에 의해 <span class="process-math">\(f(T) = 0\)</span>을 만족한다. 따라서 <span class="process-math">\(T\)</span>를 소멸시키는 영이 아닌 다항식이 최소한 하나 존재함이 증명되었다.</div>
+</div>
+</div></details></div></article></details><details id="ex-minimal-identity" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예시</span><span class="space"> </span><span class="codenumber">3.3.10</span><span class="period">.</span><span class="space"> </span><span class="title">항등행렬의 최소다항식.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-minimal-identity-2-1">항등행렬 <span class="process-math">\(I\)</span>의 특성다항식은 <span class="process-math">\(p_I(x) = (x-1)^n\)</span>이다. 그러나 다항식 <span class="process-math">\(m(x) = x-1\)</span>을 생각해보면 <span class="process-math">\(m(I) = I - I = 0\)</span>이므로 이 역시 소멸자 집합에 속한다. 1차식보다 차수가 낮은 다항식은 상수항뿐인데 영이 아닌 상수는 영행렬을 만들 수 없으므로, 최고차항 계수가 1인 가장 낮은 차수의 다항식은 <span class="process-math">\(m_I(x) = x-1\)</span>이 된다.</div></article></details><article class="proposition theorem-like" id="prop-minimal-divides"><h4 class="heading">
+<span class="type">명제</span><span class="space"> </span><span class="codenumber">3.3.11</span><span class="period">.</span><span class="space"> </span><span class="title">최소다항식의 나눗셈 성질.</span>
+</h4>
+<div class="para" id="prop-minimal-divides-2-1">임의의 행렬 <span class="process-math">\(A\)</span>에 대하여 다항식 <span class="process-math">\(f(x)\)</span>가 <span class="process-math">\(f(A) = 0\)</span>을 만족할 필요충분조건은 최소다항식 <span class="process-math">\(m_A(x)\)</span>가 <span class="process-math">\(f(x)\)</span>의 인수가 되는 것이다. 특히 특성다항식 <span class="process-math">\(p_A(x)\)</span>는 항상 최소다항식을 인수로 가진다.</div></article><details id="prop-minimal-divides-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="prop-minimal-divides-3-1">다항식 <span class="process-math">\(f(x)\)</span>가 <span class="process-math">\(f(A) = 0\)</span>을 만족한다고 가정하자. 다항식 <span class="process-math">\(f(x)\)</span>는 소멸자 집합의 원소이므로 보충 읽기자료의 정리 2에 의해 집합 내 최소 차수 다항식인 <span class="process-math">\(m_A(x)\)</span>를 인수로 가져야 한다. 역으로 <span class="process-math">\(f(x) = q(x)m_A(x)\)</span>라 하면 행렬 평가 사상의 성질에 의해 <span class="process-math">\(f(A) = q(A)m_A(A) = q(A)0 = 0\)</span>이 성립한다.</div>
+<div class="para" id="prop-minimal-divides-3-2">케일리-해밀턴 정리에 의해 <span class="process-math">\(p_A(A) = 0\)</span>이므로 특성다항식 역시 소멸자 집합에 속하며, 따라서 최소다항식을 인수로 가진다.</div></article></details><details id="ex-minimal-factors" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예시</span><span class="space"> </span><span class="codenumber">3.3.12</span><span class="period">.</span><span class="space"> </span><span class="title">최소다항식의 인수 결정.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-minimal-factors-2-1">명제 6에 의해 최소다항식은 항상 특성다항식의 인수여야 한다. 만약 어떤 행렬 <span class="process-math">\(A\)</span>의 특성다항식이 <span class="process-math">\((x-2)^2(x-3)\)</span>이라면, 최소다항식 후보는 <span class="process-math">\((x-2)(x-3)\)</span> 또는 <span class="process-math">\((x-2)^2(x-3)\)</span>뿐이다. 차수가 낮은 후보부터 순서대로 행렬을 대입하여 최초로 영행렬이 되는 다항식을 찾으면 그것이 바로 최소다항식이다.</div></article></details><article class="theorem theorem-like" id="thm-minimal-eigenvalues"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">3.3.13</span><span class="period">.</span><span class="space"> </span><span class="title">고윳값과 최소다항식의 근.</span>
+</h4>
+<div class="para" id="thm-minimal-eigenvalues-2-1">행렬 <span class="process-math">\(A\)</span>의 최소다항식 <span class="process-math">\(m_A(x)\)</span>와 특성다항식 <span class="process-math">\(p_A(x)\)</span>는 중복도를 무시하면 완전히 동일한 근, 즉 고윳값들을 공유한다.</div></article><details id="thm-minimal-eigenvalues-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="thm-minimal-eigenvalues-3-1">스칼라 <span class="process-math">\(\lambda\)</span>가 <span class="process-math">\(p_A(x)\)</span>의 근이라 가정하자. 즉 <span class="process-math">\(\lambda\)</span>는 행렬 <span class="process-math">\(A\)</span>의 고윳값이다. 대응하는 영이 아닌 고유벡터 <span class="process-math">\(v\)</span>가 존재하여 <span class="process-math">\(A v = \lambda v\)</span>가 성립한다. 다항식의 행렬 평가 성질을 거듭제곱에 반복 적용하면 <span class="process-math">\(m_A(A)v = m_A(\lambda)v\)</span>가 된다. 최소다항식의 정의에 의해 <span class="process-math">\(m_A(A) = 0\)</span>이므로 좌변은 영벡터이다. <span class="process-math">\(v\)</span>는 영벡터가 아니므로 스칼라 <span class="process-math">\(m_A(\lambda)\)</span>가 반드시 0이어야 하며, 따라서 <span class="process-math">\(\lambda\)</span>는 최소다항식의 근이다.</div>
+<div class="para" id="thm-minimal-eigenvalues-3-2">반대로 <span class="process-math">\(\lambda\)</span>가 <span class="process-math">\(m_A(x)\)</span>의 근이라 가정하자. 명제 6에 의해 특성다항식은 최소다항식을 인수로 가지므로 <span class="process-math">\(p_A(x) = q(x)m_A(x)\)</span>이다. 여기에 <span class="process-math">\(\lambda\)</span>를 대입하면 <span class="process-math">\(p_A(\lambda) = q(\lambda)m_A(\lambda) = 0\)</span>이 되어 <span class="process-math">\(\lambda\)</span>는 특성다항식의 근이 된다.</div></article></details><details id="ex-minimal-jordan-form" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예시</span><span class="space"> </span><span class="codenumber">3.3.14</span><span class="period">.</span><span class="space"> </span><span class="title">비슷한 고윳값을 가진 행렬들의 최소다항식.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-minimal-jordan-form-2-1">두 행렬 <span class="process-math">\(A = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 2 \end{pmatrix}\)</span>와 <span class="process-math">\(B = \begin{pmatrix} 2 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}\)</span>는 모두 특성다항식이 <span class="process-math">\(p(x) = (x-2)^2\)</span>이다. 고윳값은 오직 2뿐이므로, 정리 7에 따라 최소다항식은 반드시 <span class="process-math">\((x-2)\)</span>를 인수로 포함해야 한다. 행렬 <span class="process-math">\(A\)</span>는 <span class="process-math">\(A - 2I = 0\)</span>이므로 최소다항식이 <span class="process-math">\(m_A(x) = x-2\)</span>이지만, 행렬 <span class="process-math">\(B\)</span>는 <span class="process-math">\(B - 2I \neq 0\)</span>이므로 일차식을 인수로 가지면서 영행렬을 만드는 다항식은 특성다항식 본인인 <span class="process-math">\(m_B(x) = (x-2)^2\)</span>가 된다. 이는 서로 다른 대수적 구조를 최소다항식이 세밀하게 구별해냄을 보여준다.</div></article></details></section><section class="exercises" id="exercises-03-03"><h3 class="heading hide-type">
+<span class="type">연습문제</span><span class="space"> </span><span class="codenumber">3.3.4</span><span class="space"> </span><span class="title">연습문제</span>
+</h3>
+<article class="exercise exercise-like" id="ex-matrix-in-a-polynomial"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">다항식 속 행렬.</span>
+</h4>
+<div class="para" id="ex-matrix-in-a-polynomial-2-1">다항식 <span class="process-math">\(f(x) = x^2 + 2x + 1\)</span>과 정사각행렬 <span class="process-math">\(A\)</span>에 대하여 평가 사상을 거친 결과 <span class="process-math">\(f(A)\)</span>를 행렬 기호를 사용하여 구체적으로 나열하고, 이것이 <span class="process-math">\((A+I)^2\)</span>과 동일하게 전개됨을 보이시오.</div></article><article class="exercise exercise-like" id="ex-zero-eigenvalue"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">영고윳값과 단사성.</span>
+</h4>
+<div class="para" id="ex-zero-eigenvalue-2-1">체 <span class="process-math">\(\mathbb{F}\)</span> 상의 행렬 <span class="process-math">\(A\)</span>와 스칼라 <span class="process-math">\(0 \in \mathbb{F}\)</span>에 대하여, <span class="process-math">\(0\)</span>이 특성다항식의 근이 될 필요충분조건은 변환 <span class="process-math">\(A\)</span>가 단사가 아님을 증명하시오.</div></article><article class="exercise exercise-like" id="ex-minimal-polynomial-diagonal"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">대각행렬의 최소다항식.</span>
+</h4>
+<div class="para" id="ex-minimal-polynomial-diagonal-2-1">서로 다른 대각성분 <span class="process-math">\(\lambda_1, \dots, \lambda_n\)</span>을 가지는 대각행렬 <span class="process-math">\(D\)</span>의 최소다항식이 대각성분들을 모두 근으로 가지는 1차식들의 곱이 됨을 예제를 들어 설명하시오.</div></article><article class="exercise exercise-like" id="ex-minimal-polynomial-invertible"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">역행렬과 최소다항식.</span>
+</h4>
+<div class="para" id="ex-minimal-polynomial-invertible-2-1">케일리-해밀턴 정리를 활용하여, 역행렬이 존재하는 <span class="process-math">\(n \times n\)</span> 정사각행렬 <span class="process-math">\(A\)</span>의 역행렬을 차수가 <span class="process-math">\(n-1\)</span> 이하인 <span class="process-math">\(A\)</span>의 다항식 형태로 표현할 수 있음을 증명하시오.</div></article><article class="exercise exercise-like" id="ex-similar-minimal-polynomial"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">유사 행렬과 최소다항식.</span>
+</h4>
+<div class="para" id="ex-similar-minimal-polynomial-2-1">역행렬이 존재하는 행렬 <span class="process-math">\(P\)</span>에 대하여 <span class="process-math">\(B = P^{-1}AP\)</span>가 성립할 때, 행렬 <span class="process-math">\(A\)</span>의 소멸자 집합과 행렬 <span class="process-math">\(B\)</span>의 소멸자 집합이 정확히 동일함을 보이고, 이로부터 두 행렬이 같은 최소다항식을 가짐을 증명하시오.</div></article><article class="exercise exercise-like" id="ex-minimal-polynomial-eigenvalues"><h4 class="heading">
+<span class="codenumber">6<span class="period">.</span></span><span class="space"> </span><span class="title">최소다항식과 고윳값.</span>
+</h4>
+<div class="para" id="ex-minimal-polynomial-eigenvalues-2-1">어떤 행렬 <span class="process-math">\(A\)</span>의 최소다항식이 <span class="process-math">\(m_A(x) = x^2 - 5x + 6\)</span>으로 주어졌다. 인수 성질을 활용하여 이 행렬의 모든 고윳값을 확정하고 그 근거를 제시하시오.</div></article><article class="exercise exercise-like" id="ex-gcd-of-polynomials"><h4 class="heading">
+<span class="codenumber">7<span class="period">.</span></span><span class="space"> </span><span class="title">다항식의 최대공약수.</span>
+</h4>
+<div class="para" id="ex-gcd-of-polynomials-2-1">보충 읽기자료의 정리 1(나눗셈 알고리즘)과 정리 2(최소 차수 다항식의 인수 성질)를 결합하여, 두 다항식 <span class="process-math">\(f(x), g(x)\)</span>의 공통 인수 중 차수가 가장 높은 다항식(최대공약수) <span class="process-math">\(d(x)\)</span>가 존재함을 증명하시오.</div></article><article class="exercise exercise-like" id="ex-characteristic-and-minimal-polynomial"><h4 class="heading">
+<span class="codenumber">8<span class="period">.</span></span><span class="space"> </span><span class="title">특성다항식과 최소다항식.</span>
+</h4>
+<div class="para" id="ex-characteristic-and-minimal-polynomial-2-1">다항식 공간 <span class="process-math">\(V = \mathbb{F}[x]_{\le 2}\)</span> 위에서 정의된 선형변환 <span class="process-math">\(T(p(x)) = p(x) + p'(x)\)</span>에 대하여 기저 <span class="process-math">\(1, x, x^2\)</span>을 선택하여 특성다항식을 구하고, 그에 따른 최소다항식을 확정하시오.</div></article><article class="exercise exercise-like" id="ex-block-upper-triangular-minimal-polynomial"><h4 class="heading">
+<span class="codenumber">9<span class="period">.</span></span><span class="space"> </span><span class="title">블록 상삼각행렬의 최소다항식.</span>
+</h4>
+<div class="para" id="ex-block-upper-triangular-minimal-polynomial-2-1">블록 상삼각행렬 <span class="process-math">\(M = \begin{pmatrix} A &amp; B \\ 0 &amp; C \end{pmatrix}\)</span>에 대하여, <span class="process-math">\(M\)</span>의 최소다항식 <span class="process-math">\(m_M(x)\)</span>가 대각 블록의 두 최소다항식의 곱 <span class="process-math">\(m_A(x)m_C(x)\)</span>의 인수(약수)가 됨을 블록 행렬의 평가 성질을 통해 엄밀히 증명하시오.</div></article><article class="exercise exercise-like" id="ex-direct-sum-decomposition"><h4 class="heading">
+<span class="codenumber">10<span class="period">.</span></span><span class="space"> </span><span class="title">직합 분해.</span>
+</h4>
+<div class="para" id="ex-direct-sum-decomposition-2-1">임의의 선형변환 <span class="process-math">\(T\)</span>에 대한 어떤 다항식 <span class="process-math">\(f(x)\)</span>가 서로 공통인 인수를 가지지 않는 두 다항식의 곱 <span class="process-math">\(f(x) = f_1(x)f_2(x)\)</span>로 인수분해된다고 하자. 다항식의 최대공약수 성질을 이용해 <span class="process-math">\(a(x)f_1(x) + b(x)f_2(x) = 1\)</span>을 만족하는 <span class="process-math">\(a(x), b(x)\)</span>가 존재함을 근거로, 변환의 덧셈 분해인 부분공간의 직합 <span class="process-math">\(V = \ker(f_1(T)) \oplus \ker(f_2(T))\)</span>를 증명하시오.</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="03-02-char.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="03-04-triangulation-and-jordan.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

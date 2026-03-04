@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">1.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">기저의 존재성.</span>
+</h4>
+<div class="para">체 <span class="process-math">\(\mathbb{F}\)</span> 위의 임의의 벡터 공간 <span class="process-math">\(V\)</span>는 기저를 가진다.</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">벡터 공간 <span class="process-math">\(V\)</span>의 모든 선형 독립인 부분집합들의 모임을 <span class="process-math">\(\mathcal{P}\)</span>라고 정의합니다. 즉, <span class="process-math">\(\mathcal{P} = \{ S \subseteq V \mid S \text{는 선형 독립이다} \}\)</span> 입니다. 이 모임 <span class="process-math">\(\mathcal{P}\)</span>에 집합의 포함 관계(<span class="process-math">\(\subseteq\)</span>)를 부여하면, <span class="process-math">\((\mathcal{P}, \subseteq)\)</span>는 부분순서집합(Partially ordered set)이 됩니다. 공집합 <span class="process-math">\(\emptyset\)</span>은 관례에 따라 선형 독립이므로 <span class="process-math">\(\emptyset \in \mathcal{P}\)</span>이며, 따라서 <span class="process-math">\(\mathcal{P}\)</span>는 공집합이 아닙니다.</div>
+<div class="para logical">
+<div class="para">초른의 보조정리를 적용하기 위해, <span class="process-math">\(\mathcal{P}\)</span> 안의 임의의 사슬(Chain) <span class="process-math">\(\mathcal{C}\)</span>가 <span class="process-math">\(\mathcal{P}\)</span> 안에서 상계(Upper bound)를 가짐을 보여야 합니다. 사슬 <span class="process-math">\(\mathcal{C}\)</span>에 속하는 모든 선형 독립 집합들의 합집합을 <span class="process-math">\(U\)</span>라고 정의합니다.</div>
+<div class="displaymath process-math">
+\begin{gather*}
+U = \bigcup_{S \in \mathcal{C}} S
+\end{gather*}
+</div>
+<div class="para">이 합집합 <span class="process-math">\(U\)</span>가 <span class="process-math">\(\mathcal{P}\)</span>의 원소, 즉 <span class="process-math">\(U\)</span> 역시 선형 독립임을 증명합니다.</div>
+</div>
+<div class="para logical">
+<div class="para">선형 독립성을 확인하기 위해, <span class="process-math">\(U\)</span>에서 임의의 유한 개의 벡터 <span class="process-math">\(v_1, v_2, \dots, v_n\)</span>을 택하고 이들의 선형결합이 영벡터가 된다고 가정합니다.</div>
+<div class="displaymath process-math">
+\begin{gather*}
+c_1 v_1 + c_2 v_2 + \dots + c_n v_n = \mathbf{0} \quad (c_i \in \mathbb{F})
+\end{gather*}
+</div>
+<div class="para">
+<span class="process-math">\(U\)</span>의 정의에 의해, 각각의 <span class="process-math">\(v_i\)</span>는 <span class="process-math">\(\mathcal{C}\)</span>에 속하는 어떤 집합 <span class="process-math">\(S_i\)</span>의 원소입니다. <span class="process-math">\(\mathcal{C}\)</span>는 사슬이므로 임의의 두 원소는 포함 관계를 가집니다. 유한 개의 집합 <span class="process-math">\(S_1, S_2, \dots, S_n\)</span> 중에서 포함 관계에 따라 가장 큰 집합을 <span class="process-math">\(S_k\)</span>라고 하면, 모든 <span class="process-math">\(v_1, \dots, v_n\)</span>은 <span class="process-math">\(S_k\)</span>에 속하게 됩니다. 그런데 <span class="process-math">\(S_k \in \mathcal{C} \subseteq \mathcal{P}\)</span>이므로 <span class="process-math">\(S_k\)</span>는 선형 독립입니다. 따라서 위 선형결합을 만족하는 스칼라는 오직 <span class="process-math">\(c_1 = c_2 = \dots = c_n = 0\)</span> 뿐입니다. 이는 <span class="process-math">\(U\)</span>에 속하는 임의의 유한 부분집합이 선형 독립임을 의미하므로, <span class="process-math">\(U\)</span> 자체도 선형 독립입니다. 따라서 <span class="process-math">\(U \in \mathcal{P}\)</span>입니다.</div>
+</div>
+<div class="para">명백하게 모든 <span class="process-math">\(S \in \mathcal{C}\)</span>에 대하여 <span class="process-math">\(S \subseteq U\)</span>이므로, <span class="process-math">\(U\)</span>는 부분순서집합 <span class="process-math">\(\mathcal{P}\)</span> 안에서 사슬 <span class="process-math">\(\mathcal{C}\)</span>의 상계입니다. 임의의 사슬이 상계를 가지므로, 초른의 보조정리에 의해 <span class="process-math">\(\mathcal{P}\)</span>는 적어도 하나의 극대원소(Maximal element) <span class="process-math">\(B\)</span>를 가집니다.</div>
+<div class="para">이제 이 극대 선형 독립 집합 <span class="process-math">\(B\)</span>가 <span class="process-math">\(V\)</span>를 생성함(<span class="process-math">\(\operatorname{span}(B) = V\)</span>)을 증명하여 기저임을 보입니다. 결론을 부정하여 <span class="process-math">\(\operatorname{span}(B) \neq V\)</span>라고 가정합니다. 그러면 <span class="process-math">\(V\)</span> 안에는 <span class="process-math">\(\operatorname{span}(B)\)</span>에 속하지 않는 어떤 벡터 <span class="process-math">\(w\)</span>가 존재합니다. 새로운 집합 <span class="process-math">\(B' = B \cup \{w\}\)</span>를 생각합니다. <span class="process-math">\(w \notin \operatorname{span}(B)\)</span>이므로, 이 집합은 여전히 선형 독립입니다. (만약 종속이라면 <span class="process-math">\(w\)</span>가 <span class="process-math">\(B\)</span>의 선형결합으로 표현되어 모순이 발생하기 때문입니다). 따라서 <span class="process-math">\(B' \in \mathcal{P}\)</span>입니다. 그런데 <span class="process-math">\(B \subsetneq B'\)</span>이므로, 이는 <span class="process-math">\(B\)</span>가 극대원소라는 사실에 명백하게 모순됩니다.</div>
+<div class="para">이 모순은 <span class="process-math">\(\operatorname{span}(B) \neq V\)</span>라는 가정에서 비롯되었으므로, <span class="process-math">\(\operatorname{span}(B) = V\)</span>이어야만 합니다. 결론적으로 집합 <span class="process-math">\(B\)</span>는 선형 독립이며 공간 전체를 생성하므로 <span class="process-math">\(V\)</span>의 기저입니다.</div></article></details><span class="incontext"><a class="internal" href="01-02-basis.html#thm-existence-of-basis">in-context</a></span>
+</body>
+</html>

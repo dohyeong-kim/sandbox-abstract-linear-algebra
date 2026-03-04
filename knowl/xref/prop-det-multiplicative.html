@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">명제</span><span class="space"> </span><span class="codenumber">3.2.10</span><span class="period">.</span><span class="space"> </span><span class="title">행렬식의 곱셈 성질.</span>
+</h4>
+<div class="para">두 행렬 <span class="process-math">\(A, B \in M_{n \times n}(\mathbb{F})\)</span>에 대하여, <span class="process-math">\(\det(AB) = \det(A)\det(B)\)</span>가 성립한다.</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">행렬 <span class="process-math">\(B\)</span>가 가역이 아니라고 가정하자. 그러면 <span class="process-math">\(AB\)</span> 역시 가역이 아니므로 두 행렬의 열벡터들은 모두 선형종속이다. 선형종속인 열벡터들의 다중선형 교대형식 값은 항시 0이므로 <span class="process-math">\(\det(AB) = 0\)</span>이고 <span class="process-math">\(\det(B) = 0\)</span>이다. 따라서 <span class="process-math">\(0 = 0\)</span>으로 등식이 성립한다.</div>
+<div class="para">행렬 <span class="process-math">\(B\)</span>가 가역이라 가정하자(<span class="process-math">\(\det(B) \neq 0\)</span>). 새로운 함수 <span class="process-math">\(f: M_{n \times n}(\mathbb{F}) \to \mathbb{F}\)</span>를 <span class="process-math">\(f(A) = \frac{\det(AB)}{\det(B)}\)</span>로 정의하자. 함수 <span class="process-math">\(f\)</span>가 인접한 열이 같은 행렬에서 0을 반환하고 각 열에 대해 다중선형성을 만족함은 행렬곱의 성질과 행렬식의 선형성으로부터 즉각적으로 유도된다. 또한 <span class="process-math">\(f(I) = \frac{\det(B)}{\det(B)} = 1\)</span>이므로 정규화 조건도 만족한다. 정리<a href="03-02-char.html#thm-det-existence" class="xref" data-knowl="./knowl/xref/thm-det-existence.html" data-reveal-label="Reveal" data-close-label="Close" title="정리 3.2.7: 행렬식의 존재성과 유일성">정리 3.2.7</a>의 행렬식의 유일성에 의해 <span class="process-math">\(f(A) = \det(A)\)</span>가 되어야만 한다. 따라서 <span class="process-math">\(\det(AB) = \det(A)\det(B)\)</span>이다. <span class="process-math">\(\blacksquare\)</span>
+</div></article></details><span class="incontext"><a class="internal" href="03-02-char.html#prop-det-multiplicative">in-context</a></span>
+</body>
+</html>

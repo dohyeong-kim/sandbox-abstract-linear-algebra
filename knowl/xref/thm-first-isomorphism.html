@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">제1동형정리.</span>
+</h4>
+<div class="para logical">
+<div class="para">
+<span class="process-math">\(V\)</span>와 <span class="process-math">\(W\)</span>가 체 <span class="process-math">\(\mathbb{F}\)</span> 위의 벡터공간이고, <span class="process-math">\(T: V \to W\)</span>가 선형변환이라 하자. 사상 <span class="process-math">\(\bar{T}: V/\ker(T) \to \text{im}(T)\)</span>를 임의의 <span class="process-math">\(v \in V\)</span>에 대하여 다음과 같이 정의하자:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\bar{T}(v + \ker(T)) = T(v)
+\end{equation*}
+</div>
+<div class="para">이때, 사상 <span class="process-math">\(\bar{T}\)</span>는 동형사상이다.</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">사상 <span class="process-math">\(\bar{T}\)</span>가 동형사상임을 보이기 위해 잘 정의됨, 선형성, 전사성, 단사성을 차례로 확인한다.</div>
+<div class="para">
+<em class="emphasis">잘 정의됨 및 선형성:</em> <span class="process-math">\(v_1 + \ker(T) = v_2 + \ker(T)\)</span> 이면 <span class="process-math">\(v_1 - v_2 \in \ker(T)\)</span> 이다. 따라서 <span class="process-math">\(T(v_1 - v_2) = 0_W\)</span> 이고, 선형성에 의해 <span class="process-math">\(T(v_1) = T(v_2)\)</span> 이므로 <span class="process-math">\(\bar{T}(v_1 + \ker(T)) = \bar{T}(v_2 + \ker(T))\)</span> 이다. 사상의 선형성은 <span class="process-math">\(T\)</span>의 선형성으로부터 자연스럽게 유도된다.</div>
+<div class="para">
+<em class="emphasis">전사:</em> 임의의 <span class="process-math">\(w \in \text{im}(T)\)</span> 에 대하여, <span class="process-math">\(T(v) = w\)</span> 를 만족하는 <span class="process-math">\(v \in V\)</span> 가 존재한다. <span class="process-math">\(\bar{T}\)</span>의 정의에 의해 <span class="process-math">\(\bar{T}(v + \ker(T)) = T(v) = w\)</span> 이므로 전사이다.</div>
+<div class="para">
+<em class="emphasis">단사:</em> <span class="process-math">\(\bar{T}(v + \ker(T)) = 0_W\)</span> 라 가정하자. 이는 <span class="process-math">\(T(v) = 0_W\)</span> 를 의미하므로 <span class="process-math">\(v \in \ker(T)\)</span> 이다. 따라서 <span class="process-math">\(v + \ker(T) = 0_V + \ker(T)\)</span> 가 되어 <span class="process-math">\(\ker(\bar{T})\)</span>는 자명한 몫공간의 영벡터뿐이다. 따라서 단사이다.</div>
+<div class="para">역변환을 갖는 전단사 선형변환이므로 <span class="process-math">\(\bar{T}\)</span>는 동형사상이다.</div></article></details><span class="incontext"><a class="internal" href="02-02-isomorphism-theorems.html#thm-first-isomorphism">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>직곱, 사영, 쌍대공간</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="추상선형대수학">
+<meta property="book:author" content="김도형">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '7.11.15';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.529fd9398bfbd03e.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.1d6e4aba17c2c7f2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.6ec5960970d8b364.css">
+<style>
+#01-vector-space-2-2-2 { counter-set: 01-vector-space-2-2-2 0; }
+#01-vector-space-2-2-2 > li::marker { content: ""counter(01-vector-space-2-2-2,decimal)"."; }
+#01-vector-space-2-2-2 > li { counter-increment: 01-vector-space-2-2-2; }
+#def-vector-space-1-2 { counter-set: def-vector-space-1-2 0; }
+#def-vector-space-1-2 > li::marker { content: ""counter(def-vector-space-1-2,decimal)"."; }
+#def-vector-space-1-2 > li { counter-increment: def-vector-space-1-2; }
+#ex-vector-space-2-2 { counter-set: ex-vector-space-2-2 0; }
+#ex-vector-space-2-2 > li::marker { content: ""counter(ex-vector-space-2-2,decimal)"."; }
+#ex-vector-space-2-2 > li { counter-increment: ex-vector-space-2-2; }
+#prop-basic-properties-2-2 { counter-set: prop-basic-properties-2-2 0; }
+#prop-basic-properties-2-2 > li::marker { content: ""counter(prop-basic-properties-2-2,decimal)"."; }
+#prop-basic-properties-2-2 > li { counter-increment: prop-basic-properties-2-2; }
+#thm-subspace-test-2-2 { counter-set: thm-subspace-test-2-2 0; }
+#thm-subspace-test-2-2 > li::marker { content: ""counter(thm-subspace-test-2-2,decimal)"."; }
+#thm-subspace-test-2-2 > li { counter-increment: thm-subspace-test-2-2; }
+#exercise-span-intersection-2-2 { counter-set: exercise-span-intersection-2-2 0; }
+#exercise-span-intersection-2-2 > li::marker { content: "("counter(exercise-span-intersection-2-2,lower-alpha)")"; }
+#exercise-span-intersection-2-2 > li { counter-increment: exercise-span-intersection-2-2; }
+#def-basis-3-1-6 { counter-set: def-basis-3-1-6 0; }
+#def-basis-3-1-6 > li::marker { content: ""counter(def-basis-3-1-6,decimal)"."; }
+#def-basis-3-1-6 > li { counter-increment: def-basis-3-1-6; }
+#def-linear-transformation-2-1-11 { counter-set: def-linear-transformation-2-1-11 0; }
+#def-linear-transformation-2-1-11 > li::marker { content: ""counter(def-linear-transformation-2-1-11,decimal)"."; }
+#def-linear-transformation-2-1-11 > li { counter-increment: def-linear-transformation-2-1-11; }
+#prop-preservation-of-zero-vector-1-1-2 { counter-set: prop-preservation-of-zero-vector-1-1-2 0; }
+#prop-preservation-of-zero-vector-1-1-2 > li::marker { content: ""counter(prop-preservation-of-zero-vector-1-1-2,decimal)"."; }
+#prop-preservation-of-zero-vector-1-1-2 > li { counter-increment: prop-preservation-of-zero-vector-1-1-2; }
+#ex-kernel-examples-2-1 { counter-set: ex-kernel-examples-2-1 0; }
+#ex-kernel-examples-2-1 > li::marker { content: ""counter(ex-kernel-examples-2-1,decimal)"."; }
+#ex-kernel-examples-2-1 > li { counter-increment: ex-kernel-examples-2-1; }
+#ex-composition-kernel-image-relations-2-2 { counter-set: ex-composition-kernel-image-relations-2-2 0; }
+#ex-composition-kernel-image-relations-2-2 > li::marker { content: "("counter(ex-composition-kernel-image-relations-2-2,lower-alpha)")"; }
+#ex-composition-kernel-image-relations-2-2 > li { counter-increment: ex-composition-kernel-image-relations-2-2; }
+#ex-image-intersection-subspaces-2-2 { counter-set: ex-image-intersection-subspaces-2-2 0; }
+#ex-image-intersection-subspaces-2-2 > li::marker { content: "("counter(ex-image-intersection-subspaces-2-2,lower-alpha)")"; }
+#ex-image-intersection-subspaces-2-2 > li { counter-increment: ex-image-intersection-subspaces-2-2; }
+#prop-coset-relation-is-equivalence-2-1-2 { counter-set: prop-coset-relation-is-equivalence-2-1-2 0; }
+#prop-coset-relation-is-equivalence-2-1-2 > li::marker { content: ""counter(prop-coset-relation-is-equivalence-2-1-2,decimal)"."; }
+#prop-coset-relation-is-equivalence-2-1-2 > li { counter-increment: prop-coset-relation-is-equivalence-2-1-2; }
+#prop-quotient-space-operations-3-1-5 { counter-set: prop-quotient-space-operations-3-1-5 0; }
+#prop-quotient-space-operations-3-1-5 > li::marker { content: ""counter(prop-quotient-space-operations-3-1-5,decimal)"."; }
+#prop-quotient-space-operations-3-1-5 > li { counter-increment: prop-quotient-space-operations-3-1-5; }
+#def-field-3 { counter-set: def-field-3 0; }
+#def-field-3 > li::marker { content: ""counter(def-field-3,decimal)"."; }
+#def-field-3 > li { counter-increment: def-field-3; }
+#def-field-3-1-2 { counter-set: def-field-3-1-2 0; }
+#def-field-3-1-2 > li::marker { content: "("counter(def-field-3-1-2,lower-alpha)")"; }
+#def-field-3-1-2 > li { counter-increment: def-field-3-1-2; }
+#def-field-3-2-2 { counter-set: def-field-3-2-2 0; }
+#def-field-3-2-2 > li::marker { content: "("counter(def-field-3-2-2,lower-alpha)")"; }
+#def-field-3-2-2 > li { counter-increment: def-field-3-2-2; }
+#ex-fields-basic-examples-2 { counter-set: ex-fields-basic-examples-2 0; }
+#ex-fields-basic-examples-2 > li::marker { content: ""counter(ex-fields-basic-examples-2,decimal)"."; }
+#ex-fields-basic-examples-2 > li { counter-increment: ex-fields-basic-examples-2; }
+#ex-fields-nonexamples-2 { counter-set: ex-fields-nonexamples-2 0; }
+#ex-fields-nonexamples-2 > li::marker { content: ""counter(ex-fields-nonexamples-2,decimal)"."; }
+#ex-fields-nonexamples-2 > li { counter-increment: ex-fields-nonexamples-2; }
+#def-equivalence-relation-3 { counter-set: def-equivalence-relation-3 0; }
+#def-equivalence-relation-3 > li::marker { content: ""counter(def-equivalence-relation-3,decimal)"."; }
+#def-equivalence-relation-3 > li { counter-increment: def-equivalence-relation-3; }
+#ex-residues-and-equivalences-3-1 { counter-set: ex-residues-and-equivalences-3-1 0; }
+#ex-residues-and-equivalences-3-1 > li::marker { content: ""counter(ex-residues-and-equivalences-3-1,decimal)"."; }
+#ex-residues-and-equivalences-3-1 > li { counter-increment: ex-residues-and-equivalences-3-1; }
+#def-partition-3 { counter-set: def-partition-3 0; }
+#def-partition-3 > li::marker { content: ""counter(def-partition-3,decimal)"."; }
+#def-partition-3 > li { counter-increment: def-partition-3; }
+</style>
+</head>
+<body id="changeme" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="my-great-book.html"><span class="title">추상선형대수학:</span> <span class="subtitle">벡터공간과 대수학의 원리</span></a></h1>
+<p class="byline">김도형</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="02-02-isomorphism-theorems.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="02-isomorphisms.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-appendices.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">머릿말</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="01-vector-space.html" class="internal"><span class="codenumber">1</span> <span class="title">벡터공간과 선형변환</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="01-01-vector-spaces.html" class="internal"><span class="codenumber">1.1</span> <span class="title">벡터공간, 부분공간, 선형결합</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-01-vector-spaces.html#subsec-vector-spaces" class="internal"><span class="codenumber">1.1.1</span> <span class="title">벡터공간</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-01-vector-spaces.html#subsec-subspaces" class="internal"><span class="codenumber">1.1.2</span> <span class="title">부분공간</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-01-vector-spaces.html#subsec-linear-combinations" class="internal"><span class="codenumber">1.1.3</span> <span class="title">선형결합</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="01-01-vector-spaces.html#exercises-01-01" class="internal"><span class="codenumber">1.1.4</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="01-02-basis.html" class="internal"><span class="codenumber">1.2</span> <span class="title">기저의 존재성과 차원</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-02-basis.html#subsec-introduction-basis" class="internal"><span class="codenumber">1.2.1</span> <span class="title">기저의 존재성과 차원에 대한 소개</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-02-basis.html#subsec-existence-of-basis" class="internal"><span class="codenumber">1.2.2</span> <span class="title">기저의 정의와 존재</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-02-basis.html#subsec-invariance-of-basis-size" class="internal"><span class="codenumber">1.2.3</span> <span class="title">기저의 크기 불변성</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="01-02-basis.html#exercises-01-02" class="internal"><span class="codenumber">1.2.4</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="01-03-linear-transformation.html" class="internal"><span class="codenumber">1.3</span> <span class="title">선형변환, 커널, 이미지</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-03-linear-transformation.html#subsec-linear-transformations" class="internal"><span class="codenumber">1.3.1</span> <span class="title">선형변환의 정의</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-03-linear-transformation.html#subsec-kernel" class="internal"><span class="codenumber">1.3.2</span> <span class="title">커널</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-03-linear-transformation.html#subsec-image-of-linear-transformation" class="internal"><span class="codenumber">1.3.3</span> <span class="title">선형변환의 이미지</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="01-03-linear-transformation.html#exercises-01-03" class="internal"><span class="codenumber">1.3.4</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="01-04-quotients-cokernel.html" class="internal"><span class="codenumber">1.4</span> <span class="title">몫과 코커널</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-04-quotients-cokernel.html#subsec-quotients" class="internal"><span class="codenumber">1.4.1</span> <span class="title">몫</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="01-04-quotients-cokernel.html#subsec-cokernel" class="internal"><span class="codenumber">1.4.2</span> <span class="title">코커널</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="01-04-quotients-cokernel.html#exercises-01-04" class="internal"><span class="codenumber">1.4.3</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="02-isomorphisms.html" class="internal"><span class="codenumber">2</span> <span class="title">동형사상과 동형정리</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="02-01-isomorphisms.html" class="internal"><span class="codenumber">2.1</span> <span class="title">동형사상</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="02-01-isomorphisms.html#subsec-direct-sums" class="internal"><span class="codenumber">2.1.1</span> <span class="title">직합</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="02-01-isomorphisms.html#02-01-isomorphisms-10" class="internal"><span class="codenumber">2.1.2</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="02-02-isomorphism-theorems.html" class="internal"><span class="codenumber">2.2</span> <span class="title">동형정리</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="02-02-isomorphism-theorems.html#02-02-first-isomorphism-theorem" class="internal"><span class="codenumber">2.2.1</span> <span class="title">제1동형정리 <aside class="aside aside-like" id="02-02-first-isomorphism-theorem-1-1"><div class="para" id="02-02-first-isomorphism-theorem-1-1-1">동형정리:Isomorphism Theorem</div></aside></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="02-02-isomorphism-theorems.html#02-02-second-isomorphism-theorem" class="internal"><span class="codenumber">2.2.2</span> <span class="title">제2동형정리</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="02-02-isomorphism-theorems.html#02-02-third-isomorphism-theorem" class="internal"><span class="codenumber">2.2.3</span> <span class="title">제3동형정리</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="02-02-isomorphism-theorems.html#02-02-isomorphism-theorems-5" class="internal"><span class="codenumber">2.2.4</span> <span class="title">연습문제</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="02-03-product-projectiond-dual.html" class="internal"><span class="codenumber">2.3</span> <span class="title">직곱, 사영, 쌍대공간</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="02-03-product-projectiond-dual.html#02-03-projection" class="internal"><span class="codenumber">2.3.1</span> <span class="title">사영</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="02-03-product-projectiond-dual.html#02-03-direct-product" class="internal"><span class="codenumber">2.3.2</span> <span class="title">직곱</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="02-03-product-projectiond-dual.html#02-03-dual-space" class="internal"><span class="codenumber">2.3.3</span> <span class="title">쌍대공간</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-appendices.html" class="internal"><span class="codenumber">3</span> <span class="title">부록</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-fields.html" class="internal"><span class="codenumber">3.1</span> <span class="title">체</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="99-02-set-theory-background.html" class="internal"><span class="codenumber">3.2</span> <span class="title">집합</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="99-02-set-theory-background.html#subsec-zorn" class="internal"><span class="codenumber">3.2.1</span> <span class="title">초른의 보조정리</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="99-02-set-theory-background.html#subsec-schroeder-bernstein" class="internal"><span class="codenumber">3.2.2</span> <span class="title">슈뢰더-베른슈타인 정리</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="99-02-set-theory-background.html#subsec-arithmetic-of-cardinals" class="internal"><span class="codenumber">3.2.3</span> <span class="title">기수의 산술</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="99-03-equivalence.html" class="internal"><span class="codenumber">3.3</span> <span class="title">동치관계와 분할</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-chapter-title.html" class="internal"><span class="codenumber">4</span> <span class="title">Chapter Title</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-section-name.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Section Title</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">맺음말</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="02-03-product-projectiond-dual"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.3</span><span class="space"> </span><span class="title">직곱, 사영, 쌍대공간</span>
+</h2>
+<section class="subsection" id="02-03-projection"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.3.1</span><span class="space"> </span><span class="title">사영</span>
+</h3>
+<div class="para" id="02-03-projection-2">사영은 전체 공간의 벡터를 특정한 부분공간의 성분으로만 투영시키는 선형 연산자입니다. 사영 연산자는 대수적으로 주어진 공간을 분해합니다.</div>
+<article class="definition definition-like" id="02-03-projection-def"><h4 class="heading">
+<span class="type">정의</span><span class="space"> </span><span class="codenumber">2.3.1</span><span class="period">.</span>
+</h4>
+<div class="para" id="02-03-projection-def-1-1">체 <span class="process-math">\(\mathbb{F}\)</span> 위의 벡터공간 <span class="process-math">\(V\)</span> 상의 선형 연산자 <span class="process-math">\(P: V \to V\)</span> 가 <span class="process-math">\(P^2 = P\)</span> 를 만족할 때, <span class="process-math">\(P\)</span>를 사영이라 한다.</div></article><article class="theorem theorem-like" id="02-03-projection-decomposition"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">2.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">사영의 직합 분해.</span>
+</h4>
+<div class="para" id="02-03-projection-decomposition-2-1">선형 연산자 <span class="process-math">\(P: V \to V\)</span> 가 사영이면, <span class="process-math">\(V = \ker(P) \oplus \text{im}(P)\)</span> 로 직합 분해된다.</div></article><details id="02-03-projection-decomposition-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="02-03-projection-decomposition-3-1">임의의 <span class="process-math">\(v \in V\)</span> 에 대하여, 항등식 <span class="process-math">\(v = (v - P(v)) + P(v)\)</span> 를 고려합니다. <span class="process-math">\(P(v) \in \text{im}(P)\)</span> 임은 자명합니다. <span class="process-math">\(v - P(v)\)</span> 에 연산자 <span class="process-math">\(P\)</span>를 적용하면 <span class="process-math">\(P(v - P(v)) = P(v) - P^2(v)\)</span> 입니다. 사영의 정의에 의해 <span class="process-math">\(P^2 = P\)</span> 이므로, <span class="process-math">\(P(v) - P(v) = 0_V\)</span> 입니다. 따라서 <span class="process-math">\(v - P(v) \in \ker(P)\)</span> 입니다. 이는 <span class="process-math">\(V = \ker(P) + \text{im}(P)\)</span> 임을 보여줍니다.</div>
+<div class="para" id="02-03-projection-decomposition-3-2">교집합을 확인하기 위해 <span class="process-math">\(x \in \ker(P) \cap \text{im}(P)\)</span> 라 가정합니다. <span class="process-math">\(x \in \text{im}(P)\)</span> 이므로 어떤 <span class="process-math">\(y \in V\)</span> 에 대해 <span class="process-math">\(x = P(y)\)</span> 입니다. 양변에 <span class="process-math">\(P\)</span>를 취하면 <span class="process-math">\(P(x) = P^2(y) = P(y) = x\)</span> 입니다. 그런데 <span class="process-math">\(x \in \ker(P)\)</span> 이기도 하므로 <span class="process-math">\(P(x) = 0_V\)</span> 입니다. 따라서 <span class="process-math">\(x = 0_V\)</span> 입니다.</div>
+<div class="para" id="02-03-projection-decomposition-3-3">교집합이 영벡터뿐이므로 <span class="process-math">\(V = \ker(P) \oplus \text{im}(P)\)</span> 입니다.</div></article></details><details id="02-03-projection-example-1" class="question example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예제</span><span class="space"> </span><span class="codenumber">2.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">사영과 제1동형정리.</span>
+</h4></summary><article class="question example-like knowl__content"><div class="para" id="02-03-projection-example-1-2-1">연산자 <span class="process-math">\(P: V \to V\)</span> 가 사영일 때, 사상 <span class="process-math">\(\bar{P}: V/\ker(P) \to \text{im}(P)\)</span> 를 <span class="process-math">\(\bar{P}(v + \ker(P)) = P(v)\)</span> 로 정의하면 이는 동형사상이다.</div>
+<div class="solutions"><details id="02-03-projection-example-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="02-03-projection-example-1-3-1">선형변환 <span class="process-math">\(P\)</span>에 대하여 제1동형정리를 직접 적용한 결과입니다. 사영 <span class="process-math">\(P\)</span>의 치역은 <span class="process-math">\(\text{im}(P)\)</span> 이고 커널은 <span class="process-math">\(\ker(P)\)</span> 이므로, <span class="process-math">\(V\)</span>를 <span class="process-math">\(\ker(P)\)</span> 로 나눈 몫공간은 치역 <span class="process-math">\(\text{im}(P)\)</span> 와 동형이 됩니다. 앞선 <a href="02-03-product-projectiond-dual.html#02-03-projection-decomposition" class="xref" data-knowl="./knowl/xref/02-03-projection-decomposition.html" data-reveal-label="Reveal" data-close-label="Close" title="정리 2.3.2: 사영의 직합 분해">정리 2.3.2</a>의 직합 분해 <span class="process-math">\(V = \ker(P) \oplus \text{im}(P)\)</span> 의 관점에서 보면, 전체 공간에서 한쪽 직합 성분인 <span class="process-math">\(\ker(P)\)</span> 를 동치 관계로 묶어 무시(몫공간)하고 나면, 나머지 직합 성분인 <span class="process-math">\(\text{im}(P)\)</span> 만이 구조적으로 남게 됨을 대수적으로 확언하는 것입니다.</div></div></details></div></article></details><details id="02-03-projection-example-2" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예시</span><span class="space"> </span><span class="codenumber">2.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">간단한 사영.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="02-03-projection-example-2-2-1">
+<span class="process-math">\(\mathbb{F}^2\)</span> 에서 선형 연산자 <span class="process-math">\(P(x,y) = (x,0)\)</span> 을 생각하자. <span class="process-math">\(P^2 = P\)</span> 이므로 사영이다. <span class="process-math">\(\ker(P)\)</span> 는 y축이고 <span class="process-math">\(\text{im}(P)\)</span> 는 x축이다. <a href="02-02-isomorphism-theorems.html#thm-first-isomorphism" class="xref" data-knowl="./knowl/xref/thm-first-isomorphism.html" data-reveal-label="Reveal" data-close-label="Close" title="정리 2.2.1: 제1동형정리">제1동형정리 2.2.1</a>에 의해 <span class="process-math">\(\mathbb{F}^2 / (\text{y축}) \cong \text{x축}\)</span> 이 성립한다.</div></article></details></section><section class="subsection" id="02-03-direct-product"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.3.2</span><span class="space"> </span><span class="title">직곱</span>
+</h3>
+<div class="para" id="02-03-direct-product-2">직곱은 독립적으로 존재하는 여러 공간들을 하나로 합쳐서 더 큰 공간을 만들어내는 대수적 조립법입니다.</div>
+<article class="definition definition-like" id="02-03-direct-product-def"><h4 class="heading">
+<span class="type">정의</span><span class="space"> </span><span class="codenumber">2.3.5</span><span class="period">.</span><span class="space"> </span><span class="title">직곱.</span>
+</h4>
+<div class="para" id="02-03-direct-product-def-2-1">체 <span class="process-math">\(\mathbb{F}\)</span> 위의 두 벡터공간 <span class="process-math">\(V\)</span>와 <span class="process-math">\(W\)</span>에 대하여, 데카르트 곱 <span class="process-math">\(V \times W = \{ (v, w) \mid v \in V, w \in W \}\)</span> 상에 덧셈과 스칼라 곱셈을 성분별로 정의한 벡터공간을 <span class="process-math">\(V\)</span>와 <span class="process-math">\(W\)</span>의 직곱이라 한다.</div></article><details id="02-03-direct-product-example-1" class="question example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예제</span><span class="space"> </span><span class="codenumber">2.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">직곱 공간에서의 제2동형정리 응용.</span>
+</h4></summary><article class="question example-like knowl__content"><div class="para" id="02-03-direct-product-example-1-2-1">직곱 공간 <span class="process-math">\(X = V \times W\)</span> 내에 두 부분공간 <span class="process-math">\(\tilde{V} = \{ (v, 0_W) \mid v \in V \}\)</span> 와 <span class="process-math">\(\tilde{W} = \{ (0_V, w) \mid w \in W \}\)</span> 를 정의하자. 사상 <span class="process-math">\(\Phi: \tilde{V} \to X/\tilde{W}\)</span> 를 <span class="process-math">\(\Phi((v, 0_W)) = (v, 0_W) + \tilde{W}\)</span> 로 정의할 때, 이는 동형사상이다.</div>
+<div class="solutions"><details id="02-03-direct-product-example-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="02-03-direct-product-example-1-3-1">부분공간 <span class="process-math">\(\tilde{V}\)</span> 와 <span class="process-math">\(\tilde{W}\)</span> 에 대하여 <a href="02-02-isomorphism-theorems.html#thm-second-isomorphism" class="xref" data-knowl="./knowl/xref/thm-second-isomorphism.html" data-reveal-label="Reveal" data-close-label="Close" title="정리 2.2.3: 제2동형정리">제2동형정리 2.2.3</a>를 적용합니다. 제2동형정리에 의해 동형사상 <span class="process-math">\(\Psi: \tilde{V} / (\tilde{V} \cap \tilde{W}) \to (\tilde{V} + \tilde{W}) / \tilde{W}\)</span> 가 성립합니다.</div>
+<div class="para" id="02-03-direct-product-example-1-3-2">직곱의 구조상 <span class="process-math">\(\tilde{V} + \tilde{W} = X\)</span> 전체 공간이 되며, 교집합 <span class="process-math">\(\tilde{V} \cap \tilde{W} = \{ (0_V, 0_W) \}\)</span> 로 자명한 영벡터 공간입니다.</div>
+<div class="para" id="02-03-direct-product-example-1-3-3">따라서 우변의 합공간 몫은 <span class="process-math">\(X / \tilde{W}\)</span> 가 되고, 좌변의 교집합 몫은 <span class="process-math">\(\tilde{V} / \{ (0_V, 0_W) \}\)</span> 가 되며, 이는 <span class="process-math">\(\tilde{V}\)</span> 자신과 자연스럽게 동형입니다.</div>
+<div class="para" id="02-03-direct-product-example-1-3-4">결과적으로 제2동형정리의 (<a href="02-02-isomorphism-theorems.html#thm-second-isomorphism" class="xref" data-knowl="./knowl/xref/thm-second-isomorphism.html" data-reveal-label="Reveal" data-close-label="Close" title="정리 2.2.3: 제2동형정리">정리 2.2.3</a>)사상은 <span class="process-math">\(\tilde{V}\)</span> 의 원소 <span class="process-math">\((v, 0_W)\)</span> 를 몫공간 <span class="process-math">\(X/\tilde{W}\)</span> 의 잉여류 <span class="process-math">\((v, 0_W) + \tilde{W}\)</span> 로 보내는 동형사상 <span class="process-math">\(\Phi\)</span> 로 단순화됩니다. 이는 직곱으로 만든 거대한 공간에서 한 부분공간을 몫으로 제거하면 다른 부분공간이 보존됨을 대수적으로 증명합니다.</div>
+</div></details></div></article></details><details id="02-03-direct-product-example-2" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예시</span><span class="space"> </span><span class="codenumber">2.3.7</span><span class="period">.</span><span class="space"> </span><span class="title">다항식 공간과 표준공간의 직곱.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="02-03-direct-product-example-2-2-1">다항식 공간 <span class="process-math">\(\mathbb{F}[x]_{\le 2}\)</span> 와 표준 공간 <span class="process-math">\(\mathbb{F}^2\)</span> 의 직곱 <span class="process-math">\(\mathbb{F}[x]_{\le 2} \times \mathbb{F}^2\)</span> 를 고려합시다. 이 5차원 공간에서 두 번째 성분이 영벡터인 부분공간을 몫공간으로 나누어 무시하면, 남은 몫공간은 다항식 공간 <span class="process-math">\(\mathbb{F}[x]_{\le 2}\)</span>과 동형입니다.</div></article></details></section><section class="subsection" id="02-03-dual-space"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">2.3.3</span><span class="space"> </span><span class="title">쌍대공간</span>
+</h3>
+<div class="para" id="02-03-dual-space-2">벡터공간의 원소들을 스칼라 값으로 대응시키는 선형범함수들의 모임을 쌍대공간이라 합니다. 이 쌍대공간의 구조 속에서 부분공간을 무화시키는 소멸자 개념을 도입하면, 제3동형정리가 적용되는 대수적 쌍대성을 확인할 수 있습니다.</div>
+<article class="definition definition-like" id="02-03-dual-space-def"><h4 class="heading">
+<span class="type">정의</span><span class="space"> </span><span class="codenumber">2.3.8</span><span class="period">.</span><span class="space"> </span><span class="title">쌍대공간.</span>
+</h4>
+<div class="para" id="02-03-dual-space-def-2-1">체 <span class="process-math">\(\mathbb{F}\)</span> 위의 벡터공간 <span class="process-math">\(V\)</span> 에 대하여, <span class="process-math">\(V\)</span>에서 스칼라 체 <span class="process-math">\(\mathbb{F}\)</span> 로 가는 선형범함수들의 공간 <span class="process-math">\(\mathcal{L}(V, \mathbb{F})\)</span> 를 <span class="process-math">\(V\)</span>의 쌍대공간이라 하고 <span class="process-math">\(V^*\)</span> 로 표기한다.</div></article><article class="definition definition-like" id="02-03-annihilator-def"><h4 class="heading">
+<span class="type">정의</span><span class="space"> </span><span class="codenumber">2.3.9</span><span class="period">.</span><span class="space"> </span><span class="title">소멸자.</span>
+</h4>
+<div class="para" id="02-03-annihilator-def-2-1">
+<span class="process-math">\(V\)</span>의 부분공간 <span class="process-math">\(U\)</span>에 대하여, <span class="process-math">\(U\)</span>의 모든 원소를 0으로 보내는 <span class="process-math">\(V^*\)</span> 의 부분공간을 <span class="process-math">\(U\)</span>의 소멸자라 하고 <span class="process-math">\(U^0 = \{ f \in V^* \mid f(u) = 0 \text{ for all } u \in U \}\)</span> 로 정의한다.</div></article><div class="para" id="02-03-dual-space-5">소멸자는 몫공간과 쌍대공간을 잇는 핵심 다리 역할을 하며, 자연스러운 동형사상 <span class="process-math">\(V^* / U^0 \cong U^*\)</span> 를 유도합니다. 이를 바탕으로 제3동형정리를 적용합니다.</div>
+<details id="02-03-dual-space-example-1" class="question example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예제</span><span class="space"> </span><span class="codenumber">2.3.10</span><span class="period">.</span><span class="space"> </span><span class="title">쌍대공간에서의 제3동형정리 응용.</span>
+</h4></summary><article class="question example-like knowl__content"><div class="para" id="02-03-dual-space-example-1-2-1">
+<span class="process-math">\(V\)</span>가 벡터공간이고 <span class="process-math">\(U\)</span>와 <span class="process-math">\(W\)</span>가 <span class="process-math">\(U \subseteq W \subseteq V\)</span> 를 만족하는 부분공간이라 하자. 소멸자의 정의에 의해 <span class="process-math">\(W^0 \subseteq U^0 \subseteq V^*\)</span> 가 성립한다. 이때<a href="02-02-isomorphism-theorems.html#thm-third-isomorphism" class="xref" data-knowl="./knowl/xref/thm-third-isomorphism.html" data-reveal-label="Reveal" data-close-label="Close" title="정리 2.2.5: 제3동형정리">제3동형정리 2.2.5</a>에 의해 사상 <span class="process-math">\(\Psi: (V^* / W^0) / (U^0 / W^0) \to V^* / U^0\)</span> 는 동형사상임을 보이시오.</div>
+<div class="solutions"><details id="02-03-dual-space-example-1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="02-03-dual-space-example-1-3-1">부분공간의 포함 관계 <span class="process-math">\(U \subseteq W \subseteq V\)</span> 가 주어지면, 더 큰 공간을 0으로 만드는 조건이 더 까다로우므로 소멸자의 포함 관계는 역전되어 <span class="process-math">\(W^0 \subseteq U^0 \subseteq V^*\)</span> 가 됩니다.</div>
+<div class="para" id="02-03-dual-space-example-1-3-2">이 쌍대공간 <span class="process-math">\(V^*\)</span> 내의 세 겹 포함 관계에 대하여 <a href="02-02-isomorphism-theorems.html#thm-third-isomorphism" class="xref" data-knowl="./knowl/xref/thm-third-isomorphism.html" data-reveal-label="Reveal" data-close-label="Close" title="정리 2.2.5: 제3동형정리">제3동형정리 2.2.5</a>를 그대로 적용하면, 몫공간의 몫공간 <span class="process-math">\((V^* / W^0) / (U^0 / W^0)\)</span> 가 <span class="process-math">\(V^* / U^0\)</span> 와 동형이 되는 사상 <span class="process-math">\(\Psi\)</span> 가 확립됩니다.</div>
+</div></details></div></article></details><details id="02-03-dual-space-example-2" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예시</span><span class="space"> </span><span class="codenumber">2.3.11</span><span class="period">.</span><span class="space"> </span><span class="title">3차원 공간의 쌍대공간.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="02-03-dual-space-example-2-2-1">
+<span class="process-math">\(V = \mathbb{R}^3\text{,}\)</span> <span class="process-math">\(W\)</span>를 <span class="process-math">\(xy\)</span>-평면, <span class="process-math">\(U\)</span>를 x축이라 합시다. <span class="process-math">\(W^0\)</span> 는 z축 방향의 범함수들이고, <span class="process-math">\(U^0\)</span> 는 y축과 z축 방향의 범함수들입니다. <a href="02-02-isomorphism-theorems.html#thm-third-isomorphism" class="xref" data-knowl="./knowl/xref/thm-third-isomorphism.html" data-reveal-label="Reveal" data-close-label="Close" title="정리 2.2.5: 제3동형정리">제3동형정리 2.2.5</a>의 사상 <span class="process-math">\(\Psi\)</span> 는 <span class="process-math">\(y, z\)</span>축 범함수들 중 <span class="process-math">\(z\)</span>축 범함수를 무시한 공간의 몫이, 전체 공간에서 바로 <span class="process-math">\(y, z\)</span>축 범함수들을 무시하고 남은 <span class="process-math">\(x\)</span>축 범함수의 구조와 동형임을 입증합니다.</div></article></details><article class="definition definition-like" id="02-03-dual-map-def"><h4 class="heading">
+<span class="type">정의</span><span class="space"> </span><span class="codenumber">2.3.12</span><span class="period">.</span><span class="space"> </span><span class="title">쌍대사상.</span>
+</h4>
+<div class="para" id="02-03-dual-map-def-2-1">체 <span class="process-math">\(\mathbb{F}\)</span> 상의 두 벡터공간 <span class="process-math">\(V, W\)</span>와 선형변환 <span class="process-math">\(T: V \to W\)</span>가 주어졌다고 하자. <span class="process-math">\(T\)</span>의 쌍대사상 <span class="process-math">\(T^*: W^* \to V^*\)</span>는 임의의 선형범함수 <span class="process-math">\(g \in W^*\)</span>에 대하여 다음과 같이 합성함수로 정의된다.</div> <div class="para" id="02-03-dual-map-def-2-2"><span class="process-math">\(T^*(g) = g \circ T\)</span></div> <div class="para" id="02-03-dual-map-def-2-3">즉, 임의의 <span class="process-math">\(v \in V\)</span>에 대하여 <span class="process-math">\((T^*(g))(v) = g(T(v))\)</span>이다.</div></article><details id="02-03-dual-map-example-1" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예시</span><span class="space"> </span><span class="codenumber">2.3.13</span><span class="period">.</span><span class="space"> </span><span class="title">쌍대사상의 계산.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="02-03-dual-map-example-1-2-1">
+<span class="process-math">\(V = \mathbb{R}^2, W = \mathbb{R}^2\)</span>이고 <span class="process-math">\(T(x, y) = (x+y, x)\)</span>라 하자. <span class="process-math">\(g \in W^*\)</span>가 <span class="process-math">\(g(u, v) = 2u - v\)</span>로 주어졌을 때, <span class="process-math">\(T^*(g)\)</span>를 계산해 보자.</div> <div class="para" id="02-03-dual-map-example-1-2-2"><span class="process-math">\((T^*(g))(x, y) = g(T(x, y)) = g(x+y, x) = 2(x+y) - x = x + 2y\)</span></div> <div class="para" id="02-03-dual-map-example-1-2-3">따라서 <span class="process-math">\(T^*(g)\)</span>는 <span class="process-math">\(V\)</span> 상의 선형범함수 <span class="process-math">\((x, y) \mapsto x+2y\)</span>가 된다.</div></article></details><details id="02-03-dual-map-example-2" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예시</span><span class="space"> </span><span class="codenumber">2.3.14</span><span class="period">.</span><span class="space"> </span><span class="title">미분 연산자의 쌍대사상.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="02-03-dual-map-example-2-2-1">미분 연산자 <span class="process-math">\(D: P_2(\mathbb{F}) \to P_1(\mathbb{F})\)</span>를 <span class="process-math">\(D(p(x)) = p'(x)\)</span>로 정의하자. <span class="process-math">\(W = P_1(\mathbb{F})\)</span> 상의 선형범함수 <span class="process-math">\(g\)</span>를 <span class="process-math">\(g(q) = q(0)\)</span> (상수항 평가)로 두면, <span class="process-math">\(D^*(g) \in P_2(\mathbb{F})^*\)</span>는 <span class="process-math">\((D^*(g))(p) = g(D(p)) = g(p') = p'(0)\)</span>이 된다. 즉, 원래 다항식의 1차항 계수를 추출하는 범함수가 된다.</div></article></details><article class="theorem theorem-like" id="02-03-dual-map-linearity"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">2.3.15</span><span class="period">.</span><span class="space"> </span><span class="title">쌍대사상의 선형성.</span>
+</h4>
+<div class="para" id="02-03-dual-map-linearity-2-1">선형변환 <span class="process-math">\(T: V \to W\)</span>에 대하여, 쌍대사상 <span class="process-math">\(T^*: W^* \to V^*\)</span>는 선형변환이다.</div></article><details id="02-03-dual-map-linearity-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="02-03-dual-map-linearity-3-1">임의의 <span class="process-math">\(g_1, g_2 \in W^*\)</span>와 스칼라 <span class="process-math">\(c \in \mathbb{F}\)</span>에 대하여, <span class="process-math">\(V\)</span>의 임의의 원소 <span class="process-math">\(v\)</span>를 취해 값을 평가하면 다음과 같다.</div>
+<div class="para" id="02-03-dual-map-linearity-3-2"><span class="process-math">\((T^*(cg_1 + g_2))(v) = (cg_1 + g_2)(T(v)) = c g_1(T(v)) + g_2(T(v))\)</span></div>
+<div class="para" id="02-03-dual-map-linearity-3-3"><span class="process-math">\(= c(T^*(g_1))(v) + (T^*(g_2))(v) = (cT^*(g_1) + T^*(g_2))(v)\)</span></div>
+<div class="para" id="02-03-dual-map-linearity-3-4">모든 <span class="process-math">\(v \in V\)</span>에 대해 위 등식이 성립하므로, <span class="process-math">\(T^*(cg_1 + g_2) = cT^*(g_1) + T^*(g_2)\)</span>이다.</div></article></details><article class="definition definition-like" id="def-dual-basis"><h4 class="heading">
+<span class="type">정의</span><span class="space"> </span><span class="codenumber">2.3.16</span><span class="period">.</span><span class="space"> </span><span class="title">쌍대기저.</span>
+</h4>
+<div class="para" id="def-dual-basis-2-1">체 <span class="process-math">\(\mathbb{F}\)</span> 상의 유한차원 벡터공간 <span class="process-math">\(V\)</span>의 기저를 <span class="process-math">\(\mathcal{B} = \{v_1, \dots, v_n\}\)</span>이라 하자. 쌍대공간 <span class="process-math">\(V^*\)</span>의 원소들로 이루어진 집합 <span class="process-math">\(\mathcal{B}^* = \{f_1, \dots, f_n\}\)</span>이 모든 <span class="process-math">\(1 \le i, j \le n\)</span>에 대하여 다음을 만족할 때, 이를 <span class="process-math">\(\mathcal{B}\)</span>에 대한 쌍대기저라고 한다.</div> <div class="para" id="def-dual-basis-2-2"><span class="process-math">\(f_i(v_j) = \delta_{ij} = \begin{cases} 1 &amp; \text{if } i=j \\ 0 &amp; \text{if } i \neq j \end{cases}\)</span></div></article><details id="ex-dual-basis-example-1" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예시</span><span class="space"> </span><span class="codenumber">2.3.17</span><span class="period">.</span><span class="space"> </span><span class="title">표준기저의 쌍대기저.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-dual-basis-example-1-2-1">
+<span class="process-math">\(V = \mathbb{F}^3\)</span>이고 <span class="process-math">\(\mathcal{B}\)</span>가 표준기저 <span class="process-math">\(\{e_1, e_2, e_3\}\)</span>일 때, 쌍대기저 <span class="process-math">\(\mathcal{B}^* = \{f_1, f_2, f_3\}\)</span>의 각 <span class="process-math">\(f_i\)</span>는 벡터 <span class="process-math">\((x_1, x_2, x_3)\)</span>에서 <span class="process-math">\(i\)</span>번째 성분 <span class="process-math">\(x_i \in \mathbb{F}\)</span>를 추출하는 사상이다. 즉, <span class="process-math">\(f_1(x_1, x_2, x_3) = x_1\)</span>이다.</div></article></details><article class="theorem theorem-like" id="thm-dual-basis-theorem"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">2.3.18</span><span class="period">.</span><span class="space"> </span><span class="title">쌍대기저의 기저성.</span>
+</h4>
+<div class="para" id="thm-dual-basis-theorem-2-1">유한차원 벡터공간 <span class="process-math">\(V\)</span>의 기저 <span class="process-math">\(\mathcal{B} = \{v_1, \dots, v_n\}\)</span>에 대한 쌍대기저 <span class="process-math">\(\mathcal{B}^* = \{f_1, \dots, f_n\}\)</span>는 쌍대공간 <span class="process-math">\(V^*\)</span>의 기저이다.</div></article><details id="thm-dual-basis-theorem-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="thm-dual-basis-theorem-3-1">먼저 <span class="process-math">\(\mathcal{B}^*\)</span>가 선형독립임을 보이자. <span class="process-math">\(\sum_{i=1}^n c_i f_i = 0\)</span> (영범함수)라 가정하자. 임의의 기저 벡터 <span class="process-math">\(v_k\)</span>에 이 범함수를 적용하면,</div>
+<div class="para" id="thm-dual-basis-theorem-3-2"><span class="process-math">\(0 = \left(\sum_{i=1}^n c_i f_i\right)(v_k) = \sum_{i=1}^n c_i f_i(v_k) = \sum_{i=1}^n c_i \delta_{ik} = c_k\)</span></div>
+<div class="para" id="thm-dual-basis-theorem-3-3">이다. 따라서 모든 <span class="process-math">\(k\)</span>에 대해 <span class="process-math">\(c_k = 0\)</span>이므로 <span class="process-math">\(\mathcal{B}^*\)</span>는 선형독립이다.</div>
+<div class="para" id="thm-dual-basis-theorem-3-4">다음으로 <span class="process-math">\(\mathcal{B}^*\)</span>가 <span class="process-math">\(V^*\)</span>를 생성함을 보이자. 임의의 <span class="process-math">\(g \in V^*\)</span>에 대하여, <span class="process-math">\(g(v_i) = a_i\)</span>라 두자. 새로운 범함수 <span class="process-math">\(h = \sum_{i=1}^n a_i f_i\)</span>를 생각하면, 임의의 <span class="process-math">\(v_k\)</span>에 대하여</div>
+<div class="para" id="thm-dual-basis-theorem-3-5"><span class="process-math">\(h(v_k) = \sum_{i=1}^n a_i f_i(v_k) = a_k = g(v_k)\)</span></div>
+<div class="para" id="thm-dual-basis-theorem-3-6">이다. <span class="process-math">\(h\)</span>와 <span class="process-math">\(g\)</span>가 기저 <span class="process-math">\(\mathcal{B}\)</span>의 모든 원소에서 같은 값을 가지므로 <span class="process-math">\(h = g\)</span>이다. 즉, <span class="process-math">\(g\)</span>는 <span class="process-math">\(\mathcal{B}^*\)</span>의 선형결합으로 표현되므로 <span class="process-math">\(\mathcal{B}^*\)</span>는 <span class="process-math">\(V^*\)</span>의 기저이다.</div></article></details><details id="02-03-dual-basis-example-2" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예시</span><span class="space"> </span><span class="codenumber">2.3.19</span><span class="period">.</span><span class="space"> </span><span class="title">다항식 공간의 쌍대기저.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="02-03-dual-basis-example-2-2-1">
+<span class="process-math">\(V = P_1(\mathbb{F})\)</span>이고 기저가 <span class="process-math">\(\mathcal{B} = \{1, x+1\}\)</span>이라 하자. 쌍대기저 <span class="process-math">\(\{f_1, f_2\}\)</span>를 구하려면, <span class="process-math">\(f_1(1)=1, f_1(x+1)=0\)</span> 및 <span class="process-math">\(f_2(1)=0, f_2(x+1)=1\)</span>을 만족해야 한다. 임의의 다항식 <span class="process-math">\(p(x) = ax+b\)</span> (<span class="process-math">\(a, b \in \mathbb{F}\)</span>)에 대하여, <span class="process-math">\(p(x) = (b-a) \cdot 1 + a \cdot (x+1)\)</span>로 표현할 수 있으므로 <span class="process-math">\(f_1(p) = -a+b\text{,}\)</span> <span class="process-math">\(f_2(p) = a\)</span>로 주어짐을 확인할 수 있으며, 이 두 범함수는 <span class="process-math">\(P_1(\mathbb{F})^*\)</span>의 기저가 된다.</div></article></details><details id="02-03-dual-map-example-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">예시</span><span class="space"> </span><span class="codenumber">2.3.20</span><span class="period">.</span><span class="space"> </span><span class="title">쌍대사상의 구체적 계산.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="02-03-dual-map-example-3-2-1">
+<span class="process-math">\(V = \mathbb{F}^2, W = \mathbb{F}^2\)</span>이고 <span class="process-math">\(T(x, y) = (x+y, x)\)</span>라 하자. 쌍대사상 <span class="process-math">\(T^*: W^* \to V^*\)</span>를 구체적으로 계산해보자.</div></article></details></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="02-02-isomorphism-theorems.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-appendices.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

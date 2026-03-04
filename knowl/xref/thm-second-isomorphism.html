@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">제2동형정리.</span>
+</h4>
+<div class="para logical">
+<div class="para">
+<span class="process-math">\(V\)</span>가 체 <span class="process-math">\(\mathbb{F}\)</span> 위의 벡터공간이고, <span class="process-math">\(U\)</span>와 <span class="process-math">\(W\)</span>가 <span class="process-math">\(V\)</span>의 부분공간이라 하자. 사상 <span class="process-math">\(\Phi: U / (U \cap W) \to (U + W) / W\)</span> 를 임의의 <span class="process-math">\(u \in U\)</span> 에 대하여 다음과 같이 정의하자:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Phi(u + (U \cap W)) = u + W
+\end{equation*}
+</div>
+<div class="para">이때, 사상 <span class="process-math">\(\Phi\)</span>는 동형사상이다.</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">선형변환 <span class="process-math">\(S: U \to (U+W)/W\)</span> 를 <span class="process-math">\(S(u) = u + W\)</span> 로 정의하자. 이 사상은 몫공간으로의 자연스러운 투영사상을 <span class="process-math">\(U\)</span>에 제한한 것이므로 선형이다.</div>
+<div class="para">
+<em class="emphasis">전사:</em> 몫공간 <span class="process-math">\((U+W)/W\)</span> 의 임의의 원소는 어떤 <span class="process-math">\(u \in U, w \in W\)</span> 에 대하여 <span class="process-math">\((u+w) + W\)</span> 형태이다. 잉여류의 덧셈 성질에 의해 <span class="process-math">\((u+w) + W = u + (w+W) = u + W = S(u)\)</span> 이다. 따라서 <span class="process-math">\(S\)</span>는 전사이다.</div>
+<div class="para">
+<em class="emphasis">커널:</em> <span class="process-math">\(u \in \ker(S)\)</span> 일 필요충분조건은 <span class="process-math">\(S(u) = u + W = W\)</span> 인 것이며, 이는 <span class="process-math">\(u \in W\)</span> 임을 의미한다. 동시에 <span class="process-math">\(S\)</span>의 정의역이 <span class="process-math">\(U\)</span>이므로 <span class="process-math">\(u \in U\)</span> 이어야 한다. 따라서 <span class="process-math">\(\ker(S) = U \cap W\)</span> 이다.</div>
+<div class="para">이제 선형변환 <span class="process-math">\(S\)</span>에 대하여 제1동형정리 <a href="02-02-isomorphism-theorems.html#thm-first-isomorphism" class="xref" data-knowl="./knowl/xref/thm-first-isomorphism.html" data-reveal-label="Reveal" data-close-label="Close" title="정리 2.2.1: 제1동형정리">정리 2.2.1</a>를 적용한다. 사상 <span class="process-math">\(\bar{S}: U / \ker(S) \to \text{im}(S)\)</span> 가 <span class="process-math">\(\bar{S}(u + \ker(S)) = S(u)\)</span> 로 정의될 때 이는 동형사상이다. 여기서 <span class="process-math">\(\ker(S) = U \cap W\)</span> 이고 <span class="process-math">\(\text{im}(S) = (U+W)/W\)</span> 이며, <span class="process-math">\(\bar{S}(u + (U \cap W)) = u + W\)</span> 이다. 이는 정확히 정리에서 정의한 사상 <span class="process-math">\(\Phi\)</span> 와 일치하므로, <span class="process-math">\(\Phi\)</span>는 동형사상이다.</div></article></details><span class="incontext"><a class="internal" href="02-02-isomorphism-theorems.html#thm-second-isomorphism">in-context</a></span>
+</body>
+</html>

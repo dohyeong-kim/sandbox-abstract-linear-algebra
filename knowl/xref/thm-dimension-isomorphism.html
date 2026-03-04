@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h3 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">차원과 동형.</span>
+</h3>
+<div class="para logical">
+<div class="para">유한차원 벡터공간 <span class="process-math">\(V\)</span>와 <span class="process-math">\(W\)</span>가 동형일 필요충분조건은 두 공간의 차원이 같은 것, 즉</div>
+<div class="displaymath process-math">
+\begin{equation*}
+V \cong W \iff \dim(V) = \dim(W)
+\end{equation*}
+</div>
+<div class="para">이다.</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">증명<span class="period">.</span></span></h3></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">
+<span class="process-math">\((\Rightarrow)\)</span> <span class="process-math">\(V \cong W\)</span>라 가정하고 <span class="process-math">\(T: V \to W\)</span>를 동형사상이라 합시다. 역변환이 존재하므로 <a href="02-01-isomorphisms.html#prop-bijection-isomorphism" class="xref" data-knowl="./knowl/xref/prop-bijection-isomorphism.html" data-reveal-label="Reveal" data-close-label="Close" title="명제 2.1.3: 일대일대응과 동형사상">명제 2.1.3</a>에 의해 <span class="process-math">\(T\)</span>는 전단사입니다. 단사이므로 <span class="process-math">\(\ker(T) = \{0_V\}\)</span>이고, 전사이므로 <span class="process-math">\(\text{im}(T) = W\)</span>입니다. <a href="01-04-quotients-cokernel.html#thm-rank-nullity" class="xref" data-knowl="./knowl/xref/thm-rank-nullity.html" data-reveal-label="Reveal" data-close-label="Close" title="정리 1.4.10: 선형변환의 기본정리">정리 1.4.10</a>에 의해</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-bijection-isomorphism.html ./knowl/xref/thm-rank-nullity.html">
+\begin{equation*}
+\dim(V) = \dim(\ker(T)) + \dim(\text{im}(T)) = 0 + \dim(W) = \dim(W)
+\end{equation*}
+</div>
+<div class="para">입니다.</div>
+</div>
+<div class="para">
+<span class="process-math">\((\Leftarrow)\)</span> <span class="process-math">\(\dim(V) = \dim(W) = n\)</span>이라 가정합시다. <span class="process-math">\(V\)</span>의 기저를 <span class="process-math">\(\{v_1, \dots, v_n\}\)</span>이라 하고, <span class="process-math">\(W\)</span>의 기저를 <span class="process-math">\(\{w_1, \dots, w_n\}\)</span>이라 합시다. 선형변환 <span class="process-math">\(T: V \to W\)</span>를 기저 원소들의 대응인 <span class="process-math">\(T(v_i) = w_i\)</span>로 정의하고 선형으로 확장합시다.</div>
+<div class="para">
+<span class="process-math">\(T\left(\sum_{i=1}^n c_i v_i\right) = 0_W\)</span>라고 가정하면 선형성에 의해 <span class="process-math">\(\sum_{i=1}^n c_i w_i = 0_W\)</span>입니다. 기저 <span class="process-math">\(\{w_i\}\)</span>는 선형독립이므로 모든 계수 <span class="process-math">\(c_i = 0\)</span>입니다. 따라서 <span class="process-math">\(\ker(T) = \{0_V\}\)</span>이므로 <span class="process-math">\(T\)</span>는 단사입니다. 치역 <span class="process-math">\(\text{im}(T)\)</span>는 공역 <span class="process-math">\(W\)</span>의 기저를 모두 포함하므로 <span class="process-math">\(\text{im}(T) = W\)</span>이고 <span class="process-math">\(T\)</span>는 전사입니다. 따라서 <span class="process-math">\(T\)</span>는 전단사 선형변환이므로 <a href="02-01-isomorphisms.html#prop-bijection-isomorphism" class="xref" data-knowl="./knowl/xref/prop-bijection-isomorphism.html" data-reveal-label="Reveal" data-close-label="Close" title="명제 2.1.3: 일대일대응과 동형사상">명제 2.1.3</a>에 의해 동형사상입니다.</div></article></details><span class="incontext"><a class="internal" href="02-01-isomorphisms.html#thm-dimension-isomorphism">in-context</a></span>
+</body>
+</html>

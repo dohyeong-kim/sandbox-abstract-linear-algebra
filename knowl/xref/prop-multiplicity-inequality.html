@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">명제</span><span class="space"> </span><span class="codenumber">3.2.18</span><span class="period">.</span><span class="space"> </span><span class="title">중복도의 대소 관계.</span>
+</h4>
+<div class="para">임의의 고윳값 <span class="process-math">\(\lambda\)</span>에 대하여, 그 기하적 중복도는 대수적 중복도보다 작거나 같다.</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">고윳값 <span class="process-math">\(\lambda_0\)</span>의 기하적 중복도를 <span class="process-math">\(k\)</span>라 하자. 고유공간 <span class="process-math">\(E_{\lambda_0}\)</span>의 기저 <span class="process-math">\(\{v_1, \dots, v_k\}\)</span>를 선택하고, 이를 확장하여 <span class="process-math">\(V\)</span>의 전체 기저 <span class="process-math">\(\beta\)</span>를 구성한다. 기저 <span class="process-math">\(\beta\)</span>에 대한 <span class="process-math">\(T\)</span>의 행렬표현은 다음과 같은 블록 상삼각행렬 형태를 지닌다.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+[T]_\beta = \begin{pmatrix} \lambda_0 I_k &amp; B \\ 0 &amp; C \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">특성다항식은 기저 선택과 무관하므로 위 블록 행렬을 이용해 계산할 수 있다.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p_T(x) = \det\begin{pmatrix} (x-\lambda_0)I_k &amp; -B \\ 0 &amp; xI_{n-k} - C \end{pmatrix} = \det((x-\lambda_0)I_k) \det(xI_{n-k} - C) = (x-\lambda_0)^k p_C(x)
+\end{equation*}
+</div>
+<div class="para">다항식 <span class="process-math">\(p_T(x)\)</span>가 적어도 인자 <span class="process-math">\((x-\lambda_0)^k\)</span>를 포함하므로, 대수적 중복도는 최소한 <span class="process-math">\(k\)</span> 이상이다. <span class="process-math">\(\blacksquare\)</span>
+</div>
+</div></article></details><span class="incontext"><a class="internal" href="03-02-char.html#prop-multiplicity-inequality">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">4.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">기저와 차원의 보존.</span>
+</h4>
+<div class="para">체 <span class="process-math">\(\mathbb{F}\)</span> 상의 벡터공간 <span class="process-math">\(V\)</span>의 기저를 <span class="process-math">\(\beta = \{v_1, \dots, v_n\}\)</span>이라 하자. 스칼라 확장을 통해 얻은 <span class="process-math">\(K\)</span>-벡터공간 <span class="process-math">\(V_K\)</span>에 대하여, 집합 <span class="process-math">\(\beta' = \{1 \otimes v_1, \dots, 1 \otimes v_n\}\)</span>은 <span class="process-math">\(V_K\)</span>의 <span class="process-math">\(K\)</span>-기저가 된다. 특히, <span class="process-math">\(V\)</span>의 <span class="process-math">\(\mathbb{F}\)</span> 위에서의 차원과 <span class="process-math">\(V_K\)</span>의 <span class="process-math">\(K\)</span> 위에서의 차원은 동일하다.</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">
+<span class="process-math">\(V_K\)</span>의 임의의 원소는 <span class="process-math">\(c_j \in K\)</span>과 <span class="process-math">\(u_j \in V\)</span>에 대하여 <span class="process-math">\(\sum c_j \otimes u_j\)</span>의 형태를 가진다. 기저 <span class="process-math">\(\beta\)</span>에 대하여 <span class="process-math">\(u_j = \sum_{i=1}^n a_{ji} v_i\)</span> (<span class="process-math">\(a_{ji} \in \mathbb{F}\)</span>)로 유일하게 표현된다. 텐서곱의 쌍선형성에 의해 다음이 성립한다.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_j c_j \otimes u_j = \sum_j c_j \otimes \left(\sum_i a_{ji} v_i\right) = \sum_i \left(\sum_j c_j a_{ji}\right) \otimes v_i = \sum_i \left(\sum_j c_j a_{ji}\right) (1 \otimes v_i)
+\end{equation*}
+</div>
+<div class="para">스칼라 체 <span class="process-math">\(K\)</span> 안에서 <span class="process-math">\(l_i = \sum_j c_j a_{ji}\)</span>라 두면 임의의 원소는 <span class="process-math">\(\sum l_i (1 \otimes v_i)\)</span>로 표현되므로, <span class="process-math">\(\beta'\)</span>는 <span class="process-math">\(V_K\)</span>을 <span class="process-math">\(K\)</span> 위에서 생성한다.</div>
+</div>
+<div class="para">선형독립성을 보이기 위해 <span class="process-math">\(\sum_{i=1}^n l_i (1 \otimes v_i) = 0\)</span> (<span class="process-math">\(l_i \in K\)</span>)이라 가정하자. 텐서곱의 정의에 의해 이 식은 <span class="process-math">\(\sum_{i=1}^n l_i \otimes v_i = 0\)</span>과 같다. 체 <span class="process-math">\(K\)</span>을 <span class="process-math">\(\mathbb{F}\)</span>-벡터공간으로 보았을 때 그 기저를 <span class="process-math">\(\{e_k\}\)</span>라 하면, <span class="process-math">\(l_i = \sum_k b_{ik} e_k\)</span> (<span class="process-math">\(b_{ik} \in \mathbb{F}\)</span>)로 전개할 수 있다.</div>
+<div class="para">이를 대입하면 <span class="process-math">\(\sum_k \sum_i (b_{ik} e_k \otimes v_i) = \sum_{k, i} b_{ik} (e_k \otimes v_i) = 0\)</span>이 된다. <span class="process-math">\(V_K\)</span>을 <span class="process-math">\(\mathbb{F}\)</span>-벡터공간으로 보았을 때 <span class="process-math">\(\{e_k \otimes v_i\}\)</span>는 기저를 이루므로, 모든 <span class="process-math">\(b_{ik} = 0\)</span>이어야 한다. 따라서 모든 <span class="process-math">\(l_i = 0\)</span>이 되어 <span class="process-math">\(\beta'\)</span>는 <span class="process-math">\(K\)</span> 위에서 선형독립이다.</div></article></details><span class="incontext"><a class="internal" href="04-02-real-to-complex.html#thm-basis-dimension-preservation">in-context</a></span>
+</body>
+</html>

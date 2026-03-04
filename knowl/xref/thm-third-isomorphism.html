@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">2.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">제3동형정리.</span>
+</h4>
+<div class="para logical">
+<div class="para">
+<span class="process-math">\(V\)</span>가 체 <span class="process-math">\(\mathbb{F}\)</span> 위의 벡터공간이고, <span class="process-math">\(U\)</span>와 <span class="process-math">\(W\)</span>가 <span class="process-math">\(U \subseteq W \subseteq V\)</span> 를 만족하는 부분공간이라 하자. 사상 <span class="process-math">\(\Psi: (V / U) / (W / U) \to V / W\)</span> 를 임의의 <span class="process-math">\(v \in V\)</span> 에 대하여 다음과 같이 정의하자:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Psi((v + U) + W / U) = v + W
+\end{equation*}
+</div>
+<div class="para">이때, 사상 <span class="process-math">\(\Psi\)</span>는 동형사상이다.</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">선형변환 <span class="process-math">\(S: V/U \to V/W\)</span> 를 <span class="process-math">\(S(v+U) = v+W\)</span> 로 정의하자.</div>
+<div class="para">
+<em class="emphasis">잘 정의됨 및 선형성:</em> <span class="process-math">\(v_1 + U = v_2 + U\)</span> 이면 <span class="process-math">\(v_1 - v_2 \in U\)</span> 이다. 가정에서 <span class="process-math">\(U \subseteq W\)</span> 이므로 <span class="process-math">\(v_1 - v_2 \in W\)</span> 가 되어 <span class="process-math">\(v_1 + W = v_2 + W\)</span> 이다. 따라서 사상 <span class="process-math">\(S\)</span>는 대표원 선택에 무관하게 잘 정의되며 선형이다.</div>
+<div class="para">
+<em class="emphasis">전사:</em> 공역 <span class="process-math">\(V/W\)</span> 의 임의의 원소 <span class="process-math">\(v+W\)</span> 에 대하여, 정의역 <span class="process-math">\(V/U\)</span> 내에 <span class="process-math">\(v+U\)</span> 가 존재하여 <span class="process-math">\(S(v+U) = v+W\)</span> 를 만족하므로 <span class="process-math">\(S\)</span>는 전사이다.</div>
+<div class="para">
+<em class="emphasis">커널:</em> <span class="process-math">\(v+U \in \ker(S)\)</span> 이려면 <span class="process-math">\(S(v+U) = v+W = W\)</span> 이어야 하며, 이는 <span class="process-math">\(v \in W\)</span> 임을 의미한다. 따라서 <span class="process-math">\(v+U\)</span> 는 부분공간 <span class="process-math">\(W\)</span>의 원소들에 의한 <span class="process-math">\(U\)</span>의 잉여류들이므로 <span class="process-math">\(\ker(S) = W/U\)</span> 이다.</div>
+<div class="para">선형변환 <span class="process-math">\(S\)</span>에 대하여 제1동형정리 <a href="02-02-isomorphism-theorems.html#thm-first-isomorphism" class="xref" data-knowl="./knowl/xref/thm-first-isomorphism.html" data-reveal-label="Reveal" data-close-label="Close" title="정리 2.2.1: 제1동형정리">정리 2.2.1</a>를 적용한다. 유도된 사상 <span class="process-math">\(\bar{S}: (V/U) / \ker(S) \to \text{im}(S)\)</span> 가 <span class="process-math">\(\bar{S}((v+U) + \ker(S)) = S(v+U)\)</span> 로 정의될 때 이는 동형사상이다. 이 사상 <span class="process-math">\(\bar{S}\)</span> 는 정리에서 정의한 사상 <span class="process-math">\(\Psi\)</span> 와 일치하므로, <span class="process-math">\(\Psi\)</span>는 동형사상이다.</div></article></details><span class="incontext"><a class="internal" href="02-02-isomorphism-theorems.html#thm-third-isomorphism">in-context</a></span>
+</body>
+</html>

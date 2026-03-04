@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="theorem theorem-like"><h4 class="heading">
+<span class="type">정리</span><span class="space"> </span><span class="codenumber">3.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">삼각화의 필요충분조건.</span>
+</h4>
+<div class="para">유한차원 벡터공간 <span class="process-math">\(V\)</span> 상의 선형변환 <span class="process-math">\(T\)</span>가 삼각화 가능할 필요충분조건은 <span class="process-math">\(T\)</span>의 특성다항식 <span class="process-math">\(p_T(x)\)</span>가 체 <span class="process-math">\(\mathbb{F}\)</span> 위에서 일차식들의 곱으로 완전히 분해되는 것이다.</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">
+<span class="process-math">\((\implies)\)</span> <span class="process-math">\(T\)</span>가 삼각화 가능하다고 가정하면 상삼각행렬 <span class="process-math">\(A = [T]_\beta\)</span>를 가지는 기저 <span class="process-math">\(\beta\)</span>가 존재한다. 상삼각행렬의 행렬식은 주대각성분의 곱이므로, 대각성분들을 <span class="process-math">\(c_i\)</span>라 할 때 <span class="process-math">\(p_T(x) = \det(xI - A) = (x-c_1)(x-c_2)\dots(x-c_n)\)</span>이 되어 <span class="process-math">\(\mathbb{F}\)</span> 위에서 일차식으로 완전히 분해된다.</div>
+<div class="para">
+<span class="process-math">\((\impliedby)\)</span> 공간의 차원 <span class="process-math">\(n\)</span>에 대한 수학적 귀납법을 적용한다. <span class="process-math">\(n=1\)</span>일 때는 자명하게 삼각화 가능하다. 차수가 <span class="process-math">\(n-1\)</span> 이하인 모든 공간에 대해 정리가 성립한다고 가정하자. <span class="process-math">\(p_T(x)\)</span>가 일차식으로 분해되므로 최소한 하나의 고윳값 <span class="process-math">\(\lambda_1 \in \mathbb{F}\)</span>와 그에 대응하는 고유벡터 <span class="process-math">\(v_1\)</span>을 가진다. <span class="process-math">\(W = \text{span}\{v_1\}\)</span>은 1차원 <span class="process-math">\(T\)</span>-불변공간이다.</div>
+<div class="para">몫공간 <span class="process-math">\(V/W\)</span>를 구성하고 유도된 선형변환 <span class="process-math">\(\overline{T}: V/W \to V/W\)</span>를 <span class="process-math">\(\overline{T}(v+W) = T(v)+W\)</span>로 정의한다. 이 사상은 대표원의 선택과 무관하게 잘 정의된다. 기저 확장을 통해 계산해 보면 <span class="process-math">\(p_T(x) = (x-\lambda_1)p_{\overline{T}}(x)\)</span>가 성립함을 알 수 있으므로, <span class="process-math">\(p_{\overline{T}}(x)\)</span> 역시 <span class="process-math">\(\mathbb{F}\)</span> 위에서 일차식으로 분해된다.</div>
+<div class="para">
+<span class="process-math">\(V/W\)</span>의 차원은 <span class="process-math">\(n-1\)</span>이므로 귀납법의 가정에 의해 상삼각행렬을 만드는 <span class="process-math">\(V/W\)</span>의 기저 <span class="process-math">\(\{u_2+W, \dots, u_n+W\}\)</span>가 존재한다. 각 잉여류의 대표원 <span class="process-math">\(u_i\)</span>들을 선택하여 새로운 집합 <span class="process-math">\(\alpha = \{v_1, u_2, \dots, u_n\}\)</span>을 구성하면, 이는 <span class="process-math">\(V\)</span>의 기저가 되며 이 기저에 대한 <span class="process-math">\(T\)</span>의 행렬표현은 첫 번째 열이 0(첫 번째 성분 제외)이고 나머지 부분은 <span class="process-math">\(V/W\)</span>의 상삼각행렬을 포함하는 형태이므로 전체 행렬 역시 상삼각행렬이 된다. <span class="process-math">\(\blacksquare\)</span>
+</div></article></details><span class="incontext"><a class="internal" href="03-04-triangulation-and-jordan.html#thm-triangularization">in-context</a></span>
+</body>
+</html>

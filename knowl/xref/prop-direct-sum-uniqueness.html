@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">명제</span><span class="space"> </span><span class="codenumber">2.1.12</span><span class="period">.</span><span class="space"> </span><span class="title">직합과 분해의 유일성.</span>
+</h4>
+<div class="para">벡터공간 <span class="process-math">\(V\)</span>가 부분공간 족 <span class="process-math">\(\{U_i\}_{i \in I}\)</span>의 직합일 필요충분조건은 임의의 0이 아닌 벡터 <span class="process-math">\(v \in V\)</span>가 영벡터가 아닌 유한 개의 <span class="process-math">\(u_{i_k} \in U_{i_k}\)</span>들의 합으로 유일하게 표현되는 것이다.</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">증명<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">
+<span class="process-math">\((\Rightarrow)\)</span> <span class="process-math">\(V = \bigoplus_{i \in I} U_i\)</span>라 가정하자. 첫 번째 조건에 의해 임의의 <span class="process-math">\(v\)</span>는 유한 합으로 표현된다. 이 표현이 유일하지 않아 <span class="process-math">\(v = \sum_{k=1}^n u_{i_k} = \sum_{k=1}^n w_{i_k}\)</span>라 하자 (필요시 영벡터를 더해 같은 인덱스 집합에 대한 합으로 맞춘다). 이를 이항하면 <span class="process-math">\(\sum_{k=1}^n (u_{i_k} - w_{i_k}) = 0_V\)</span>이다. 만약 어떤 <span class="process-math">\(j\)</span>에 대해 <span class="process-math">\(u_{i_j} - w_{i_j} \neq 0_V\)</span>라면, <span class="process-math">\(u_{i_j} - w_{i_j} = \sum_{k \neq j} -(u_{i_k} - w_{i_k})\)</span>가 된다. 좌변은 <span class="process-math">\(U_{i_j}\)</span>에 속하고 우변은 <span class="process-math">\(\sum_{k \neq j} U_{i_k}\)</span>에 속하므로, 이는 두 공간의 교집합에 영벡터가 아닌 원소가 존재함을 의미하여 직합의 두 번째 조건에 모순된다. 따라서 모든 <span class="process-math">\(k\)</span>에 대해 <span class="process-math">\(u_{i_k} = w_{i_k}\)</span>이며 표현은 유일하다.</div>
+<div class="para">
+<span class="process-math">\((\Leftarrow)\)</span> 모든 <span class="process-math">\(v\)</span>가 유한 합으로 유일하게 표현된다고 가정하자. 유한 합으로 표현되므로 <span class="process-math">\(V = \sum_{i \in I} U_i\)</span>이다. 어떤 <span class="process-math">\(j\)</span>에 대해 <span class="process-math">\(x \in U_j \cap \sum_{i \neq j} U_i\)</span>가 존재하여 <span class="process-math">\(x \neq 0_V\)</span>라면, <span class="process-math">\(x = u_j \in U_j\)</span>이며 동시에 <span class="process-math">\(x = u_{k_1} + \dots + u_{k_m}\)</span> (<span class="process-math">\(k_l \neq j\)</span>)로 표현된다. 이는 <span class="process-math">\(x\)</span>를 두 가지 다른 방식으로 표현한 것이 되어 유일성 가정에 모순이다. 따라서 교집합은 <span class="process-math">\(\{0_V\}\)</span>이며 직합의 조건을 만족한다.</div></article></details><span class="incontext"><a class="internal" href="02-01-isomorphisms.html#prop-direct-sum-uniqueness">in-context</a></span>
+</body>
+</html>
