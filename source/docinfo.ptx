@@ -48,4 +48,5 @@
   <rename element="figure">보기</rename> <!--잘 작동함-->
   <rename element="answer">정답</rename> <!--잘 작동함-->
   <rename element="lemma">보조정리</rename> <!--잘 작동함-->
+  <rename element="p">문단</rename> <!--잘 작동함-->
 </docinfo>

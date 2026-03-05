@@ -6,13 +6,16 @@
   <subsection xml:id="subsec-vector-spaces">
     <title>벡터공간</title>
     <p>
+      <idx><h>벡터공간</h><h>동기부여</h></idx>
       벡터공간의 정의는 벡터의 덧셈과 스칼라곱의 개념을 추상화한 결과입니다. 이는 두 단계로 진행되며, 우선 스칼라의 개념을 추상화하는 대수적 개념인 체<fn><p>부록의 <xref ref="sec-fields"/> 참조</p></fn>를 도입하고, 그 다음으로 벡터의 개념을 추상화하는 벡터공간의 정의로 이어집니다. 체의 개념이나 벡터의 덧셈은 이항연산의 특수한 경우입니다. 한편, 스칼라 곱셈에서는 스칼라와 그것이 곱해지는 대상이 다른 집합에서 택해진다는 점에서 통상의 이항연산과 다릅니다.
     </p>
     <definition xml:id="def-vector-space">
+      <idx><h>벡터공간</h><h>정의</h></idx>
       <statement>
         <p>
            <m>\mathbb{F}</m>를 체라고 합시다. <aside><p>체:field</p></aside> 집합 <m>V</m>에 다음 두 가지 연산, 즉 덧셈(<m>+\colon V \times V \to V</m>)과 스칼라곱(<m>\cdot: \mathbb{F} \times V \to V</m>)이 주어져 있을 때, 두 연산이 임의의 <m>u, v, w \in V</m>와 <m>a, b \in \mathbb{F}</m>에 대해 다음의 8가지 공리를 만족합니다. 이때 <m>V</m>를 <m>\mathbb{F}</m> 위의 <term>벡터공간</term>이라고 부릅니다.
         </p>
+        <p>
         <ol>
           <li><p>덧셈의 교환법칙: <m>u + v = v + u</m></p></li>
           <li><p>덧셈의 결합법칙: <m>(u + v) + w = u + (v + w)</m></p></li>
@@ -23,9 +26,11 @@
           <li><p>벡터 덧셈에 대한 분배법칙: <m>a(u + v) = au + av</m></p></li>
           <li><p>스칼라 곱셈에 대한 항등원: 체 <m>\mathbb{F}</m>의 곱셈 항등원 <m>1</m>에 대하여 <m>1 \cdot v = v</m>이다.</p></li>
         </ol>
+        </p>
       </statement>
     </definition>
     <example xml:id="ex-vector-space">
+      <idx><h>벡터공간</h><h>예시</h></idx>
       <title>벡터 공간의 예시 </title>
       <statement>
         <p>
@@ -65,11 +70,13 @@
       벡터 공간 안에는 그 자체로 또다시 벡터 공간의 구조를 갖춘 부분집합들이 존재합니다. 이를 부분공간이라 합니다.
     </p>
     <definition xml:id="def-subspace">
+      <idx><h>부분공간</h><h>정의</h></idx>
       <title>부분공간</title>
       <p>체 <m>\mathbb{F}</m> 위의 벡터 공간 <m>V</m>의 부분집합 <m>W</m>가 주어졌을 때, <m>W</m>가 <m>V</m>에 정의된 동일한 덧셈과 스칼라 곱셈 연산에 대하여 그 자체로 체 <m>\mathbb{F}</m> 위의 벡터 공간을 이룬면, <m>W</m>를 <m>V</m>의 <term>부분공간</term>이라고 부릅니다. <aside><p>부분공간:subspace</p></aside> </p>
     </definition>
 
     <example xml:id="ex-trivial-subspace">
+      <idx><h>부분공간</h><h>자명한</h></idx>
       <title>자명한 부분공간</title>
       <p>임의의 벡터 공간 <m>V</m>에 대하여, 영벡터만을 포함하는 집합 <m>\{\mathbf{0}\}</m>과 전체 공간 <m>V</m> 자신은 항상 <m>V</m>의 부분공간입니다. 이를 자명한 부분공간이라<fn><p>자명한 부분공간:trivial subspaces</p></fn> 부릅니다.</p>
     </example>
